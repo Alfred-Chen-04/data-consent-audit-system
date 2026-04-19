@@ -1,0 +1,4 @@
+url,name,category,inherited_from_phd_mentor,notes
+# Replace with the 80-site list inherited from the PhD mentor (week 1 task).
+# Keep this file private until the mentor approves public release (AGENTS.md §8).
+https://example.com,Example,placeholder,false,example row — delete before real run
