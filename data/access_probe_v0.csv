@@ -1,0 +1,2 @@
+url,final_url,http_status,load_time_ms,page_title,banner_detected,banner_selector_hit,block_signal,screenshot_path,error,notes
+https://example.com,https://example.com/,200,140,Example Domain,False,,,captures/access_probe/example_com.png,,

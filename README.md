@@ -30,6 +30,9 @@ uv sync
 # Install Playwright browsers (first time only)
 uv run playwright install chromium
 
+# Week 0 — access feasibility probe (runs before any LLM/VLM is involved)
+uv run python scripts/access_probe.py --sites data/sites.csv --out data/access_probe_v0.csv
+
 # Audit a single URL
 uv run python scripts/run_audit.py --url https://example.com
 

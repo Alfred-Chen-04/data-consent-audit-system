@@ -1,0 +1,6 @@
+url,final_url,http_status,load_time_ms,page_title,banner_detected,banner_selector_hit,block_signal,screenshot_path,error,notes
+https://www.nytimes.com,https://www.nytimes.com/,200,1061,"The New York Times - Breaking News, US News, World News and Videos",False,,,captures/access_probe/www_nytimes_com.png,,
+https://www.reddit.com,https://www.reddit.com/,200,144,Reddit - The heart of the internet,False,,,captures/access_probe/www_reddit_com.png,,networkidle timeout (likely ok)
+https://www.wikipedia.org,https://www.wikipedia.org/,200,217,Wikipedia,False,,,captures/access_probe/www_wikipedia_org.png,,
+https://www.bbc.com,https://www.bbc.com/,200,593,"BBC Home - Breaking News, World News, US News, Sports, Business, Innovation, Climate, Culture, Travel, Video & Audio",False,,,captures/access_probe/www_bbc_com.png,,networkidle timeout (likely ok)
+https://www.theguardian.com,https://www.theguardian.com/us,200,525,"Latest news, sport and opinion from the Guardian",True,"[id^=""sp_message_container""]",,captures/access_probe/www_theguardian_com.png,,networkidle timeout (likely ok)
