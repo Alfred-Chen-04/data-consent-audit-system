@@ -7,10 +7,11 @@ An AI-driven, agent-based, longitudinal audit framework for website consent inte
 ## Why this project
 
 Current approaches leave a gap:
-- **PRISMe** (2025) audits privacy *policy text* with LLMs, but ignores the interface.
-- **UMBRA / "Abyss"** (2026) audits banner *interfaces* with rule-based heuristics, but uses no AI and only captures static snapshots.
+- **PRISMe** (Freiberger, Fleig & Buchmann, ACM CHI 2026) audits privacy *policy text* with LLMs, but ignores the interface.
+- **UMBRA / "When the Abyss Looks Back"** (Singh, Jin & Kim, 2026) audits banner *interfaces* with rule-based heuristics + multi-step interaction tracing + cookie-state monitoring; 14k sites, 19 dark patterns — but no LLM/VLM, and not longitudinal.
+- **ConsentDiff at Scale** (Guo, 2026) is longitudinal (9 months) and pairs DOM signals with screenshot cues — but uses weak-supervision vision rather than VLM-driven action execution.
 
-This project sits in the middle: **multimodal + AI-driven + agent-dynamic + longitudinal**. Built on the Notice-and-Choice framework with a three-layer audit (Path Availability → Path Effort → Transparency & Unbiased Choice).
+This project sits in the gap none of them close: **multimodal AI grounding (VLM + LLM) × agent-dynamic multi-step traversal × longitudinal time series × text-framing analysis × volatility/trajectory as first-class outputs**. Built on the Notice-and-Choice framework with a three-layer audit (Path Availability → Path Effort → Transparency & Unbiased Choice). See [`docs/related_work/background_with_citations.md`](docs/related_work/background_with_citations.md) for the full positioning.
 
 ## Documents
 
