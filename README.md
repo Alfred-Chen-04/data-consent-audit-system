@@ -17,9 +17,12 @@ This project sits in the gap none of them close: **multimodal AI grounding (VLM 
 
 | File | Purpose |
 |---|---|
+| [SCHEMA.md](SCHEMA.md) | **Start here** — one-page master view: research question → ontology → pipeline → modules → status → open decisions |
 | [AGENTS.md](AGENTS.md) | How AI agents (Claude Code, Cursor, etc.) collaborate on this repo |
 | [CONCEPTS.md](CONCEPTS.md) | Precise definitions of every audit dimension — the project's ontology |
 | [docs/architecture.md](docs/architecture.md) | Technical architecture, data flow, module boundaries |
+| [docs/related_work/background_with_citations.md](docs/related_work/background_with_citations.md) | Lit review + regulatory framework + user ecosystem (cited) |
+| [docs/related_work/legal_cheatsheet.md](docs/related_work/legal_cheatsheet.md) | 1-page reference: the 8 legal anchors every audit metric maps to |
 | [Chen_Qianyi_SSRP 2026_Proposal_Final Version.docx.pdf](./Chen_Qianyi_SSRP%202026_Proposal_Final%20Version.docx.pdf) | Original SSRP research proposal |
 
 ## Quick start (WIP)
