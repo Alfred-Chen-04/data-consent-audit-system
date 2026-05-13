@@ -679,9 +679,16 @@ Article 3(1) covers establishment in EU regardless of processing location; Art. 
 
 > ⚠️ ALL [INFERENCE] — DECISION 100% ALFRED'S.
 
-### 5.1 The "can I audit policy text" question (resolved)
+### 5.1 The "can I audit policy text" question — RESOLVED 2026-05-12
 
-YES, plausibly, via Angles A, C, D, or E in §1.4 — none of which overlap PRISMe. Angle C (banner-vs-policy text consistency) is methodologically cheapest; Angle A (VLM-agent claim execution) has the highest novelty against ConsentDiff; Angle D (NGO-evidence cards) aligns with Alfred's positioning Track 1.
+**Final decision (Alfred, 2026-05-12)**:
+- **Plan A is the main line** — SSRP audits **first-layer + second-layer interfaces only**, not policy long text. This matches the SSRP proposal verbatim (RQ1 + RQ2, see [`SCHEMA.md`](../../SCHEMA.md) §1).
+- **Plan B is a stretch goal only**: if RQ1 + RQ2 core implementation finishes with time to spare, extract 3-5 testable claims from policy text on a small handful of sites (e.g., 5-10) as a paper demo of "promise-vs-reality" — not a population-level analysis. This is narrowed from the §1.4 Angle A originally proposed.
+- The other 4 angles (B/C/D/E) from §1.4 are **shelved**, recoverable in Spring 2027 graduation work if needed.
+
+**Why this resolution**: PRISMe (CHI 2026) and Princeton-Leuven Privacy Policy Corpus already cover policy text comprehensively. Alfred's differentiation (multimodal + longitudinal + 3-layer + framing + volatility) does not need policy text to be strong. Time math for 13-week SSRP does not accommodate a second NLP pipeline as a core deliverable.
+
+**For the §1.4 angles listing below, treat them as documented options for future graduate-thesis or post-SSRP extension, not as SSRP main-line work.**
 
 ### 5.2 The "what's my real differentiator from UMBRA + ConsentDiff" question (refined)
 

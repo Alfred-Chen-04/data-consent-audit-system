@@ -13,22 +13,44 @@ If any conflict between this doc and a companion: the companion wins for its dom
 
 ---
 
-## 1. Research Question (what we are answering)
+## 1. Research Questions (from proposal, verbatim)
 
-### 1.1 Primary academic question
-> **"At a population level, how much of the gap between what websites promise about consent (in policy + banner text) and what users actually experience (in the multi-step consent UI + post-consent cookie behavior) can be machine-detected with multimodal AI, longitudinally?"**
+> **Source of truth**: Chen, Q. *Privacy Interfaces as Corporate Communication: A Computational Auditing Framework for Tracking the Interface Designs*, SSRP 2026 Proposal, §3, p. 3. Approved by Dr. Jagdip Singh.
+>
+> **Discipline (binding)**: These two RQs are the spine of the project. They are quoted verbatim and NEVER paraphrased without explicit user approval. Any "research question" elsewhere in this repo that differs from the two below is wrong and must be corrected. Methodological additions (AI / NLP / VLM / multimodal) are *means of addressing RQ1 and RQ2 more effectively*; they do NOT modify the RQs themselves.
 
-### 1.2 Three sub-questions the project decomposes into
-1. **Path Availability** — are the four user pathways (Accept / Reject / Customize / Dismiss) present and reachable on the banner?
-2. **Path Effort** — does the cost of choosing one path systematically differ from choosing another (size / depth / friction / clarity)?
-3. **Transparency & Unbiased Choice** — does the banner truthfully disclose what users are consenting to, and is its presentation symmetric across options?
+### 1.1 RQ1 — The audit/scoring system
 
-### 1.3 What we are NOT trying to answer (out of scope)
-- Audit of long-form privacy policy text (covered by PRISMe; see §10 open decision 1 on whether to extend).
-- Mobile-app permissions (different threat model — PurPliance / A New Hope cover it).
-- Server-side data flows / cookie ecosystem graph (Sánchez-Rola line).
-- Per-user behavioral effect of banner design (Utz 2019 already did this with N=80k).
-- Geopolitical / ownership questions (CFIUS / national-security blocks — cert / audit cannot solve these).
+> **"How to develop a computational audit and scoring system to quantify the layered consent interfaces in terms of unbiased choice across the full consent pathway?"**
+
+**Addressed by**: the three-layer audit framework (Layer 1 Path Availability → Layer 2 Path Effort → Layer 3 Transparency & Unbiased Choice). Authoritative definitions in [CONCEPTS.md](CONCEPTS.md).
+
+### 1.2 RQ2 — The longitudinal capture system
+
+> **"How can we automatically capture and version firms' privacy interfaces to systematically document interface changes over time?"**
+
+**Addressed by**: the weekly multimodal capture pipeline (text + screenshots + DOM) for the same site set; fingerprint-based diffing; versioned PostgreSQL archive; weekly change log. Runtime details in [docs/architecture.md](docs/architecture.md).
+
+### 1.3 Methodological additions (post-proposal, NOT new RQs)
+
+The proposal predates the 2025-2026 wave of multimodal LLMs that can reason visually on screenshots and analyze framing in short text. These tools are added as **methods** to address RQ1 + RQ2 more effectively — they do not become new RQs:
+
+- **VLM** (Claude Sonnet 4 / equivalent) — Layer 2 visual sub-features + Layer 3.2 visual asymmetry
+- **LLM** (Claude Opus 4.7 / equivalent) — Layer 3.1a topic coverage + Layer 3.1b framing analysis + evidence-quote extraction
+- **Browser agent** (Playwright + agent loop) — required by RQ1's phrase "across the full consent pathway" (multi-step traversal, not single screenshot)
+
+Any drift these methods cause is recorded as an open decision in §10 with explicit scope-impact note.
+
+### 1.4 Scope boundaries (what we deliberately do NOT do)
+
+The two RQs above already imply boundaries. Below are the most-likely scope creeps; each is **deliberately excluded** unless §10 records a decision otherwise.
+
+- ❌ **Long-form privacy policy text** ("third layer" per [CONCEPTS.md](CONCEPTS.md) §0). PRISMe (CHI 2026) and the Princeton-Leuven Privacy Policy Corpus cover this domain. **SSRP main line does NOT audit policy long text.** A narrow, opportunistic exception (3-5 specific testable claims on a handful of sites, as paper demo) is permitted if time allows — see §10 Decision 1.
+- ❌ Mobile-app permission flows (different threat model — PurPliance / A New Hope cover it)
+- ❌ Server-side data flows / cookie ecosystem graph (Sánchez-Rola line)
+- ❌ Per-user behavioral A/B effects (Utz 2019 done with N=80k)
+- ❌ Geopolitical / ownership questions (CFIUS / national-security — not privacy-cert-solvable)
+- ❌ China-specific compliance audits in SSRP main line (any China-export angle is a Track 2 / post-September direction; see `docs/strategy/`)
 
 ---
 
@@ -321,7 +343,7 @@ Ranked by feasibility of being a first user, per [background_with_citations.md �
 
 | # | Decision | Deadline | What I need to know |
 |---|---|---|---|
-| 1 | Extend scope to include policy-text auditing? Pick from 5 angles: A (VLM execute claim), B (multilingual drift), C (banner-vs-policy text consistency), D (NGO evidence cards), E (temporal claim stability) — or none | Before paper-draft scaffolding (~ end May) | "C" / "D" / "C+D" / "none" / "tell me more about X" |
+| 1 | ~~Extend scope to include policy-text auditing?~~ **RESOLVED 2026-05-12**: Plan A as main (no policy text in core scope). Plan B as opportunistic stretch goal — extract 3-5 testable claims from policy on a handful of sites as paper demo IF time permits after RQ1 + RQ2 core implementation. | Stretch goal — only if RQ1 + RQ2 core finish on time | (resolved) |
 | 2 | Add `china_overseas_cohort` tag to `data/sites.csv` (~20 sites: Shein/Temu/AliExpress/RedNote-international/Anker-global/etc.) | **2026-05-31** (after this, site selection is frozen) | "yes do B.1" / "no, skip B.1" |
 | 3 | Add `EvidenceCard` export schema to `AuditReport` (the Angle D extension — independent of #1) | Any time before report.generator implementation | "add it" / "defer" / "no" |
 | 4 | Whether to send alignment_memo and which actions to take on Dr. Singh / Qiyao feedback | Anytime — but earlier unblocks data-set decisions (Qiyao 80-site list) | "send as is" / "edit then send" / "wait" |
