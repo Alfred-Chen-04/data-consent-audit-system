@@ -1,0 +1,16 @@
+url,name,category,cohort,selection_reason,status
+https://www.bbc.com,BBC,news,smoke,Known smoke-test candidate and international news baseline,pending_review
+https://www.theguardian.com,The Guardian,news,smoke,Access probe detected Sourcepoint banner; strongest current pilot-ready candidate,pending_review
+https://www.nytimes.com,New York Times,news,smoke,Major US news site; useful for comparing access/cookie behavior,pending_review
+https://www.reddit.com,Reddit,social,smoke,Social platform canary with public unauthenticated desktop access,pending_review
+https://www.wikipedia.org,Wikipedia,reference,smoke,No-banner/control candidate for baseline comparison,pending_review
+https://www.reuters.com,Reuters,news,smoke,Access-block canary; keep for feasibility tracking or replacement discussion,pending_review
+https://www.cnn.com,CNN,news,pilot,Additional news candidate to diversify CMP implementations,pending_review
+https://www.amazon.com,Amazon,ecommerce,pilot,Large ecommerce site; high consumer-data relevance,pending_review
+https://www.walmart.com,Walmart,ecommerce,pilot,Large retailer; useful ecommerce comparison to Amazon,pending_review
+https://www.booking.com,Booking.com,travel,pilot,Travel booking site with likely consent and personalization flows,pending_review
+https://www.airbnb.com,Airbnb,travel,pilot,Travel marketplace; public pages likely expose consent choices,pending_review
+https://www.spotify.com,Spotify,entertainment,pilot,Entertainment/media service with public marketing pages,pending_review
+https://www.netflix.com,Netflix,entertainment,pilot,Streaming service public landing pages; likely consent banner candidate,pending_review
+https://www.chase.com,Chase,finance,pilot,Finance-sector public site; useful high-trust category contrast,pending_review
+https://www.nerdwallet.com,NerdWallet,finance,pilot,Finance advice site; likely ad/affiliate tracking disclosure candidate,pending_review

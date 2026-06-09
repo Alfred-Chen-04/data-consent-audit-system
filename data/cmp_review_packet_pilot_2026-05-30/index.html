@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CMP Manual Review Packet</title>
+  <style>
+    :root {
+      color-scheme: light;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #f6f7f9;
+      color: #172033;
+    }
+    body {
+      margin: 0;
+      padding: 28px;
+    }
+    header, main {
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+    h1 {
+      margin: 0 0 8px;
+      font-size: 28px;
+      line-height: 1.2;
+      letter-spacing: 0;
+    }
+    .summary {
+      margin: 0 0 22px;
+      color: #4b5874;
+    }
+    .review-card {
+      margin: 18px 0;
+      padding: 18px;
+      border: 1px solid #d6dbe5;
+      border-radius: 8px;
+      background: #ffffff;
+    }
+    .card-head {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 16px;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 14px;
+    }
+    h2 {
+      margin: 0;
+      font-size: 20px;
+      line-height: 1.25;
+      letter-spacing: 0;
+    }
+    .meta {
+      color: #56627a;
+      font-size: 14px;
+    }
+    .evidence-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 14px;
+      margin: 14px 0;
+    }
+    figure {
+      margin: 0;
+      padding: 10px;
+      border: 1px solid #dde2ea;
+      border-radius: 8px;
+      background: #fbfcfe;
+    }
+    img {
+      display: block;
+      width: 100%;
+      max-height: 360px;
+      object-fit: contain;
+      border: 1px solid #e5e8ef;
+      background: #ffffff;
+    }
+    figcaption {
+      margin-top: 8px;
+      color: #56627a;
+      font-size: 13px;
+    }
+    dl {
+      display: grid;
+      grid-template-columns: minmax(120px, 180px) 1fr;
+      gap: 8px 12px;
+      margin: 12px 0 0;
+      font-size: 14px;
+    }
+    dt {
+      color: #56627a;
+      font-weight: 650;
+    }
+    dd {
+      margin: 0;
+      overflow-wrap: anywhere;
+    }
+    a {
+      color: #1f5fbf;
+    }
+    code {
+      font-family: "SFMono-Regular", Consolas, monospace;
+      font-size: 13px;
+      background: #eef2f7;
+      padding: 2px 5px;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>CMP Manual Review Packet</h1>
+    <p class="summary">8 pending review cards. Use these screenshots and DOM links to fill the worksheet decisions.</p>
+  </header>
+  <main>
+    <article class="review-card" id="bbc">
+      <div class="card-head">
+        <h2>BBC</h2>
+        <div class="meta">news / smoke / High-Risk</div>
+      </div>
+      <div class="evidence-grid">
+        <figure><img src="../captures/access_probe/www_bbc_com.png" alt="Access probe screenshot"><figcaption>Access probe</figcaption></figure>
+        <figure><img src="../captures/sites/www_bbc_com_20260529_184907/layer1.png" alt="Weekly capture screenshot"><figcaption>Weekly capture</figcaption></figure>
+      </div>
+      <dl>
+        <dt>URL</dt><dd><a href="https://www.bbc.com">https://www.bbc.com</a></dd>
+        <dt>Review reason</dt><dd>no banner observed in access probe or weekly capture; inspect saved screenshots/DOM to verify CMP presence, region behavior, or sample fit</dd>
+        <dt>Recommended action</dt><dd>manual screenshot/DOM review; rerun with fresh browser context if a CMP is expected</dd>
+        <dt>Decision options</dt><dd><code>keep_consent_sample|keep_no_banner_case|rerun_fresh_context|replace_candidate|exclude</code></dd>
+        <dt>Capture DOM</dt><dd><a href="../captures/sites/www_bbc_com_20260529_184907/layer1.html">data/captures/sites/www_bbc_com_20260529_184907/layer1.html</a></dd>
+        <dt>DOM hash</dt><dd><code>8c500d41befe2c1132b7bb9a01a2afd1dca8e95774e18546b1b5e07d6c97c04d</code></dd>
+        <dt>Image hash</dt><dd><code>ffffffdf0383c31f:665b1399daa86f20</code></dd>
+      </dl>
+    </article>
+    <article class="review-card" id="new-york-times">
+      <div class="card-head">
+        <h2>New York Times</h2>
+        <div class="meta">news / smoke / High-Risk</div>
+      </div>
+      <div class="evidence-grid">
+        <figure><img src="../captures/access_probe/www_nytimes_com.png" alt="Access probe screenshot"><figcaption>Access probe</figcaption></figure>
+        <figure><img src="../captures/sites/www_nytimes_com_20260529_184912/layer1.png" alt="Weekly capture screenshot"><figcaption>Weekly capture</figcaption></figure>
+      </div>
+      <dl>
+        <dt>URL</dt><dd><a href="https://www.nytimes.com">https://www.nytimes.com</a></dd>
+        <dt>Review reason</dt><dd>no banner observed in access probe or weekly capture; inspect saved screenshots/DOM to verify CMP presence, region behavior, or sample fit</dd>
+        <dt>Recommended action</dt><dd>manual screenshot/DOM review; rerun with fresh browser context if a CMP is expected</dd>
+        <dt>Decision options</dt><dd><code>keep_consent_sample|keep_no_banner_case|rerun_fresh_context|replace_candidate|exclude</code></dd>
+        <dt>Capture DOM</dt><dd><a href="../captures/sites/www_nytimes_com_20260529_184912/layer1.html">data/captures/sites/www_nytimes_com_20260529_184912/layer1.html</a></dd>
+        <dt>DOM hash</dt><dd><code>7023c7cf270e207fe55437e9d4711ebb5e5b124b31806fa34f8ee1551e0ccc7f</code></dd>
+        <dt>Image hash</dt><dd><code>e7ffc7c3c3e7ffff:2f269174e402b5f9</code></dd>
+      </dl>
+    </article>
+    <article class="review-card" id="reddit">
+      <div class="card-head">
+        <h2>Reddit</h2>
+        <div class="meta">social / smoke / High-Risk</div>
+      </div>
+      <div class="evidence-grid">
+        <figure><img src="../captures/access_probe/www_reddit_com.png" alt="Access probe screenshot"><figcaption>Access probe</figcaption></figure>
+        <figure><img src="../captures/sites/www_reddit_com_20260529_161027/layer1.png" alt="Weekly capture screenshot"><figcaption>Weekly capture</figcaption></figure>
+      </div>
+      <dl>
+        <dt>URL</dt><dd><a href="https://www.reddit.com">https://www.reddit.com</a></dd>
+        <dt>Review reason</dt><dd>no banner observed in access probe or weekly capture; inspect saved screenshots/DOM to verify CMP presence, region behavior, or sample fit</dd>
+        <dt>Recommended action</dt><dd>manual screenshot/DOM review; rerun with fresh browser context if a CMP is expected</dd>
+        <dt>Decision options</dt><dd><code>keep_consent_sample|keep_no_banner_case|rerun_fresh_context|replace_candidate|exclude</code></dd>
+        <dt>Capture DOM</dt><dd><a href="../captures/sites/www_reddit_com_20260529_161027/layer1.html">data/captures/sites/www_reddit_com_20260529_161027/layer1.html</a></dd>
+        <dt>DOM hash</dt><dd><code>4f5ea74e761d12a1aca0a61ff561f5e413341d8d0f898bd10e3b82aaf70b82fd</code></dd>
+        <dt>Image hash</dt><dd><code>e7e7e7c3e7ffffff:c590d5504097d80e</code></dd>
+      </dl>
+    </article>
+    <article class="review-card" id="amazon">
+      <div class="card-head">
+        <h2>Amazon</h2>
+        <div class="meta">ecommerce / pilot / High-Risk</div>
+      </div>
+      <div class="evidence-grid">
+        <figure><img src="../captures/access_probe/www_amazon_com.png" alt="Access probe screenshot"><figcaption>Access probe</figcaption></figure>
+        <figure><img src="../captures/sites/www_amazon_com_20260529_184922/layer1.png" alt="Weekly capture screenshot"><figcaption>Weekly capture</figcaption></figure>
+      </div>
+      <dl>
+        <dt>URL</dt><dd><a href="https://www.amazon.com">https://www.amazon.com</a></dd>
+        <dt>Review reason</dt><dd>no banner observed in access probe or weekly capture; inspect saved screenshots/DOM to verify CMP presence, region behavior, or sample fit</dd>
+        <dt>Recommended action</dt><dd>manual screenshot/DOM review; rerun with fresh browser context if a CMP is expected</dd>
+        <dt>Decision options</dt><dd><code>keep_consent_sample|keep_no_banner_case|rerun_fresh_context|replace_candidate|exclude</code></dd>
+        <dt>Capture DOM</dt><dd><a href="../captures/sites/www_amazon_com_20260529_184922/layer1.html">data/captures/sites/www_amazon_com_20260529_184922/layer1.html</a></dd>
+        <dt>DOM hash</dt><dd><code>9ceee34bdfeb701d193496e6d5154cdf36cfcc1a12797a45fa1aa6c9b45c0365</code></dd>
+        <dt>Image hash</dt><dd><code>206000ffcfcfcfff:6633cce018a87f6d</code></dd>
+      </dl>
+    </article>
+    <article class="review-card" id="walmart">
+      <div class="card-head">
+        <h2>Walmart</h2>
+        <div class="meta">ecommerce / pilot / High-Risk</div>
+      </div>
+      <div class="evidence-grid">
+        <figure><img src="../captures/access_probe/www_walmart_com.png" alt="Access probe screenshot"><figcaption>Access probe</figcaption></figure>
+        <figure><img src="../captures/sites/www_walmart_com_20260529_184926/layer1.png" alt="Weekly capture screenshot"><figcaption>Weekly capture</figcaption></figure>
+      </div>
+      <dl>
+        <dt>URL</dt><dd><a href="https://www.walmart.com">https://www.walmart.com</a></dd>
+        <dt>Review reason</dt><dd>no banner observed in access probe or weekly capture; inspect saved screenshots/DOM to verify CMP presence, region behavior, or sample fit</dd>
+        <dt>Recommended action</dt><dd>manual screenshot/DOM review; rerun with fresh browser context if a CMP is expected</dd>
+        <dt>Decision options</dt><dd><code>keep_consent_sample|keep_no_banner_case|rerun_fresh_context|replace_candidate|exclude</code></dd>
+        <dt>Capture DOM</dt><dd><a href="../captures/sites/www_walmart_com_20260529_184926/layer1.html">data/captures/sites/www_walmart_com_20260529_184926/layer1.html</a></dd>
+        <dt>DOM hash</dt><dd><code>e67019c4ac44f9a2156fd1c54c66cf8a2ef9fb26ea333a6710c5b22e9a5096fa</code></dd>
+        <dt>Image hash</dt><dd><code>1c03031fff84cfff:ea451d511e29df9c</code></dd>
+      </dl>
+    </article>
+    <article class="review-card" id="airbnb">
+      <div class="card-head">
+        <h2>Airbnb</h2>
+        <div class="meta">travel / pilot / High-Risk</div>
+      </div>
+      <div class="evidence-grid">
+        <figure><img src="../captures/access_probe/www_airbnb_com.png" alt="Access probe screenshot"><figcaption>Access probe</figcaption></figure>
+        <figure><img src="../captures/sites/www_airbnb_com_20260529_184932/layer1.png" alt="Weekly capture screenshot"><figcaption>Weekly capture</figcaption></figure>
+      </div>
+      <dl>
+        <dt>URL</dt><dd><a href="https://www.airbnb.com">https://www.airbnb.com</a></dd>
+        <dt>Review reason</dt><dd>no banner observed in access probe or weekly capture; inspect saved screenshots/DOM to verify CMP presence, region behavior, or sample fit</dd>
+        <dt>Recommended action</dt><dd>manual screenshot/DOM review; rerun with fresh browser context if a CMP is expected</dd>
+        <dt>Decision options</dt><dd><code>keep_consent_sample|keep_no_banner_case|rerun_fresh_context|replace_candidate|exclude</code></dd>
+        <dt>Capture DOM</dt><dd><a href="../captures/sites/www_airbnb_com_20260529_184932/layer1.html">data/captures/sites/www_airbnb_com_20260529_184932/layer1.html</a></dd>
+        <dt>DOM hash</dt><dd><code>61e9c4bdd0f5a41186ed3502e50dbdd96268bfc302933ec9ed1aa06eb8924733</code></dd>
+        <dt>Image hash</dt><dd><code>6000ffffffffffff:86155eeff4e9a5a2</code></dd>
+      </dl>
+    </article>
+    <article class="review-card" id="spotify">
+      <div class="card-head">
+        <h2>Spotify</h2>
+        <div class="meta">entertainment / pilot / High-Risk</div>
+      </div>
+      <div class="evidence-grid">
+        <figure><img src="../captures/access_probe/www_spotify_com.png" alt="Access probe screenshot"><figcaption>Access probe</figcaption></figure>
+        <figure><img src="../captures/sites/www_spotify_com_20260529_184935/layer1.png" alt="Weekly capture screenshot"><figcaption>Weekly capture</figcaption></figure>
+      </div>
+      <dl>
+        <dt>URL</dt><dd><a href="https://www.spotify.com">https://www.spotify.com</a></dd>
+        <dt>Review reason</dt><dd>no banner observed in access probe or weekly capture; inspect saved screenshots/DOM to verify CMP presence, region behavior, or sample fit</dd>
+        <dt>Recommended action</dt><dd>manual screenshot/DOM review; rerun with fresh browser context if a CMP is expected</dd>
+        <dt>Decision options</dt><dd><code>keep_consent_sample|keep_no_banner_case|rerun_fresh_context|replace_candidate|exclude</code></dd>
+        <dt>Capture DOM</dt><dd><a href="../captures/sites/www_spotify_com_20260529_184935/layer1.html">data/captures/sites/www_spotify_com_20260529_184935/layer1.html</a></dd>
+        <dt>DOM hash</dt><dd><code>7bac2a8856fda0d268e5bc8e55d8677e762a787a66c02a0484665800acc0e119</code></dd>
+        <dt>Image hash</dt><dd><code>01bfbe80100000ff:8fe99c86769448ed</code></dd>
+      </dl>
+    </article>
+    <article class="review-card" id="chase">
+      <div class="card-head">
+        <h2>Chase</h2>
+        <div class="meta">finance / pilot / High-Risk</div>
+      </div>
+      <div class="evidence-grid">
+        <figure><img src="../captures/access_probe/www_chase_com.png" alt="Access probe screenshot"><figcaption>Access probe</figcaption></figure>
+        <figure><img src="../captures/sites/www_chase_com_20260529_184940/layer1.png" alt="Weekly capture screenshot"><figcaption>Weekly capture</figcaption></figure>
+      </div>
+      <dl>
+        <dt>URL</dt><dd><a href="https://www.chase.com">https://www.chase.com</a></dd>
+        <dt>Review reason</dt><dd>no banner observed in access probe or weekly capture; inspect saved screenshots/DOM to verify CMP presence, region behavior, or sample fit</dd>
+        <dt>Recommended action</dt><dd>manual screenshot/DOM review; rerun with fresh browser context if a CMP is expected</dd>
+        <dt>Decision options</dt><dd><code>keep_consent_sample|keep_no_banner_case|rerun_fresh_context|replace_candidate|exclude</code></dd>
+        <dt>Capture DOM</dt><dd><a href="../captures/sites/www_chase_com_20260529_184940/layer1.html">data/captures/sites/www_chase_com_20260529_184940/layer1.html</a></dd>
+        <dt>DOM hash</dt><dd><code>f8c217608e6f4972a9f4602fdaed47ee9083c441d2ca2d61c08f3c9f8547d831</code></dd>
+        <dt>Image hash</dt><dd><code>ff02020202ffff81:570f87cd3d97c5ae</code></dd>
+      </dl>
+    </article>
+  </main>
+</body>
+</html>

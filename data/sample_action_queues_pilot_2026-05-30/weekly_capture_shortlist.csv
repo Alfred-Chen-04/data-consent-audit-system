@@ -1,0 +1,5 @@
+queue_name,url,name,category,cohort,readiness_status,worksheet_decision,lock_status,priority,next_action,access_screenshot_path,capture_screenshot_ref,capture_dom_snapshot_ref,lock_notes
+weekly_capture_shortlist,https://www.theguardian.com,The Guardian,news,smoke,pilot_ready,,provisionally_selected,1,include in shortlist and continue weekly capture,captures/access_probe/www_theguardian_com.png,,,access and weekly capture available
+weekly_capture_shortlist,https://www.cnn.com,CNN,news,pilot,pilot_ready,,provisionally_selected,1,include in shortlist and continue weekly capture,captures/access_probe/www_cnn_com.png,,,access and weekly capture available
+weekly_capture_shortlist,https://www.booking.com,Booking.com,travel,pilot,pilot_ready,,provisionally_selected,1,include in shortlist and continue weekly capture,captures/access_probe/www_booking_com.png,,,access and weekly capture available
+weekly_capture_shortlist,https://www.nerdwallet.com,NerdWallet,finance,pilot,pilot_ready,,provisionally_selected,1,include in shortlist and continue weekly capture,captures/access_probe/www_nerdwallet_com.png,,,access and weekly capture available

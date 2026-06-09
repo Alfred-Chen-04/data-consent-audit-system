@@ -1,0 +1,17 @@
+url,final_url,http_status,load_time_ms,page_title,banner_detected,banner_selector_hit,block_signal,screenshot_path,error,notes
+https://www.mcdonalds.com/us/en-us.html,,,,,False,,,,playwright_error: Page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://www.mcdonalds.com/us/en-us.html,
+https://www.coca-cola.com/us/en,https://www.coca-cola.com/us/en,200,1081,Home Page | Coca-Cola US,True,#onetrust-consent-sdk,,captures/access_probe/www_coca_cola_com.png,,
+https://www.adobe.com,,,,,False,,,,playwright_error: Page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://www.adobe.com/,
+https://www.pepsi.com,https://www.pepsi.com/,200,2109,"Pepsi North America | Official Site – Products, Recipes & More",False,,,captures/access_probe/www_pepsi_com.png,,
+https://www.salesforce.com,https://www.salesforce.com/,403,373,Access Denied,False,,access_denied,captures/access_probe/www_salesforce_com.png,,
+https://www.nike.com,https://www.nike.com.cn/,200,2951,耐克Nike-耐克(Nike)中国官网-NIKE 中文官方网站,False,,,captures/access_probe/www_nike_com.png,,
+https://www.oracle.com,https://www.oracle.com/,403,204,fw_error_www,False,,http_403,captures/access_probe/www_oracle_com.png,,
+https://www.ikea.com/us/en/,https://www.ikea.com/us/en/,200,4648,Shop Affordable Home Furnishings & Home Goods - IKEA,True,#onetrust-banner-sdk,,captures/access_probe/www_ikea_com.png,,networkidle timeout (likely ok)
+https://www.united.com/en/us,,,,,False,,,,playwright_error: Page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://www.united.com/en/us,
+https://www.delta.com,https://www.delta.com/,403,1135,Access Denied,False,,access_denied,captures/access_probe/www_delta_com.png,,
+https://www.marriott.com,https://www.marriott.com/default.mi,403,296,Access Denied,False,,access_denied,captures/access_probe/www_marriott_com.png,,
+https://www.hyatt.com,https://www.hyatt.com/,403,316,Hyatt Hotels and Resorts,False,,http_403,captures/access_probe/www_hyatt_com.png,,
+https://www.nba.com,,,,,False,,,,playwright_error: Page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://www.nba.com/,
+https://www.ibm.com,https://www.ibm.com/jp-ja,200,3490,IBM,True,#truste-consent-track,,captures/access_probe/www_ibm_com.png,,networkidle timeout (likely ok)
+https://www.intuit.com,https://www.intuit.com/,200,2097,Intuit®: Outdo your financial goals—all in one place,True,#onetrust-banner-sdk,,captures/access_probe/www_intuit_com.png,,networkidle timeout (likely ok)
+https://www.nationalgeographic.com,https://www.nationalgeographic.com/,200,1222,National Geographic | National Geographic,False,,,captures/access_probe/www_nationalgeographic_com.png,,

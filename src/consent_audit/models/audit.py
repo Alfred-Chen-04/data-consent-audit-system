@@ -21,7 +21,6 @@ from consent_audit.models.dimensions import (
     Tier,
 )
 
-
 # ─── Evidence primitives ──────────────────────────────────────────────────────
 
 

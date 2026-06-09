@@ -1,0 +1,8 @@
+url,name,category,inherited_from_phd_mentor,notes
+https://www.bbc.com,BBC,news,false,cmp_review_suggestion: rerun_fresh_context; confidence=medium; indicators=cookie|consent|gdpr
+https://www.nytimes.com,New York Times,news,false,cmp_review_suggestion: rerun_fresh_context; confidence=medium; indicators=cookie|consent|gdpr
+https://www.amazon.com,Amazon,ecommerce,false,cmp_review_suggestion: rerun_fresh_context; confidence=medium; indicators=cookie|consent|gdpr|privacy choices
+https://www.walmart.com,Walmart,ecommerce,false,cmp_review_suggestion: rerun_fresh_context; confidence=medium; indicators=cookie|consent|ccpa|privacy choices
+https://www.airbnb.com,Airbnb,travel,false,cmp_review_suggestion: rerun_fresh_context; confidence=medium; indicators=onetrust|cookie|consent
+https://www.spotify.com,Spotify,entertainment,false,cmp_review_suggestion: rerun_fresh_context; confidence=medium; indicators=cookie
+https://www.chase.com,Chase,finance,false,cmp_review_suggestion: rerun_fresh_context; confidence=medium; indicators=cookie

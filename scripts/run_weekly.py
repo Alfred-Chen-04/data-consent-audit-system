@@ -4,61 +4,72 @@ Scheduled via APScheduler or an OS-level cron. On failure for a single site, con
 the rest — log the failure, do not abort the run (AGENTS.md §7 — budget cap is the
 only hard abort condition).
 """
+# ruff: noqa: E402
 
 import asyncio
-import csv
+import sys
 from pathlib import Path
 
-import structlog
 import typer
 
-from consent_audit.capture import capture_site
-from consent_audit.config import settings
-from consent_audit.diff import detect_changes, summarize_week
-from consent_audit.layers import score_layer1, score_layer2, score_layer3
-from consent_audit.llm.budget import BudgetExceeded, BudgetLedger
-from consent_audit.report import generate_report
-from consent_audit.storage import list_reports_for_url, save_report
+_REPO_ROOT = Path(__file__).resolve().parents[1]
+if str(_REPO_ROOT) not in sys.path:
+    sys.path.insert(0, str(_REPO_ROOT))
 
-log = structlog.get_logger()
+from scripts._bootstrap import ensure_src_on_path
+
+ensure_src_on_path()
+
+from consent_audit.pipeline import (
+    WeeklyRunSummary,
+    audit_weekly_site,
+    format_weekly_run_summary,
+    load_site_urls,
+    run_weekly_audit,
+)
+
 app = typer.Typer()
 
 
 @app.command()
-def main(sites_csv: Path = Path("data/sites.csv")) -> None:
-    asyncio.run(_run(sites_csv))
+def main(
+    sites_csv: Path = Path("data/sites.csv"),
+    consent_table_path: Path | None = Path("data/consent_table.csv"),
+    cohort: str = "weekly",
+    limit: int | None = None,
+) -> None:
+    try:
+        summary = asyncio.run(
+            _run(
+                sites_csv,
+                consent_table_path=consent_table_path,
+                cohort=cohort,
+                limit=limit,
+            )
+        )
+    except ValueError as exc:
+        typer.echo(str(exc))
+        raise typer.Exit(1) from exc
+    typer.echo(format_weekly_run_summary(summary))
 
 
-async def _run(sites_csv: Path) -> None:
-    ledger = BudgetLedger(cap_usd=settings.ssrp_budget_cap)
-
-    with sites_csv.open() as fh:
-        urls = [row["url"] for row in csv.DictReader(fh)]
-
-    for url in urls:
-        try:
-            await _audit_one(url, ledger)
-        except BudgetExceeded:
-            log.error("budget_exceeded", url=url, spent=ledger.spent_usd)
-            break
-        except Exception as exc:
-            log.error("site_failed", url=url, error=str(exc))
-            continue
+async def _run(
+    sites_csv: Path,
+    *,
+    consent_table_path: Path | None = None,
+    cohort: str = "weekly",
+    limit: int | None = None,
+) -> WeeklyRunSummary:
+    return await run_weekly_audit(
+        sites_csv,
+        consent_table_path=consent_table_path,
+        cohort=cohort,
+        limit=limit,
+    )
 
 
-async def _audit_one(url: str, ledger: BudgetLedger) -> None:
-    bundle = await capture_site(url, timeout_seconds=settings.agent_site_timeout)  # type: ignore[arg-type]
-    l1 = score_layer1(bundle)
-    l2 = score_layer2(bundle, l1) if l1.gate_passed else None
-    l3 = score_layer3(bundle, l1, l2) if l2 is not None else None
-    report = generate_report(bundle, l1, l2, l3, api_cost_usd=ledger.spent_usd)
-    save_report(report)
-
-    history = list_reports_for_url(url, limit=2)  # type: ignore[arg-type]
-    if len(history) >= 2:
-        events = detect_changes(history[1], history[0])
-        if events:
-            await summarize_week(url, events, ledger=ledger)  # type: ignore[arg-type]
+_audit_one = audit_weekly_site
+_load_urls = load_site_urls
 
 
 if __name__ == "__main__":

@@ -2,5 +2,6 @@ url,name,category,inherited_from_phd_mentor,notes
 https://www.bbc.com,BBC,news,false,smoke test — known to show consent UI
 https://www.theguardian.com,The Guardian,news,false,smoke test
 https://www.nytimes.com,NY Times,news,false,smoke test
+https://www.reuters.com,Reuters,news,false,smoke test
 https://www.reddit.com,Reddit,social,false,smoke test
 https://www.wikipedia.org,Wikipedia,reference,false,smoke test — may have no banner

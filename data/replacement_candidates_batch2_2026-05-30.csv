@@ -1,0 +1,17 @@
+url,name,category,inherited_from_phd_mentor,notes
+https://www.ikea.com/us/en/,IKEA,ecommerce,false,batch2 replacement probe; brand retail site likely to expose consent controls
+https://www.nike.com,Nike,ecommerce,false,batch2 replacement probe; consumer brand site likely to expose consent controls
+https://www.mcdonalds.com/us/en-us.html,McDonald's,food,false,batch2 replacement probe; public brand site likely to use CMP
+https://www.coca-cola.com/us/en,Coca-Cola,food,false,batch2 replacement probe; public brand site likely to use CMP
+https://www.pepsi.com,Pepsi,food,false,batch2 replacement probe; public brand site likely to use CMP
+https://www.adobe.com,Adobe,software,false,batch2 replacement probe; public software site likely to use CMP
+https://www.salesforce.com,Salesforce,software,false,batch2 replacement probe; public SaaS site likely to use CMP
+https://www.ibm.com,IBM,technology,false,batch2 replacement probe; public technology site likely to use CMP
+https://www.oracle.com,Oracle,technology,false,batch2 replacement probe; public technology site likely to use CMP
+https://www.intuit.com,Intuit,finance,false,batch2 replacement probe; public finance/software site likely to use CMP
+https://www.delta.com,Delta Air Lines,travel,false,batch2 replacement probe; travel public site candidate
+https://www.united.com/en/us,United Airlines,travel,false,batch2 replacement probe; travel public site candidate
+https://www.marriott.com,Marriott,travel,false,batch2 replacement probe; hotel public site candidate
+https://www.hyatt.com,Hyatt,travel,false,batch2 replacement probe; hotel public site candidate
+https://www.nba.com,NBA,sports,false,batch2 replacement probe; sports/media public site likely to use CMP
+https://www.nationalgeographic.com,National Geographic,media,false,batch2 replacement probe; media public site likely to use CMP

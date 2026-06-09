@@ -1,0 +1,5 @@
+url,name,category,inherited_from_phd_mentor,notes
+https://www.theguardian.com,The Guardian,news,false,weekly_capture_shortlist: include in shortlist and continue weekly capture
+https://www.cnn.com,CNN,news,false,weekly_capture_shortlist: include in shortlist and continue weekly capture
+https://www.booking.com,Booking.com,travel,false,weekly_capture_shortlist: include in shortlist and continue weekly capture
+https://www.nerdwallet.com,NerdWallet,finance,false,weekly_capture_shortlist: include in shortlist and continue weekly capture

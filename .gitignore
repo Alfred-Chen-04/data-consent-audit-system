@@ -18,6 +18,7 @@ build/
 
 # Capture artifacts (large, regenerable)
 data/captures/
+data/object_store/
 data/snapshots/
 *.db
 *.sqlite

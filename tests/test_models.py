@@ -1,6 +1,6 @@
 """Schema round-trip sanity checks. Ensures every model serializes and validates."""
 
-from datetime import datetime
+from datetime import UTC, datetime
 from uuid import uuid4
 
 from consent_audit.models import (
@@ -16,7 +16,7 @@ def test_capture_bundle_roundtrip() -> None:
     bundle = CaptureBundle(
         bundle_id=uuid4(),
         url="https://example.com",  # type: ignore[arg-type]
-        captured_at=datetime.utcnow(),
+        captured_at=datetime.now(UTC),
         layers=[],
         path_outcomes={
             Pathway.ACCEPT: PathOutcome(
