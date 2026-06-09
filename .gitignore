@@ -16,8 +16,11 @@ venv/
 dist/
 build/
 
-# Capture artifacts (large, regenerable)
-data/captures/
+# Capture artifacts
+data/captures/**
+!data/captures/
+!data/captures/**/
+!data/captures/**/*.png
 data/object_store/
 data/snapshots/
 *.db
