@@ -11,6 +11,7 @@ Use this index as the first file for advisor check-ins.
 
 ## Read First
 
+- [Today work note, 2026-06-09](today_work_note_2026-06-09.md)
 - [Advisor update](week2_advisor_update_2026-06-06.md)
 - [Sanity check](week2_sanity_check_2026-06-06.md)
 - [Capture checklist](week2_capture_day_checklist_2026-06-06.md)
