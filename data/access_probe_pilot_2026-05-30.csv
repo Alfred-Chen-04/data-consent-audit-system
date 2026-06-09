@@ -1,0 +1,16 @@
+url,final_url,http_status,load_time_ms,page_title,banner_detected,banner_selector_hit,block_signal,screenshot_path,error,notes
+https://www.theguardian.com,https://www.theguardian.com/international,200,1141,"Latest news, sport and opinion from the Guardian",True,"[id^=""sp_message_container""]",,captures/access_probe/www_theguardian_com.png,,
+https://www.wikipedia.org,https://www.wikipedia.org/,200,1028,Wikipedia,False,,,captures/access_probe/www_wikipedia_org.png,,
+https://www.reddit.com,https://www.reddit.com/,200,290,Reddit - The heart of the internet,False,,,captures/access_probe/www_reddit_com.png,,networkidle timeout (likely ok)
+https://www.bbc.com,https://www.bbc.com/,200,1017,"BBC Home - Breaking News, World News, US News, Sports, Business, Innovation, Climate, Culture, Travel, Video & Audio",False,,,captures/access_probe/www_bbc_com.png,,
+https://www.nytimes.com,https://www.nytimes.com/,200,1627,"The New York Times - Breaking News, US News, World News and Videos",False,,,captures/access_probe/www_nytimes_com.png,,networkidle timeout (likely ok)
+https://www.reuters.com,https://www.reuters.com/,401,632,reuters.com,False,,http_401,captures/access_probe/www_reuters_com.png,,
+https://www.amazon.com,https://www.amazon.com/,202,1135,Amazon.com. Spend less. Smile more.,False,,,captures/access_probe/www_amazon_com.png,,networkidle timeout (likely ok)
+https://www.cnn.com,https://edition.cnn.com/,200,1832,"Breaking News, Latest News and Videos | CNN",True,#onetrust-consent-sdk,,captures/access_probe/www_cnn_com.png,,networkidle timeout (likely ok)
+https://www.walmart.com,https://www.walmart.com/,200,2705,Walmart | Save Money. Live better.,False,,,captures/access_probe/www_walmart_com.png,,networkidle timeout (likely ok)
+https://www.booking.com,https://www.booking.com/,202,1409,"Booking.com | Official site | The best hotels, flights, car rentals & accommodations",True,#onetrust-consent-sdk,,captures/access_probe/www_booking_com.png,,networkidle timeout (likely ok)
+https://www.spotify.com,https://open.spotify.com/,200,2019,Spotify - Web Player: Music for everyone,False,,,captures/access_probe/www_spotify_com.png,,
+https://www.airbnb.com,https://www.airbnb.com/,200,1302,"Airbnb | Vacation rentals, cabins, beach houses, & more",False,,,captures/access_probe/www_airbnb_com.png,,networkidle timeout (likely ok)
+https://www.netflix.com,https://www.netflix.com/jp-en/,200,2153,"Netflix Japan - Watch TV Shows Online, Watch Movies Online",True,#onetrust-consent-sdk,captcha,captures/access_probe/www_netflix_com.png,,
+https://www.chase.com,https://www.chase.com/,200,1153,"Credit Card, Mortgage, Banking, Auto | Chase Online | Chase.com",False,,,captures/access_probe/www_chase_com.png,,networkidle timeout (likely ok)
+https://www.nerdwallet.com,https://www.nerdwallet.com/,200,2263,NerdWallet: Finance smarter,True,#onetrust-banner-sdk,,captures/access_probe/www_nerdwallet_com.png,,networkidle timeout (likely ok)

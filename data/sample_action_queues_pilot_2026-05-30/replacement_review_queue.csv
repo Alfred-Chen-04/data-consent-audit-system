@@ -1,0 +1,3 @@
+queue_name,url,name,category,cohort,readiness_status,worksheet_decision,lock_status,priority,next_action,access_screenshot_path,capture_screenshot_ref,capture_dom_snapshot_ref,lock_notes
+replacement_review_queue,https://www.reuters.com,Reuters,news,smoke,access_blocked,,blocked_review_or_replace,3,review access feasibility; replace unless kept as blocked canary,captures/access_probe/www_reuters_com.png,,,access blocked: http_401
+replacement_review_queue,https://www.netflix.com,Netflix,entertainment,pilot,access_blocked,,blocked_review_or_replace,3,review access feasibility; replace unless kept as blocked canary,captures/access_probe/www_netflix_com.png,,,access blocked: captcha

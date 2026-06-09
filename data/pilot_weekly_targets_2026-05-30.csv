@@ -1,0 +1,9 @@
+url,name,category,inherited_from_phd_mentor,notes
+https://www.cnn.com,CNN,news,false,pilot weekly target from needs_weekly_capture readiness
+https://www.amazon.com,Amazon,ecommerce,false,pilot weekly target from needs_weekly_capture readiness
+https://www.walmart.com,Walmart,ecommerce,false,pilot weekly target from needs_weekly_capture readiness
+https://www.booking.com,Booking.com,travel,false,pilot weekly target from needs_weekly_capture readiness
+https://www.airbnb.com,Airbnb,travel,false,pilot weekly target from needs_weekly_capture readiness
+https://www.spotify.com,Spotify,entertainment,false,pilot weekly target from needs_weekly_capture readiness
+https://www.chase.com,Chase,finance,false,pilot weekly target from needs_weekly_capture readiness
+https://www.nerdwallet.com,NerdWallet,finance,false,pilot weekly target from needs_weekly_capture readiness

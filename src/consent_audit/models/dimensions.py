@@ -4,10 +4,10 @@ Every string that names an audit concept MUST come from one of these enums.
 Anchored in CONCEPTS.md — do not add values here without updating CONCEPTS.md first.
 """
 
-from enum import Enum
+from enum import StrEnum
 
 
-class Pathway(str, Enum):
+class Pathway(StrEnum):
     """The four consent outcomes (CONCEPTS.md §0)."""
 
     ACCEPT = "accept"
@@ -16,7 +16,7 @@ class Pathway(str, Enum):
     DISMISS = "dismiss"
 
 
-class LetterGrade(str, Enum):
+class LetterGrade(StrEnum):
     A = "A"
     B = "B"
     C = "C"
@@ -24,7 +24,7 @@ class LetterGrade(str, Enum):
     F = "F"
 
 
-class EffortCategory(str, Enum):
+class EffortCategory(StrEnum):
     """Layer 2 summary bucket (CONCEPTS.md §2)."""
 
     EASY = "Easy"
@@ -32,7 +32,7 @@ class EffortCategory(str, Enum):
     POOR = "Poor"
 
 
-class DisclosureTopic(str, Enum):
+class DisclosureTopic(StrEnum):
     """Four mandatory topics for Layer-3 Transparency coverage (CONCEPTS.md §3.1a)."""
 
     DATA_TYPES = "data_types"
@@ -41,7 +41,7 @@ class DisclosureTopic(str, Enum):
     CONSEQUENCES = "consequences"
 
 
-class FramingMechanism(str, Enum):
+class FramingMechanism(StrEnum):
     """Layer-3 framing-effect channels (CONCEPTS.md §3.1b)."""
 
     EMPHASIS = "emphasis"
@@ -50,13 +50,13 @@ class FramingMechanism(str, Enum):
     SELECTIVE_PROMINENCE = "selective_prominence"
 
 
-class BiasLevel(str, Enum):
+class BiasLevel(StrEnum):
     NEUTRAL = "neutral"
     MILD_BIAS = "mild_bias"
     STRONG_BIAS = "strong_bias"
 
 
-class Tier(str, Enum):
+class Tier(StrEnum):
     """Overall audit tier (CONCEPTS.md §4). Categorical by design."""
 
     EXEMPLARY = "Exemplary"
@@ -65,7 +65,7 @@ class Tier(str, Enum):
     HIGH_RISK = "High-Risk"
 
 
-class ChangeEventType(str, Enum):
+class ChangeEventType(StrEnum):
     """Diff engine outputs (CONCEPTS.md §5)."""
 
     LAYOUT_CHANGE = "layout_change"

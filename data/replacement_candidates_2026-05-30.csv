@@ -1,0 +1,13 @@
+url,name,category,inherited_from_phd_mentor,notes
+https://apnews.com,Associated Press,news,false,replacement probe for banner-present news candidate
+https://www.usatoday.com,USA Today,news,false,replacement probe for banner-present news candidate
+https://www.forbes.com,Forbes,news,false,replacement probe for ad-supported news/privacy interface candidate
+https://www.ebay.com,eBay,ecommerce,false,replacement probe for ecommerce candidate
+https://www.bestbuy.com,Best Buy,ecommerce,false,replacement probe for ecommerce candidate
+https://www.homedepot.com,Home Depot,ecommerce,false,replacement probe for ecommerce candidate
+https://www.etsy.com,Etsy,ecommerce,false,replacement probe for marketplace candidate
+https://www.expedia.com,Expedia,travel,false,replacement probe for travel candidate
+https://www.tripadvisor.com,Tripadvisor,travel,false,replacement probe for travel candidate
+https://weather.com,The Weather Channel,weather,false,replacement probe for ad-supported weather/media candidate
+https://www.webmd.com,WebMD,health,false,replacement probe for health information/privacy interface candidate
+https://www.indeed.com,Indeed,jobs,false,replacement probe for jobs/platform candidate

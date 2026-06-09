@@ -1,0 +1,5 @@
+url,name,category,inherited_from_phd_mentor,notes
+https://www.coca-cola.com/us/en,Coca-Cola,food,false,batch2 replacement probe: access probe detected Onetrust preference center
+https://www.ikea.com/us/en/,IKEA,ecommerce,false,batch2 replacement probe: access probe detected Onetrust cookie banner
+https://www.ibm.com,IBM,technology,false,batch2 replacement probe: access probe detected TrustArc consent panel; locale may redirect
+https://www.intuit.com,Intuit,finance,false,batch2 replacement probe: access probe detected Onetrust bottom banner

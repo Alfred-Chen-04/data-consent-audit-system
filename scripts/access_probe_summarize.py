@@ -1,94 +1,54 @@
-"""Summarize access_probe CSV output for a mentor-facing memo.
-
-Prints:
-  - Overall totals (loaded / banner / blocked / error)
-  - Breakdown by block_signal
-  - Breakdown by banner CMP vendor (selector hit)
-  - Per-site rows highlighted by status
+"""Summarize access-probe CSV output for a mentor-facing memo.
 
 Usage:
     uv run python scripts/access_probe_summarize.py data/access_probe_v0.csv
 """
+# ruff: noqa: E402
 
 from __future__ import annotations
 
 import argparse
-import csv
-from collections import Counter
+import sys
 from pathlib import Path
 
-from rich.console import Console
-from rich.markup import escape
-from rich.table import Table
+_REPO_ROOT = Path(__file__).resolve().parents[1]
+if str(_REPO_ROOT) not in sys.path:
+    sys.path.insert(0, str(_REPO_ROOT))
 
+from scripts._bootstrap import ensure_src_on_path
 
-def classify(row: dict[str, str]) -> str:
-    if row.get("error"):
-        return "error"
-    if row.get("block_signal"):
-        return "blocked"
-    status = row.get("http_status", "")
-    if not status or (status.isdigit() and int(status) >= 400):
-        return "http_error"
-    if row.get("banner_detected", "").lower() == "true":
-        return "loaded_with_banner"
-    return "loaded_no_banner"
+ensure_src_on_path()
+
+from consent_audit.access_probe_summary import (
+    classify_access_probe_row,
+    render_access_probe_summary,
+    summarize_access_probe_csv,
+)
+
+classify = classify_access_probe_row
 
 
 def main() -> None:
-    ap = argparse.ArgumentParser(description=__doc__)
-    ap.add_argument("csv_path", type=Path, nargs="?", default=Path("data/access_probe_v0.csv"))
-    args = ap.parse_args()
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("csv_path", type=Path, nargs="?", default=Path("data/access_probe_v0.csv"))
+    args = parser.parse_args()
 
-    if not args.csv_path.exists():
-        raise SystemExit(f"not found: {args.csv_path}")
+    try:
+        summary = render_access_probe_summary(args.csv_path)
+    except ValueError as exc:
+        print(str(exc), file=sys.stderr)
+        sys.exit(2)
 
-    with args.csv_path.open(encoding="utf-8") as f:
-        rows = list(csv.DictReader(f))
+    print(summary)
 
-    console = Console()
-    console.print(f"\n[bold]Access probe summary[/bold] — {args.csv_path} ({len(rows)} sites)\n")
 
-    status_counts: Counter[str] = Counter(classify(r) for r in rows)
-    block_counts = Counter(r["block_signal"] for r in rows if r.get("block_signal"))
-    cmp_counts = Counter(r["banner_selector_hit"] for r in rows if r.get("banner_detected", "").lower() == "true")
-
-    totals = Table(title="Status breakdown", show_header=True)
-    totals.add_column("Category")
-    totals.add_column("Count", justify="right")
-    totals.add_column("%", justify="right")
-    for key in ["loaded_with_banner", "loaded_no_banner", "blocked", "http_error", "error"]:
-        n = status_counts.get(key, 0)
-        pct = f"{100 * n / len(rows):.0f}%" if rows else "-"
-        totals.add_row(key, str(n), pct)
-    console.print(totals)
-
-    if block_counts:
-        bt = Table(title="Block signals", show_header=True)
-        bt.add_column("Signal")
-        bt.add_column("Count", justify="right")
-        for sig, n in block_counts.most_common():
-            bt.add_row(sig, str(n))
-        console.print(bt)
-
-    if cmp_counts:
-        ct = Table(title="Banner selector hits (proxy for CMP vendor)", show_header=True)
-        ct.add_column("Selector")
-        ct.add_column("Count", justify="right")
-        for sel, n in cmp_counts.most_common():
-            ct.add_row(escape(sel), str(n))
-        console.print(ct)
-
-    access_rate = (status_counts["loaded_with_banner"] + status_counts["loaded_no_banner"]) / len(rows) if rows else 0
-    banner_rate = status_counts["loaded_with_banner"] / len(rows) if rows else 0
-    console.print(
-        f"\n[bold]Headline numbers[/bold]  "
-        f"access_rate={access_rate:.0%}  banner_rate={banner_rate:.0%}"
-    )
-    console.print(
-        "[dim]Reminder: banner_rate depends heavily on geo. Low rate from a US IP is expected; "
-        "compare with an EU residential proxy before drawing conclusions.[/dim]\n"
-    )
+__all__ = [
+    "classify",
+    "classify_access_probe_row",
+    "main",
+    "render_access_probe_summary",
+    "summarize_access_probe_csv",
+]
 
 
 if __name__ == "__main__":

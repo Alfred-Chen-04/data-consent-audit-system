@@ -1,0 +1,6 @@
+url,name,category,inherited_from_phd_mentor,notes
+https://www.theguardian.com,The Guardian,news,false,week2_default_capture: weekly_capture_shortlist: include in shortlist and continue weekly capture
+https://www.cnn.com,CNN,news,false,week2_default_capture: weekly_capture_shortlist: include in shortlist and continue weekly capture
+https://www.booking.com,Booking.com,travel,false,week2_default_capture: weekly_capture_shortlist: include in shortlist and continue weekly capture
+https://www.nerdwallet.com,NerdWallet,finance,false,week2_default_capture: weekly_capture_shortlist: include in shortlist and continue weekly capture
+https://www.coca-cola.com/us/en,Coca-Cola,food,false,week2_default_capture: verified_replacement: add to expanded weekly capture shortlist pending advisor confirmation

@@ -302,38 +302,40 @@ Ranked by feasibility of being a first user, per [background_with_citations.md �
 
 ---
 
-## 9. Status — What Is Done vs Pending
+## 9. Status — Current Working State
 
-### 9.1 Done (committed to main)
-- [x] SSRP proposal accepted
-- [x] Initial codebase scaffold (all module directories + Pydantic models + module skeletons)
-- [x] CONCEPTS.md — full audit ontology
-- [x] docs/architecture.md — runtime wiring + 4 invariants
-- [x] Week-0 access feasibility probe — 6 canary sites validated (BBC, NYT, Reddit, Guardian, Wikipedia, example.com)
-- [x] Qiyao's static audit dataset imported (~90 sites with privacy_notice_data.xlsx + screenshots) — available as a baseline for static-vs-dynamic comparison
-- [x] Outreach drafts: Dr. Singh network, Haoze Guo (ConsentDiff), LinkedIn playbook, alumni search
-- [x] Alignment memo to Dr. Singh + Qiyao (drafted; user decides timing)
-- [x] Strategy docs: positioning + future-extension + SSRP scope advisory
-- [x] Lit landscape: rubric landscape (7 papers) + comprehensive background (30+ papers, full regulatory map, user ecosystem)
-- [x] Legal cheatsheet (8 anchors)
+This section reflects the local Week 2 research workspace as of 2026-06-06.
+For a live one-screen view, run `consent-audit research-status`.
 
-### 9.2 Scaffolded but not yet functional
-- [ ] `capture/agent.py` — Playwright skeleton exists; full pathway-traversal logic not written
-- [ ] `capture/fingerprint.py` — function signatures exist; implementations stubbed
-- [ ] `llm/vision.py`, `llm/text.py` — client wrappers exist; prompts and validation loops not finalized
-- [ ] `layers/layer2_path_effort.py` — sub-feature extractors stubbed
-- [ ] `layers/layer3_transparency.py` — stubbed
-- [ ] `diff/engine.py` — stubbed
-- [ ] `report/generator.py` — stubbed
-- [ ] `storage/db.py`, `storage/object_store.py` — stubbed
-- [ ] `scripts/run_audit.py` and `scripts/run_weekly.py` — entry points exist; integration not wired
+### 9.1 Current executable workflow
+- [x] SSRP proposal accepted; RQ1/RQ2 are frozen in §1 and remain unchanged.
+- [x] Core audit ontology exists in `CONCEPTS.md`; module boundaries are documented in `docs/architecture.md`.
+- [x] Package CLI now exposes the core research workflow: `audit`, `weekly`, `access-probe`, `access-probe-summary`, `validate-sites`, `export-research-package`, and Week 2 advisor/capture commands.
+- [x] Browser capture can produce `CaptureBundle` evidence with screenshots, DOM snapshots, event logs, pathway outcomes, and multimodal fingerprints.
+- [x] Layer 1/2/3 scoring paths are executable with deterministic scoring after schema-bounded extraction.
+- [x] Local append-only storage saves `AuditReport` and `WeeklySummary` records; local object-store fallback copies sanitized screenshots and DOM evidence.
+- [x] Paper-facing exports currently contain 42 audit reports and 20 longitudinal summaries in `data/research_package/`.
+- [x] `docs/research/ssrp_results_tables_2026-06-06.md` now renders current RQ1 scoring and RQ2 longitudinal rows as paper-ready Markdown tables.
+- [x] `docs/research/ssrp_figure_plan_2026-06-06.md` now tracks paper/poster figures that are ready, provisional, or need follow-up.
+- [x] `docs/research/ssrp_writing_pack_2026-06-06.md` now collects methods, preliminary results, limitations, and discussion notes with the Week 2 evidence gate marked ready after sanity confirmation.
+- [x] `docs/research/ssrp_claim_register_2026-06-06.md` now lists supported, provisional, open-limitation, and blocked claims with source artifacts and next actions.
+- [x] `docs/research/ssrp_poster_plan_2026-06-06.md` now turns current evidence into a poster storyboard, figure asset list, copy blocks, and final poster checklist.
+- [x] `docs/research/ssrp_remaining_work_audit_2026-05-30.md` now records which plan requirements are complete, provisional, schedule-blocked, or missing.
+- [x] `docs/research/cmp_confirmation_request_2026-05-30.md` now gives the advisor/human reviewer a row-by-row request for resolving the 8 pending CMP/manual-review confirmations.
+- [x] The frozen Week 2 target list is `data/week2_deep_sample_targets_2026-06-06.csv` with 5 active sites across finance, food, news, and travel.
+- [x] Week 2 preflight is `ready_for_capture`; the latest cycle report is `completed`, with 5/5 live captures and `ready` sanity status.
+- [x] `week2-cycle --dry-run` rehearses the capture day without opening browser capture; `week2-cycle` runs preflight, live weekly capture, refresh outputs, and writes the cycle report.
+- [x] Tests now cover models, capture helpers, layers, diffing, storage, reports, exports, sample-lock artifacts, Week 2 run controls, and direct script wrappers.
 
-### 9.3 Tests
-- [x] `tests/layers/test_layer1_path_availability.py` — first layer tests exist
-- [x] `tests/test_models.py` — Pydantic model round-trip tests
-- [ ] No tests yet for capture, llm, layer2, layer3, diff, report, storage
+### 9.2 Remaining research gates
+- [x] Run the live Week 2 capture cycle for cohort `week2-2026-06-06`.
+- [x] Rerun `week2-refresh-outputs` and confirm `week2-sanity-check` moves from `pending_capture` to `ready`.
+- [ ] Advisor/human confirmation is still needed for the 8 pending CMP/manual-review rows before changing sample-lock status.
+- [ ] The deep sample is currently 5 frozen Week 2 targets; expand toward ~20 well-documented sites only after the capture/evidence gate stays stable.
+- [ ] The SSRP paper draft still needs final prose and figure rendering from the research package; current RQ1/RQ2 tables, figure plan, writing pack, and claim register are generated from the completed Week 2 evidence gate but are not the final 10-week dataset.
+- [ ] Poster and demo polish remain later deliverables after the evidence chain is stable.
 
-### 9.4 Documents that are drafted but not yet sent / published
+### 9.3 Documents that are drafted but not yet sent / published
 - `docs/alignment_memo.md` — drafted, not yet sent to Dr. Singh + Qiyao (Alfred's decision)
 - `docs/outreach/01-04` — drafted, not yet sent
 
@@ -356,23 +358,22 @@ Ranked by feasibility of being a first user, per [background_with_citations.md �
 
 ---
 
-## 11. Suggested Execution Order (post-decision)
+## 11. Current Execution Order
 
-Assuming Alfred makes decisions on #1-#3 + #5 above, here is the natural critical path:
+The implementation core now exists. The critical path is no longer "make the
+pipeline run"; it is "turn repeatable captures into a defensible SSRP paper."
 
-1. **Lock the LLM/VLM choice** (decision 5) → unblocks all `llm/*` implementation
-2. **Implement `capture/agent.py`** end-to-end on 5 canary sites → can produce real `CaptureBundle`s
-3. **Implement Layer 1** end-to-end → producing real `Layer1Result`s + the gate test
-4. **Implement Layer 2 sub-features** one at a time (deterministic ones first: color_contrast, click_depth, immediate_feedback; then VLM-dependent: button_size_ratio, layout_symmetry, label_clarity)
-5. **Implement Layer 3 Transparency** (topic coverage + framing analysis with LLM)
-6. **Implement Layer 3 Unbiased Choice** (VLM)
-7. **Implement `report.generator`** → first real AuditReport
-8. **Implement `storage.*`** → first persistence
-9. **Implement `diff.engine`** + run on 2 consecutive weeks → first ChangeEvents
-10. **Scale to full sites.csv** for one weekly run → first real dataset
-11. **Begin paper draft** with the first real dataset as evidence
+1. **Run Week 2 live capture** with `week2-cycle`.
+2. **Refresh and sanity-check evidence** with `week2-refresh-outputs`, `week2-sanity-check`, and `research-status`.
+3. **Resolve CMP/manual-review decisions** after advisor/human confirmation; do not auto-apply draft decisions.
+4. **Expand the deep sample carefully** toward ~20 sites only when the Week 2 evidence gate is stable.
+5. **Create paper-ready figures** from `data/research_package/`; RQ1/RQ2 Markdown results tables are generated and should be refreshed after each capture.
+6. **Write the SSRP paper draft** around RQ1 scoring evidence and RQ2 longitudinal observations.
+7. **Polish poster/demo artifacts** from the generated poster plan after the paper evidence story is coherent.
 
-If Alfred chooses Angle C or D (decision 1) or adds an `EvidenceCard` schema (decision 3), those are inserted between steps 7 and 8 — they extend output, not the audit core.
+If automation becomes unstable, preserve the paper by switching to a
+semi-automated protocol: traceable screenshots, DOM/text hashes, consent-table
+rows, manual validation notes, and explicit limitations.
 
 ---
 

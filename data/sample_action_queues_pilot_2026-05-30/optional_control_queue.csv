@@ -1,0 +1,2 @@
+queue_name,url,name,category,cohort,readiness_status,worksheet_decision,lock_status,priority,next_action,access_screenshot_path,capture_screenshot_ref,capture_dom_snapshot_ref,lock_notes
+optional_control_queue,https://www.wikipedia.org,Wikipedia,reference,smoke,control_candidate,,optional_control,4,keep only if a no-banner control is needed,captures/access_probe/www_wikipedia_org.png,,,no banner observed; keep only as control if intentional

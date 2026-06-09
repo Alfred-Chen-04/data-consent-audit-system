@@ -1,8 +1,8 @@
 """Thin wrappers around LLM/VLM providers. Every call goes through budget tracking."""
 
-from consent_audit.llm.budget import BudgetLedger, BudgetExceeded
-from consent_audit.llm.text import classify_topics, analyze_framing
-from consent_audit.llm.vision import locate_pathways, analyze_visual_features
+from consent_audit.llm.budget import BudgetExceeded, BudgetLedger
+from consent_audit.llm.text import analyze_framing, classify_topics
+from consent_audit.llm.vision import analyze_visual_features, locate_pathways
 
 __all__ = [
     "BudgetExceeded",

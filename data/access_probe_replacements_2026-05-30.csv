@@ -1,0 +1,13 @@
+url,final_url,http_status,load_time_ms,page_title,banner_detected,banner_selector_hit,block_signal,screenshot_path,error,notes
+https://www.forbes.com,https://www.forbes.com/,200,1105,Forbes,False,,captcha,captures/access_probe/www_forbes_com.png,,networkidle timeout (likely ok)
+https://www.usatoday.com,https://www.usatoday.com/,200,469,USA TODAY - Breaking News and Latest News Today,False,,,captures/access_probe/www_usatoday_com.png,,networkidle timeout (likely ok)
+https://apnews.com,https://apnews.com/,200,1243,"Associated Press News: Breaking News, Latest Headlines and Videos | AP News",False,,,captures/access_probe/apnews_com.png,,networkidle timeout (likely ok)
+https://www.homedepot.com,https://www.homedepot.com/,403,497,Access Denied,False,,access_denied,captures/access_probe/www_homedepot_com.png,,
+https://www.ebay.com,https://www.ebay.com/,200,2437,"Electronics, Cars, Fashion, Collectibles & More | eBay",False,,,captures/access_probe/www_ebay_com.png,,networkidle timeout (likely ok)
+https://www.etsy.com,https://www.etsy.com/,403,399,etsy.com,False,,http_403,captures/access_probe/www_etsy_com.png,,
+https://www.tripadvisor.com,https://www.tripadvisor.com/,403,469,tripadvisor.com,False,,http_403,captures/access_probe/www_tripadvisor_com.png,,
+https://www.expedia.com,https://www.expedia.com/,429,1145,Bot or Not?,False,,http_429,captures/access_probe/www_expedia_com.png,,
+https://www.bestbuy.com,https://www.bestbuy.com/,200,9885,Best Buy International: Select your Country - Best Buy,False,,,captures/access_probe/www_bestbuy_com.png,,networkidle timeout (likely ok)
+https://www.indeed.com,https://jp.indeed.com/?r=us,200,1300,仕事探し | Indeed (インディード),False,,,captures/access_probe/www_indeed_com.png,,
+https://www.webmd.com,https://www.webmd.com/,200,919,WebMD - Better information. Better health.,False,,captcha,captures/access_probe/www_webmd_com.png,,networkidle timeout (likely ok)
+https://weather.com,https://weather.com/?Goto=Redirected,200,2792,"National and Local Weather Radar, Daily Forecast, Hurricane and information from The Weather Channel and weather.com",True,"[id^=""sp_message_container""]",,captures/access_probe/weather_com.png,,

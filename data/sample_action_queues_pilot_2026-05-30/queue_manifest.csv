@@ -1,0 +1,6 @@
+queue_name,row_count
+weekly_capture_shortlist,4
+manual_review_queue,8
+rerun_capture_queue,0
+replacement_review_queue,2
+optional_control_queue,1

@@ -23,6 +23,7 @@ This project sits in the gap none of them close: **multimodal AI grounding (VLM 
 | [docs/architecture.md](docs/architecture.md) | Technical architecture, data flow, module boundaries |
 | [docs/related_work/background_with_citations.md](docs/related_work/background_with_citations.md) | Lit review + regulatory framework + user ecosystem (cited) |
 | [docs/related_work/legal_cheatsheet.md](docs/related_work/legal_cheatsheet.md) | 1-page reference: the 8 legal anchors every audit metric maps to |
+| [docs/research/week2_execution_runbook_2026-06-06.md](docs/research/week2_execution_runbook_2026-06-06.md) | Current Week 2 capture + advisor-review runbook |
 | [Chen_Qianyi_SSRP 2026_Proposal_Final Version.docx.pdf](./Chen_Qianyi_SSRP%202026_Proposal_Final%20Version.docx.pdf) | Original SSRP research proposal |
 
 ## Quick start (WIP)
@@ -34,14 +35,115 @@ uv sync
 # Install Playwright browsers (first time only)
 uv run playwright install chromium
 
-# Week 0 — access feasibility probe (runs before any LLM/VLM is involved)
-uv run python scripts/access_probe.py --sites data/sites.csv --out data/access_probe_v0.csv
+# Print the current SSRP research state and next action
+uv run consent-audit research-status
+
+# Check that a real capture CSV has no placeholders, duplicates, or malformed URLs.
+# data/sites.csv is still a scaffold placeholder until the broader mentor list is approved.
+uv run consent-audit validate-sites --sites-csv data/week2_deep_sample_targets_2026-06-06.csv
+
+# Week 0 — access feasibility probe for a real candidate/sample CSV
+uv run consent-audit access-probe --sites-csv data/deep_sample_candidates.csv --out-csv data/access_probe_v0.csv
+
+# Summarize the access probe for mentor/advisor triage
+uv run consent-audit access-probe-summary --csv-path data/access_probe_v0.csv
 
 # Audit a single URL
-uv run python scripts/run_audit.py --url https://example.com
+uv run consent-audit audit https://example.com
 
-# Run the weekly pipeline against all sites in data/sites.csv
-uv run python scripts/run_weekly.py
+# Run the generic weekly pipeline against an explicit, validated site list.
+# The Week 2 cycle command below is preferred for the frozen 2026-06-06 run.
+uv run consent-audit weekly --sites-csv data/week2_deep_sample_targets_2026-06-06.csv --consent-table-path data/consent_table_pilot_2026-05-30.csv --cohort week2-2026-06-06
+
+# Summarize candidate readiness for advisor/sample review
+uv run consent-audit sample-readiness
+
+# Export sites needing CMP/manual review with evidence refs
+uv run consent-audit cmp-review-queue
+
+# Export a fillable decision worksheet for CMP/manual review
+uv run consent-audit cmp-review-worksheet
+
+# Export a static HTML/Markdown evidence packet for CMP/manual review
+uv run consent-audit cmp-review-packet
+
+# Export non-final suggested worksheet decisions from DOM evidence
+uv run consent-audit cmp-review-suggestions
+
+# Export a human-confirmable draft decision table for pending CMP rows
+uv run consent-audit cmp-review-decision-draft
+
+# Export the sheet an advisor fills to confirm or override CMP draft decisions
+uv run consent-audit cmp-review-confirmation-sheet
+
+# Apply explicitly confirmed CMP decisions to a worksheet copy
+uv run consent-audit cmp-review-apply-confirmations
+
+# Export fresh-context rerun site-list rows from CMP suggestions
+uv run consent-audit cmp-review-rerun-targets
+
+# Export the current sample-lock action plan
+uv run consent-audit sample-lock-plan
+
+# Split the sample-lock plan into concrete next-action queues
+uv run consent-audit sample-action-queues
+
+# Export the next weekly-capture target list from shortlist + rerun queues
+uv run consent-audit sample-weekly-targets
+
+# Review replacement candidates and promote only verified full-pipeline rows
+uv run consent-audit replacement-review
+
+# Add verified replacements to the next weekly-capture target list
+uv run consent-audit expanded-weekly-targets
+
+# Freeze the current Week 2 default capture list
+uv run consent-audit week2-capture-targets
+
+# Export a compact advisor update from current targets/results/review state
+uv run consent-audit advisor-update-brief
+
+# Export a current evidence-grounded SSRP paper skeleton
+uv run consent-audit ssrp-paper-skeleton
+
+# Export paper-ready RQ1/RQ2 Markdown results tables
+uv run consent-audit ssrp-results-tables
+
+# Export a figure queue for the paper/poster
+uv run consent-audit ssrp-figure-plan
+
+# Export draftable paper notes for methods/results/discussion/limitations
+uv run consent-audit ssrp-writing-pack
+
+# Export an evidence/status register for paper claims
+uv run consent-audit ssrp-claim-register
+
+# Export a poster storyboard and asset checklist
+uv run consent-audit ssrp-poster-plan
+
+# Check whether the Week 2 capture run produced complete evidence rows
+uv run consent-audit week2-sanity-check
+
+# Export the single advisor check-in index linking Week 2 evidence artifacts
+uv run consent-audit checkin-index
+
+# Export the Week 2 capture-day operator checklist
+uv run consent-audit week2-capture-checklist
+
+# Check whether Week 2 inputs are ready before running browser capture
+uv run consent-audit week2-preflight-check
+
+# Refresh the full Week 2 paper/advisor package after a capture run
+uv run consent-audit week2-refresh-outputs
+
+# Dry-run the full Week 2 cycle without opening browser capture
+uv run consent-audit week2-cycle --dry-run
+
+# Run the full Week 2 cycle: preflight, browser capture, then refresh outputs
+uv run consent-audit week2-cycle
+
+# Export paper-facing RQ1/RQ2 tables plus a manifest
+uv run consent-audit export-research-package
 ```
 
 ## Repository layout
@@ -55,7 +157,7 @@ src/consent_audit/
 ├── storage/    — DB + object storage
 ├── diff/       — longitudinal diff engine
 └── report/     — report rendering
-scripts/        — CLI entry points
+scripts/        — direct-execution wrappers and research utility scripts
 data/           — site list, capture artifacts (gitignored)
 tests/          — unit + integration tests
 docs/           — architecture, references, paper drafts
@@ -63,4 +165,29 @@ docs/           — architecture, references, paper drafts
 
 ## Status
 
-Stage 0 — scaffolding. See the plan at `~/.claude/plans/proposal-proposal-ai-encapsulated-neumann.md`.
+Current research cycle: Week 2 evidence gate completed as of 2026-06-06.
+
+- Core capture/scoring/export pipeline is executable for the pilot sample and the frozen Week 2 targets.
+- Current paper-facing exports contain 42 audit reports and 20 longitudinal weekly summaries.
+- Week 2 default capture list is `data/week2_deep_sample_targets_2026-06-06.csv`.
+- The Week 2 live cycle completed 5/5 captures; sanity is `ready`.
+- Next operational step is advisor/sample review before expanding toward the roughly 20-site deep sample.
+- Current post-capture advisor email draft is [docs/research/advisor_email_post_capture_draft_2026-06-06.md](docs/research/advisor_email_post_capture_draft_2026-06-06.md).
+- The Week 2 capture runbook remains [docs/research/week2_execution_runbook_2026-06-06.md](docs/research/week2_execution_runbook_2026-06-06.md).
+- Current advisor-facing update brief is [docs/research/week2_advisor_update_2026-06-06.md](docs/research/week2_advisor_update_2026-06-06.md).
+- Current evidence-grounded paper skeleton is [docs/research/ssrp_paper_skeleton_2026-06-06.md](docs/research/ssrp_paper_skeleton_2026-06-06.md).
+- Current paper-ready RQ1/RQ2 results tables are [docs/research/ssrp_results_tables_2026-06-06.md](docs/research/ssrp_results_tables_2026-06-06.md).
+- Current paper/poster figure plan is [docs/research/ssrp_figure_plan_2026-06-06.md](docs/research/ssrp_figure_plan_2026-06-06.md).
+- Current paper writing pack is [docs/research/ssrp_writing_pack_2026-06-06.md](docs/research/ssrp_writing_pack_2026-06-06.md).
+- Current paper claim register is [docs/research/ssrp_claim_register_2026-06-06.md](docs/research/ssrp_claim_register_2026-06-06.md).
+- Current SSRP poster plan is [docs/research/ssrp_poster_plan_2026-06-06.md](docs/research/ssrp_poster_plan_2026-06-06.md).
+- Current remaining-work audit is [docs/research/ssrp_remaining_work_audit_2026-05-30.md](docs/research/ssrp_remaining_work_audit_2026-05-30.md).
+- Current CMP confirmation request is [docs/research/cmp_confirmation_request_2026-05-30.md](docs/research/cmp_confirmation_request_2026-05-30.md).
+- Current Week 2 sanity check is [docs/research/week2_sanity_check_2026-06-06.md](docs/research/week2_sanity_check_2026-06-06.md).
+- Current Week 2 advisor check-in index is [docs/research/week2_checkin_index_2026-06-06.md](docs/research/week2_checkin_index_2026-06-06.md).
+- Current Week 2 capture-day checklist is [docs/research/week2_capture_day_checklist_2026-06-06.md](docs/research/week2_capture_day_checklist_2026-06-06.md).
+- Current Week 2 cycle report is [docs/research/week2_cycle_report_2026-06-06.md](docs/research/week2_cycle_report_2026-06-06.md).
+- Current Week 2 preflight check is [docs/research/week2_preflight_check_2026-06-06.md](docs/research/week2_preflight_check_2026-06-06.md).
+- Current Week 2 refresh report is [docs/research/week2_refresh_report_2026-06-06.md](docs/research/week2_refresh_report_2026-06-06.md).
+- Run `uv run consent-audit research-status` for a compact current-state dashboard and next action.
+- The 8 pending CMP/manual-review rows remain advisor-review material, not locked sample decisions.
