@@ -11,6 +11,8 @@ Use this index as the first file for advisor check-ins.
 
 ## Read First
 
+- [Evidence-based next-step advisor email, 2026-06-09](advisor_email_evidence_based_next_steps_2026-06-09.md)
+- [Recent work evidence audit, 2026-06-09](recent_work_evidence_audit_2026-06-09.md)
 - [Today work note, 2026-06-09](today_work_note_2026-06-09.md)
 - [Advisor update](week2_advisor_update_2026-06-06.md)
 - [Sanity check](week2_sanity_check_2026-06-06.md)
