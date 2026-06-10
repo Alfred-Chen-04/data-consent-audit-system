@@ -11,6 +11,7 @@ Use this index as the first file for advisor check-ins.
 
 ## Read First
 
+- [Today work note, 2026-06-10](today_work_note_2026-06-10.md)
 - [Evidence-based next-step advisor email, 2026-06-09](advisor_email_evidence_based_next_steps_2026-06-09.md)
 - [Recent work evidence audit, 2026-06-09](recent_work_evidence_audit_2026-06-09.md)
 - [Today work note, 2026-06-09](today_work_note_2026-06-09.md)
@@ -27,6 +28,7 @@ Use this index as the first file for advisor check-ins.
 - [Research manifest](../../data/research_package/research_manifest.json)
 - [Audit report summary](../../data/research_package/audit_report_summary.csv)
 - [Longitudinal summary](../../data/research_package/longitudinal_summary.csv)
+- [Week 2 manual evidence review worksheet](../../data/week2_manual_evidence_review_2026-06-10.csv)
 
 ## Manual Review
 
