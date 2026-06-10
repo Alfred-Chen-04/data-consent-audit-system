@@ -11,6 +11,7 @@ Use this index as the first file for advisor check-ins.
 
 ## Read First
 
+- [Full project fact audit, 2026-06-10](full_project_fact_audit_2026-06-10.md)
 - [Today work note, 2026-06-10](today_work_note_2026-06-10.md)
 - [Evidence-based next-step advisor email, 2026-06-09](advisor_email_evidence_based_next_steps_2026-06-09.md)
 - [Recent work evidence audit, 2026-06-09](recent_work_evidence_audit_2026-06-09.md)

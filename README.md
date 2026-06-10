@@ -158,7 +158,7 @@ src/consent_audit/
 ├── diff/       — longitudinal diff engine
 └── report/     — report rendering
 scripts/        — direct-execution wrappers and research utility scripts
-data/           — site list, capture artifacts (gitignored)
+data/           — site lists, research exports, and selected evidence artifacts
 tests/          — unit + integration tests
 docs/           — architecture, references, paper drafts
 ```
@@ -189,5 +189,7 @@ Current research cycle: Week 2 evidence gate completed as of 2026-06-06.
 - Current Week 2 cycle report is [docs/research/week2_cycle_report_2026-06-06.md](docs/research/week2_cycle_report_2026-06-06.md).
 - Current Week 2 preflight check is [docs/research/week2_preflight_check_2026-06-06.md](docs/research/week2_preflight_check_2026-06-06.md).
 - Current Week 2 refresh report is [docs/research/week2_refresh_report_2026-06-06.md](docs/research/week2_refresh_report_2026-06-06.md).
+- Current Week 2 manual evidence review worksheet is [data/week2_manual_evidence_review_2026-06-10.csv](data/week2_manual_evidence_review_2026-06-10.csv).
+- Current full fact audit is [docs/research/full_project_fact_audit_2026-06-10.md](docs/research/full_project_fact_audit_2026-06-10.md).
 - Run `uv run consent-audit research-status` for a compact current-state dashboard and next action.
 - The 8 pending CMP/manual-review rows remain advisor-review material, not locked sample decisions.

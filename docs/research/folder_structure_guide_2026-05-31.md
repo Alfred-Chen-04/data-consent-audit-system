@@ -627,9 +627,9 @@
 
 当前状态：
 
-- 37 audit reports。
-- 15 longitudinal summaries。
-- 结果仍是 pre-Week-2-live-capture provisional。
+- 42 audit reports。
+- 20 longitudinal summaries。
+- Week 2 live capture 已完成，sanity 是 `ready`。
 
 ### Reports store
 
@@ -903,8 +903,8 @@
 
 未完成 / 仍然 gated：
 
-- 2026-06-06 live Week 2 capture 还没跑。
-- Week 2 sanity check 还是 `pending_capture`。
+- Week 2 sanity check 已经是 `ready`。
+- 5 个 Week 2 evidence bundles 需要用 `data/week2_manual_evidence_review_2026-06-10.csv` 做人工确认。
 - 8 个 CMP/manual-review rows 还没有导师/人工确认。
 - deep sample 目前只有 5 个 frozen targets，还没扩到约 20 个。
 - paper/poster 还不是 final draft，只是 scaffold/provisional artifacts。
@@ -954,4 +954,3 @@ PYTHONPATH=src .venv/bin/python -m consent_audit.cli research-status
 4. capture 后跑 refresh 和 sanity。
 5. 再扩 sample，不要现在盲目追 80+。
 6. 每周把 evidence 写回 paper skeleton / writing pack。
-

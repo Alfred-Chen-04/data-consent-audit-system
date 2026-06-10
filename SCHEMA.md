@@ -304,7 +304,7 @@ Ranked by feasibility of being a first user, per [background_with_citations.md Â
 
 ## 9. Status â€” Current Working State
 
-This section reflects the local Week 2 research workspace as of 2026-06-06.
+This section reflects the local Week 2 research workspace as of 2026-06-10.
 For a live one-screen view, run `consent-audit research-status`.
 
 ### 9.1 Current executable workflow
@@ -324,6 +324,7 @@ For a live one-screen view, run `consent-audit research-status`.
 - [x] `docs/research/cmp_confirmation_request_2026-05-30.md` now gives the advisor/human reviewer a row-by-row request for resolving the 8 pending CMP/manual-review confirmations.
 - [x] The frozen Week 2 target list is `data/week2_deep_sample_targets_2026-06-06.csv` with 5 active sites across finance, food, news, and travel.
 - [x] Week 2 preflight is `ready_for_capture`; the latest cycle report is `completed`, with 5/5 live captures and `ready` sanity status.
+- [x] `data/week2_manual_evidence_review_2026-06-10.csv` now prepares the five Week 2 evidence bundles for human confirmation before sample expansion.
 - [x] `week2-cycle --dry-run` rehearses the capture day without opening browser capture; `week2-cycle` runs preflight, live weekly capture, refresh outputs, and writes the cycle report.
 - [x] Tests now cover models, capture helpers, layers, diffing, storage, reports, exports, sample-lock artifacts, Week 2 run controls, and direct script wrappers.
 
