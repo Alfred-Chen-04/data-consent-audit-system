@@ -1,0 +1,6 @@
+url,name,category,inherited_from_phd_mentor,notes
+https://www.theguardian.com,The Guardian,news,false,week3_continuity_candidate: rerun current Week 2 target if prioritizing longitudinal continuity
+https://www.cnn.com,CNN,news,false,week3_continuity_candidate: rerun current Week 2 no-visible-banner contrast candidate if advisor has not changed the table rule
+https://www.booking.com,Booking.com,travel,false,week3_continuity_candidate: rerun current Week 2 no-visible-banner contrast candidate if advisor has not changed the table rule
+https://www.nerdwallet.com,NerdWallet,finance,false,week3_continuity_candidate: rerun current Week 2 no-visible-banner contrast candidate if advisor has not changed the table rule
+https://www.coca-cola.com/us/en,Coca-Cola,food,false,week3_continuity_candidate: rerun current Week 2 banner-present manual-review case for longitudinal continuity

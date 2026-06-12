@@ -116,6 +116,7 @@ audit invariants.
 | 103. Standalone Week 2 CLI path fix | complete | Corrected `week2-sanity-check` and `advisor-update-brief` defaults so standalone commands read the refreshed research-package CSVs and preserve the completed Week 2 `ready` status. |
 | 104. No-visible-banner evidence correction | complete | Added `banner_detected` to audit exports, regenerated paper-facing materials with banner_present=2 and no_visible_banner=3, and added a direct June 8 next-step advisor email draft. |
 | 105. June 11 daily review and evidence cards | complete | Ran the daily status/sanity checks, documented the no-capture daily routine, and added two minimal banner-present evidence cards for The Guardian and Coca-Cola. |
+| 106. June 13 capture decision packet | complete | Prepared a current-five continuity target list and a decision packet explaining when to run the next live capture versus wait for advisor sample decisions. |
 
 ## Decisions
 

@@ -11,6 +11,8 @@ Use this index as the first file for advisor check-ins.
 
 ## Read First
 
+- [June 13 capture decision packet, 2026-06-13](june13_capture_decision_packet_2026-06-13.md)
+- [Advisor email review questions, 2026-06-11](advisor_email_review_questions_2026-06-11.md)
 - [Today work note, 2026-06-11](today_work_note_2026-06-11.md)
 - [Week 2 evidence cards, 2026-06-11](week2_evidence_cards_2026-06-11.md)
 - [Latest advisor email draft, 2026-06-10](advisor_email_latest_update_2026-06-10.md)
