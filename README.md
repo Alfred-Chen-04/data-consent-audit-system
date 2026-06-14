@@ -166,13 +166,18 @@ docs/           — architecture, references, paper drafts
 ## Status
 
 Current research cycle: Week 2 evidence gate completed as of 2026-06-06.
+The attempted Week 3 continuity capture on 2026-06-14 failed at browser
+navigation for all five current targets and did not produce valid new
+consent-interface observations.
 
 - Core capture/scoring/export pipeline is executable for the pilot sample and the frozen Week 2 targets.
 - Current paper-facing exports contain 42 audit reports and 20 longitudinal weekly summaries.
 - Week 2 default capture list is `data/week2_deep_sample_targets_2026-06-06.csv`.
 - The Week 2 live cycle completed 5/5 captures; sanity is `ready`.
-- Next operational step is advisor/sample review before expanding toward the roughly 20-site deep sample.
-- Current post-capture advisor email draft is [docs/research/advisor_email_post_capture_draft_2026-06-06.md](docs/research/advisor_email_post_capture_draft_2026-06-06.md).
+- Next operational step is advisor/sample review, followed by either a
+  one-site browser smoke + current-five rerun or a target-list adjustment before
+  expanding toward the roughly 20-site deep sample.
+- Current advisor email draft is [docs/research/advisor_email_latest_2026-06-15.md](docs/research/advisor_email_latest_2026-06-15.md).
 - The Week 2 capture runbook remains [docs/research/week2_execution_runbook_2026-06-06.md](docs/research/week2_execution_runbook_2026-06-06.md).
 - Current advisor-facing update brief is [docs/research/week2_advisor_update_2026-06-06.md](docs/research/week2_advisor_update_2026-06-06.md).
 - Current evidence-grounded paper skeleton is [docs/research/ssrp_paper_skeleton_2026-06-06.md](docs/research/ssrp_paper_skeleton_2026-06-06.md).
@@ -190,6 +195,9 @@ Current research cycle: Week 2 evidence gate completed as of 2026-06-06.
 - Current Week 2 preflight check is [docs/research/week2_preflight_check_2026-06-06.md](docs/research/week2_preflight_check_2026-06-06.md).
 - Current Week 2 refresh report is [docs/research/week2_refresh_report_2026-06-06.md](docs/research/week2_refresh_report_2026-06-06.md).
 - Current Week 2 manual evidence review worksheet is [data/week2_manual_evidence_review_2026-06-10.csv](data/week2_manual_evidence_review_2026-06-10.csv).
+- Current Week 3 continuity target list is [data/week3_continuity_targets_2026-06-13.csv](data/week3_continuity_targets_2026-06-13.csv).
+- Current June 14 capture attempt audit is [docs/research/june14_capture_attempt_audit_2026-06-14.md](docs/research/june14_capture_attempt_audit_2026-06-14.md).
+- Current full project audit is [docs/research/full_project_audit_2026-06-15.md](docs/research/full_project_audit_2026-06-15.md).
 - Current full fact audit is [docs/research/full_project_fact_audit_2026-06-10.md](docs/research/full_project_fact_audit_2026-06-10.md).
 - Run `uv run consent-audit research-status` for a compact current-state dashboard and next action.
 - The 8 pending CMP/manual-review rows remain advisor-review material, not locked sample decisions.
