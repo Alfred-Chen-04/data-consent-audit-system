@@ -304,7 +304,7 @@ Ranked by feasibility of being a first user, per [background_with_citations.md Â
 
 ## 9. Status â€” Current Working State
 
-This section reflects the local Week 2 research workspace as of 2026-06-06.
+This section reflects the local Week 2 research workspace as of 2026-06-15.
 For a live one-screen view, run `consent-audit research-status`.
 
 ### 9.1 Current executable workflow
@@ -324,6 +324,10 @@ For a live one-screen view, run `consent-audit research-status`.
 - [x] `docs/research/cmp_confirmation_request_2026-05-30.md` now gives the advisor/human reviewer a row-by-row request for resolving the 8 pending CMP/manual-review confirmations.
 - [x] The frozen Week 2 target list is `data/week2_deep_sample_targets_2026-06-06.csv` with 5 active sites across finance, food, news, and travel.
 - [x] Week 2 preflight is `ready_for_capture`; the latest cycle report is `completed`, with 5/5 live captures and `ready` sanity status.
+- [x] `data/week2_manual_evidence_review_2026-06-10.csv` now prepares the five Week 2 evidence bundles for human confirmation before sample expansion.
+- [x] `data/week3_continuity_targets_2026-06-13.csv` prepares a current-five continuity rerun list for Week 3.
+- [x] `docs/research/june14_capture_attempt_audit_2026-06-14.md` records the failed Week 3 capture attempt: 5/5 browser navigation failures, no valid screenshots/DOM, and no new RQ1/RQ2 result.
+- [x] `docs/research/full_project_audit_2026-06-15.md` records the current project audit and the latest safe/unsafe claims.
 - [x] `week2-cycle --dry-run` rehearses the capture day without opening browser capture; `week2-cycle` runs preflight, live weekly capture, refresh outputs, and writes the cycle report.
 - [x] Tests now cover models, capture helpers, layers, diffing, storage, reports, exports, sample-lock artifacts, Week 2 run controls, and direct script wrappers.
 
@@ -331,7 +335,8 @@ For a live one-screen view, run `consent-audit research-status`.
 - [x] Run the live Week 2 capture cycle for cohort `week2-2026-06-06`.
 - [x] Rerun `week2-refresh-outputs` and confirm `week2-sanity-check` moves from `pending_capture` to `ready`.
 - [ ] Advisor/human confirmation is still needed for the 8 pending CMP/manual-review rows before changing sample-lock status.
-- [ ] The deep sample is currently 5 frozen Week 2 targets; expand toward ~20 well-documented sites only after the capture/evidence gate stays stable.
+- [ ] The deep sample is currently 5 frozen Week 2 targets; expand toward ~20 well-documented sites only after the capture/evidence gate stays stable and the no-visible-banner rule is confirmed.
+- [ ] Week 3 continuity capture should be rerun only after a one-site browser smoke or a healthier browser/network context; the 2026-06-14 attempt is a failed capture-context observation, not consent-interface evidence.
 - [ ] The SSRP paper draft still needs final prose and figure rendering from the research package; current RQ1/RQ2 tables, figure plan, writing pack, and claim register are generated from the completed Week 2 evidence gate but are not the final 10-week dataset.
 - [ ] Poster and demo polish remain later deliverables after the evidence chain is stable.
 
@@ -363,11 +368,11 @@ For a live one-screen view, run `consent-audit research-status`.
 The implementation core now exists. The critical path is no longer "make the
 pipeline run"; it is "turn repeatable captures into a defensible SSRP paper."
 
-1. **Run Week 2 live capture** with `week2-cycle`.
-2. **Refresh and sanity-check evidence** with `week2-refresh-outputs`, `week2-sanity-check`, and `research-status`.
-3. **Resolve CMP/manual-review decisions** after advisor/human confirmation; do not auto-apply draft decisions.
-4. **Expand the deep sample carefully** toward ~20 sites only when the Week 2 evidence gate is stable.
-5. **Create paper-ready figures** from `data/research_package/`; RQ1/RQ2 Markdown results tables are generated and should be refreshed after each capture.
+1. **Use Week 2 as the current valid evidence gate**: 42 audit reports, 20 longitudinal summaries, sanity `ready`.
+2. **Send the latest advisor email** and resolve the no-visible-banner table rule, current-five evidence-card order, sample expansion priority, and 8 pending CMP/manual-review rows.
+3. **Rerun Week 3 continuity capture only after a one-site browser smoke** or after the browser/network context is healthier; the 2026-06-14 attempt failed 0/5 and should not be used as RQ1/RQ2 evidence.
+4. **Expand the deep sample carefully** toward ~20 sites only when the evidence-coding rule and capture stability are clear.
+5. **Refresh paper-ready figures and tables** from `data/research_package/` after any successful new capture.
 6. **Write the SSRP paper draft** around RQ1 scoring evidence and RQ2 longitudinal observations.
 7. **Polish poster/demo artifacts** from the generated poster plan after the paper evidence story is coherent.
 

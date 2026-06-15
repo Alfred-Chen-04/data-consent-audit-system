@@ -60,16 +60,16 @@
 当前状态可以这样理解：
 
 - 核心 pipeline 已经有了：capture -> scoring -> report -> weekly diff -> research export。
-- 现在研究包里有 37 个 audit reports。
-- 现在有 15 个 longitudinal summaries。
-- Week 2 冻结了 5 个 capture targets。
+- 现在研究包里有 42 个 audit reports。
+- 现在有 20 个 longitudinal summaries。
+- Week 2 冻结的 5 个 capture targets 已经完成 live capture。
 - paper skeleton、results tables、figure plan、writing pack、claim register、poster plan 都已经生成了。
-- 这些 paper/poster artifacts 现在只是 provisional，不是最终结果。
+- 这些 paper/poster artifacts 现在是 Week 2 evidence-gate scaffold，不是最终 10 周结果。
 
 当前主要卡点：
 
-- Week 2 live capture 要等到 2026-06-06。
-- Week 2 sanity check 还是 `pending_capture`。
+- Week 2 sanity check 已经是 `ready`。
+- 5 个 Week 2 evidence bundles 需要人工确认/标注，入口是 `data/week2_manual_evidence_review_2026-06-10.csv`。
 - 8 个 CMP/manual-review rows 还需要人类/advisor 确认。
 - deep sample 目前只有 5 个 frozen targets，还没到大约 20 个。
 
@@ -115,20 +115,23 @@ PYTHONPATH=src .venv/bin/python -m consent_audit.cli research-status
 你要看到：
 
 - preflight 是 `ready_for_capture`
-- sanity 是 `pending_capture`
-- cycle 是 `scheduled_date_not_reached`，直到 2026-06-06
+- sanity 是 `ready`
+- cycle 是 `completed`
 
-这不是失败，只是说明还没到 capture date。
+如果状态不是这样，要先看 `docs/research/week2_cycle_report_2026-06-06.md`
+和 `docs/research/week2_sanity_check_2026-06-06.md` 找原因。
 
-### Step 3：2026-06-06 做 Week 2 capture
+### Step 3：人工 review 5 个 Week 2 evidence bundles
 
-到 2026-06-06 再跑 live cycle。不要提前跑，除非你明确记录 early-run risk。
+Week 2 live cycle 已经完成。现在不要盲目再跑 capture，先人工看 5 个
+evidence bundles。
 
-目标不是“所有网站都完美”。目标是：
+目标不是“所有网站都完美”。目标是确认：
 
-- 每个 target 至少有清楚的成功/失败记录。
-- 有 screenshot / DOM / hash / report。
-- 失败的网站有 failure reason。
+- 哪些是真的 banner-present case。
+- 哪些是 no-visible-banner contrast candidate。
+- 哪些适合留在 deep sample。
+- 哪些更适合作为 contrast 或 replacement。
 
 ### Step 4：capture 后立刻 refresh + sanity check
 
