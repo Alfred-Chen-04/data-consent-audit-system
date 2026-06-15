@@ -119,6 +119,7 @@ audit invariants.
 | 106. June 13 capture decision packet | complete | Prepared a current-five continuity target list and a decision packet explaining when to run the next live capture versus wait for advisor sample decisions. |
 | 107. June 14 failed capture evidence audit | complete | Attempted the prepared Week 3 current-five capture, recorded the 0/5 browser navigation failure, cross-checked HTTP reachability, and documented why no Week 3 RQ1/RQ2 result should be inferred. |
 | 108. June 15 project audit and advisor email | complete | Audited current project facts, fixed stale README/SCHEMA navigation wording, and added the latest sendable advisor email reflecting the failed June 14 capture attempt. |
+| 109. June 15 Coca-Cola smoke capture | complete | Ran a one-site `--no-save` Coca-Cola smoke after the June 14 failure; browser capture succeeded with screenshot/DOM evidence, but automated Layer 1 missed visible OneTrust controls. |
 
 ## Decisions
 

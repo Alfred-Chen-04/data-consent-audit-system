@@ -10,10 +10,12 @@ the fixes made on 2026-06-15.
 
 | Evidence | Current fact |
 |---|---|
-| `git status --short --branch` | Branch is `codex/ssrp-plan-mvp` and was clean before this audit edit. |
-| `git log --oneline -5` | Latest committed work before this audit was `3d6feb9 Record June 14 capture attempt audit`. |
+| `git status --short --branch` | Branch is `main` and was synced with `origin/main` before the June 15 smoke artifacts were added. |
+| `git log --oneline -5` | Latest committed work before the smoke update was `993b67b Merge pull request #3 from Alfred-Chen-04/codex/ssrp-plan-mvp`. |
 | `consent-audit research-status` | Week 2 sanity `ready`, cycle `completed`, 42 audit reports, 20 longitudinal summaries, 8 CMP confirmations pending. |
 | `docs/research/june14_capture_attempt_audit_2026-06-14.md` | Week 3 continuity capture was attempted but failed 0/5 at browser navigation; no new RQ1/RQ2 result should be inferred. |
+| `docs/research/june15_coca_cola_smoke_audit_2026-06-15.md` | A one-site Coca-Cola smoke run produced screenshot/DOM evidence, but automated Layer 1 missed visible OneTrust controls. |
+| `data/smoke_coca_cola_2026-06-15_dom_evidence.csv` | Synced DOM evidence excerpt for the visible OneTrust controls without committing the full raw webpage HTML. |
 | `data/week3_continuity_targets_2026-06-13.csv` | Prepared current-five continuity target list validates as 5 active sites. |
 | `docs/research/week2_checkin_index_2026-06-06.md` | Current advisor entrypoint links the June 14 failure audit and June 13 capture decision packet. |
 | `docs/research/ssrp_results_tables_2026-06-06.md` | Current paper-facing RQ1/RQ2 tables still reflect Week 2 evidence, not a Week 3 update. |
@@ -33,11 +35,17 @@ the fixes made on 2026-06-15.
   across all five targets and produced no valid screenshot/DOM observations.
 - The June 14 failure should not be interpreted as site behavior, consent
   interface change, no-banner evidence, or pathway availability evidence.
+- A June 15 Coca-Cola one-site smoke capture succeeded and produced screenshot
+  and DOM evidence, so the browser context is not globally broken.
+- The June 15 smoke also exposed an extraction issue: the screenshot/DOM show
+  OneTrust controls, but automated Layer 1 recorded Accept/Reject/Customize as
+  unavailable.
 - The 8 CMP/manual-review rows are still pending and should not be silently
   applied to sample-lock decisions.
 - The next advisor-facing question is now broader than "should we run June 13":
-  it should include how to handle the failed June 14 capture and whether to
-  rerun after a one-site browser smoke.
+  it should include how to handle the failed June 14 capture, the successful
+  June 15 smoke capture, and the OneTrust recognition gap before any full
+  current-five rerun.
 
 ## Problems Found On 2026-06-15
 
@@ -45,7 +53,7 @@ the fixes made on 2026-06-15.
 |---|---|---|
 | README still pointed to the June 6 post-capture email as the current advisor email. | It could cause an outdated email to be sent instead of the current June 15 version. | Updated README to point to the June 15 advisor email and latest check-in index. |
 | SCHEMA status date stopped at 2026-06-10. | The navigator did not mention the June 13 target list or June 14 failed capture evidence audit. | Updated SCHEMA current-state wording and execution order. |
-| The operational next step still read like the next work was simply Week 2 / sample review. | After the failed Week 3 attempt, the immediate action should be advisor review plus a controlled rerun decision. | Added June 14 failure handling and one-site smoke recommendation. |
+| The operational next step still read like the next work was simply Week 2 / sample review. | After the failed Week 3 attempt and the June 15 smoke, the immediate action should be advisor review plus a decision on OneTrust recognition/manual validation before a full rerun. | Added June 14 failure handling and June 15 smoke interpretation. |
 | The June 11 advisor email was still phrased around "next weekly capture around June 13." | That date has passed and a real attempt failed on June 14. | Added a new June 15 sendable email draft. |
 
 ## Verification Notes
@@ -70,8 +78,8 @@ the fixes made on 2026-06-15.
   three no-visible-banner contrast candidates."
 - "The June 14 Week 3 continuity capture was attempted but failed 0/5 at
   browser navigation, so it should not be used as a consent-interface result."
-- "A follow-up capture should start with a one-site browser smoke or a rerun
-  after the browser/network context is stable."
+- "The follow-up one-site browser smoke succeeded for capture but exposed a
+  OneTrust control-recognition issue."
 
 ## Unsafe Claims
 
@@ -84,10 +92,11 @@ the fixes made on 2026-06-15.
 
 ## Recommended Next Action
 
-Send the June 15 advisor email, then wait for decisions on:
+Send the updated June 15 advisor email, then wait for decisions on:
 
 1. no-visible-banner table representation;
-2. whether to rerun the current five after a one-site browser smoke;
+2. whether to fix OneTrust control recognition before a current-five rerun or
+   use manual validation for this week's continuity evidence;
 3. whether to expand toward ~20 sites before or after resolving the current
    five evidence cards;
 4. whether to resolve the 8 CMP/manual-review pending rows now or keep them as

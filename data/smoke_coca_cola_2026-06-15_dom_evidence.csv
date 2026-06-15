@@ -1,0 +1,9 @@
+source_ref,evidence_type,selector_or_attribute,visible_text,interpretation
+data/captures/sites/www_coca_cola_com_20260615_043524/layer1.html,dialog,"aria-label=Privacy Preference Center",Privacy Preference Center,Visible consent preference modal
+data/captures/sites/www_coca_cola_com_20260615_043524/layer1.html,button,id=accept-recommended-btn-handler,Allow All,Accept-like path present
+data/captures/sites/www_coca_cola_com_20260615_043524/layer1.html,button,class=ot-pc-refuse-all-handler,Reject All,Reject-like path present
+data/captures/sites/www_coca_cola_com_20260615_043524/layer1.html,button,class=save-preference-btn-handler,Confirm My Choices,Save/customize-like path present
+data/captures/sites/www_coca_cola_com_20260615_043524/layer1.html,toggle,id=ot-group-id-2,Analytics Cookies,Category preference toggle present
+data/captures/sites/www_coca_cola_com_20260615_043524/layer1.html,toggle,id=ot-group-id-4,Advertising,Category preference toggle present
+data/captures/sites/www_coca_cola_com_20260615_043524/layer1.html,toggle,id=ot-group-id-3,Personalization,Category preference toggle present
+data/captures/sites/www_coca_cola_com_20260615_043524/layer1.html,toggle,id=ot-group-id-5,Social Media Cookies,Category preference toggle present

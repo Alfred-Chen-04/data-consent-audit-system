@@ -396,3 +396,12 @@
 - The audit report export now carries `banner_detected`, allowing paper-facing artifacts to separate `banner_present=2` from `no_visible_banner=3`.
 - `docs/research/ssrp_results_tables_2026-06-06.md`, the paper skeleton, writing pack, claim register, and poster plan now state banner-present automated tiers separately from raw automated target tiers.
 - The current advisor-facing framing is: The Guardian and Coca-Cola are banner/control-evidence cases; CNN, Booking.com, and NerdWallet are no-visible-banner contrast candidates until Dr. Singh confirms the sample rule.
+
+## 2026-06-15 Coca-Cola Smoke Capture Findings
+
+- A controlled one-site Coca-Cola smoke run after the June 14 0/5 capture failure succeeded at the browser-capture level: `layer1.png` and `layer1.html` were created under `data/captures/sites/www_coca_cola_com_20260615_043524/`.
+- The run used `--no-save`, so `research-status` still reports the valid Week 2 package counts: 42 audit reports and 20 longitudinal summaries.
+- The smoke CSV row at `data/smoke_coca_cola_2026-06-15.csv` records `banner_detected=true` but automated Layer 1 path booleans as all false, producing a `High-Risk` smoke row.
+- Manual screenshot/DOM review shows a visible OneTrust Privacy Preference Center with `Allow All`, `Reject All`, `Confirm My Choices`, and category toggles. This means the capture environment worked, but automated control extraction missed visible OneTrust preference-center controls.
+- The raw DOM snapshot remains a local ignored capture artifact by repo policy; the synced evidence excerpt is `data/smoke_coca_cola_2026-06-15_dom_evidence.csv`.
+- Do not treat this smoke row as a final Coca-Cola RQ1 score. It should become either an extraction-fix regression case or a manually validated evidence-card case before any full current-five continuity rerun.
