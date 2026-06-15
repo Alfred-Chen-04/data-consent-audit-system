@@ -37,6 +37,15 @@ def test_classify_pathway_label_maps_common_consent_labels() -> None:
     assert classify_pathway_label("Privacy Policy") is None
 
 
+def test_classify_pathway_label_handles_onetrust_preference_center_controls() -> None:
+    assert classify_pathway_label("Allow All") == Pathway.ACCEPT
+    assert classify_pathway_label("Reject All") == Pathway.REJECT
+    assert classify_pathway_label("Confirm My Choices") == Pathway.CUSTOMIZE
+    assert classify_pathway_label("Save my choices") == Pathway.CUSTOMIZE
+    assert classify_pathway_label("Close preference center") == Pathway.DISMISS
+    assert classify_pathway_label("Privacy Preference Center") is None
+
+
 @pytest.mark.asyncio
 async def test_snapshot_dom_html_falls_back_when_page_content_churns() -> None:
     page = DynamicNavigationPage()
@@ -113,6 +122,45 @@ def test_filter_consent_candidates_discards_page_navigation_noise() -> None:
     filtered = filter_consent_candidates(candidates)
 
     assert [item.selector for item in filtered] == ["button.accept", "button.manage"]
+
+
+def test_filter_consent_candidates_keeps_onetrust_footer_controls() -> None:
+    candidates = [
+        CandidateElement(
+            selector="[role=dialog][aria-label='Privacy Preference Center']",
+            visible_text="Privacy Preference Center",
+            context_text="Coca-Cola uses cookies for advertising and personalization.",
+        ),
+        CandidateElement(
+            selector="button#close-pc-btn-handler",
+            visible_text="Close preference center",
+            context_text="Coca-Cola uses cookies for advertising and personalization.",
+        ),
+        CandidateElement(
+            selector="button#accept-recommended-btn-handler",
+            visible_text="Allow All",
+            context_text="Coca-Cola uses cookies for advertising and personalization.",
+        ),
+        CandidateElement(
+            selector="button.ot-pc-refuse-all-handler",
+            visible_text="Reject All",
+            context_text="Coca-Cola uses cookies for advertising and personalization.",
+        ),
+        CandidateElement(
+            selector="button.save-preference-btn-handler",
+            visible_text="Confirm My Choices",
+            context_text="Coca-Cola uses cookies for advertising and personalization.",
+        ),
+    ]
+
+    filtered = filter_consent_candidates(candidates)
+
+    assert [item.selector for item in filtered] == [
+        "button#close-pc-btn-handler",
+        "button#accept-recommended-btn-handler",
+        "button.ot-pc-refuse-all-handler",
+        "button.save-preference-btn-handler",
+    ]
 
 
 def test_build_path_outcomes_uses_first_candidate_per_pathway() -> None:

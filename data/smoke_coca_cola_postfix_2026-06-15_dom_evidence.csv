@@ -1,0 +1,5 @@
+source_ref,evidence_type,selector_or_attribute,visible_text,interpretation
+data/captures/sites/www_coca_cola_com_20260615_051240/layer1.html,button,aria-label=Close preference center,Close preference center,Dismiss-like path present
+data/captures/sites/www_coca_cola_com_20260615_051240/layer1.html,button,id=accept-recommended-btn-handler,Allow All,Accept-like path present
+data/captures/sites/www_coca_cola_com_20260615_051240/layer1.html,button,class=save-preference-btn-handler,Confirm My Choices,Save/customize-like path present
+data/captures/sites/www_coca_cola_com_20260615_051240/layer1.html,button,class=ot-pc-refuse-all-handler,Reject All,Reject-like path present

@@ -14,8 +14,9 @@ the fixes made on 2026-06-15.
 | `git log --oneline -5` | Latest committed work before the smoke update was `993b67b Merge pull request #3 from Alfred-Chen-04/codex/ssrp-plan-mvp`. |
 | `consent-audit research-status` | Week 2 sanity `ready`, cycle `completed`, 42 audit reports, 20 longitudinal summaries, 8 CMP confirmations pending. |
 | `docs/research/june14_capture_attempt_audit_2026-06-14.md` | Week 3 continuity capture was attempted but failed 0/5 at browser navigation; no new RQ1/RQ2 result should be inferred. |
-| `docs/research/june15_coca_cola_smoke_audit_2026-06-15.md` | A one-site Coca-Cola smoke run produced screenshot/DOM evidence, but automated Layer 1 missed visible OneTrust controls. |
+| `docs/research/june15_coca_cola_smoke_audit_2026-06-15.md` | A one-site Coca-Cola smoke run produced screenshot/DOM evidence, exposed a OneTrust recognition bug, and records the post-fix smoke where all Layer 1 paths pass. |
 | `data/smoke_coca_cola_2026-06-15_dom_evidence.csv` | Synced DOM evidence excerpt for the visible OneTrust controls without committing the full raw webpage HTML. |
+| `data/smoke_coca_cola_postfix_2026-06-15.csv` | Post-fix smoke row: accept/reject/customize/dismiss all `true`, Layer 1 gate `true`, tier `Exemplary`. |
 | `data/week3_continuity_targets_2026-06-13.csv` | Prepared current-five continuity target list validates as 5 active sites. |
 | `docs/research/week2_checkin_index_2026-06-06.md` | Current advisor entrypoint links the June 14 failure audit and June 13 capture decision packet. |
 | `docs/research/ssrp_results_tables_2026-06-06.md` | Current paper-facing RQ1/RQ2 tables still reflect Week 2 evidence, not a Week 3 update. |
@@ -37,9 +38,11 @@ the fixes made on 2026-06-15.
   interface change, no-banner evidence, or pathway availability evidence.
 - A June 15 Coca-Cola one-site smoke capture succeeded and produced screenshot
   and DOM evidence, so the browser context is not globally broken.
-- The June 15 smoke also exposed an extraction issue: the screenshot/DOM show
+- The first June 15 smoke exposed an extraction issue: the screenshot/DOM show
   OneTrust controls, but automated Layer 1 recorded Accept/Reject/Customize as
   unavailable.
+- The post-fix June 15 smoke resolved that immediate OneTrust issue for
+  Coca-Cola: Accept, Reject, Customize, Dismiss, and the Layer 1 gate all pass.
 - The 8 CMP/manual-review rows are still pending and should not be silently
   applied to sample-lock decisions.
 - The next advisor-facing question is now broader than "should we run June 13":
@@ -78,8 +81,9 @@ the fixes made on 2026-06-15.
   three no-visible-banner contrast candidates."
 - "The June 14 Week 3 continuity capture was attempted but failed 0/5 at
   browser navigation, so it should not be used as a consent-interface result."
-- "The follow-up one-site browser smoke succeeded for capture but exposed a
-  OneTrust control-recognition issue."
+- "The first follow-up one-site browser smoke succeeded for capture but exposed
+  a OneTrust control-recognition issue; the post-fix smoke passes all Layer 1
+  paths for Coca-Cola."
 
 ## Unsafe Claims
 
@@ -95,8 +99,8 @@ the fixes made on 2026-06-15.
 Send the updated June 15 advisor email, then wait for decisions on:
 
 1. no-visible-banner table representation;
-2. whether to fix OneTrust control recognition before a current-five rerun or
-   use manual validation for this week's continuity evidence;
+2. whether to rerun the current five with the fixed capture agent or use manual
+   validation for this week's continuity evidence;
 3. whether to expand toward ~20 sites before or after resolving the current
    five evidence cards;
 4. whether to resolve the 8 CMP/manual-review pending rows now or keep them as

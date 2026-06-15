@@ -9,7 +9,12 @@ import pytest
 from pydantic import HttpUrl, TypeAdapter
 
 from consent_audit.capture import capture_site
-from consent_audit.capture.agent import _click_candidate_in_any_frame, _collect_candidates
+from consent_audit.capture.agent import (
+    CandidateElement,
+    _attempt_pathway_clicks,
+    _click_candidate_in_any_frame,
+    _collect_candidates,
+)
 from consent_audit.layers import score_layer1
 from consent_audit.models import Pathway
 
@@ -241,3 +246,121 @@ async def test_click_candidate_tries_visible_duplicate_text_matches(tmp_path: Pa
 
     assert clicked
     assert marker == "reject"
+
+
+@pytest.mark.asyncio
+async def test_click_candidate_uses_accessible_button_name(tmp_path: Path) -> None:
+    html = """
+    <!doctype html>
+    <html>
+      <body>
+        <button
+          aria-label="Close preference center"
+          onclick="document.body.dataset.clicked = 'close'"
+        >X</button>
+      </body>
+    </html>
+    """
+    (tmp_path / "index.html").write_text(html, encoding="utf-8")
+
+    handler = partial(SimpleHTTPRequestHandler, directory=str(tmp_path))
+    server = ThreadingHTTPServer(("127.0.0.1", 0), handler)
+    thread = Thread(target=server.serve_forever, daemon=True)
+    thread.start()
+    try:
+        from playwright.async_api import async_playwright
+
+        async with async_playwright() as playwright:
+            browser = await playwright.chromium.launch(headless=True)
+            context = await browser.new_context(
+                locale="en-US",
+                viewport={"width": 1440, "height": 900},
+            )
+            page = await context.new_page()
+            await page.goto(
+                f"http://127.0.0.1:{server.server_port}/index.html",
+                wait_until="domcontentloaded",
+                timeout=15_000,
+            )
+
+            clicked = await _click_candidate_in_any_frame(page, "Close preference center")
+            marker = await page.evaluate("() => document.body.dataset.clicked || ''")
+
+            await context.close()
+            await browser.close()
+    finally:
+        server.shutdown()
+        thread.join(timeout=5)
+        server.server_close()
+
+    assert clicked
+    assert marker == "close"
+
+
+@pytest.mark.asyncio
+async def test_attempt_pathway_clicks_waits_for_delayed_cmp_controls(tmp_path: Path) -> None:
+    html = """
+    <!doctype html>
+    <html>
+      <body>
+        <main>Brand page</main>
+        <script>
+          setTimeout(() => {
+            const panel = document.createElement('section');
+            panel.id = 'onetrust-consent-sdk';
+            panel.innerHTML = `
+              <p>Privacy Preference Center: we use cookies for advertising.</p>
+              <button aria-label="Close preference center">X</button>
+              <button>Allow All</button>
+              <button>Confirm My Choices</button>
+              <button>Reject All</button>
+            `;
+            document.body.appendChild(panel);
+          }, 1800);
+        </script>
+      </body>
+    </html>
+    """
+    (tmp_path / "index.html").write_text(html, encoding="utf-8")
+
+    handler = partial(SimpleHTTPRequestHandler, directory=str(tmp_path))
+    server = ThreadingHTTPServer(("127.0.0.1", 0), handler)
+    thread = Thread(target=server.serve_forever, daemon=True)
+    thread.start()
+    try:
+        from playwright.async_api import async_playwright
+
+        async with async_playwright() as playwright:
+            browser = await playwright.chromium.launch(headless=True)
+            candidates = [
+                CandidateElement(
+                    selector="button.close",
+                    visible_text="Close preference center",
+                ),
+                CandidateElement(selector="button.accept", visible_text="Allow All"),
+                CandidateElement(
+                    selector="button.customize",
+                    visible_text="Confirm My Choices",
+                ),
+                CandidateElement(selector="button.reject", visible_text="Reject All"),
+            ]
+
+            succeeded = await _attempt_pathway_clicks(
+                browser,
+                f"http://127.0.0.1:{server.server_port}/index.html",
+                candidates,
+                15_000,
+            )
+
+            await browser.close()
+    finally:
+        server.shutdown()
+        thread.join(timeout=5)
+        server.server_close()
+
+    assert succeeded == {
+        Pathway.ACCEPT,
+        Pathway.REJECT,
+        Pathway.CUSTOMIZE,
+        Pathway.DISMISS,
+    }

@@ -169,17 +169,17 @@ Current research cycle: Week 2 evidence gate completed as of 2026-06-06.
 The attempted Week 3 continuity capture on 2026-06-14 failed at browser
 navigation for all five current targets and did not produce valid new
 consent-interface observations. A controlled Coca-Cola smoke capture on
-2026-06-15 produced screenshot/DOM evidence again, but automated Layer 1 missed
-visible OneTrust controls, so the next task is control-recognition repair or
-manual validation before a full current-five rerun.
+2026-06-15 produced screenshot/DOM evidence again and exposed a OneTrust
+control-recognition bug. That bug has a regression fix, and a post-fix
+Coca-Cola smoke passes all Layer 1 paths.
 
 - Core capture/scoring/export pipeline is executable for the pilot sample and the frozen Week 2 targets.
 - Current paper-facing exports contain 42 audit reports and 20 longitudinal weekly summaries.
 - Week 2 default capture list is `data/week2_deep_sample_targets_2026-06-06.csv`.
 - The Week 2 live cycle completed 5/5 captures; sanity is `ready`.
 - Next operational step is advisor/sample review plus a decision on whether to
-  fix OneTrust control recognition before rerunning the current five, or switch
-  this week to a semi-automated screenshot/DOM/manual-validation protocol.
+  rerun the current five with the fixed capture agent, or switch this week to a
+  semi-automated screenshot/DOM/manual-validation protocol.
 - Current advisor email draft is [docs/research/advisor_email_latest_2026-06-15.md](docs/research/advisor_email_latest_2026-06-15.md).
 - The Week 2 capture runbook remains [docs/research/week2_execution_runbook_2026-06-06.md](docs/research/week2_execution_runbook_2026-06-06.md).
 - Current advisor-facing update brief is [docs/research/week2_advisor_update_2026-06-06.md](docs/research/week2_advisor_update_2026-06-06.md).

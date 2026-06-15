@@ -328,7 +328,7 @@ For a live one-screen view, run `consent-audit research-status`.
 - [x] `data/week3_continuity_targets_2026-06-13.csv` prepares a current-five continuity rerun list for Week 3.
 - [x] `docs/research/june14_capture_attempt_audit_2026-06-14.md` records the failed Week 3 capture attempt: 5/5 browser navigation failures, no valid screenshots/DOM, and no new RQ1/RQ2 result.
 - [x] `docs/research/full_project_audit_2026-06-15.md` records the current project audit and the latest safe/unsafe claims.
-- [x] `docs/research/june15_coca_cola_smoke_audit_2026-06-15.md` records a successful one-site Coca-Cola smoke capture and the follow-up issue: automated Layer 1 missed visible OneTrust controls in the screenshot/DOM.
+- [x] `docs/research/june15_coca_cola_smoke_audit_2026-06-15.md` records the one-site Coca-Cola smoke, the OneTrust recognition bug, and the post-fix smoke where all Layer 1 paths pass.
 - [x] `week2-cycle --dry-run` rehearses the capture day without opening browser capture; `week2-cycle` runs preflight, live weekly capture, refresh outputs, and writes the cycle report.
 - [x] Tests now cover models, capture helpers, layers, diffing, storage, reports, exports, sample-lock artifacts, Week 2 run controls, and direct script wrappers.
 
@@ -337,7 +337,7 @@ For a live one-screen view, run `consent-audit research-status`.
 - [x] Rerun `week2-refresh-outputs` and confirm `week2-sanity-check` moves from `pending_capture` to `ready`.
 - [ ] Advisor/human confirmation is still needed for the 8 pending CMP/manual-review rows before changing sample-lock status.
 - [ ] The deep sample is currently 5 frozen Week 2 targets; expand toward ~20 well-documented sites only after the capture/evidence gate stays stable and the no-visible-banner rule is confirmed.
-- [ ] Week 3 continuity capture should be rerun only after the June 15 OneTrust/control-recognition issue is fixed or a semi-automated manual-validation protocol is chosen; the 2026-06-14 attempt is a failed capture-context observation, not consent-interface evidence.
+- [ ] Week 3 continuity capture can now be rerun with the fixed OneTrust/click-replay logic, or replaced by a semi-automated manual-validation protocol if advisor/sample priorities say not to rerun yet; the 2026-06-14 attempt remains a failed capture-context observation, not consent-interface evidence.
 - [ ] The SSRP paper draft still needs final prose and figure rendering from the research package; current RQ1/RQ2 tables, figure plan, writing pack, and claim register are generated from the completed Week 2 evidence gate but are not the final 10-week dataset.
 - [ ] Poster and demo polish remain later deliverables after the evidence chain is stable.
 
@@ -371,7 +371,7 @@ pipeline run"; it is "turn repeatable captures into a defensible SSRP paper."
 
 1. **Use Week 2 as the current valid evidence gate**: 42 audit reports, 20 longitudinal summaries, sanity `ready`.
 2. **Send the latest advisor email** and resolve the no-visible-banner table rule, current-five evidence-card order, sample expansion priority, and 8 pending CMP/manual-review rows.
-3. **Handle the June 15 Coca-Cola smoke finding**: browser capture worked, but OneTrust controls visible in screenshot/DOM were missed by automated Layer 1. Fix that extraction path or use manual validation before treating new continuity rows as RQ1/RQ2 evidence.
+3. **Use the June 15 OneTrust fix as the rerun gate**: the post-fix Coca-Cola smoke passes all Layer 1 paths, so the current-five continuity rerun is technically defensible if it matches the advisor/sample plan.
 4. **Expand the deep sample carefully** toward ~20 sites only when the evidence-coding rule and capture stability are clear.
 5. **Refresh paper-ready figures and tables** from `data/research_package/` after any successful new capture.
 6. **Write the SSRP paper draft** around RQ1 scoring evidence and RQ2 longitudinal observations.

@@ -31,6 +31,8 @@ from consent_audit.models import (
     Pathway,
 )
 
+_CONSENT_RENDER_WAIT_MS = 3_000
+
 
 @dataclass(frozen=True)
 class CandidateElement:
@@ -74,7 +76,7 @@ async def capture_site(url: HttpUrl, *, timeout_seconds: int = 180) -> CaptureBu
         page = await context.new_page()
         try:
             await page.goto(str(url), wait_until="domcontentloaded", timeout=timeout_ms)
-            await page.wait_for_timeout(1500)
+            await page.wait_for_timeout(_CONSENT_RENDER_WAIT_MS)
             dom_snapshot = await snapshot_dom_html(page)
             dom_html = dom_snapshot.html
             capture_warnings = dom_snapshot.warnings
@@ -124,10 +126,18 @@ def classify_pathway_label(label: str) -> Pathway | None:
         return Pathway.ACCEPT
     if search(r"\b(reject|decline|deny|refuse|disagree)\b", normalized) or "no, i" in normalized:
         return Pathway.REJECT
-    if search(r"\b(customi[sz]e|manage|settings?|preferences?|options?)\b", normalized):
-        return Pathway.CUSTOMIZE
     if search(r"\b(close|dismiss|continue without|necessary only)\b", normalized) or normalized == "x":
         return Pathway.DISMISS
+    if "preference center" in normalized and not search(
+        r"\b(confirm|save|manage|settings?|options?|choices?)\b",
+        normalized,
+    ):
+        return None
+    if search(
+        r"\b(customi[sz]e|manage|settings?|preferences?|options?|confirm my choices|save my choices)\b",
+        normalized,
+    ):
+        return Pathway.CUSTOMIZE
     return None
 
 
@@ -412,7 +422,7 @@ async def _attempt_pathway_clicks(
         page = await context.new_page()
         try:
             await page.goto(url, wait_until="domcontentloaded", timeout=timeout_ms)
-            await page.wait_for_timeout(1000)
+            await page.wait_for_timeout(_CONSENT_RENDER_WAIT_MS)
             if await _click_candidate_in_any_frame(page, candidate.visible_text):
                 succeeded.add(pathway)
         except Exception:
@@ -424,15 +434,28 @@ async def _attempt_pathway_clicks(
 
 async def _click_candidate_in_any_frame(page: Any, visible_text: str) -> bool:
     for frame in page.frames:
-        try:
-            locator = frame.get_by_text(visible_text, exact=True)
-            count = await locator.count()
-            for index in range(min(count, 20)):
-                item = locator.nth(index)
-                if not await item.is_visible(timeout=500):
-                    continue
-                await item.click(timeout=2_000)
+        for locator in (
+            frame.get_by_role("button", name=visible_text, exact=True),
+            frame.get_by_text(visible_text, exact=True),
+        ):
+            if await _click_first_visible_match(locator):
                 return True
+    return False
+
+
+async def _click_first_visible_match(locator: Any) -> bool:
+    try:
+        count = await locator.count()
+    except Exception:
+        return False
+
+    for index in range(min(count, 20)):
+        item = locator.nth(index)
+        try:
+            if not await item.is_visible(timeout=500):
+                continue
+            await item.click(timeout=2_000)
+            return True
         except Exception:
             continue
     return False

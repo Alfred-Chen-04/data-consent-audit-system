@@ -92,3 +92,52 @@ Before rerunning the five-site continuity list, do one of these:
 
 The second option is enough for the SSRP paper if automation remains unstable,
 as long as every score has a screenshot/DOM/table evidence trail.
+
+## Post-Fix Verification
+
+After the initial smoke exposed the OneTrust recognition gap, the capture-agent
+pathway logic was updated in two places:
+
+- OneTrust labels now map correctly: `Confirm My Choices` / `Save my choices`
+  are treated as customize-like controls, `Close preference center` is treated
+  as a dismiss-like control, and the non-action title `Privacy Preference
+  Center` is not treated as a pathway.
+- Browser click replay now waits for delayed CMP controls and can click buttons
+  by accessible name, which is needed for aria-labeled close buttons.
+
+The follow-up smoke command was:
+
+```bash
+PYTHONPATH=src .venv/bin/python -m consent_audit.cli audit \
+  https://www.coca-cola.com/us/en \
+  --no-save \
+  --consent-table-path data/smoke_coca_cola_postfix_2026-06-15.csv \
+  --cohort smoke-postfix-2026-06-15
+```
+
+Post-fix artifacts:
+
+| Artifact | Path |
+|---|---|
+| Post-fix smoke consent table | `data/smoke_coca_cola_postfix_2026-06-15.csv` |
+| Post-fix screenshot | `data/captures/sites/www_coca_cola_com_20260615_051240/layer1.png` |
+| Local raw DOM snapshot | `data/captures/sites/www_coca_cola_com_20260615_051240/layer1.html` |
+| Synced DOM evidence excerpt | `data/smoke_coca_cola_postfix_2026-06-15_dom_evidence.csv` |
+
+Post-fix result:
+
+- `banner_detected=true`
+- `accept_available=true`
+- `reject_available=true`
+- `customize_available=true`
+- `dismiss_available=true`
+- `layer1_gate_passed=true`
+- `layer2_overall_category=Easy`
+- `transparency_grade=B`
+- `unbiased_choice_grade=A`
+- `tier=Exemplary`
+
+Interpretation: the immediate OneTrust pathway-recognition blocker is resolved
+for the Coca-Cola smoke case. This does not finalize the whole Week 3 dataset,
+but it means the next current-five rerun is technically more defensible than it
+was after the June 14 failure and the first June 15 smoke.

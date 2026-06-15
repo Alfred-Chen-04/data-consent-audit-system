@@ -405,3 +405,15 @@
 - Manual screenshot/DOM review shows a visible OneTrust Privacy Preference Center with `Allow All`, `Reject All`, `Confirm My Choices`, and category toggles. This means the capture environment worked, but automated control extraction missed visible OneTrust preference-center controls.
 - The raw DOM snapshot remains a local ignored capture artifact by repo policy; the synced evidence excerpt is `data/smoke_coca_cola_2026-06-15_dom_evidence.csv`.
 - Do not treat this smoke row as a final Coca-Cola RQ1 score. It should become either an extraction-fix regression case or a manually validated evidence-card case before any full current-five continuity rerun.
+
+## 2026-06-15 OneTrust Pathway Fix Findings
+
+- The Coca-Cola smoke failure was not in `score_layer1()` itself. Layer 1 correctly reads `PathOutcome`; the problem was earlier in capture-agent pathway labeling and click replay.
+- Root causes found:
+  - `Confirm My Choices` and `Save my choices` were not recognized as customize-like controls.
+  - `Close preference center` was being pulled toward customize because of the word "preference" instead of being treated as dismiss.
+  - Non-action dialog text such as `Privacy Preference Center` could be treated as a pathway-like candidate.
+  - Coca-Cola's OneTrust preference center may appear after about 3 seconds, while click replay only waited 1 second.
+  - The close button is aria-labeled; the click helper only used exact visible text, so it could not click accessible-name-only buttons.
+- Regression tests now cover OneTrust label classification, OneTrust footer-control filtering, aria-label button clicking, and delayed CMP replay.
+- Post-fix live smoke at `data/smoke_coca_cola_postfix_2026-06-15.csv` passed all Layer 1 paths for Coca-Cola: accept, reject, customize, dismiss, and gate are all `true`; tier is `Exemplary`.
