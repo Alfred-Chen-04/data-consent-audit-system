@@ -417,3 +417,11 @@
   - The close button is aria-labeled; the click helper only used exact visible text, so it could not click accessible-name-only buttons.
 - Regression tests now cover OneTrust label classification, OneTrust footer-control filtering, aria-label button clicking, and delayed CMP replay.
 - Post-fix live smoke at `data/smoke_coca_cola_postfix_2026-06-15.csv` passed all Layer 1 paths for Coca-Cola: accept, reject, customize, dismiss, and gate are all `true`; tier is `Exemplary`.
+
+## 2026-06-16 Fact-Consistency Review Findings
+
+- The real project directory remains `/Users/alfred/Desktop/data-consent-audit-system`; `/Users/alfred/Documents/data consent audit system` was an empty Git repository before a writable local clone was created for this review.
+- `git status --short --branch` in the real project reports `main...origin/main`, and `git log` shows `38da2ac Fix OneTrust pathway recognition` at `HEAD`.
+- `research-status` still reports the current valid Week 2 package: 42 audit reports, 20 longitudinal summaries, sanity `ready`, cycle `completed`, and 8 pending CMP confirmations.
+- The postfix smoke CSV confirms the OneTrust blocker was fixed for the Coca-Cola smoke case: accept/reject/customize/dismiss and the Layer 1 gate are all `true`, with tier `Exemplary`.
+- Corrected two stale June 15 document passages so the initial OneTrust-fix recommendation is clearly superseded by the post-fix verification.
