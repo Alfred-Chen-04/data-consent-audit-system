@@ -47,8 +47,8 @@ the fixes made on 2026-06-15.
   applied to sample-lock decisions.
 - The next advisor-facing question is now broader than "should we run June 13":
   it should include how to handle the failed June 14 capture, the successful
-  June 15 smoke capture, and the OneTrust recognition gap before any full
-  current-five rerun.
+  June 15 smoke capture, and whether the post-fix current-five rerun is still
+  the right priority before sample expansion.
 
 ## Problems Found On 2026-06-15
 
@@ -100,7 +100,7 @@ Send the updated June 15 advisor email, then wait for decisions on:
 
 1. no-visible-banner table representation;
 2. whether to rerun the current five with the fixed capture agent or use manual
-   validation for this week's continuity evidence;
+   validation/evidence cards before expanding the sample;
 3. whether to expand toward ~20 sites before or after resolving the current
    five evidence cards;
 4. whether to resolve the 8 CMP/manual-review pending rows now or keep them as

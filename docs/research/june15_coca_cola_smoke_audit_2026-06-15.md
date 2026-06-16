@@ -79,7 +79,10 @@ RQ1 score.
   OneTrust/control-recognition issue is handled, otherwise the pipeline may
   generate traceable but misleading path-availability rows.
 
-## Recommended Next Action
+## Initial Recommended Next Action
+
+This was the recommendation immediately after the first smoke run. It is now
+superseded by the post-fix verification below.
 
 Before rerunning the five-site continuity list, do one of these:
 
@@ -139,5 +142,7 @@ Post-fix result:
 
 Interpretation: the immediate OneTrust pathway-recognition blocker is resolved
 for the Coca-Cola smoke case. This does not finalize the whole Week 3 dataset,
-but it means the next current-five rerun is technically more defensible than it
-was after the June 14 failure and the first June 15 smoke.
+but it supersedes the initial recommendation to fix OneTrust recognition before
+rerunning. The next current-five rerun is technically more defensible than it
+was after the June 14 failure and the first June 15 smoke, if it still matches
+the advisor/sample plan.
