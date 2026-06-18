@@ -12,6 +12,7 @@ Use this index as the first file for advisor check-ins.
 ## Read First
 
 - [Today work note, 2026-06-18](today_work_note_2026-06-18.md)
+- [Current-five evidence packet, 2026-06-19](current_five_evidence_packet_2026-06-19.md)
 - [June 15 Coca-Cola smoke capture audit, 2026-06-15](june15_coca_cola_smoke_audit_2026-06-15.md)
 - [Latest advisor email draft, 2026-06-15](advisor_email_latest_2026-06-15.md)
 - [Full project audit, 2026-06-15](full_project_audit_2026-06-15.md)

@@ -432,3 +432,10 @@
 - The local research dashboard remains unchanged from the valid Week 2 evidence gate: sanity `ready`, cycle `completed`, 42 audit reports, 20 longitudinal summaries, and 8 pending CMP confirmations.
 - No repository evidence shows a new advisor/sample decision after the June 15 email draft.
 - Added a June 18 daily work note to keep the next action evidence-based: do not rerun blind capture; decide between a post-fix current-five rerun and manual evidence cards before expansion.
+
+## 2026-06-19 Current-Five Evidence Packet Findings
+
+- The current Week 2 five-site evidence set has complete screenshot/DOM/hash refs in `data/week2_manual_evidence_review_2026-06-10.csv`.
+- Visual re-check of the five listed screenshots confirms the existing manual split: The Guardian and Coca-Cola have visible consent/control interfaces; CNN, Booking.com, and NerdWallet show no visible first-screen cookie/consent banner.
+- The current no-visible-banner rows should remain contrast candidates unless the advisor confirms that they belong in the main RQ1 scoring table.
+- Added `docs/research/current_five_evidence_packet_2026-06-19.md` so the next advisor/user discussion can use one five-site evidence packet rather than separate CSVs and screenshots.
