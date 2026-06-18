@@ -42,6 +42,7 @@ Use this index as the first file for advisor check-ins.
 - [Audit report summary](../../data/research_package/audit_report_summary.csv)
 - [Longitudinal summary](../../data/research_package/longitudinal_summary.csv)
 - [Week 2 manual evidence review worksheet](../../data/week2_manual_evidence_review_2026-06-10.csv)
+- [Current-five decision sheet](../../data/current_five_decision_sheet_2026-06-19.csv)
 
 ## Manual Review
 

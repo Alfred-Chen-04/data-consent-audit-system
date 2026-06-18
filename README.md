@@ -203,6 +203,7 @@ Coca-Cola smoke passes all Layer 1 paths.
 - Current June 15 Coca-Cola smoke capture audit is [docs/research/june15_coca_cola_smoke_audit_2026-06-15.md](docs/research/june15_coca_cola_smoke_audit_2026-06-15.md).
 - Current daily work note is [docs/research/today_work_note_2026-06-18.md](docs/research/today_work_note_2026-06-18.md).
 - Current current-five evidence packet is [docs/research/current_five_evidence_packet_2026-06-19.md](docs/research/current_five_evidence_packet_2026-06-19.md).
+- Current current-five decision sheet is [data/current_five_decision_sheet_2026-06-19.csv](data/current_five_decision_sheet_2026-06-19.csv).
 - Current full project audit is [docs/research/full_project_audit_2026-06-15.md](docs/research/full_project_audit_2026-06-15.md).
 - Current full fact audit is [docs/research/full_project_fact_audit_2026-06-10.md](docs/research/full_project_fact_audit_2026-06-10.md).
 - Run `uv run consent-audit research-status` for a compact current-state dashboard and next action.

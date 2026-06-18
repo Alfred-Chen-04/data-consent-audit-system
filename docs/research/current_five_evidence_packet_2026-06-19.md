@@ -154,3 +154,6 @@ Use this packet for the next advisor/user discussion. The concrete decision is:
 Should the next research step be a post-fix current-five continuity rerun, or
 should these evidence cards become the manual-validation base before expanding
 toward the roughly 20-site deep sample?
+
+A fillable decision sheet for that discussion is saved at
+`data/current_five_decision_sheet_2026-06-19.csv`.
