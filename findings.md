@@ -441,3 +441,12 @@
 - Added `docs/research/current_five_evidence_packet_2026-06-19.md` so the next advisor/user discussion can use one five-site evidence packet rather than separate CSVs and screenshots.
 - Added `data/current_five_decision_sheet_2026-06-19.csv` so advisor/user decisions can be recorded without editing the evidence packet itself.
 - Added `docs/research/advisor_email_current_five_decision_2026-06-19.md` so the advisor request can be sent as a concise decision prompt instead of the longer June 15 status email.
+
+## 2026-06-19 Publish Check Findings
+
+- Local branch `codex/june18-current-work-note` is clean after the current-five evidence packet, decision sheet, and advisor decision email commits.
+- `research-status` still reports the valid Week 2 package: preflight `ready_for_capture`, sanity `ready`, cycle `completed`, 42 audit reports, 20 longitudinal summaries, and 8 pending CMP confirmations.
+- Targeted research artifact/status tests still pass: `31 passed`.
+- GitHub does not currently have `codex/june18-current-work-note`; fetching `docs/research/advisor_email_current_five_decision_2026-06-19.md` from that ref returned `No commit found for the ref`.
+- Sandboxed `git push -u origin codex/june18-current-work-note` is blocked by SSH port 22, and two escalated retries plus one GitHub API branch-create attempt timed out before approval.
+- Next publish action should be run from the user's Terminal: `cd "/Users/alfred/Documents/data consent audit system/repo"` then `git push -u origin codex/june18-current-work-note`.

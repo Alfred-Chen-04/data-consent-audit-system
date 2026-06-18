@@ -121,6 +121,12 @@ audit invariants.
 | 108. June 15 project audit and advisor email | complete | Audited current project facts, fixed stale README/SCHEMA navigation wording, and added the latest sendable advisor email reflecting the failed June 14 capture attempt. |
 | 109. June 15 Coca-Cola smoke capture | complete | Ran a one-site `--no-save` Coca-Cola smoke after the June 14 failure; browser capture succeeded with screenshot/DOM evidence, but automated Layer 1 missed visible OneTrust controls. |
 | 110. OneTrust pathway recognition fix | complete | Fixed OneTrust preference-center label classification, delayed CMP replay waits, and aria-label button clicking; post-fix Coca-Cola smoke now passes all Layer 1 paths. |
+| 111. June 16 fact-consistency review | complete | Rechecked Git/research status and corrected stale June 15 wording so it no longer implied the OneTrust blocker remained unresolved after the post-fix smoke. |
+| 112. June 18 current work note | complete | Added a fact-only daily work note after PR #4 merged and confirmed the research dashboard remained at 42 reports, 20 summaries, and 8 CMP pending confirmations. |
+| 113. June 19 current-five evidence packet | complete | Consolidated the five Week 2 site evidence refs and screenshot interpretations into one current-five packet for advisor/user decision making. |
+| 114. June 19 current-five decision sheet | complete | Added a fillable CSV for the five site decisions, the no-visible-banner table rule, and the next work mode. |
+| 115. June 19 advisor decision email | complete | Added a short sendable email asking only for current-five treatment, no-visible-banner handling, and next work mode. |
+| 116. June 19 publish check | complete | Verified the local branch is clean and testable, confirmed the matching GitHub branch is absent, and recorded that sandboxed GitHub write attempts timed out before approval. |
 
 ## Decisions
 
@@ -205,3 +211,4 @@ audit invariants.
 | June 19 current-five evidence packet | Existing evidence cards covered only the two banner-present cases, while the advisor decision also depends on the three no-visible-banner contrast candidates | Re-read the manual evidence worksheet, research-package summaries, and screenshots; added a five-site evidence packet with source refs and cautions. |
 | June 19 current-five decision sheet | The evidence packet still required a separate place to record advisor/user choices | Added a fillable CSV decision sheet for the five site-level decisions plus the no-visible-banner table rule and next-work mode. |
 | June 19 short advisor decision email | The June 15 advisor email was evidence-rich but long; the new decision sheet needed a concise sendable prompt | Added a short advisor email that asks only for current-five treatment, no-visible-banner table rule, and next-work mode decisions. |
+| June 19 GitHub publish blocked by sandbox approval | `git push -u origin codex/june18-current-work-note` failed on SSH port 22 in the sandbox, two escalated retries timed out before approval, and GitHub API branch creation also timed out before approval | Do not repeat the same sandbox push loop; have the user run `git push -u origin codex/june18-current-work-note` locally or retry only after explicit external write approval. |
