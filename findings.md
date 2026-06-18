@@ -440,3 +440,4 @@
 - The current no-visible-banner rows should remain contrast candidates unless the advisor confirms that they belong in the main RQ1 scoring table.
 - Added `docs/research/current_five_evidence_packet_2026-06-19.md` so the next advisor/user discussion can use one five-site evidence packet rather than separate CSVs and screenshots.
 - Added `data/current_five_decision_sheet_2026-06-19.csv` so advisor/user decisions can be recorded without editing the evidence packet itself.
+- Added `docs/research/advisor_email_current_five_decision_2026-06-19.md` so the advisor request can be sent as a concise decision prompt instead of the longer June 15 status email.

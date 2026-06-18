@@ -181,6 +181,7 @@ Coca-Cola smoke passes all Layer 1 paths.
   rerun the current five with the fixed capture agent, or switch this week to a
   semi-automated screenshot/DOM/manual-validation protocol.
 - Current advisor email draft is [docs/research/advisor_email_latest_2026-06-15.md](docs/research/advisor_email_latest_2026-06-15.md).
+- Current short advisor decision email is [docs/research/advisor_email_current_five_decision_2026-06-19.md](docs/research/advisor_email_current_five_decision_2026-06-19.md).
 - The Week 2 capture runbook remains [docs/research/week2_execution_runbook_2026-06-06.md](docs/research/week2_execution_runbook_2026-06-06.md).
 - Current advisor-facing update brief is [docs/research/week2_advisor_update_2026-06-06.md](docs/research/week2_advisor_update_2026-06-06.md).
 - Current evidence-grounded paper skeleton is [docs/research/ssrp_paper_skeleton_2026-06-06.md](docs/research/ssrp_paper_skeleton_2026-06-06.md).
