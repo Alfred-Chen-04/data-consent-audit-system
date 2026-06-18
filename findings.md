@@ -425,3 +425,10 @@
 - `research-status` still reports the current valid Week 2 package: 42 audit reports, 20 longitudinal summaries, sanity `ready`, cycle `completed`, and 8 pending CMP confirmations.
 - The postfix smoke CSV confirms the OneTrust blocker was fixed for the Coca-Cola smoke case: accept/reject/customize/dismiss and the Layer 1 gate are all `true`, with tier `Exemplary`.
 - Corrected two stale June 15 document passages so the initial OneTrust-fix recommendation is clearly superseded by the post-fix verification.
+
+## 2026-06-18 Current Work Findings
+
+- GitHub PR #4, `[codex] Clarify June 15 post-fix audit guidance`, is merged into `main` with merge commit `428394fa7e52d9f007737a123ace5ed6e1a7b13b`.
+- The local research dashboard remains unchanged from the valid Week 2 evidence gate: sanity `ready`, cycle `completed`, 42 audit reports, 20 longitudinal summaries, and 8 pending CMP confirmations.
+- No repository evidence shows a new advisor/sample decision after the June 15 email draft.
+- Added a June 18 daily work note to keep the next action evidence-based: do not rerun blind capture; decide between a post-fix current-five rerun and manual evidence cards before expansion.
