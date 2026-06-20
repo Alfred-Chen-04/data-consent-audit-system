@@ -127,6 +127,7 @@ audit invariants.
 | 114. June 19 current-five decision sheet | complete | Added a fillable CSV for the five site decisions, the no-visible-banner table rule, and the next work mode. |
 | 115. June 19 advisor decision email | complete | Added a short sendable email asking only for current-five treatment, no-visible-banner handling, and next work mode. |
 | 116. June 19 publish check | complete | Verified the local branch is clean and testable, confirmed the matching GitHub branch is absent, and recorded that sandboxed GitHub write attempts timed out before approval. |
+| 117. June 20 daily evidence gate | complete | Rechecked local/GitHub/research status, confirmed the remote branch is still absent, and added a June 20 work note that blocks blind capture until current-five decisions are recorded. |
 
 ## Decisions
 
@@ -212,3 +213,4 @@ audit invariants.
 | June 19 current-five decision sheet | The evidence packet still required a separate place to record advisor/user choices | Added a fillable CSV decision sheet for the five site-level decisions plus the no-visible-banner table rule and next-work mode. |
 | June 19 short advisor decision email | The June 15 advisor email was evidence-rich but long; the new decision sheet needed a concise sendable prompt | Added a short advisor email that asks only for current-five treatment, no-visible-banner table rule, and next-work mode decisions. |
 | June 19 GitHub publish blocked by sandbox approval | `git push -u origin codex/june18-current-work-note` failed on SSH port 22 in the sandbox, two escalated retries timed out before approval, and GitHub API branch creation also timed out before approval | Do not repeat the same sandbox push loop; have the user run `git push -u origin codex/june18-current-work-note` locally or retry only after explicit external write approval. |
+| June 20 daily evidence gate | The project could drift into another blind capture even though the remote branch is still absent and no current-five decision is recorded | Added `docs/research/today_work_note_2026-06-20.md` with verified GitHub/local/research status and a concrete no-capture/publish/email next-action gate. |

@@ -450,3 +450,12 @@
 - GitHub does not currently have `codex/june18-current-work-note`; fetching `docs/research/advisor_email_current_five_decision_2026-06-19.md` from that ref returned `No commit found for the ref`.
 - Sandboxed `git push -u origin codex/june18-current-work-note` is blocked by SSH port 22, and two escalated retries plus one GitHub API branch-create attempt timed out before approval.
 - Next publish action should be run from the user's Terminal: `cd "/Users/alfred/Documents/data consent audit system/repo"` then `git push -u origin codex/june18-current-work-note`.
+
+## 2026-06-20 Daily Evidence Gate Findings
+
+- Current local branch remains `codex/june18-current-work-note` at `fae345b Record June 19 publish check` before the June 20 note.
+- GitHub `main` is readable through the connector, but GitHub still returns `No commit found for the ref codex/june18-current-work-note` for the pending branch.
+- `research-status` remains stable: preflight `ready_for_capture`, sanity `ready`, cycle `completed`, 42 audit reports, 20 longitudinal summaries, and 8 pending CMP confirmations.
+- Targeted research artifact/status tests still pass: `31 passed`.
+- Added `docs/research/today_work_note_2026-06-20.md` and linked it from README and the Week 2 check-in index.
+- Today's evidence-based action is still publish/send/record decisions, not blind capture or sample expansion.

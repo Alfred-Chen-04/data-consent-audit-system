@@ -11,6 +11,7 @@ Use this index as the first file for advisor check-ins.
 
 ## Read First
 
+- [Today work note, 2026-06-20](today_work_note_2026-06-20.md)
 - [Today work note, 2026-06-18](today_work_note_2026-06-18.md)
 - [Current-five advisor decision email, 2026-06-19](advisor_email_current_five_decision_2026-06-19.md)
 - [Current-five evidence packet, 2026-06-19](current_five_evidence_packet_2026-06-19.md)
