@@ -11,6 +11,11 @@ Use this index as the first file for advisor check-ins.
 
 ## Read First
 
+- [Today work note, 2026-06-22](today_work_note_2026-06-22.md)
+- [Today work note, 2026-06-20](today_work_note_2026-06-20.md)
+- [Today work note, 2026-06-18](today_work_note_2026-06-18.md)
+- [Current-five advisor decision email, 2026-06-19](advisor_email_current_five_decision_2026-06-19.md)
+- [Current-five evidence packet, 2026-06-19](current_five_evidence_packet_2026-06-19.md)
 - [June 15 Coca-Cola smoke capture audit, 2026-06-15](june15_coca_cola_smoke_audit_2026-06-15.md)
 - [Latest advisor email draft, 2026-06-15](advisor_email_latest_2026-06-15.md)
 - [Full project audit, 2026-06-15](full_project_audit_2026-06-15.md)
@@ -40,6 +45,7 @@ Use this index as the first file for advisor check-ins.
 - [Audit report summary](../../data/research_package/audit_report_summary.csv)
 - [Longitudinal summary](../../data/research_package/longitudinal_summary.csv)
 - [Week 2 manual evidence review worksheet](../../data/week2_manual_evidence_review_2026-06-10.csv)
+- [Current-five decision sheet](../../data/current_five_decision_sheet_2026-06-19.csv)
 
 ## Manual Review
 

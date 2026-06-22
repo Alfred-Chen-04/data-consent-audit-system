@@ -425,3 +425,48 @@
 - `research-status` still reports the current valid Week 2 package: 42 audit reports, 20 longitudinal summaries, sanity `ready`, cycle `completed`, and 8 pending CMP confirmations.
 - The postfix smoke CSV confirms the OneTrust blocker was fixed for the Coca-Cola smoke case: accept/reject/customize/dismiss and the Layer 1 gate are all `true`, with tier `Exemplary`.
 - Corrected two stale June 15 document passages so the initial OneTrust-fix recommendation is clearly superseded by the post-fix verification.
+
+## 2026-06-18 Current Work Findings
+
+- GitHub PR #4, `[codex] Clarify June 15 post-fix audit guidance`, is merged into `main` with merge commit `428394fa7e52d9f007737a123ace5ed6e1a7b13b`.
+- The local research dashboard remains unchanged from the valid Week 2 evidence gate: sanity `ready`, cycle `completed`, 42 audit reports, 20 longitudinal summaries, and 8 pending CMP confirmations.
+- No repository evidence shows a new advisor/sample decision after the June 15 email draft.
+- Added a June 18 daily work note to keep the next action evidence-based: do not rerun blind capture; decide between a post-fix current-five rerun and manual evidence cards before expansion.
+
+## 2026-06-19 Current-Five Evidence Packet Findings
+
+- The current Week 2 five-site evidence set has complete screenshot/DOM/hash refs in `data/week2_manual_evidence_review_2026-06-10.csv`.
+- Visual re-check of the five listed screenshots confirms the existing manual split: The Guardian and Coca-Cola have visible consent/control interfaces; CNN, Booking.com, and NerdWallet show no visible first-screen cookie/consent banner.
+- The current no-visible-banner rows should remain contrast candidates unless the advisor confirms that they belong in the main RQ1 scoring table.
+- Added `docs/research/current_five_evidence_packet_2026-06-19.md` so the next advisor/user discussion can use one five-site evidence packet rather than separate CSVs and screenshots.
+- Added `data/current_five_decision_sheet_2026-06-19.csv` so advisor/user decisions can be recorded without editing the evidence packet itself.
+- Added `docs/research/advisor_email_current_five_decision_2026-06-19.md` so the advisor request can be sent as a concise decision prompt instead of the longer June 15 status email.
+
+## 2026-06-19 Publish Check Findings
+
+- Local branch `codex/june18-current-work-note` is clean after the current-five evidence packet, decision sheet, and advisor decision email commits.
+- `research-status` still reports the valid Week 2 package: preflight `ready_for_capture`, sanity `ready`, cycle `completed`, 42 audit reports, 20 longitudinal summaries, and 8 pending CMP confirmations.
+- Targeted research artifact/status tests still pass: `31 passed`.
+- GitHub does not currently have `codex/june18-current-work-note`; fetching `docs/research/advisor_email_current_five_decision_2026-06-19.md` from that ref returned `No commit found for the ref`.
+- Sandboxed `git push -u origin codex/june18-current-work-note` is blocked by SSH port 22, and two escalated retries plus one GitHub API branch-create attempt timed out before approval.
+- Next publish action should be run from the user's Terminal: `cd "/Users/alfred/Documents/data consent audit system/repo"` then `git push -u origin codex/june18-current-work-note`.
+
+## 2026-06-20 Daily Evidence Gate Findings
+
+- Current local branch remains `codex/june18-current-work-note` at `fae345b Record June 19 publish check` before the June 20 note.
+- GitHub `main` is readable through the connector, but GitHub still returns `No commit found for the ref codex/june18-current-work-note` for the pending branch.
+- `research-status` remains stable: preflight `ready_for_capture`, sanity `ready`, cycle `completed`, 42 audit reports, 20 longitudinal summaries, and 8 pending CMP confirmations.
+- Targeted research artifact/status tests still pass: `31 passed`.
+- Added `docs/research/today_work_note_2026-06-20.md` and linked it from README and the Week 2 check-in index.
+- Today's evidence-based action is still publish/send/record decisions, not blind capture or sample expansion.
+
+## 2026-06-22 GitHub PR Publication Findings
+
+- `git push -u origin codex/june18-current-work-note` succeeded after network access was available.
+- Draft PR #5 was created: <https://github.com/Alfred-Chen-04/data-consent-audit-system/pull/5>.
+- The PR is titled `[codex] Add current-five evidence decision packet`.
+- After fetching `origin/main`, the branch was merged with latest `main` and pushed again.
+- GitHub compare now reports `status=ahead`, `behind_by=0`, 10 changed files, 451 additions, and 0 deletions.
+- `research-status` remains stable: 42 audit reports, 20 longitudinal summaries, and 8 pending CMP confirmations.
+- Targeted research artifact/status tests still pass: `31 passed`.
+- Added `docs/research/today_work_note_2026-06-22.md` and linked it from README and the Week 2 check-in index.
