@@ -466,7 +466,9 @@
 - Draft PR #5 was created: <https://github.com/Alfred-Chen-04/data-consent-audit-system/pull/5>.
 - The PR is titled `[codex] Add current-five evidence decision packet`.
 - After fetching `origin/main`, the branch was merged with latest `main` and pushed again.
-- GitHub compare now reports `status=ahead`, `behind_by=0`, 10 changed files, 451 additions, and 0 deletions.
+- After the final June 22 documentation push, GitHub compare reported
+  `status=ahead`, `behind_by=0`, 11 changed files, 540 additions, and 0
+  deletions.
 - `research-status` remains stable: 42 audit reports, 20 longitudinal summaries, and 8 pending CMP confirmations.
 - Targeted research artifact/status tests still pass: `31 passed`.
 - Added `docs/research/today_work_note_2026-06-22.md` and linked it from README and the Week 2 check-in index.
