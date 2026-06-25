@@ -202,7 +202,7 @@ Coca-Cola smoke passes all Layer 1 paths.
 - Current Week 3 continuity target list is [data/week3_continuity_targets_2026-06-13.csv](data/week3_continuity_targets_2026-06-13.csv).
 - Current June 14 capture attempt audit is [docs/research/june14_capture_attempt_audit_2026-06-14.md](docs/research/june14_capture_attempt_audit_2026-06-14.md).
 - Current June 15 Coca-Cola smoke capture audit is [docs/research/june15_coca_cola_smoke_audit_2026-06-15.md](docs/research/june15_coca_cola_smoke_audit_2026-06-15.md).
-- Current daily work note is [docs/research/today_work_note_2026-06-22.md](docs/research/today_work_note_2026-06-22.md).
+- Current daily work note is [docs/research/today_work_note_2026-06-25.md](docs/research/today_work_note_2026-06-25.md).
 - Current current-five evidence packet is [docs/research/current_five_evidence_packet_2026-06-19.md](docs/research/current_five_evidence_packet_2026-06-19.md).
 - Current current-five decision sheet is [data/current_five_decision_sheet_2026-06-19.csv](data/current_five_decision_sheet_2026-06-19.csv).
 - Current full project audit is [docs/research/full_project_audit_2026-06-15.md](docs/research/full_project_audit_2026-06-15.md).

@@ -9,15 +9,30 @@ Current verified facts:
 
 - Branch pushed: `codex/june18-current-work-note`
 - Pull request created: <https://github.com/Alfred-Chen-04/data-consent-audit-system/pull/5>
-- PR mode: draft
+- PR mode at creation: draft
 - PR title: `[codex] Add current-five evidence decision packet`
-- PR head after sync: `d3cb720821a2eb3c233f59f7d0d3e28007493ce0`
-- GitHub compare status after syncing with `main`: `ahead`, `behind_by=0`
-- Changed files in PR: 10
-- Additions/deletions in PR: 451 additions, 0 deletions
+- PR head after final June 22 documentation push:
+  `d77ef99d741f2886bc252606f9a017978f9e7b22`
+- GitHub compare status after syncing with `main` and final documentation push:
+  `ahead`, `behind_by=0`
+- Changed files in PR: 11
+- Additions/deletions in PR: 540 additions, 0 deletions
 - Research status remains unchanged: 42 audit reports, 20 longitudinal
   summaries, and `pending=8` CMP confirmations.
 - Targeted research artifact/status tests pass: `31 passed`.
+
+## Status Update, 2026-06-25
+
+PR #5 is no longer open/draft. GitHub reports:
+
+- State: `closed`
+- Merged: `true`
+- `merged_at`: `2026-06-22T03:25:29Z`
+- Merge commit: `2e197509270fd1077b73784ed5c6d7a3ea18f598`
+
+After the merge, comparing `main` to `codex/june18-current-work-note` reports
+the branch as behind by the merge commit with no remaining file diff. That is
+expected because the branch content has been merged into `main`.
 
 ## What Was Done Today
 
@@ -63,7 +78,7 @@ Current verified facts:
 
 ## Next Action
 
-Review PR #5, then send or adapt:
+PR #5 has already been merged. The remaining next action is to send or adapt:
 
 ```text
 docs/research/advisor_email_current_five_decision_2026-06-19.md
