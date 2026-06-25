@@ -466,7 +466,20 @@
 - Draft PR #5 was created: <https://github.com/Alfred-Chen-04/data-consent-audit-system/pull/5>.
 - The PR is titled `[codex] Add current-five evidence decision packet`.
 - After fetching `origin/main`, the branch was merged with latest `main` and pushed again.
-- GitHub compare now reports `status=ahead`, `behind_by=0`, 10 changed files, 451 additions, and 0 deletions.
+- After the final June 22 documentation push, GitHub compare reported
+  `status=ahead`, `behind_by=0`, 11 changed files, 540 additions, and 0
+  deletions.
 - `research-status` remains stable: 42 audit reports, 20 longitudinal summaries, and 8 pending CMP confirmations.
 - Targeted research artifact/status tests still pass: `31 passed`.
 - Added `docs/research/today_work_note_2026-06-22.md` and linked it from README and the Week 2 check-in index.
+
+## 2026-06-25 Fact-Consistency Audit Findings
+
+- GitHub PR #5 is no longer open or draft. GitHub reports it as closed and merged at `2026-06-22T03:25:29Z`.
+- The PR #5 merge commit is `2e197509270fd1077b73784ed5c6d7a3ea18f598`; local `main` is synced to that merge commit.
+- GitHub compare for `main...codex/june18-current-work-note` now reports `ahead_by=0`, `behind_by=1`, and no remaining file diff, which is expected after the branch content was merged into `main`.
+- The final PR #5 head before merge was `d77ef99d741f2886bc252606f9a017978f9e7b22`, with 11 changed files, 540 additions, and 0 deletions.
+- `research-status` still reports the valid Week 2 evidence state: 42 audit reports, 20 longitudinal summaries, cycle `completed`, sanity `ready`, and 8 pending CMP confirmations.
+- The targeted research artifact/status tests still pass: `31 passed`.
+- `data/current_five_decision_sheet_2026-06-19.csv` still has blank `confirmed_decision` fields, so the next research decision remains unresolved rather than technically blocked.
+- Corrected the June 22 work note so it no longer reads as if PR #5 is still open/draft, added `docs/research/today_work_note_2026-06-25.md`, and linked the June 25 note from README and the Week 2 check-in index.
