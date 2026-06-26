@@ -130,6 +130,7 @@ audit invariants.
 | 117. June 20 daily evidence gate | complete | Rechecked local/GitHub/research status, confirmed the remote branch is still absent, and added a June 20 work note that blocks blind capture until current-five decisions are recorded. |
 | 118. June 22 GitHub PR publication | complete | Pushed `codex/june18-current-work-note`, created draft PR #5, synced the branch with latest `main`, and added a June 22 work note with the PR URL and validation status. |
 | 119. June 25 fact-consistency audit | complete | Audited recent PR/publication notes against GitHub, local Git, `research-status`, targeted tests, and the current-five decision sheet; corrected stale PR #5 draft/count wording and added a June 25 fact-audit note. |
+| 120. June 26 post-merge status note | complete | Confirmed PR #6 is merged, fast-forwarded local `main`, rechecked `research-status` and the current-five decision sheet, and added a June 26 no-blind-capture status note. |
 
 ## Decisions
 
@@ -218,3 +219,4 @@ audit invariants.
 | June 20 daily evidence gate | The project could drift into another blind capture even though the remote branch is still absent and no current-five decision is recorded | Added `docs/research/today_work_note_2026-06-20.md` with verified GitHub/local/research status and a concrete no-capture/publish/email next-action gate. |
 | June 22 GitHub PR publication | The branch was previously local-only, so the advisor decision packet was not visible as a GitHub PR | Pushed the branch, created draft PR #5, merged latest `origin/main` into the branch to make GitHub compare `behind_by=0`, and recorded the PR URL in `docs/research/today_work_note_2026-06-22.md`. |
 | June 25 stale PR #5 status in recent notes | PR #5 had been merged, but recent notes still read like draft/open publication state and older PR counts | Corrected the June 22 note, added the June 25 fact-audit note, and updated README/index/planning records to point at the merged-PR status and the remaining decision-sheet blocker. |
+| June 26 post-merge handoff gap | PR #6 had been merged, but the current repo handoff still pointed at the June 25 note and local `main` was behind `origin/main` | Fast-forwarded local `main`, added `docs/research/today_work_note_2026-06-26.md`, and updated README/index/planning records to show the merged PR #6 state and unchanged decision-sheet blocker. |

@@ -483,3 +483,13 @@
 - The targeted research artifact/status tests still pass: `31 passed`.
 - `data/current_five_decision_sheet_2026-06-19.csv` still has blank `confirmed_decision` fields, so the next research decision remains unresolved rather than technically blocked.
 - Corrected the June 22 work note so it no longer reads as if PR #5 is still open/draft, added `docs/research/today_work_note_2026-06-25.md`, and linked the June 25 note from README and the Week 2 check-in index.
+
+## 2026-06-26 Post-Merge Status Findings
+
+- GitHub PR #6, `[codex] Record June 25 fact audit`, is merged into `main`.
+- GitHub reports PR #6 `merged_at` as `2026-06-25T11:58:53Z`.
+- The PR #6 merge commit is `cd02b72b8beee54f3688ed1c14f0d49d270ab79b`.
+- Local `main` was fast-forwarded from `2e19750` to `cd02b72` after `git fetch origin`.
+- `research-status` still reports the valid Week 2 evidence state: 42 audit reports, 20 longitudinal summaries, cycle `completed`, sanity `ready`, and 8 pending CMP confirmations.
+- `data/current_five_decision_sheet_2026-06-19.csv` still has 7 blank `confirmed_decision` cells: five site-level decisions and two project-level decisions.
+- Added `docs/research/today_work_note_2026-06-26.md` so today's handoff reflects the merged PR #6 state and does not imply a new blind capture is warranted.
