@@ -131,6 +131,7 @@ audit invariants.
 | 118. June 22 GitHub PR publication | complete | Pushed `codex/june18-current-work-note`, created draft PR #5, synced the branch with latest `main`, and added a June 22 work note with the PR URL and validation status. |
 | 119. June 25 fact-consistency audit | complete | Audited recent PR/publication notes against GitHub, local Git, `research-status`, targeted tests, and the current-five decision sheet; corrected stale PR #5 draft/count wording and added a June 25 fact-audit note. |
 | 120. June 26 post-merge status note | complete | Confirmed PR #6 is merged, fast-forwarded local `main`, rechecked `research-status` and the current-five decision sheet, and added a June 26 no-blind-capture status note. |
+| 121. June 27 PR-and-decision-gate status note | complete | Confirmed PR #7 is still open/draft and mergeable, rechecked `research-status` and the decision sheet, and added a June 27 note to keep the next action on PR review plus recorded decisions rather than blind capture. |
 
 ## Decisions
 
@@ -220,3 +221,5 @@ audit invariants.
 | June 22 GitHub PR publication | The branch was previously local-only, so the advisor decision packet was not visible as a GitHub PR | Pushed the branch, created draft PR #5, merged latest `origin/main` into the branch to make GitHub compare `behind_by=0`, and recorded the PR URL in `docs/research/today_work_note_2026-06-22.md`. |
 | June 25 stale PR #5 status in recent notes | PR #5 had been merged, but recent notes still read like draft/open publication state and older PR counts | Corrected the June 22 note, added the June 25 fact-audit note, and updated README/index/planning records to point at the merged-PR status and the remaining decision-sheet blocker. |
 | June 26 post-merge handoff gap | PR #6 had been merged, but the current repo handoff still pointed at the June 25 note and local `main` was behind `origin/main` | Fast-forwarded local `main`, added `docs/research/today_work_note_2026-06-26.md`, and updated README/index/planning records to show the merged PR #6 state and unchanged decision-sheet blocker. |
+| June 27 GitHub CLI unavailable | `gh --version` was run before publishing today's status update | `gh` is not installed in this shell; used the GitHub connector for PR #7 state and local `git` for commit/push instead. |
+| June 27 PR-and-decision-gate handoff | PR #7 is still open/draft and the current-five decision sheet is still blank, so starting new capture would not address the known blocker | Added `docs/research/today_work_note_2026-06-27.md` and updated README/index/planning records to keep today's action evidence-based. |
