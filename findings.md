@@ -504,3 +504,14 @@
 - `data/current_five_decision_sheet_2026-06-19.csv` still has 7 blank `confirmed_decision` cells.
 - `gh --version` failed because `gh` is not installed in this shell; GitHub PR #7 state was checked through the GitHub connector instead.
 - Added `docs/research/today_work_note_2026-06-27.md`; no new browser capture or new consent-interface evidence was added.
+
+## 2026-06-28 Recent Task Fact-Audit Findings
+
+- GitHub PR #7 is still `open`, `draft=true`, `merged=false`, and `mergeable=true`.
+- `research-status` still reports the valid Week 2 evidence state: 42 audit reports, 20 longitudinal summaries, cycle `completed`, sanity `ready`, and 8 pending CMP confirmations.
+- Structured CSV reads show `data/current_five_decision_sheet_2026-06-19.csv` has 7 rows and 7 blank `confirmed_decision` cells.
+- Structured CSV reads show `data/cmp_review_confirmation_sheet_pilot_2026-05-30.csv` has 8 rows, 8 `pending` confirmation statuses, and 8 blank `confirmed_decision` cells.
+- A quick `awk -F,` parse is not reliable for CSV files with quoted commas; use Python `csv.DictReader` or the project code for status counts.
+- The generated RQ1/RQ2 tables are evidence-facing current tables, not final paper decisions. README wording was adjusted from "paper-ready" to "paper-facing current-evidence."
+- The advisor packet index still pointed to older June 8 questions as the current sendable email. Added `docs/research/advisor_email_decision_gate_2026-06-28.md` and updated the advisor packet index.
+- Added `docs/research/recent_task_fact_audit_2026-06-28.md` and `docs/research/today_work_note_2026-06-28.md`; no new browser capture or consent-interface evidence was added.

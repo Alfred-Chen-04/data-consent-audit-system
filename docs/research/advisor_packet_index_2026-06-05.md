@@ -5,8 +5,13 @@ interface audit status to Dr. Singh after his June 5 guidance.
 
 ## What Can Be Sent Today
 
-After the successful June 6 live capture and June 8 no-visible-banner review,
-use this short next-step draft as the current advisor email:
+After the successful June 6 live capture, June 8 no-visible-banner review, and
+June 28 fact audit, use this decision-gate draft as the current advisor email:
+
+- `docs/research/advisor_email_decision_gate_2026-06-28.md`
+
+The older June 8 next-step draft remains useful background, but it is no longer
+the current sendable email:
 
 - `docs/research/advisor_email_next_step_draft_2026-06-08.md`
 
@@ -45,7 +50,8 @@ The project-level implementation is recorded in:
 
 ## Current Facts To Report
 
-These facts are current as of the latest `research-status` check on 2026-06-08:
+These facts are current as of the latest 2026-06-28 fact audit and
+`research-status` check:
 
 - Week 2 targets: 5
 - Categories: finance=1, food=1, news=2, travel=1
@@ -58,6 +64,8 @@ These facts are current as of the latest `research-status` check on 2026-06-08:
 - Banner-present automated tiers: High-Risk=2
 - Raw automated target tiers: High-Risk=5, but no-visible-banner rows should not be claimed as banner-path failures without a coding decision
 - CMP confirmations: pending=8
+- Current-five decision sheet: 7 blank `confirmed_decision` cells
+- PR #7 status: open draft PR, not merged
 - Paper artifacts present: claim register, figure plan, paper skeleton, poster plan, results tables, writing pack
 
 The current Week 2 target list is:
@@ -81,16 +89,19 @@ Do not claim these yet:
 
 ## Open Questions For Dr. Singh
 
-The current email draft asks these three questions:
+The current June 28 email draft asks these four decision questions:
 
-1. Should the deep sample include only a small number of clean no-banner contrast
-   examples, or should all repeated no-banner observations remain in the main
-   sample table with a type label?
-2. Should Qiyao's previous 80-ish website list remain an internal candidate
-   pool for now, or can it be described in the paper methods as a source for
-   scalable coverage?
-3. For the next update, is a compact site-level table enough, or should each
-   site have an evidence card with screenshot/DOM/report references?
+1. Confirm, rerun, or replace The Guardian and Coca-Cola as banner-present
+   evidence-card rows.
+2. Keep CNN, Booking.com, and NerdWallet as separate no-visible-banner contrast
+   rows, move them into the main RQ1 table with a clear label, rerun them, or
+   replace them.
+3. Choose the next work block: current-five rerun, manual validation then
+   expansion, banner-present expansion first, or CMP/manual-review resolution
+   first.
+4. Decide whether the SSRP paper should describe the 20-site target as the
+   immediate deep-sample goal or stay centered on the five verified Week 2
+   sites until the next capture succeeds.
 
 ## Current Work Order
 
@@ -102,9 +113,9 @@ After the completed June 6 evidence gate:
    PYTHONPATH=src .venv/bin/python -m consent_audit.cli research-status
    ```
 
-2. Send or discuss the filled advisor update draft:
+2. Send or discuss the current decision-gate email:
 
-   - `docs/research/advisor_email_post_capture_draft_2026-06-06.md`
+   - `docs/research/advisor_email_decision_gate_2026-06-28.md`
 
 3. Keep the 8 CMP/manual-review rows separate from locked sample decisions.
 

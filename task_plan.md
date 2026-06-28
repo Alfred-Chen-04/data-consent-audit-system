@@ -132,6 +132,7 @@ audit invariants.
 | 119. June 25 fact-consistency audit | complete | Audited recent PR/publication notes against GitHub, local Git, `research-status`, targeted tests, and the current-five decision sheet; corrected stale PR #5 draft/count wording and added a June 25 fact-audit note. |
 | 120. June 26 post-merge status note | complete | Confirmed PR #6 is merged, fast-forwarded local `main`, rechecked `research-status` and the current-five decision sheet, and added a June 26 no-blind-capture status note. |
 | 121. June 27 PR-and-decision-gate status note | complete | Confirmed PR #7 is still open/draft and mergeable, rechecked `research-status` and the decision sheet, and added a June 27 note to keep the next action on PR review plus recorded decisions rather than blind capture. |
+| 122. June 28 evidence-based recent-task audit | complete | Audited recent task/status/advisor docs for unsupported or too-final claims, corrected stale entrypoints and "paper-ready" wording, added a June 28 fact audit, and drafted a direct advisor decision-gate email. |
 
 ## Decisions
 
@@ -223,3 +224,5 @@ audit invariants.
 | June 26 post-merge handoff gap | PR #6 had been merged, but the current repo handoff still pointed at the June 25 note and local `main` was behind `origin/main` | Fast-forwarded local `main`, added `docs/research/today_work_note_2026-06-26.md`, and updated README/index/planning records to show the merged PR #6 state and unchanged decision-sheet blocker. |
 | June 27 GitHub CLI unavailable | `gh --version` was run before publishing today's status update | `gh` is not installed in this shell; used the GitHub connector for PR #7 state and local `git` for commit/push instead. |
 | June 27 PR-and-decision-gate handoff | PR #7 is still open/draft and the current-five decision sheet is still blank, so starting new capture would not address the known blocker | Added `docs/research/today_work_note_2026-06-27.md` and updated README/index/planning records to keep today's action evidence-based. |
+| June 28 ad-hoc CSV parsing risk | A quick `awk -F,` check can misread CSV files with quoted commas, as shown when checking the CMP confirmation sheet | Rechecked current-five and CMP decision counts with Python `csv.DictReader` and recorded the structured counts in the June 28 fact audit. |
+| June 28 stale advisor entrypoint | Advisor packet index still pointed at June 8 questions as the current sendable email | Added `docs/research/advisor_email_decision_gate_2026-06-28.md` and updated README/index/advisor packet links to make the current decision gate explicit. |
