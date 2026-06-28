@@ -4,8 +4,9 @@
 
 These are short, paper/poster-friendly evidence cards for the two strongest
 current banner-present Week 2 cases. They are based on the manual screenshot
-review worksheet and should stay paired with the screenshot and DOM references
-listed below.
+review worksheet and should stay paired with the screenshot references listed
+below. The DOM references are historical/generated refs in CSV/report exports;
+the raw HTML files are not synced in the current checkout.
 
 These cards are not the final SSRP results. They are the cleanest current
 examples to discuss with the advisor before expanding the deep sample.
@@ -19,7 +20,7 @@ examples to discuss with the advisor before expanding the deep sample.
 | Evidence class | Banner/control evidence |
 | Draft coding | Banner-present manual review case |
 | Screenshot | `data/captures/sites/www_theguardian_com_20260605_160209/layer1.png` |
-| DOM snapshot | `data/captures/sites/www_theguardian_com_20260605_160209/layer1.html` |
+| DOM ref in exports | `data/captures/sites/www_theguardian_com_20260605_160209/layer1.html` (raw HTML file not synced in current checkout) |
 | Longitudinal severity | D |
 | Event count | 4 |
 | Event types | copy change, DOM restructure, layout change, pathway change |
@@ -53,7 +54,7 @@ separate automated extraction from human-confirmed evidence.
 | Evidence class | Banner/control evidence |
 | Draft coding | Banner-present manual review case |
 | Screenshot | `data/captures/sites/www_coca_cola_com_20260605_160238/layer1.png` |
-| DOM snapshot | `data/captures/sites/www_coca_cola_com_20260605_160238/layer1.html` |
+| DOM ref in exports | `data/captures/sites/www_coca_cola_com_20260605_160238/layer1.html` (raw HTML file not synced in current checkout) |
 | Longitudinal severity | D |
 | Event count | 5 |
 | Event types | copy change, DOM restructure, layout change, pathway change, score change |

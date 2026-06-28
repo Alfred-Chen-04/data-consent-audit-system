@@ -76,6 +76,20 @@
   decide the no-banner contrast treatment, and expand carefully toward roughly
   20 deep sites.
 
+## 2026-06-28 Plain-Language Status Check
+
+- GitHub PR #7 is now merged into `main`; the local checkout was fast-forwarded
+  to include its June 26-28 fact-audit and advisor-decision documents.
+- The current checkout has 326 synced `data/captures/sites/**/layer1.png`
+  screenshot files and the five current-five screenshot refs exist.
+- The current checkout has 0 synced `layer1.html` files because `.gitignore`
+  includes `data/captures/**` and only re-includes PNGs. Existing CSV/report
+  DOM refs should therefore be treated as generated/historical refs plus DOM
+  hashes, not as local raw HTML files that are currently available.
+- Direct screenshot inspection confirms The Guardian and Coca-Cola are
+  banner/control evidence cases, while CNN, Booking.com, and NerdWallet show no
+  visible first-screen cookie banner in the Week 2 screenshots.
+
 ## 2026-05-29 Smoke Probe Findings
 
 - The smoke list now has 6 public canary sites: BBC, The Guardian, NY Times, Reuters, Reddit, and Wikipedia.

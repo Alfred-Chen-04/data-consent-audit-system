@@ -23,6 +23,7 @@ This project sits in the gap none of them close: **multimodal AI grounding (VLM 
 | [docs/architecture.md](docs/architecture.md) | Technical architecture, data flow, module boundaries |
 | [docs/related_work/background_with_citations.md](docs/related_work/background_with_citations.md) | Lit review + regulatory framework + user ecosystem (cited) |
 | [docs/related_work/legal_cheatsheet.md](docs/related_work/legal_cheatsheet.md) | 1-page reference: the 8 legal anchors every audit metric maps to |
+| [docs/research/project_status_plain_language_2026-06-28.md](docs/research/project_status_plain_language_2026-06-28.md) | Plain-language current-state handoff: what exists, where evidence is, what is still unresolved |
 | [docs/research/week2_execution_runbook_2026-06-06.md](docs/research/week2_execution_runbook_2026-06-06.md) | Current Week 2 capture + advisor-review runbook |
 | [Chen_Qianyi_SSRP 2026_Proposal_Final Version.docx.pdf](./Chen_Qianyi_SSRP%202026_Proposal_Final%20Version.docx.pdf) | Original SSRP research proposal |
 
@@ -181,6 +182,7 @@ Coca-Cola smoke passes all Layer 1 paths.
   rerun the current five with the fixed capture agent, or switch this week to a
   semi-automated screenshot/DOM/manual-validation protocol.
 - Current advisor decision email is [docs/research/advisor_email_decision_gate_2026-06-28.md](docs/research/advisor_email_decision_gate_2026-06-28.md).
+- Current plain-language project handoff is [docs/research/project_status_plain_language_2026-06-28.md](docs/research/project_status_plain_language_2026-06-28.md).
 - Previous short advisor decision email is [docs/research/advisor_email_current_five_decision_2026-06-19.md](docs/research/advisor_email_current_five_decision_2026-06-19.md).
 - The Week 2 capture runbook remains [docs/research/week2_execution_runbook_2026-06-06.md](docs/research/week2_execution_runbook_2026-06-06.md).
 - Current advisor-facing update brief is [docs/research/week2_advisor_update_2026-06-06.md](docs/research/week2_advisor_update_2026-06-06.md).

@@ -12,6 +12,7 @@ Use this index as the first file for advisor check-ins.
 ## Read First
 
 - [Today work note, 2026-06-28](today_work_note_2026-06-28.md)
+- [Plain-language project status handoff, 2026-06-28](project_status_plain_language_2026-06-28.md)
 - [Recent task fact audit, 2026-06-28](recent_task_fact_audit_2026-06-28.md)
 - [Advisor decision-gate email, 2026-06-28](advisor_email_decision_gate_2026-06-28.md)
 - [Today work note, 2026-06-27](today_work_note_2026-06-27.md)

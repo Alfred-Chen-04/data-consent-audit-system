@@ -133,6 +133,7 @@ audit invariants.
 | 120. June 26 post-merge status note | complete | Confirmed PR #6 is merged, fast-forwarded local `main`, rechecked `research-status` and the current-five decision sheet, and added a June 26 no-blind-capture status note. |
 | 121. June 27 PR-and-decision-gate status note | complete | Confirmed PR #7 is still open/draft and mergeable, rechecked `research-status` and the decision sheet, and added a June 27 note to keep the next action on PR review plus recorded decisions rather than blind capture. |
 | 122. June 28 evidence-based recent-task audit | complete | Audited recent task/status/advisor docs for unsupported or too-final claims, corrected stale entrypoints and "paper-ready" wording, added a June 28 fact audit, and drafted a direct advisor decision-gate email. |
+| 123. June 28 plain-language handoff and evidence-location cleanup | complete | Added a user-facing current-state handoff, verified current-five screenshots, documented that raw `layer1.html` files are not synced in the checkout, and corrected current evidence docs to avoid overclaiming DOM file availability. |
 
 ## Decisions
 
