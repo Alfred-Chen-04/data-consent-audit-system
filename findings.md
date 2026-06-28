@@ -90,6 +90,19 @@
   banner/control evidence cases, while CNN, Booking.com, and NerdWallet show no
   visible first-screen cookie banner in the Week 2 screenshots.
 
+## 2026-06-29 Status Continuity Check
+
+- GitHub PR #8 is `open`, `draft=true`, `merged=false`, and `mergeable=true`.
+- The local branch `codex/project-status-plain-language` is synced with
+  `origin/codex/project-status-plain-language` at `f61e267`.
+- `research-status` still reports sanity `ready`, cycle `completed`, 42 audit
+  reports, 20 longitudinal summaries, and 8 pending CMP confirmations.
+- Structured CSV reads still show 7 blank current-five decisions and 8 pending
+  CMP/manual-review confirmations.
+- Today's safe work is documentation/status continuity, PR review/merge, and
+  advisor decision capture. A blind live capture would not resolve the current
+  blocker.
+
 ## 2026-05-29 Smoke Probe Findings
 
 - The smoke list now has 6 public canary sites: BBC, The Guardian, NY Times, Reuters, Reddit, and Wikipedia.
