@@ -483,3 +483,35 @@
 - The targeted research artifact/status tests still pass: `31 passed`.
 - `data/current_five_decision_sheet_2026-06-19.csv` still has blank `confirmed_decision` fields, so the next research decision remains unresolved rather than technically blocked.
 - Corrected the June 22 work note so it no longer reads as if PR #5 is still open/draft, added `docs/research/today_work_note_2026-06-25.md`, and linked the June 25 note from README and the Week 2 check-in index.
+
+## 2026-06-26 Post-Merge Status Findings
+
+- GitHub PR #6, `[codex] Record June 25 fact audit`, is merged into `main`.
+- GitHub reports PR #6 `merged_at` as `2026-06-25T11:58:53Z`.
+- The PR #6 merge commit is `cd02b72b8beee54f3688ed1c14f0d49d270ab79b`.
+- Local `main` was fast-forwarded from `2e19750` to `cd02b72` after `git fetch origin`.
+- `research-status` still reports the valid Week 2 evidence state: 42 audit reports, 20 longitudinal summaries, cycle `completed`, sanity `ready`, and 8 pending CMP confirmations.
+- `data/current_five_decision_sheet_2026-06-19.csv` still has 7 blank `confirmed_decision` cells: five site-level decisions and two project-level decisions.
+- Added `docs/research/today_work_note_2026-06-26.md` so today's handoff reflects the merged PR #6 state and does not imply a new blind capture is warranted.
+
+## 2026-06-27 PR-and-Decision-Gate Findings
+
+- GitHub PR #7, `[codex] Record June 26 post-merge status`, is still `open`, `draft=true`, `merged=false`, and `mergeable=true`.
+- The PR #7 head SHA is `a46fa273259784296bb3a4e2e575cedc0894669d`.
+- Local branch `codex/june26-current-state-note` is synced to `origin/codex/june26-current-state-note` at `a46fa27`.
+- Local `main` is still at PR #6 merge commit `cd02b72b8beee54f3688ed1c14f0d49d270ab79b`.
+- `research-status` still reports the valid Week 2 evidence state: 42 audit reports, 20 longitudinal summaries, cycle `completed`, sanity `ready`, and 8 pending CMP confirmations.
+- `data/current_five_decision_sheet_2026-06-19.csv` still has 7 blank `confirmed_decision` cells.
+- `gh --version` failed because `gh` is not installed in this shell; GitHub PR #7 state was checked through the GitHub connector instead.
+- Added `docs/research/today_work_note_2026-06-27.md`; no new browser capture or new consent-interface evidence was added.
+
+## 2026-06-28 Recent Task Fact-Audit Findings
+
+- GitHub PR #7 is still `open`, `draft=true`, `merged=false`, and `mergeable=true`.
+- `research-status` still reports the valid Week 2 evidence state: 42 audit reports, 20 longitudinal summaries, cycle `completed`, sanity `ready`, and 8 pending CMP confirmations.
+- Structured CSV reads show `data/current_five_decision_sheet_2026-06-19.csv` has 7 rows and 7 blank `confirmed_decision` cells.
+- Structured CSV reads show `data/cmp_review_confirmation_sheet_pilot_2026-05-30.csv` has 8 rows, 8 `pending` confirmation statuses, and 8 blank `confirmed_decision` cells.
+- A quick `awk -F,` parse is not reliable for CSV files with quoted commas; use Python `csv.DictReader` or the project code for status counts.
+- The generated RQ1/RQ2 tables are evidence-facing current tables, not final paper decisions. README wording was adjusted from "paper-ready" to "paper-facing current-evidence."
+- The advisor packet index still pointed to older June 8 questions as the current sendable email. Added `docs/research/advisor_email_decision_gate_2026-06-28.md` and updated the advisor packet index.
+- Added `docs/research/recent_task_fact_audit_2026-06-28.md` and `docs/research/today_work_note_2026-06-28.md`; no new browser capture or consent-interface evidence was added.
