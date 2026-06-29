@@ -1,5 +1,12 @@
 # Full Project Fact Audit, 2026-06-10
 
+2026-06-29 correction note: this is a historical audit. Current checkout
+evidence counts differ: `data/captures/sites` has 326 tracked `layer1.png`
+screenshots and 0 synced `layer1.html` files. Use
+`docs/research/project_status_plain_language_2026-06-28.md` and
+`docs/research/summer_midpoint_progress_audit_2026-06-29.md` for current
+evidence-location claims.
+
 ## Purpose
 
 This document audits the consent-interface audit project from the beginning of

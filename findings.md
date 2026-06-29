@@ -103,6 +103,18 @@
   advisor decision capture. A blind live capture would not resolve the current
   blocker.
 
+## 2026-06-29 Summer Midpoint Progress Audit
+
+- Calendar status: 2026-06-29 is Week 5 of the 10-week core SSRP cycle, about
+  44% through the May 30-August 7 window.
+- Deliverable status is uneven: technical pipeline and Week 2 evidence gate are
+  strong; sample lock, 20-site expansion, final paper prose, poster, and demo
+  remain incomplete.
+- Corrected current-material wording so the advisor email and generated results
+  table no longer imply raw `layer1.html` files are synced in the current repo.
+- Added `docs/research/summer_midpoint_progress_audit_2026-06-29.md` as the
+  current evidence-based answer to "are we halfway?"
+
 ## 2026-05-29 Smoke Probe Findings
 
 - The smoke list now has 6 public canary sites: BBC, The Guardian, NY Times, Reuters, Reddit, and Wikipedia.

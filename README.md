@@ -183,6 +183,7 @@ Coca-Cola smoke passes all Layer 1 paths.
   semi-automated screenshot/DOM/manual-validation protocol.
 - Current advisor decision email is [docs/research/advisor_email_decision_gate_2026-06-28.md](docs/research/advisor_email_decision_gate_2026-06-28.md).
 - Current plain-language project handoff is [docs/research/project_status_plain_language_2026-06-28.md](docs/research/project_status_plain_language_2026-06-28.md).
+- Current summer midpoint progress audit is [docs/research/summer_midpoint_progress_audit_2026-06-29.md](docs/research/summer_midpoint_progress_audit_2026-06-29.md).
 - Previous short advisor decision email is [docs/research/advisor_email_current_five_decision_2026-06-19.md](docs/research/advisor_email_current_five_decision_2026-06-19.md).
 - The Week 2 capture runbook remains [docs/research/week2_execution_runbook_2026-06-06.md](docs/research/week2_execution_runbook_2026-06-06.md).
 - Current advisor-facing update brief is [docs/research/week2_advisor_update_2026-06-06.md](docs/research/week2_advisor_update_2026-06-06.md).

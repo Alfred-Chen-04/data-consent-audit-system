@@ -66,6 +66,10 @@ def test_export_ssrp_results_tables_turns_research_package_into_tables(
     assert "- Banner evidence classes: banner_present=1, no_visible_banner=1" in text
     assert "- Banner-present automated tiers: Compliant=1" in text
     assert "- Raw automated target tiers: Compliant=1, High-Risk=1" in text
+    assert (
+        "- Evidence refs may include generated DOM paths from CSV/report exports; "
+        "verify raw HTML file availability separately"
+    ) in text
     assert "## Table 1. RQ1 Consent-Interface Scoring Summary" in text
     assert (
         "| Example | news | banner/control evidence | banner-present scored case | "

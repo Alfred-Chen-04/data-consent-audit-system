@@ -135,6 +135,7 @@ audit invariants.
 | 122. June 28 evidence-based recent-task audit | complete | Audited recent task/status/advisor docs for unsupported or too-final claims, corrected stale entrypoints and "paper-ready" wording, added a June 28 fact audit, and drafted a direct advisor decision-gate email. |
 | 123. June 28 plain-language handoff and evidence-location cleanup | complete | Added a user-facing current-state handoff, verified current-five screenshots, documented that raw `layer1.html` files are not synced in the checkout, and corrected current evidence docs to avoid overclaiming DOM file availability. |
 | 124. June 29 status continuity note | complete | Added a dated work note confirming PR #8, research status, decision-sheet blockers, and today's no-blind-capture next action. |
+| 125. June 29 summer midpoint progress audit | complete | Added a fact-grounded midpoint audit, corrected current DOM-evidence wording in advisor/results-table materials, and verified the updated generator and artifacts. |
 
 ## Decisions
 
