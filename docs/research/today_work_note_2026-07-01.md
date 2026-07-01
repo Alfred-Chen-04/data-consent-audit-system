@@ -87,6 +87,14 @@ Code/test files updated:
 - `tests/test_week2_sanity.py`
 - `tests/test_research_artifacts.py`
 
+Additional completion-audit cleanup:
+
+- Updated `src/consent_audit/cli.py` and `src/consent_audit/paper_tables.py`
+  so the results-table command/module says `paper-facing` rather than
+  `paper-ready`. This keeps command wording aligned with the current evidence
+  state: the tables are useful for the paper, but they are not final paper
+  results.
+
 ## What Still Holds From The June 29 Audit
 
 - PR #8 is still the current project-status handoff PR and is not merged into

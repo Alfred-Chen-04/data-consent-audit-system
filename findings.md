@@ -564,3 +564,4 @@
 - Current checkout still has 326 `layer1.png` screenshots and 0 `layer1.html` raw DOM files under `data/captures/sites`.
 - Calendar math for 2026-07-01 is 33 elapsed days out of the 70-day May 30-August 7 core cycle, about 47.1%; the calendar midpoint is around 2026-07-03 to 2026-07-04.
 - The Week 2 sanity-check generator now includes a caveat that evidence completeness means screenshot ref, DOM snapshot ref, DOM hash, and image hash are present in the consent table; raw DOM file sync must be verified separately.
+- Completion-audit keyword search found remaining `paper-ready` wording in the result-table CLI/module docstrings; those were changed to `paper-facing` so code-facing help matches the non-final evidence status.

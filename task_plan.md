@@ -137,6 +137,7 @@ audit invariants.
 | 124. June 29 status continuity note | complete | Added a dated work note confirming PR #8, research status, decision-sheet blockers, and today's no-blind-capture next action. |
 | 125. June 29 summer midpoint progress audit | complete | Added a fact-grounded midpoint audit, corrected current DOM-evidence wording in advisor/results-table materials, and verified the updated generator and artifacts. |
 | 126. July 1 midpoint recheck and sanity caveat | complete | Rechecked PR #8, research status, decision sheets, evidence counts, and calendar progress; added a July 1 work note and a sanity-check caveat so evidence completeness is not misread as synced raw HTML availability. |
+| 127. July 1 completion-audit terminology cleanup | complete | Rechecked overclaim keywords and changed remaining code-facing `paper-ready` wording for SSRP result tables to `paper-facing`. |
 
 ## Decisions
 

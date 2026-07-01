@@ -1,4 +1,4 @@
-"""Generate paper-ready SSRP results tables from current research CSVs."""
+"""Generate paper-facing SSRP results tables from current research CSVs."""
 
 from __future__ import annotations
 
