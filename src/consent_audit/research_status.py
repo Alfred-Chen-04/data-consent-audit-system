@@ -39,7 +39,7 @@ def render_research_status(
     sanity_status = _extract_bullet_value(sanity_md, "Overall status")
     cycle_capture_status = _extract_bullet_value(cycle_report_md, "Capture status")
     next_action = _extract_next_action(cycle_report_md)
-    paper_artifacts = {
+    support_artifacts = {
         "figure_plan": _artifact_status(figure_plan_md),
         "paper_skeleton": _artifact_status(paper_skeleton_md),
         "poster_plan": _artifact_status(poster_plan_md),
@@ -59,7 +59,7 @@ def render_research_status(
         f"- Audit reports in package: {manifest.get('audit_report_count', 0)}\n"
         f"- Longitudinal summaries in package: {manifest.get('weekly_summary_count', 0)}\n"
         f"- CMP confirmations: {_format_counts(confirmation_counts) or 'none'}\n"
-        f"- Paper artifacts: {_format_counts(paper_artifacts)}\n"
+        f"- Support artifacts: {_format_counts(support_artifacts)}\n"
         f"- Next action: {next_action}\n\n"
         "## Key Artifacts\n\n"
         f"- Targets: `{targets_csv}`\n"
@@ -69,10 +69,10 @@ def render_research_status(
         f"- Sanity check: `{sanity_md}`\n"
         f"- Cycle report: `{cycle_report_md}`\n"
         f"- SSRP results tables: `{results_tables_md}`\n"
-        f"- SSRP paper skeleton: `{paper_skeleton_md}`\n"
-        f"- SSRP figure plan: `{figure_plan_md}`\n"
-        f"- SSRP writing pack: `{writing_pack_md}`\n"
-        f"- SSRP claim register: `{claim_register_md}`\n"
+        f"- Optional future-paper skeleton: `{paper_skeleton_md}`\n"
+        f"- SSRP presentation/poster figure plan: `{figure_plan_md}`\n"
+        f"- SSRP writing support pack: `{writing_pack_md}`\n"
+        f"- SSRP evidence claim register: `{claim_register_md}`\n"
         f"- SSRP poster plan: `{poster_plan_md}`\n"
     )
 

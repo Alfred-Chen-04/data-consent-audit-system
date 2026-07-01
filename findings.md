@@ -565,3 +565,14 @@
 - Calendar math for 2026-07-01 is 33 elapsed days out of the 70-day May 30-August 7 core cycle, about 47.1%; the calendar midpoint is around 2026-07-03 to 2026-07-04.
 - The Week 2 sanity-check generator now includes a caveat that evidence completeness means screenshot ref, DOM snapshot ref, DOM hash, and image hash are present in the consent table; raw DOM file sync must be verified separately.
 - Completion-audit keyword search found remaining `paper-ready` wording in the result-table CLI/module docstrings; those were changed to `paper-facing` so code-facing help matches the non-final evidence status.
+
+## 2026-07-01 Scope Update Findings
+
+- User clarified that the current summer project does not need a formal paper; current summer deliverables are presentation + large poster + traceable evidence package.
+- Existing paper-oriented artifacts remain useful as optional future-paper support and presentation/poster source notes, but they should not drive the July/August work plan unless Dr. Singh reintroduces a paper later.
+- Added `docs/research/advisor_email_scope_update_2026-07-01.md` as the current sendable email to Dr. Singh.
+- Added `docs/research/current_scope_2026-07-01.md` as the current scope entrypoint.
+- Marked `docs/research/advisor_email_decision_gate_2026-06-28.md` as superseded and updated README, the Week 2 check-in index, advisor packet index, plain-language handoff, midpoint audit, July 1 work note, and remaining-work audit to use presentation/poster wording.
+- Updated `research-status` visible wording from `Paper artifacts` to
+  `Support artifacts` so the daily dashboard matches the current
+  presentation/poster scope.

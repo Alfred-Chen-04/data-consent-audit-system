@@ -5,8 +5,18 @@ interface audit status to Dr. Singh after his June 5 guidance.
 
 ## What Can Be Sent Today
 
-After the successful June 6 live capture, June 8 no-visible-banner review, and
-June 28 fact audit, use this decision-gate draft as the current advisor email:
+After the successful June 6 live capture, June 8 no-visible-banner review, June
+28 fact audit, and July 1 scope update, use this draft as the current advisor
+email:
+
+- `docs/research/advisor_email_scope_update_2026-07-01.md`
+
+The current scope note is:
+
+- `docs/research/current_scope_2026-07-01.md`
+
+The June 28 decision-gate email is now historical because it still treated a
+formal SSRP paper as a current summer deliverable:
 
 - `docs/research/advisor_email_decision_gate_2026-06-28.md`
 
@@ -38,9 +48,9 @@ This template has now been superseded by the filled June 6 draft above:
 
 | Area | Confirmed direction | Implementation in project materials |
 |---|---|---|
-| Research questions | Current RQ framing is on track. | Keep RQ1 scoring and RQ2 longitudinal capture/versioning as the paper spine. |
+| Research questions | Current RQ framing is on track. | Keep RQ1 scoring and RQ2 longitudinal capture/versioning as the presentation/poster research spine. |
 | No-banner cases | Treat them as contrasts. | Use clean repeated no-banner observations as contrast cases, not failed samples. |
-| Sample scale | Deep analysis of fewer sites is appropriate if scalable. | Use about 20 sites as the deep SSRP paper sample and the 80-ish list as a lightweight tracker/candidate pool. |
+| Sample scale | Deep analysis of fewer sites is appropriate if scalable. | For the current presentation/poster, decide whether to stay with the five-site evidence gate or expand toward more banner-present examples; keep the 80-ish list as a lightweight tracker/candidate pool. |
 
 The project-level implementation is recorded in:
 
@@ -50,7 +60,7 @@ The project-level implementation is recorded in:
 
 ## Current Facts To Report
 
-These facts are current as of the latest 2026-06-28 fact audit and
+These facts are current as of the latest 2026-07-01 scope update and
 `research-status` check:
 
 - Week 2 targets: 5
@@ -65,8 +75,12 @@ These facts are current as of the latest 2026-06-28 fact audit and
 - Raw automated target tiers: High-Risk=5, but no-visible-banner rows should not be claimed as banner-path failures without a coding decision
 - CMP confirmations: pending=8
 - Current-five decision sheet: 7 blank `confirmed_decision` cells
-- PR #7 status: open draft PR, not merged
-- Paper artifacts present: claim register, figure plan, paper skeleton, poster plan, results tables, writing pack
+- PR #8 status: open draft PR, not merged, mergeable
+- Current summer deliverables: presentation + large poster + traceable
+  evidence package; a formal paper is not required for the current summer
+  scope unless Dr. Singh reintroduces it later
+- Presentation/poster support artifacts present: claim register, figure plan,
+  optional future-paper skeleton, poster plan, results tables, writing pack
 
 The current Week 2 target list is:
 
@@ -89,7 +103,7 @@ Do not claim these yet:
 
 ## Open Questions For Dr. Singh
 
-The current June 28 email draft asks these four decision questions:
+The current July 1 email draft asks these decision questions:
 
 1. Confirm, rerun, or replace The Guardian and Coca-Cola as banner-present
    evidence-card rows.
@@ -99,9 +113,9 @@ The current June 28 email draft asks these four decision questions:
 3. Choose the next work block: current-five rerun, manual validation then
    expansion, banner-present expansion first, or CMP/manual-review resolution
    first.
-4. Decide whether the SSRP paper should describe the 20-site target as the
-   immediate deep-sample goal or stay centered on the five verified Week 2
-   sites until the next capture succeeds.
+4. Confirm whether the presentation/poster should stay centered on the
+   five-site evidence gate or expand toward more banner-present examples.
+5. Confirm that a formal paper is not part of the current summer deliverable.
 
 ## Current Work Order
 
@@ -115,11 +129,11 @@ After the completed June 6 evidence gate:
 
 2. Send or discuss the current decision-gate email:
 
-   - `docs/research/advisor_email_decision_gate_2026-06-28.md`
+   - `docs/research/advisor_email_scope_update_2026-07-01.md`
 
 3. Keep the 8 CMP/manual-review rows separate from locked sample decisions.
 
-4. Expand toward the roughly 20-site deep sample only after deciding:
+4. Expand beyond the current five-site evidence gate only after deciding:
 
    - how many clean no-banner contrast rows to include;
    - which access-friction rows to replace;

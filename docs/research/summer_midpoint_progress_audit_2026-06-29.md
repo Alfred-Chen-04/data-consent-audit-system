@@ -1,5 +1,11 @@
 # Summer Midpoint Progress Audit, 2026-06-29
 
+2026-07-01 scope update: the current summer deliverables are presentation +
+large poster + traceable evidence package. A formal SSRP paper is no longer a
+required summer deliverable unless Dr. Singh reintroduces it later. Interpret
+the paper-related notes below as historical/future-paper support, not the
+current July/August priority.
+
 ## Bottom Line
 
 By calendar, the project is close to the middle of the 10-week core SSRP cycle:
@@ -11,12 +17,12 @@ By deliverable readiness, the project is uneven:
   an SSRP demo/research-method artifact.
 - The final research dataset is not halfway if the target remains about 20 deep
   sites, because only 5 current sites are in the Week 2 evidence gate.
-- The paper/poster are scaffolded but not final drafts.
+- The presentation/poster are scaffolded but not final deliverables.
 
 So the honest answer is: the project is not "nothing happened," but it is also
-not safe to say the whole summer project is halfway complete as a final paper.
-It is around the middle by time, ahead on tooling, behind on sample-lock and
-paper-writing.
+not safe to say the whole summer project is halfway complete as a final
+presentation/poster package. It is around the middle by time, ahead on tooling,
+behind on sample-lock and presentation/poster finalization.
 
 ## Evidence Checked
 
@@ -71,7 +77,7 @@ manual sample decisions needed before broader capture are still unresolved.
 | Week 2 evidence gate | Solid | 5/5 targets captured; sanity `ready`; 42 reports and 20 summaries in package. |
 | Screenshot evidence | Solid for current synced repo | 326 tracked `layer1.png` screenshots; current-five screenshots verified. |
 | Current-five interpretation | Solid as draft, pending advisor confirmation | Guardian/Coca-Cola are banner/control evidence; CNN/Booking/NerdWallet are no-visible-banner contrast candidates. |
-| Paper/poster scaffolding | Solid as scaffold | Results tables, paper skeleton, writing pack, claim register, figure plan, and poster plan exist. |
+| Presentation/poster scaffolding | Solid as scaffold | Results tables, writing support notes, claim register, figure plan, and poster plan exist. |
 | Fact-correction discipline | Improved | PR #8 corrects raw HTML sync claims and adds plain-language handoff. |
 
 ## What Is Incomplete
@@ -83,7 +89,7 @@ manual sample decisions needed before broader capture are still unresolved.
 | CMP/manual-review | 8 pending confirmations | These rows should not be treated as final sample decisions. |
 | Raw DOM files | 0 synced `layer1.html` files in current checkout | Current synced evidence should be described as screenshots, DOM hashes/report refs, CSVs, and JSONL reports. |
 | Week 3 continuity | 2026-06-14 attempt failed at browser navigation | It did not create valid new consent-interface observations. |
-| Final paper | Not written as final prose | Existing files are scaffold/current-evidence support, not final SSRP paper. |
+| Final presentation | Not built | Existing files are scaffold/current-evidence support, not a final slide deck. |
 | Final poster/demo | Not final | Poster plan exists; demo/evidence browser is not final. |
 
 ## Corrections Made Today
@@ -110,12 +116,13 @@ I found and corrected current-material wording that could be read too strongly:
 | Technical pipeline | More than halfway | Core CLI, exports, reports, summaries, tests, and paper artifact generators exist. |
 | Evidence quality for current-five | More than halfway | Current-five screenshots and summary tables exist; interpretation is documented. |
 | Sample size / dataset | Less than halfway | 5 current targets versus planned about 20 deep sites. |
-| Paper writing | Less than halfway | Skeleton and writing pack exist, but final prose/results/discussion are not written. |
+| Presentation writing | Less than halfway | Evidence summaries and writing support exist, but the final slide story is not built. |
 | Poster/demo | Less than halfway | Poster plan exists, but final poster/demo are not built. |
 
 Overall: this is a midpoint project with a strong infrastructure base and a
-clear evidence gate, but the research deliverable is now bottlenecked by human
-decisions and dataset expansion, not by writing more scaffolding.
+clear evidence gate, but the current presentation/poster deliverable is now
+bottlenecked by human decisions, sample framing, and final visual/story
+assembly, not by writing more scaffolding.
 
 ## Critical Path For The Remaining Month
 
@@ -134,8 +141,8 @@ follow this order:
 5. If expanding, prioritize banner-present/control evidence sites and keep
    no-visible-banner cases explicitly labeled as contrast cases.
 6. Refresh RQ1/RQ2 tables after any successful new capture.
-7. Turn the existing paper skeleton and writing pack into actual SSRP paper
-   prose by Week 9-10.
+7. Turn the existing poster plan, figure plan, and writing support notes into a
+   final presentation/poster story by Week 9-10.
 
 ## Safe Claims Right Now
 
@@ -146,8 +153,8 @@ follow this order:
   3 no-visible-banner contrast candidates unless the advisor decides otherwise.
 - The current repo syncs screenshot PNG evidence, but raw `layer1.html` files
   are not synced in this checkout.
-- The project is in Week 5 of the 10-week core cycle and is not final-paper
-  complete.
+- The project is in Week 5 of the 10-week core cycle and is not final
+  presentation/poster complete.
 
 ## Claims Not To Make
 
@@ -155,4 +162,4 @@ follow this order:
 - Do not say the 20-site deep sample is locked.
 - Do not say all five current sites are banner-path failures.
 - Do not say raw DOM HTML snapshots are synced in the repo.
-- Do not say the paper/poster are final.
+- Do not say the presentation/poster are final.

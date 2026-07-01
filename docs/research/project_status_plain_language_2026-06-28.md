@@ -3,9 +3,11 @@
 ## One-Sentence Status
 
 This project currently has a working research scaffold, a real five-site Week 2
-evidence gate, synced screenshots, generated RQ1/RQ2 tables, and paper/poster
-drafting artifacts. It is not a finished SSRP paper, not a final 20-site
-dataset, and not a SOC 2 audit product.
+evidence gate, synced screenshots, generated RQ1/RQ2 tables, and
+presentation/poster support artifacts. Under the 2026-07-01 scope update, the
+summer deliverables are a presentation and a large poster, not a required
+formal SSRP paper. It is not a final 20-site dataset and not a SOC 2 audit
+product.
 
 ## What I Checked
 
@@ -39,8 +41,10 @@ Start with these files:
   `docs/research/current_five_evidence_packet_2026-06-19.md`
 - Current-five decision sheet:
   `data/current_five_decision_sheet_2026-06-19.csv`
-- Advisor email draft:
-  `docs/research/advisor_email_decision_gate_2026-06-28.md`
+- Current scope note:
+  `docs/research/current_scope_2026-07-01.md`
+- Current advisor email draft:
+  `docs/research/advisor_email_scope_update_2026-07-01.md`
 
 Current-five screenshot evidence:
 
@@ -72,8 +76,10 @@ The useful work falls into five buckets:
    package export, and CLI status commands.
 3. Week 2 produced a real five-site evidence gate: The Guardian, CNN,
    Booking.com, NerdWallet, and Coca-Cola.
-4. Paper/poster scaffolding exists: results tables, paper skeleton, writing
-   pack, claim register, figure plan, and poster plan.
+4. Presentation/poster scaffolding exists: results tables, writing support
+   notes, claim register, figure plan, and poster plan. Older paper-oriented
+   artifacts are now optional future-paper support, not the current summer
+   deliverable.
 5. Recent work has mostly been cleanup and decision-gating: checking facts,
    preparing advisor emails, recording PR status, and preventing blind new
    captures before the sample decisions are recorded.
@@ -98,8 +104,8 @@ The useful work falls into five buckets:
 ## What Is Not Done Yet
 
 - The 20-site deep sample is not locked.
-- The final SSRP paper is not written.
-- The poster is not final.
+- The final presentation is not built.
+- The large poster is not final.
 - The demo/evidence browser is not final.
 - The current-five decision sheet is still blank.
 - The 8 CMP/manual-review confirmation rows are still pending.
@@ -108,15 +114,15 @@ The useful work falls into five buckets:
 
 ## What To Ask Dr. Singh Next
 
-Use `docs/research/advisor_email_decision_gate_2026-06-28.md` as the email
-draft. The concrete questions are:
+Use `docs/research/advisor_email_scope_update_2026-07-01.md` as the current
+email draft. The concrete questions are:
 
 1. For the current five sites, should we treat Guardian and Coca-Cola as
    banner-present evidence cards, and CNN/Booking/NerdWallet as contrast cases?
 2. Should no-visible-banner rows stay in the main RQ1 table, move to a separate
    contrast table, or be capped as limitations evidence?
-3. Should the next work be a current-five rerun, manual validation/reporting, or
-   expansion toward about 20 deep sites?
+3. Should the next work be current-five manual validation, a post-fix rerun,
+   expansion toward more banner-present examples, or CMP/manual-review cleanup?
 4. When should the next working session happen, and what should be prepared for
    that session?
 

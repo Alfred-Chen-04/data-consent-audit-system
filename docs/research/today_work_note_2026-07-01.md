@@ -6,8 +6,9 @@ Today was a fact-check, midpoint recheck, and evidence-wording cleanup day.
 
 Do not describe the project as halfway complete as a final SSRP deliverable.
 As of 2026-07-01, the project is near the calendar midpoint of the May 30-Aug.
-7 core cycle, but the paper dataset and final writing are still behind the
-calendar.
+7 core cycle, but the final presentation/poster package is still behind the
+calendar. The current summer scope is presentation + large poster + traceable
+evidence package, not a required formal paper.
 
 The useful work today is to keep the current state traceable, fix one remaining
 evidence-wording ambiguity, and keep the next action focused on decisions rather
@@ -34,8 +35,8 @@ than blind capture.
   - audit reports: 42
   - longitudinal summaries: 20
   - CMP confirmations: pending=8
-  - paper artifacts present: claim register, figure plan, paper skeleton,
-    poster plan, results tables, writing pack
+  - support artifacts present: claim register, figure plan, optional
+    future-paper skeleton, poster plan, results tables, writing pack
 - `data/current_five_decision_sheet_2026-06-19.csv` has 7 rows and 7 blank
   `confirmed_decision` cells.
 - `data/cmp_review_confirmation_sheet_pilot_2026-05-30.csv` has 8 rows, all
@@ -63,8 +64,8 @@ Using the May 30-Aug. 7, 2026 core build/research cycle:
 
 Interpretation: the project is almost at the calendar midpoint, but it has not
 quite crossed it yet. By deliverable readiness, the technical pipeline is ahead
-of halfway, while the final research sample, advisor-confirmed decisions, paper
-prose, and poster/demo are not halfway complete.
+of halfway, while the final research sample, advisor-confirmed decisions,
+presentation story, and poster/demo are not halfway complete.
 
 ## What Was Corrected Today
 
@@ -92,8 +93,11 @@ Additional completion-audit cleanup:
 - Updated `src/consent_audit/cli.py` and `src/consent_audit/paper_tables.py`
   so the results-table command/module says `paper-facing` rather than
   `paper-ready`. This keeps command wording aligned with the current evidence
-  state: the tables are useful for the paper, but they are not final paper
-  results.
+  state: the tables are useful for presentation/poster support and possible
+  future paper work, but they are not final paper results.
+- Updated `research-status` wording so it reports `Support artifacts` and
+  labels the paper skeleton as optional future-paper support, matching the
+  presentation/poster summer scope.
 
 ## What Still Holds From The June 29 Audit
 
@@ -108,6 +112,9 @@ Additional completion-audit cleanup:
 - The current-five decision sheet is still blank.
 - The CMP/manual-review confirmation sheet is still pending.
 - No new browser capture or new consent-interface evidence was added today.
+- 2026-07-01 scope update: the summer deliverable is presentation + large
+  poster + traceable evidence package. A formal paper is not required for the
+  current summer scope unless Dr. Singh reintroduces it later.
 
 ## Today's Safe Work Boundary
 
@@ -116,7 +123,7 @@ step is still a decision gate:
 
 1. Review or merge PR #8 so the clarified project state reaches `main`.
 2. Send or adapt
-   `docs/research/advisor_email_decision_gate_2026-06-28.md`.
+   `docs/research/advisor_email_scope_update_2026-07-01.md`.
 3. Record the advisor/user answer in
    `data/current_five_decision_sheet_2026-06-19.csv`.
 4. Then pick one work mode:
@@ -135,9 +142,9 @@ It is:
 2. Add 10-15 more banner-present/control-evidence candidates only after that
    rule is recorded.
 3. Refresh the RQ1/RQ2 exports after successful captures.
-4. Turn the existing skeleton/writing pack into actual paper prose during
-   Week 8-10.
+4. Turn the existing poster plan, figure plan, and writing support notes into
+   the final presentation/poster story during Week 8-10.
 
-Do not claim the project has reached final-paper halfway until at least the
-current-five rule is recorded and the expansion or fallback writing path is
-chosen.
+Do not claim the project has reached final presentation/poster halfway until at
+least the current-five rule is recorded and the expansion or fallback
+presentation/poster path is chosen.

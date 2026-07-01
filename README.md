@@ -104,19 +104,19 @@ uv run consent-audit week2-capture-targets
 # Export a compact advisor update from current targets/results/review state
 uv run consent-audit advisor-update-brief
 
-# Export a current evidence-grounded SSRP paper skeleton
+# Export optional future-paper support notes from current evidence
 uv run consent-audit ssrp-paper-skeleton
 
 # Export paper-facing current-evidence RQ1/RQ2 Markdown results tables
 uv run consent-audit ssrp-results-tables
 
-# Export a figure queue for the paper/poster
+# Export a figure queue for presentation/poster and optional future paper
 uv run consent-audit ssrp-figure-plan
 
-# Export draftable paper notes for methods/results/discussion/limitations
+# Export draftable notes for presentation/poster and optional future paper
 uv run consent-audit ssrp-writing-pack
 
-# Export an evidence/status register for paper claims
+# Export an evidence/status register for claims
 uv run consent-audit ssrp-claim-register
 
 # Export a poster storyboard and asset checklist
@@ -134,7 +134,7 @@ uv run consent-audit week2-capture-checklist
 # Check whether Week 2 inputs are ready before running browser capture
 uv run consent-audit week2-preflight-check
 
-# Refresh the full Week 2 paper/advisor package after a capture run
+# Refresh the full Week 2 presentation/poster/advisor support package after a capture run
 uv run consent-audit week2-refresh-outputs
 
 # Dry-run the full Week 2 cycle without opening browser capture
@@ -175,24 +175,28 @@ control-recognition bug. That bug has a regression fix, and a post-fix
 Coca-Cola smoke passes all Layer 1 paths.
 
 - Core capture/scoring/export pipeline is executable for the pilot sample and the frozen Week 2 targets.
-- Current paper-facing exports contain 42 audit reports and 20 longitudinal weekly summaries.
+- Current evidence-facing exports contain 42 audit reports and 20 longitudinal weekly summaries.
+- Current summer deliverables are presentation + large poster + traceable
+  evidence package. A formal paper is not required for the current summer
+  scope unless Dr. Singh reintroduces it later.
 - Week 2 default capture list is `data/week2_deep_sample_targets_2026-06-06.csv`.
 - The Week 2 live cycle completed 5/5 captures; sanity is `ready`.
 - Next operational step is advisor/sample review plus a decision on whether to
   rerun the current five with the fixed capture agent, or switch this week to a
   semi-automated screenshot/DOM/manual-validation protocol.
-- Current advisor decision email is [docs/research/advisor_email_decision_gate_2026-06-28.md](docs/research/advisor_email_decision_gate_2026-06-28.md).
+- Current advisor decision email is [docs/research/advisor_email_scope_update_2026-07-01.md](docs/research/advisor_email_scope_update_2026-07-01.md).
+- Current scope note is [docs/research/current_scope_2026-07-01.md](docs/research/current_scope_2026-07-01.md).
 - Current plain-language project handoff is [docs/research/project_status_plain_language_2026-06-28.md](docs/research/project_status_plain_language_2026-06-28.md).
 - Current summer midpoint progress audit is [docs/research/summer_midpoint_progress_audit_2026-06-29.md](docs/research/summer_midpoint_progress_audit_2026-06-29.md).
 - Current July 1 midpoint recheck and work note is [docs/research/today_work_note_2026-07-01.md](docs/research/today_work_note_2026-07-01.md).
 - Previous short advisor decision email is [docs/research/advisor_email_current_five_decision_2026-06-19.md](docs/research/advisor_email_current_five_decision_2026-06-19.md).
 - The Week 2 capture runbook remains [docs/research/week2_execution_runbook_2026-06-06.md](docs/research/week2_execution_runbook_2026-06-06.md).
 - Current advisor-facing update brief is [docs/research/week2_advisor_update_2026-06-06.md](docs/research/week2_advisor_update_2026-06-06.md).
-- Current evidence-grounded paper skeleton is [docs/research/ssrp_paper_skeleton_2026-06-06.md](docs/research/ssrp_paper_skeleton_2026-06-06.md).
+- Optional future-paper support skeleton is [docs/research/ssrp_paper_skeleton_2026-06-06.md](docs/research/ssrp_paper_skeleton_2026-06-06.md).
 - Current paper-facing current-evidence RQ1/RQ2 results tables are [docs/research/ssrp_results_tables_2026-06-06.md](docs/research/ssrp_results_tables_2026-06-06.md).
-- Current paper/poster figure plan is [docs/research/ssrp_figure_plan_2026-06-06.md](docs/research/ssrp_figure_plan_2026-06-06.md).
-- Current paper writing pack is [docs/research/ssrp_writing_pack_2026-06-06.md](docs/research/ssrp_writing_pack_2026-06-06.md).
-- Current paper claim register is [docs/research/ssrp_claim_register_2026-06-06.md](docs/research/ssrp_claim_register_2026-06-06.md).
+- Current presentation/poster figure plan is [docs/research/ssrp_figure_plan_2026-06-06.md](docs/research/ssrp_figure_plan_2026-06-06.md).
+- Current presentation/poster writing support pack is [docs/research/ssrp_writing_pack_2026-06-06.md](docs/research/ssrp_writing_pack_2026-06-06.md).
+- Current evidence claim register is [docs/research/ssrp_claim_register_2026-06-06.md](docs/research/ssrp_claim_register_2026-06-06.md).
 - Current SSRP poster plan is [docs/research/ssrp_poster_plan_2026-06-06.md](docs/research/ssrp_poster_plan_2026-06-06.md).
 - Current remaining-work audit is [docs/research/ssrp_remaining_work_audit_2026-05-30.md](docs/research/ssrp_remaining_work_audit_2026-05-30.md).
 - Current CMP confirmation request is [docs/research/cmp_confirmation_request_2026-05-30.md](docs/research/cmp_confirmation_request_2026-05-30.md).

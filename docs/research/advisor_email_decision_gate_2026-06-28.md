@@ -1,5 +1,10 @@
 # Advisor Email Draft, 2026-06-28
 
+Superseded note, 2026-07-01: use
+`docs/research/advisor_email_scope_update_2026-07-01.md` as the current email.
+The July 1 version reflects the updated summer scope: presentation + large
+poster, not a required formal paper.
+
 Subject: Decisions needed before next consent-interface capture or expansion
 
 Dear Professor Singh,
