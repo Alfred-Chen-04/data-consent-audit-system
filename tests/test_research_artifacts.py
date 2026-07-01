@@ -480,6 +480,7 @@ def test_week2_sanity_check_exists_and_reports_completed_capture_gate() -> None:
     assert "- Target sites: 5" in text
     assert "- Consent rows captured: 5/5" in text
     assert "- Evidence-complete rows: 5/5" in text
+    assert "verify raw DOM file sync separately" in text
     assert "- Matching audit reports: 5/5" in text
     assert "- Weekly summaries present: 5/5" in text
     assert "- Overall status: ready" in text

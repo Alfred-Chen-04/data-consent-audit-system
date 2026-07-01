@@ -130,6 +130,7 @@ def _render_sanity_check(
         f"- Target sites: {target_count}\n"
         f"- Consent rows captured: {captured_count}/{target_count}\n"
         f"- Evidence-complete rows: {evidence_count}/{target_count}\n"
+        "- Evidence definition: screenshot ref, DOM snapshot ref, DOM hash, and image hash are present in the consent table; verify raw DOM file sync separately before claiming local HTML availability.\n"
         f"- Matching audit reports: {report_count}/{target_count}\n"
         f"- Weekly summaries present: {summary_count}/{target_count}\n"
         f"- Overall status: {status}\n\n"

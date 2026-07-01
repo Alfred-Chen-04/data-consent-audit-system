@@ -554,3 +554,13 @@
 - The generated RQ1/RQ2 tables are evidence-facing current tables, not final paper decisions. README wording was adjusted from "paper-ready" to "paper-facing current-evidence."
 - The advisor packet index still pointed to older June 8 questions as the current sendable email. Added `docs/research/advisor_email_decision_gate_2026-06-28.md` and updated the advisor packet index.
 - Added `docs/research/recent_task_fact_audit_2026-06-28.md` and `docs/research/today_work_note_2026-06-28.md`; no new browser capture or consent-interface evidence was added.
+
+## 2026-07-01 Midpoint Recheck Findings
+
+- GitHub PR #8 is still open/draft/mergeable and not merged into `main`.
+- `origin/main` remains at `28ee83755bc1eb379b08a8941ebad146d9c8fd45`, while the PR #8 branch is at `e9542343909282cb230d644ed13a6388ca8b4ab6` before today's note.
+- `research-status` still reports Week 2 targets=5, sanity `ready`, cycle `completed`, 42 audit reports, 20 longitudinal summaries, and 8 pending CMP confirmations.
+- Structured CSV reads still show 7 blank current-five decisions and 8 pending CMP/manual-review confirmations.
+- Current checkout still has 326 `layer1.png` screenshots and 0 `layer1.html` raw DOM files under `data/captures/sites`.
+- Calendar math for 2026-07-01 is 33 elapsed days out of the 70-day May 30-August 7 core cycle, about 47.1%; the calendar midpoint is around 2026-07-03 to 2026-07-04.
+- The Week 2 sanity-check generator now includes a caveat that evidence completeness means screenshot ref, DOM snapshot ref, DOM hash, and image hash are present in the consent table; raw DOM file sync must be verified separately.

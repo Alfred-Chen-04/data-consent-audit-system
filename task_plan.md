@@ -136,6 +136,7 @@ audit invariants.
 | 123. June 28 plain-language handoff and evidence-location cleanup | complete | Added a user-facing current-state handoff, verified current-five screenshots, documented that raw `layer1.html` files are not synced in the checkout, and corrected current evidence docs to avoid overclaiming DOM file availability. |
 | 124. June 29 status continuity note | complete | Added a dated work note confirming PR #8, research status, decision-sheet blockers, and today's no-blind-capture next action. |
 | 125. June 29 summer midpoint progress audit | complete | Added a fact-grounded midpoint audit, corrected current DOM-evidence wording in advisor/results-table materials, and verified the updated generator and artifacts. |
+| 126. July 1 midpoint recheck and sanity caveat | complete | Rechecked PR #8, research status, decision sheets, evidence counts, and calendar progress; added a July 1 work note and a sanity-check caveat so evidence completeness is not misread as synced raw HTML availability. |
 
 ## Decisions
 
@@ -229,3 +230,4 @@ audit invariants.
 | June 27 PR-and-decision-gate handoff | PR #7 is still open/draft and the current-five decision sheet is still blank, so starting new capture would not address the known blocker | Added `docs/research/today_work_note_2026-06-27.md` and updated README/index/planning records to keep today's action evidence-based. |
 | June 28 ad-hoc CSV parsing risk | A quick `awk -F,` check can misread CSV files with quoted commas, as shown when checking the CMP confirmation sheet | Rechecked current-five and CMP decision counts with Python `csv.DictReader` and recorded the structured counts in the June 28 fact audit. |
 | June 28 stale advisor entrypoint | Advisor packet index still pointed at June 8 questions as the current sendable email | Added `docs/research/advisor_email_decision_gate_2026-06-28.md` and updated README/index/advisor packet links to make the current decision gate explicit. |
+| July 1 local `python` command unavailable | Structured CSV/calendar checks initially used `python - <<'PY'` | Reran the same checks with `/Users/alfred/Desktop/data-consent-audit-system/.venv/bin/python`. |
