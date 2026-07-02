@@ -1,4 +1,4 @@
-"""Generate paper-ready SSRP results tables from current research CSVs."""
+"""Generate paper-facing SSRP results tables from current research CSVs."""
 
 from __future__ import annotations
 
@@ -60,7 +60,8 @@ def _render_tables(
         f"- Banner evidence classes: {_format_counts(_count_banner_classes(targets, reports)) or 'none'}\n"
         f"- Banner-present automated tiers: {_format_counts(_count_banner_present_values(targets, reports, 'tier')) or 'none'}\n"
         f"- Raw automated target tiers: {_format_counts(_count_target_values(targets, reports, 'tier', default='missing')) or 'none'}\n"
-        f"- Latest longitudinal severity: {_format_counts(_count_target_values(targets, summaries, 'severity', default='missing')) or 'none'}\n\n"
+        f"- Latest longitudinal severity: {_format_counts(_count_target_values(targets, summaries, 'severity', default='missing')) or 'none'}\n"
+        "- Evidence refs may include generated DOM paths from CSV/report exports; verify raw HTML file availability separately before claiming synced DOM snapshots.\n\n"
         "## Table 1. RQ1 Consent-Interface Scoring Summary\n\n"
         "| Site | Category | Banner evidence | RQ1 coding | Automated tier | L1 gate | Available paths | Missing paths | L2 effort | Transparency | Unbiased | Evidence refs |\n"
         "|---|---|---|---|---|---|---|---|---|---|---|---|\n"

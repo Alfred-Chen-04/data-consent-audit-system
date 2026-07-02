@@ -91,14 +91,14 @@ def test_render_research_status_summarizes_week2_state(tmp_path: Path) -> None:
     assert "- Longitudinal summaries in package: 15" in text
     assert "- CMP confirmations: pending=8" in text
     assert (
-        "- Paper artifacts: claim_register=present, figure_plan=present, "
+        "- Support artifacts: claim_register=present, figure_plan=present, "
         "paper_skeleton=present, poster_plan=present, results_tables=present, "
         "writing_pack=present"
     ) in text
     assert "- Next action: Start live capture with `week2-cycle` when ready." in text
     assert f"- SSRP results tables: `{results_tables_md}`" in text
-    assert f"- SSRP paper skeleton: `{paper_skeleton_md}`" in text
-    assert f"- SSRP figure plan: `{figure_plan_md}`" in text
-    assert f"- SSRP writing pack: `{writing_pack_md}`" in text
-    assert f"- SSRP claim register: `{claim_register_md}`" in text
+    assert f"- Optional future-paper skeleton: `{paper_skeleton_md}`" in text
+    assert f"- SSRP presentation/poster figure plan: `{figure_plan_md}`" in text
+    assert f"- SSRP writing support pack: `{writing_pack_md}`" in text
+    assert f"- SSRP evidence claim register: `{claim_register_md}`" in text
     assert f"- SSRP poster plan: `{poster_plan_md}`" in text

@@ -15,12 +15,17 @@ lock decision.
   - `data/captures/sites/www_booking_com_20260605_160226/layer1.png`
   - `data/captures/sites/www_nerdwallet_com_20260605_160232/layer1.png`
   - `data/captures/sites/www_coca_cola_com_20260605_160238/layer1.png`
-- DOM snapshots:
+- DOM refs in exports, not raw files in the current checkout:
   - `data/captures/sites/www_theguardian_com_20260605_160209/layer1.html`
   - `data/captures/sites/www_cnn_com_20260605_160221/layer1.html`
   - `data/captures/sites/www_booking_com_20260605_160226/layer1.html`
   - `data/captures/sites/www_nerdwallet_com_20260605_160232/layer1.html`
   - `data/captures/sites/www_coca_cola_com_20260605_160238/layer1.html`
+
+Note added 2026-06-28: the screenshot PNGs above are synced; these raw HTML
+files are not present in the current Git checkout. Use DOM hashes and report
+exports as the synced DOM evidence unless raw HTML files are restored or
+recaptured.
 
 ## Review Summary
 

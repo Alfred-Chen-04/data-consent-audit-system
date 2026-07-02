@@ -11,7 +11,17 @@ Use this index as the first file for advisor check-ins.
 
 ## Read First
 
+- [Current project goal, 2026-07-02](current_project_goal_2026-07-02.md)
+- [Project inventory and poster story, 2026-07-02](project_inventory_and_poster_story_2026-07-02.md)
+- [Today work note, 2026-07-02](today_work_note_2026-07-02.md)
+- [Presentation/poster work order, 2026-07-02](presentation_poster_work_order_2026-07-02.md)
+- [Current scope note, 2026-07-01](current_scope_2026-07-01.md)
+- [Current advisor email: scope update and next decisions, 2026-07-01](advisor_email_scope_update_2026-07-01.md)
+- [Today work note, 2026-07-01](today_work_note_2026-07-01.md)
+- [Today work note, 2026-06-29](today_work_note_2026-06-29.md)
+- [Summer midpoint progress audit, 2026-06-29](summer_midpoint_progress_audit_2026-06-29.md)
 - [Today work note, 2026-06-28](today_work_note_2026-06-28.md)
+- [Plain-language project status handoff, 2026-06-28](project_status_plain_language_2026-06-28.md)
 - [Recent task fact audit, 2026-06-28](recent_task_fact_audit_2026-06-28.md)
 - [Advisor decision-gate email, 2026-06-28](advisor_email_decision_gate_2026-06-28.md)
 - [Today work note, 2026-06-27](today_work_note_2026-06-27.md)

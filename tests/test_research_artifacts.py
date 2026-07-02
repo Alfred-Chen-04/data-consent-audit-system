@@ -480,6 +480,7 @@ def test_week2_sanity_check_exists_and_reports_completed_capture_gate() -> None:
     assert "- Target sites: 5" in text
     assert "- Consent rows captured: 5/5" in text
     assert "- Evidence-complete rows: 5/5" in text
+    assert "verify raw DOM file sync separately" in text
     assert "- Matching audit reports: 5/5" in text
     assert "- Weekly summaries present: 5/5" in text
     assert "- Overall status: ready" in text
@@ -707,3 +708,106 @@ def test_ssrp_poster_plan_exists_and_marks_week2_gate_ready() -> None:
     assert "## Before Final Poster" in text
     assert "Use the completed Week 2 gate as first evidence, not the final dataset." in text
     assert "## Source Artifacts" in text
+
+
+def test_current_scope_and_advisor_email_reflect_presentation_poster_deliverable() -> None:
+    scope_path = Path("docs/research/current_scope_2026-07-01.md")
+    email_path = Path("docs/research/advisor_email_scope_update_2026-07-01.md")
+    readme_path = Path("README.md")
+    index_path = Path("docs/research/week2_checkin_index_2026-06-06.md")
+
+    scope_text = scope_path.read_text(encoding="utf-8")
+    email_text = email_path.read_text(encoding="utf-8")
+    readme_text = readme_path.read_text(encoding="utf-8")
+    index_text = index_path.read_text(encoding="utf-8")
+
+    assert "presentation;" in scope_text
+    assert "large poster;" in scope_text
+    assert "A formal SSRP paper is not required as a summer deliverable" in scope_text
+    assert "original RQ1/RQ2 spine" in scope_text
+    assert "not as a replacement research question" in scope_text
+    assert "Subject: Current project scope and next consent-audit decisions" in email_text
+    assert "presentation + large poster + traceable" in readme_text
+    assert "advisor_email_scope_update_2026-07-01.md" in readme_text
+    assert "[Current scope note, 2026-07-01](current_scope_2026-07-01.md)" in index_text
+
+
+def test_july2_work_note_and_poster_work_order_are_current_entrypoints() -> None:
+    today_path = Path("docs/research/today_work_note_2026-07-02.md")
+    work_order_path = Path("docs/research/presentation_poster_work_order_2026-07-02.md")
+    readme_path = Path("README.md")
+    index_path = Path("docs/research/week2_checkin_index_2026-06-06.md")
+
+    today_text = today_path.read_text(encoding="utf-8")
+    work_order_text = work_order_path.read_text(encoding="utf-8")
+    readme_text = readme_path.read_text(encoding="utf-8")
+    index_text = index_path.read_text(encoding="utf-8")
+
+    assert "Calendar progress | about 48.6%" in today_text
+    assert "0 tracked or filesystem `layer1.html` raw DOM files" in today_text
+    assert "There is still no evidence-based reason to run a blind live capture." in today_text
+    assert "## Presentation/Poster Story" in work_order_text
+    assert "RQ1 computational" in work_order_text
+    assert "RQ2 automatic" in work_order_text
+    assert "Guardian and Coca-Cola are the current banner-present evidence-card" in work_order_text
+    assert "today_work_note_2026-07-02.md" in readme_text
+    assert "presentation_poster_work_order_2026-07-02.md" in readme_text
+    assert "[Today work note, 2026-07-02](today_work_note_2026-07-02.md)" in index_text
+
+
+def test_project_inventory_and_poster_story_is_current_entrypoint() -> None:
+    inventory_path = Path("docs/research/project_inventory_and_poster_story_2026-07-02.md")
+    readme_path = Path("README.md")
+    index_path = Path("docs/research/week2_checkin_index_2026-06-06.md")
+
+    inventory_text = inventory_path.read_text(encoding="utf-8")
+    readme_text = readme_path.read_text(encoding="utf-8")
+    index_text = index_path.read_text(encoding="utf-8")
+
+    assert 'The project is not "a screenshot project."' in inventory_text
+    assert "RQ1: develop a computational audit and scoring system" in inventory_text
+    assert "RQ2: automatically capture and version firms' privacy interfaces" in inventory_text
+    assert "Screenshots are evidence inputs." in inventory_text
+    assert "326 tracked site `layer1.png` screenshots" in inventory_text
+    assert "42 audit reports and 20 longitudinal summaries" in inventory_text
+    assert "All 42 referenced screenshot paths exist locally." in inventory_text
+    assert "Do not say:" in inventory_text
+    assert "project_inventory_and_poster_story_2026-07-02.md" in readme_text
+    assert (
+        "[Project inventory and poster story, 2026-07-02]"
+        "(project_inventory_and_poster_story_2026-07-02.md)"
+    ) in index_text
+
+
+def test_current_project_goal_is_canonical_entrypoint() -> None:
+    goal_path = Path("docs/research/current_project_goal_2026-07-02.md")
+    schema_path = Path("SCHEMA.md")
+    readme_path = Path("README.md")
+    scope_path = Path("docs/research/current_scope_2026-07-01.md")
+    work_order_path = Path("docs/research/presentation_poster_work_order_2026-07-02.md")
+    inventory_path = Path("docs/research/project_inventory_and_poster_story_2026-07-02.md")
+    index_path = Path("docs/research/week2_checkin_index_2026-06-06.md")
+
+    goal_text = goal_path.read_text(encoding="utf-8")
+    schema_text = schema_path.read_text(encoding="utf-8")
+    readme_text = readme_path.read_text(encoding="utf-8")
+    scope_text = scope_path.read_text(encoding="utf-8")
+    work_order_text = work_order_path.read_text(encoding="utf-8")
+    inventory_text = inventory_path.read_text(encoding="utf-8")
+    index_text = index_path.read_text(encoding="utf-8")
+
+    assert "One-Sentence Goal" in goal_text
+    assert "RQ1 scores" in goal_text
+    assert "layered consent interfaces for unbiased choice" in goal_text
+    assert "RQ2 captures and versions" in goal_text
+    assert "Not a screenshot collection project." in goal_text
+    assert "Evidence traceability is a design requirement" in goal_text
+    assert "Presentation." in goal_text
+    assert "Large poster." in goal_text
+    assert "Traceable evidence package" in goal_text
+    assert "current_project_goal_2026-07-02.md" in schema_text
+    assert "current_project_goal_2026-07-02.md" in readme_text
+    assert "original RQ1/RQ2 spine" in scope_text
+    assert "current_project_goal_2026-07-02.md" in work_order_text
+    assert "current_project_goal_2026-07-02.md" in inventory_text
+    assert "[Current project goal, 2026-07-02](current_project_goal_2026-07-02.md)" in index_text

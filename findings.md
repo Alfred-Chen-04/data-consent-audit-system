@@ -76,6 +76,45 @@
   decide the no-banner contrast treatment, and expand carefully toward roughly
   20 deep sites.
 
+## 2026-06-28 Plain-Language Status Check
+
+- GitHub PR #7 is now merged into `main`; the local checkout was fast-forwarded
+  to include its June 26-28 fact-audit and advisor-decision documents.
+- The current checkout has 326 synced `data/captures/sites/**/layer1.png`
+  screenshot files and the five current-five screenshot refs exist.
+- The current checkout has 0 synced `layer1.html` files because `.gitignore`
+  includes `data/captures/**` and only re-includes PNGs. Existing CSV/report
+  DOM refs should therefore be treated as generated/historical refs plus DOM
+  hashes, not as local raw HTML files that are currently available.
+- Direct screenshot inspection confirms The Guardian and Coca-Cola are
+  banner/control evidence cases, while CNN, Booking.com, and NerdWallet show no
+  visible first-screen cookie banner in the Week 2 screenshots.
+
+## 2026-06-29 Status Continuity Check
+
+- GitHub PR #8 is `open`, `draft=true`, `merged=false`, and `mergeable=true`.
+- The local branch `codex/project-status-plain-language` is synced with
+  `origin/codex/project-status-plain-language` at `f61e267`.
+- `research-status` still reports sanity `ready`, cycle `completed`, 42 audit
+  reports, 20 longitudinal summaries, and 8 pending CMP confirmations.
+- Structured CSV reads still show 7 blank current-five decisions and 8 pending
+  CMP/manual-review confirmations.
+- Today's safe work is documentation/status continuity, PR review/merge, and
+  advisor decision capture. A blind live capture would not resolve the current
+  blocker.
+
+## 2026-06-29 Summer Midpoint Progress Audit
+
+- Calendar status: 2026-06-29 is Week 5 of the 10-week core SSRP cycle, about
+  44% through the May 30-August 7 window.
+- Deliverable status is uneven: technical pipeline and Week 2 evidence gate are
+  strong; sample lock, 20-site expansion, final paper prose, poster, and demo
+  remain incomplete.
+- Corrected current-material wording so the advisor email and generated results
+  table no longer imply raw `layer1.html` files are synced in the current repo.
+- Added `docs/research/summer_midpoint_progress_audit_2026-06-29.md` as the
+  current evidence-based answer to "are we halfway?"
+
 ## 2026-05-29 Smoke Probe Findings
 
 - The smoke list now has 6 public canary sites: BBC, The Guardian, NY Times, Reuters, Reddit, and Wikipedia.
@@ -515,3 +554,59 @@
 - The generated RQ1/RQ2 tables are evidence-facing current tables, not final paper decisions. README wording was adjusted from "paper-ready" to "paper-facing current-evidence."
 - The advisor packet index still pointed to older June 8 questions as the current sendable email. Added `docs/research/advisor_email_decision_gate_2026-06-28.md` and updated the advisor packet index.
 - Added `docs/research/recent_task_fact_audit_2026-06-28.md` and `docs/research/today_work_note_2026-06-28.md`; no new browser capture or consent-interface evidence was added.
+
+## 2026-07-01 Midpoint Recheck Findings
+
+- GitHub PR #8 is still open/draft/mergeable and not merged into `main`.
+- `origin/main` remains at `28ee83755bc1eb379b08a8941ebad146d9c8fd45`, while the PR #8 branch is at `e9542343909282cb230d644ed13a6388ca8b4ab6` before today's note.
+- `research-status` still reports Week 2 targets=5, sanity `ready`, cycle `completed`, 42 audit reports, 20 longitudinal summaries, and 8 pending CMP confirmations.
+- Structured CSV reads still show 7 blank current-five decisions and 8 pending CMP/manual-review confirmations.
+- Current checkout still has 326 `layer1.png` screenshots and 0 `layer1.html` raw DOM files under `data/captures/sites`.
+- Calendar math for 2026-07-01 is 33 elapsed days out of the 70-day May 30-August 7 core cycle, about 47.1%; the calendar midpoint is around 2026-07-03 to 2026-07-04.
+- The Week 2 sanity-check generator now includes a caveat that evidence completeness means screenshot ref, DOM snapshot ref, DOM hash, and image hash are present in the consent table; raw DOM file sync must be verified separately.
+- Completion-audit keyword search found remaining `paper-ready` wording in the result-table CLI/module docstrings; those were changed to `paper-facing` so code-facing help matches the non-final evidence status.
+
+## 2026-07-01 Scope Update Findings
+
+- User clarified that the current summer project does not need a formal paper; current summer deliverables are presentation + large poster + traceable evidence package.
+- Existing paper-oriented artifacts remain useful as optional future-paper support and presentation/poster source notes, but they should not drive the July/August work plan unless Dr. Singh reintroduces a paper later.
+- Added `docs/research/advisor_email_scope_update_2026-07-01.md` as the current sendable email to Dr. Singh.
+- Added `docs/research/current_scope_2026-07-01.md` as the current scope entrypoint.
+- Marked `docs/research/advisor_email_decision_gate_2026-06-28.md` as superseded and updated README, the Week 2 check-in index, advisor packet index, plain-language handoff, midpoint audit, July 1 work note, and remaining-work audit to use presentation/poster wording.
+- Updated `research-status` visible wording from `Paper artifacts` to
+  `Support artifacts` so the daily dashboard matches the current
+  presentation/poster scope.
+
+## 2026-07-02 Fact Audit Findings
+
+- GitHub PR #8 is still open/draft/mergeable and not merged into `main`.
+- Local branch `codex/project-status-plain-language` is synced to origin at `467e7bc9fbee260d35eaa3d9a73ba54f872096b0` before today's note.
+- `research-status` still reports Week 2 targets=5, sanity `ready`, cycle `completed`, 42 audit reports, 20 longitudinal summaries, and 8 pending CMP confirmations.
+- Structured CSV reads still show 7 blank current-five decisions and 8 pending CMP/manual-review confirmations.
+- Current checkout has 326 tracked/filesystem `layer1.png` screenshots and 0 tracked/filesystem `layer1.html` raw DOM files under `data/captures/sites`.
+- Calendar math for 2026-07-02 is 34 elapsed days out of the 70-day May 30-August 7 core cycle, about 48.6%; the calendar midpoint is around 2026-07-03 to 2026-07-04.
+- Current entrypoint keyword checks did not find a current claim that raw HTML is synced, the 20-site sample is locked, no-visible-banner rows are confirmed banner-path failures, the final dataset is complete, or a formal paper is required for the current summer scope.
+- Added `docs/research/today_work_note_2026-07-02.md` and `docs/research/presentation_poster_work_order_2026-07-02.md` so the next work block is presentation/poster execution, not more scaffolding or blind capture.
+
+## 2026-07-02 Inventory and Screenshot Verification Findings
+
+- `data/captures/sites` contains 326 `layer1.png` files and 0 synced `layer1.html` raw DOM files.
+- All 326 site `layer1.png` files have valid PNG headers and 1440x900 dimensions; no invalid PNGs were found.
+- The 42 rows in `data/research_package/audit_report_summary.csv` reference 42 unique screenshot paths, and all 42 paths exist locally.
+- The five current manual-review screenshot paths all exist locally and open as images: Guardian, CNN, Booking.com, NerdWallet, and Coca-Cola.
+- Visual recheck confirmed Guardian and Coca-Cola as banner-present evidence-card candidates, while CNN, Booking.com, and NerdWallet show no visible first-screen cookie banner in the stored screenshots.
+- Added `docs/research/project_inventory_and_poster_story_2026-07-02.md` as a plain-language inventory and poster-story handoff for the user.
+
+## 2026-07-02 Proposal-Alignment Correction Findings
+
+- The original proposal's spine is not screenshot collection; it is RQ1 computational audit/scoring of layered consent interfaces and RQ2 automatic capture/versioning of privacy interfaces over time.
+- Proposal text extracted from `Chen_Qianyi_SSRP 2026_Proposal_Final Version.docx.pdf` matches the RQ framing already recorded in `SCHEMA.md`.
+- Screenshots, DOM refs, hashes, visible text, and event logs should be described as evidence inputs for RQ1/RQ2, not as the research objective.
+- Corrected `docs/research/project_inventory_and_poster_story_2026-07-02.md` and `docs/research/presentation_poster_work_order_2026-07-02.md` so the poster story centers RQ1 scoring plus RQ2 longitudinal versioning.
+
+## 2026-07-02 Canonical Project Goal Findings
+
+- Added `docs/research/current_project_goal_2026-07-02.md` as the current user-facing source for the project goal.
+- The canonical goal states: RQ1 scores layered consent interfaces for unbiased choice across the full consent pathway; RQ2 captures and versions those interfaces to document change over time.
+- The canonical goal explicitly says screenshots/DOM/text/hashes/event logs are evidence inputs, while evidence traceability is a design requirement rather than a replacement research question.
+- Linked the canonical goal from README, SCHEMA, current scope, project inventory, poster work order, and the Week 2 check-in index.

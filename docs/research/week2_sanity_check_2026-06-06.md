@@ -7,6 +7,7 @@
 - Target sites: 5
 - Consent rows captured: 5/5
 - Evidence-complete rows: 5/5
+- Evidence definition: screenshot ref, DOM snapshot ref, DOM hash, and image hash are present in the consent table; verify raw DOM file sync separately before claiming local HTML availability.
 - Matching audit reports: 5/5
 - Weekly summaries present: 5/5
 - Overall status: ready

@@ -17,6 +17,11 @@ browser capture and does not change final SSRP scoring.
 | Existing banner evidence cards | `docs/research/week2_evidence_cards_2026-06-11.md` |
 | Visual screenshot re-check | Five screenshot files listed in the cards below |
 
+Note added 2026-06-28: the screenshot PNGs listed below are synced in this
+checkout, but the raw `layer1.html` DOM files are not. The DOM fields below are
+the historical/generated refs and hashes from CSV/report exports, not local raw
+HTML files available in this checkout.
+
 ## Current-Five Summary
 
 | Site | Evidence class | Human coding | Latest automated tier | Longitudinal severity | Use now |
@@ -34,7 +39,7 @@ browser capture and does not change final SSRP scoring.
 | URL | `https://www.theguardian.com/` |
 | Category | News |
 | Screenshot | `data/captures/sites/www_theguardian_com_20260605_160209/layer1.png` |
-| DOM snapshot | `data/captures/sites/www_theguardian_com_20260605_160209/layer1.html` |
+| DOM ref in exports | `data/captures/sites/www_theguardian_com_20260605_160209/layer1.html` (raw HTML file not synced in current checkout) |
 | DOM hash | `60b9add43b807053adcc722ceec43f334cfd81e33f4c6befbef3f17600e91624` |
 | Image hash | `ffffff0000000030:0f41adfb6920585c` |
 | Automated path fields | accept=false, reject=false, customize=false, dismiss=false |
@@ -54,7 +59,7 @@ the automated path booleans alone as final scoring.
 | URL | `https://www.coca-cola.com/us/en` |
 | Category | Food |
 | Screenshot | `data/captures/sites/www_coca_cola_com_20260605_160238/layer1.png` |
-| DOM snapshot | `data/captures/sites/www_coca_cola_com_20260605_160238/layer1.html` |
+| DOM ref in exports | `data/captures/sites/www_coca_cola_com_20260605_160238/layer1.html` (raw HTML file not synced in current checkout) |
 | DOM hash | `bb63e6524504c6a0c7326091fa3a9b3fccb26e005a10eb53ff0474d9b24f0f23` |
 | Image hash | `3c3c3c3c3c3c3c3c:8e7ec4ffaca9b2d2` |
 | Automated path fields | accept=true, reject=false, customize=false, dismiss=false |
@@ -77,7 +82,7 @@ fixed for the Coca-Cola smoke case.
 | URL | `https://www.cnn.com/` |
 | Category | News |
 | Screenshot | `data/captures/sites/www_cnn_com_20260605_160221/layer1.png` |
-| DOM snapshot | `data/captures/sites/www_cnn_com_20260605_160221/layer1.html` |
+| DOM ref in exports | `data/captures/sites/www_cnn_com_20260605_160221/layer1.html` (raw HTML file not synced in current checkout) |
 | DOM hash | `3adfda3091d23765c6263140c8b46eef2b907b95578b39042886f3661635944b` |
 | Image hash | `000000ff3cffffff:4f74651f62930cbe` |
 | Automated path fields | accept=false, reject=false, customize=false, dismiss=false |
@@ -97,7 +102,7 @@ count it as a banner-path failure unless the advisor confirms that table rule.
 | URL | `https://www.booking.com/` |
 | Category | Travel |
 | Screenshot | `data/captures/sites/www_booking_com_20260605_160226/layer1.png` |
-| DOM snapshot | `data/captures/sites/www_booking_com_20260605_160226/layer1.html` |
+| DOM ref in exports | `data/captures/sites/www_booking_com_20260605_160226/layer1.html` (raw HTML file not synced in current checkout) |
 | DOM hash | `1b527847e49cda4bcda330f27f168431cc1860d833919d869f36f6f06fd8369a` |
 | Image hash | `0000003cffffffff:711dada1fa77e3a7` |
 | Automated path fields | accept=false, reject=false, customize=false, dismiss=false |
@@ -117,7 +122,7 @@ count it as a banner-path failure unless the advisor confirms that table rule.
 | URL | `https://www.nerdwallet.com/` |
 | Category | Finance |
 | Screenshot | `data/captures/sites/www_nerdwallet_com_20260605_160232/layer1.png` |
-| DOM snapshot | `data/captures/sites/www_nerdwallet_com_20260605_160232/layer1.html` |
+| DOM ref in exports | `data/captures/sites/www_nerdwallet_com_20260605_160232/layer1.html` (raw HTML file not synced in current checkout) |
 | DOM hash | `a66bf169c10d8f61913cba5eff10147e8d9853fee94f0e0f81dac6e4f59d711d` |
 | Image hash | `ff00000000ffffff:7e6528c60cb65b42` |
 | Automated path fields | accept=false, reject=false, customize=false, dismiss=false |
@@ -132,8 +137,9 @@ count it as a banner-path failure unless the advisor confirms that table rule.
 
 ## What This Packet Proves
 
-- The current five have traceable screenshot, DOM, hash, audit-summary, and
-  longitudinal-summary evidence.
+- The current five have traceable screenshot, DOM-hash, audit-summary, and
+  longitudinal-summary evidence. Raw DOM HTML files are not synced in the
+  current checkout.
 - The Guardian and Coca-Cola are the two strongest current banner/control
   evidence cases.
 - CNN, Booking.com, and NerdWallet are better represented as no-visible-banner

@@ -199,7 +199,7 @@ def ssrp_results_tables(
     title: str = "SSRP 2026 Results Tables, 2026-06-06",
     week_label: str = "Week 2",
 ) -> None:
-    """Export paper-ready RQ1/RQ2 Markdown results tables."""
+    """Export paper-facing current-evidence RQ1/RQ2 Markdown results tables."""
     export_ssrp_results_tables(
         targets_csv=targets_csv,
         audit_summary_csv=audit_summary_csv,

@@ -68,6 +68,7 @@ def test_export_week2_sanity_check_reports_missing_and_complete_targets(
     assert "- Target sites: 2" in text
     assert "- Consent rows captured: 1/2" in text
     assert "- Evidence-complete rows: 1/2" in text
+    assert "verify raw DOM file sync separately" in text
     assert "- Matching audit reports: 1/2" in text
     assert "- Weekly summaries present: 1/2" in text
     assert "- Overall status: needs_attention" in text
