@@ -587,3 +587,12 @@
 - Calendar math for 2026-07-02 is 34 elapsed days out of the 70-day May 30-August 7 core cycle, about 48.6%; the calendar midpoint is around 2026-07-03 to 2026-07-04.
 - Current entrypoint keyword checks did not find a current claim that raw HTML is synced, the 20-site sample is locked, no-visible-banner rows are confirmed banner-path failures, the final dataset is complete, or a formal paper is required for the current summer scope.
 - Added `docs/research/today_work_note_2026-07-02.md` and `docs/research/presentation_poster_work_order_2026-07-02.md` so the next work block is presentation/poster execution, not more scaffolding or blind capture.
+
+## 2026-07-02 Inventory and Screenshot Verification Findings
+
+- `data/captures/sites` contains 326 `layer1.png` files and 0 synced `layer1.html` raw DOM files.
+- All 326 site `layer1.png` files have valid PNG headers and 1440x900 dimensions; no invalid PNGs were found.
+- The 42 rows in `data/research_package/audit_report_summary.csv` reference 42 unique screenshot paths, and all 42 paths exist locally.
+- The five current manual-review screenshot paths all exist locally and open as images: Guardian, CNN, Booking.com, NerdWallet, and Coca-Cola.
+- Visual recheck confirmed Guardian and Coca-Cola as banner-present evidence-card candidates, while CNN, Booking.com, and NerdWallet show no visible first-screen cookie banner in the stored screenshots.
+- Added `docs/research/project_inventory_and_poster_story_2026-07-02.md` as a plain-language inventory and poster-story handoff for the user.

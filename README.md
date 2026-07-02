@@ -191,6 +191,7 @@ Coca-Cola smoke passes all Layer 1 paths.
 - Current July 1 midpoint recheck and work note is [docs/research/today_work_note_2026-07-01.md](docs/research/today_work_note_2026-07-01.md).
 - Current July 2 fact audit and work note is [docs/research/today_work_note_2026-07-02.md](docs/research/today_work_note_2026-07-02.md).
 - Current presentation/poster work order is [docs/research/presentation_poster_work_order_2026-07-02.md](docs/research/presentation_poster_work_order_2026-07-02.md).
+- Current project inventory and poster story is [docs/research/project_inventory_and_poster_story_2026-07-02.md](docs/research/project_inventory_and_poster_story_2026-07-02.md).
 - Previous short advisor decision email is [docs/research/advisor_email_current_five_decision_2026-06-19.md](docs/research/advisor_email_current_five_decision_2026-06-19.md).
 - The Week 2 capture runbook remains [docs/research/week2_execution_runbook_2026-06-06.md](docs/research/week2_execution_runbook_2026-06-06.md).
 - Current advisor-facing update brief is [docs/research/week2_advisor_update_2026-06-06.md](docs/research/week2_advisor_update_2026-06-06.md).

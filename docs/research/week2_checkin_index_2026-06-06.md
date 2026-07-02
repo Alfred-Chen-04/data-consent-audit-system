@@ -11,6 +11,7 @@ Use this index as the first file for advisor check-ins.
 
 ## Read First
 
+- [Project inventory and poster story, 2026-07-02](project_inventory_and_poster_story_2026-07-02.md)
 - [Today work note, 2026-07-02](today_work_note_2026-07-02.md)
 - [Presentation/poster work order, 2026-07-02](presentation_poster_work_order_2026-07-02.md)
 - [Current scope note, 2026-07-01](current_scope_2026-07-01.md)

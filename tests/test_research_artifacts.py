@@ -749,3 +749,23 @@ def test_july2_work_note_and_poster_work_order_are_current_entrypoints() -> None
     assert "today_work_note_2026-07-02.md" in readme_text
     assert "presentation_poster_work_order_2026-07-02.md" in readme_text
     assert "[Today work note, 2026-07-02](today_work_note_2026-07-02.md)" in index_text
+
+
+def test_project_inventory_and_poster_story_is_current_entrypoint() -> None:
+    inventory_path = Path("docs/research/project_inventory_and_poster_story_2026-07-02.md")
+    readme_path = Path("README.md")
+    index_path = Path("docs/research/week2_checkin_index_2026-06-06.md")
+
+    inventory_text = inventory_path.read_text(encoding="utf-8")
+    readme_text = readme_path.read_text(encoding="utf-8")
+    index_text = index_path.read_text(encoding="utf-8")
+
+    assert "326 tracked site `layer1.png` screenshots" in inventory_text
+    assert "42 audit reports and 20 longitudinal summaries" in inventory_text
+    assert "All 42 referenced screenshot paths exist locally." in inventory_text
+    assert "Do not say:" in inventory_text
+    assert "project_inventory_and_poster_story_2026-07-02.md" in readme_text
+    assert (
+        "[Project inventory and poster story, 2026-07-02]"
+        "(project_inventory_and_poster_story_2026-07-02.md)"
+    ) in index_text
