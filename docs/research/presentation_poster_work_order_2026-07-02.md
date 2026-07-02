@@ -28,7 +28,9 @@ Use only the current evidence state:
 
 The safest story right now is:
 
-1. The project builds a traceable workflow for auditing consent interfaces.
+1. The project follows the original two proposal RQs: RQ1 computational
+   audit/scoring of layered consent interfaces, and RQ2 automatic
+   capture/versioning of privacy interfaces over time.
 2. The workflow records screenshots, DOM hashes/report refs, scoring outputs,
    and longitudinal summaries.
 3. Guardian and Coca-Cola are the current banner-present evidence-card
@@ -52,25 +54,27 @@ The safest story right now is:
 ## Slide Outline Draft
 
 1. Title: Traceable Consent Interface Audit
-2. Research problem: consent choices are hard to compare without traceable
-   evidence.
-3. Method: capture bundle -> Layer 1/2/3 scoring -> report -> longitudinal
+2. Research problem: firms use layered privacy interfaces as communication
+   tools, but unbiased choice and interface change are hard to audit
+   systematically.
+3. RQ1 method: capture bundle -> Layer 1/2/3 scoring -> report.
+4. RQ2 method: repeated capture -> multimodal fingerprint -> longitudinal
    summary.
-4. Evidence card 1: The Guardian.
-5. Evidence card 2: Coca-Cola.
-6. Contrast cases: CNN, Booking.com, NerdWallet.
-7. Longitudinal/versioning evidence: current summaries and limits.
-8. Limitations: no final 20-site sample, pending CMP review, no synced raw HTML,
+5. Evidence card 1: The Guardian.
+6. Evidence card 2: Coca-Cola.
+7. Contrast cases: CNN, Booking.com, NerdWallet.
+8. Longitudinal/versioning evidence: current summaries and limits.
+9. Limitations: no final 20-site sample, pending CMP review, no synced raw HTML,
    no-visible-banner treatment pending.
-9. Next steps: advisor decision, sample expansion or manual validation, final
+10. Next steps: advisor decision, sample expansion or manual validation, final
    poster/demo polish.
 
 ## Poster Sections Draft
 
 | Section | Content |
 |---|---|
-| Question | How can consent interfaces be audited with traceable evidence? |
-| Workflow | Screenshot/DOM hash/report refs -> scoring layers -> summaries. |
+| Question | RQ1: how can layered consent interfaces be scored for unbiased choice? RQ2: how can privacy interfaces be captured/versioned over time? |
+| Workflow | Capture bundle -> scoring layers -> AuditReport; repeated captures -> fingerprints -> longitudinal summaries. |
 | Evidence Cards | Guardian and Coca-Cola. |
 | Contrast Cases | CNN, Booking.com, NerdWallet as no-visible-banner examples. |
 | Findings So Far | 5-site Week 2 evidence gate, 42 reports, 20 summaries. |

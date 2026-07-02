@@ -141,6 +141,7 @@ audit invariants.
 | 128. July 1 scope update and advisor email | complete | Added the current scope note and latest advisor email for presentation + large poster deliverables, marked the June 28 email superseded, and updated current status entrypoints away from formal-paper-as-summer-deliverable wording. |
 | 129. July 2 fact audit and presentation/poster work order | complete | Rechecked PR #8, research status, CSV counts, screenshot/HTML counts, midpoint math, and current entrypoints; added a July 2 work note plus a concrete presentation/poster work order. |
 | 130. July 2 inventory and poster-story clarification | complete | Verified screenshot existence/format/path coverage, visually rechecked the five current screenshots, and added a plain-language inventory plus poster-story handoff. |
+| 131. July 2 proposal-alignment correction | complete | Re-read the original proposal RQs from the PDF/SCHEMA and corrected the inventory handoff plus poster work order so screenshots are evidence inputs, while RQ1 scoring and RQ2 longitudinal versioning remain the project spine. |
 
 ## Decisions
 

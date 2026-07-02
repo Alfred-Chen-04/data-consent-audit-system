@@ -3,15 +3,35 @@
 这份文件回答一个最基本的问题：现在项目里到底有什么，截图是不是真的，
 poster 最后要讲什么，以及现在已经做出来了什么。
 
+## Important Correction
+
+The project is not "a screenshot project." Screenshots are evidence inputs.
+
+The original proposal's spine is two research questions:
+
+1. RQ1: develop a computational audit and scoring system for layered consent
+   interfaces and unbiased choice across the full consent pathway.
+2. RQ2: automatically capture and version firms' privacy interfaces so changes
+   can be documented over time.
+
+So the correct framing is:
+
+- RQ1 asks whether the consent interface gives users fair, reachable, and
+  understandable choices.
+- RQ2 asks whether those interfaces can be captured, versioned, and compared
+  across time.
+- Screenshots, DOM refs, hashes, visible text, and event logs are the evidence
+  used to answer those questions.
+
 ## 一句话版本
 
 这个项目不是在做一个法律结论系统，也不是在证明某家公司违规。
 
 它现在最稳的定位是：
 
-> 一个可追踪的 consent-interface audit workflow：把网站的同意界面截图、
-> DOM/report refs、路径识别、分层评分和周际变化记录下来，让 poster 能展示
-> “我们如何用证据审查 consent UI”，而不是只给一个不可追踪的分数。
+> 一个计算化、可追踪的 consent-interface audit and versioning system：
+> RQ1 评估 consent interface 是否支持 unbiased choice；RQ2 记录同一批
+> privacy interfaces 随时间如何变化。截图只是证据之一，不是最终目标。
 
 ## 现在已经有的东西
 
@@ -25,6 +45,21 @@ poster 最后要讲什么，以及现在已经做出来了什么。
 | 当前 5 个核心样本 | Guardian, CNN, Booking.com, NerdWallet, Coca-Cola | `data/week2_manual_evidence_review_2026-06-10.csv` |
 | Poster/展示材料 | results tables、claim register、poster plan、work order | `docs/research/ssrp_results_tables_2026-06-06.md`; `docs/research/ssrp_claim_register_2026-06-06.md`; `docs/research/presentation_poster_work_order_2026-07-02.md` |
 | 当前未解决问题 | 7 blank current-five decisions; 8 pending CMP/manual-review rows | `data/current_five_decision_sheet_2026-06-19.csv`; `data/cmp_review_confirmation_sheet_pilot_2026-05-30.csv` |
+
+## 原始计划到底想做什么？
+
+| Proposal part | Real meaning | Current project mapping |
+|---|---|---|
+| RQ1 audit/scoring system | Build a way to score layered consent interfaces for unbiased choice across the full pathway. | Layer 1 Path Availability, Layer 2 Path Effort, Layer 3 Transparency & Unbiased Choice. |
+| RQ2 capture/versioning system | Build a way to repeatedly capture the same privacy interfaces and document changes over time. | Weekly capture, multimodal fingerprints, diff events, longitudinal summaries. |
+| AI methods | Help extract visual/text/path evidence more effectively. | Browser agent for traversal, VLM-style visual features, LLM-style text/framing summaries. |
+| Poster/presentation | Explain the research framework and show pilot evidence. | Workflow figure, scoring rubric, evidence cards, RQ1/RQ2 tables, limitations. |
+
+The key idea is not "we collected screenshots." The key idea is:
+
+> consent interfaces are corporate communication objects, and we can audit them
+> computationally by scoring their choice architecture and tracking how that
+> architecture changes over time.
 
 ## 截图是真的吗？
 
@@ -73,15 +108,19 @@ What this does not prove:
 
 Use this as the current poster-safe wording:
 
-1. The project has a working evidence pipeline.
-2. The Week 2 evidence gate covers 5 target sites.
-3. The current evidence splits into:
+1. The project has a working pilot pipeline for both proposal RQs.
+2. For RQ1, the pipeline can produce evidence-linked audit reports for consent
+   interface path availability and preliminary scoring.
+3. For RQ2, the pipeline can produce longitudinal summaries from repeated
+   captures and multimodal fingerprints.
+4. The Week 2 evidence gate covers 5 target sites.
+5. The current evidence splits into:
    - 2 banner-present evidence-card candidates: The Guardian and Coca-Cola.
    - 3 no-visible-banner contrast candidates: CNN, Booking.com, NerdWallet.
-4. The research package contains 42 audit reports and 20 longitudinal summaries.
-5. The current longitudinal snapshot reports severity C=3 and D=2 for the five
+6. The research package contains 42 audit reports and 20 longitudinal summaries.
+7. The current longitudinal snapshot reports severity C=3 and D=2 for the five
    Week 2 targets.
-6. The best current conclusion is about method and traceability, not about
+8. The best current conclusion is about method and traceability, not about
    legal compliance.
 
 Do not say:
@@ -97,23 +136,24 @@ Do not say:
 
 Poster 的主线可以是：
 
-> Consent interfaces are hard to compare because screenshots, button paths,
-> text framing, and weekly UI changes are usually scattered. This project
-> builds a traceable audit workflow that keeps the evidence connected to each
-> score and shows how interface evidence can be reviewed over time.
+> Firms use privacy interfaces as communication tools. This project develops a
+> computational audit framework to score whether layered consent interfaces
+> support unbiased choice, and a longitudinal capture system to document how
+> those interfaces change over time.
 
 更像中文口语一点：
 
-> 我做的是一个“有证据链的 cookie/consent 界面审查流程”。它不是直接判公司违法，
-> 而是记录网页当时长什么样、有哪些同意/拒绝/自定义路径、自动评分哪里可能出错、
-> 以及这些界面之后有没有变化。Poster 展示的是这个方法和当前 pilot evidence。
+> 我做的不是单纯截图，而是一个“consent interface 评分 + 版本追踪”的研究框架。
+> 第一部分评估网站有没有公平、清楚、可到达的选择；第二部分记录这些界面之后
+> 有没有改、怎么改。截图、DOM、hash、event log 都是为了让每个评分和变化结论
+> 能被复查。
 
 ## Poster 可以放的结论
 
 当前最安全的结论是：
 
-1. A traceable workflow is feasible: screenshots, report refs, hashes, scoring
-   outputs, and longitudinal summaries can be kept together.
+1. The proposal's two-part system is feasible at pilot scale: RQ1 scoring and
+   RQ2 versioning can run on the same evidence pipeline.
 2. Screenshot review matters: the automated table alone can overstate risk
    when no first-screen banner is visible.
 3. The five-site pilot already shows two different evidence classes:
@@ -161,11 +201,11 @@ Do these in order:
 
 ## If you have to explain the project in 30 seconds
 
-I am building a traceable audit workflow for website consent interfaces. The
-system captures screenshots and interface evidence, checks whether accept,
-reject, customize, and dismiss paths are available, and tracks whether the
-interface changes over time. So far, the pilot evidence has 5 current sites,
-326 local screenshots, 42 audit reports, and 20 longitudinal summaries. The
-poster will show the workflow, two banner-present evidence cases, three
-no-visible-banner contrast cases, and the limitations that still need advisor
-confirmation.
+I am building a computational audit system for website consent interfaces. The
+first research question is how to score layered consent interfaces for unbiased
+choice across the full pathway: Accept, Reject, Customize, and Dismiss. The
+second research question is how to automatically capture and version these
+interfaces over time. The pilot currently has 5 current sites, 326 local
+screenshots, 42 audit reports, and 20 longitudinal summaries. The poster should
+show the RQ1 scoring framework, the RQ2 versioning pipeline, and a small set of
+evidence cards and limitations.

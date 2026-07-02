@@ -745,6 +745,8 @@ def test_july2_work_note_and_poster_work_order_are_current_entrypoints() -> None
     assert "0 tracked or filesystem `layer1.html` raw DOM files" in today_text
     assert "There is still no evidence-based reason to run a blind live capture." in today_text
     assert "## Presentation/Poster Story" in work_order_text
+    assert "RQ1 computational" in work_order_text
+    assert "RQ2 automatic" in work_order_text
     assert "Guardian and Coca-Cola are the current banner-present evidence-card" in work_order_text
     assert "today_work_note_2026-07-02.md" in readme_text
     assert "presentation_poster_work_order_2026-07-02.md" in readme_text
@@ -760,6 +762,10 @@ def test_project_inventory_and_poster_story_is_current_entrypoint() -> None:
     readme_text = readme_path.read_text(encoding="utf-8")
     index_text = index_path.read_text(encoding="utf-8")
 
+    assert 'The project is not "a screenshot project."' in inventory_text
+    assert "RQ1: develop a computational audit and scoring system" in inventory_text
+    assert "RQ2: automatically capture and version firms' privacy interfaces" in inventory_text
+    assert "Screenshots are evidence inputs." in inventory_text
     assert "326 tracked site `layer1.png` screenshots" in inventory_text
     assert "42 audit reports and 20 longitudinal summaries" in inventory_text
     assert "All 42 referenced screenshot paths exist locally." in inventory_text

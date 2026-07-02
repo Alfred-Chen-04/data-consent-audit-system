@@ -596,3 +596,10 @@
 - The five current manual-review screenshot paths all exist locally and open as images: Guardian, CNN, Booking.com, NerdWallet, and Coca-Cola.
 - Visual recheck confirmed Guardian and Coca-Cola as banner-present evidence-card candidates, while CNN, Booking.com, and NerdWallet show no visible first-screen cookie banner in the stored screenshots.
 - Added `docs/research/project_inventory_and_poster_story_2026-07-02.md` as a plain-language inventory and poster-story handoff for the user.
+
+## 2026-07-02 Proposal-Alignment Correction Findings
+
+- The original proposal's spine is not screenshot collection; it is RQ1 computational audit/scoring of layered consent interfaces and RQ2 automatic capture/versioning of privacy interfaces over time.
+- Proposal text extracted from `Chen_Qianyi_SSRP 2026_Proposal_Final Version.docx.pdf` matches the RQ framing already recorded in `SCHEMA.md`.
+- Screenshots, DOM refs, hashes, visible text, and event logs should be described as evidence inputs for RQ1/RQ2, not as the research objective.
+- Corrected `docs/research/project_inventory_and_poster_story_2026-07-02.md` and `docs/research/presentation_poster_work_order_2026-07-02.md` so the poster story centers RQ1 scoring plus RQ2 longitudinal versioning.
