@@ -16,7 +16,10 @@ plan unless Dr. Singh reintroduces a paper later.
 ## What This Changes
 
 - Prioritize poster/presentation story over paper prose.
-- Keep evidence traceability as the main contribution.
+- Keep the original RQ1/RQ2 spine: RQ1 scoring of layered consent interfaces
+  for unbiased choice, and RQ2 longitudinal capture/versioning.
+- Keep evidence traceability as a required support principle for every claim,
+  not as a replacement research question.
 - Use the current RQ1/RQ2 tables as evidence summaries, not final paper tables.
 - Treat paper skeleton, writing pack, and claim register as optional support
   artifacts for future work.
@@ -37,13 +40,16 @@ plan unless Dr. Singh reintroduces a paper later.
 
 The strongest current story is:
 
-1. Build a traceable audit workflow for consent interfaces.
-2. Show how evidence is captured: screenshots, DOM hashes/report refs, reports,
-   and longitudinal summaries.
-3. Show two banner-present evidence cards: Guardian and Coca-Cola.
-4. Show no-visible-banner cases as contrast/limitations: CNN, Booking.com, and
+1. RQ1: build a computational audit/scoring framework for layered consent
+   interfaces and unbiased choice across the full pathway.
+2. RQ2: build an automatic capture/versioning workflow for tracking privacy
+   interface changes over time.
+3. Show how evidence supports both RQs: screenshots, DOM hashes/report refs,
+   reports, path attempts, and longitudinal summaries.
+4. Show two banner-present evidence cards: Guardian and Coca-Cola.
+5. Show no-visible-banner cases as contrast/limitations: CNN, Booking.com, and
    NerdWallet.
-5. Explain what remains unresolved: current-five treatment, CMP/manual review,
+6. Explain what remains unresolved: current-five treatment, CMP/manual review,
    raw HTML sync, and whether to expand beyond the five-site evidence gate.
 
 ## Current Advisor Email

@@ -20,6 +20,7 @@ This project sits in the gap none of them close: **multimodal AI grounding (VLM 
 | [SCHEMA.md](SCHEMA.md) | **Start here** — one-page master view: research question → ontology → pipeline → modules → status → open decisions |
 | [AGENTS.md](AGENTS.md) | How AI agents (Claude Code, Cursor, etc.) collaborate on this repo |
 | [CONCEPTS.md](CONCEPTS.md) | Precise definitions of every audit dimension — the project's ontology |
+| [docs/research/current_project_goal_2026-07-02.md](docs/research/current_project_goal_2026-07-02.md) | Current canonical plain-language goal: RQ1 scoring + RQ2 versioning, not screenshot-only framing |
 | [docs/architecture.md](docs/architecture.md) | Technical architecture, data flow, module boundaries |
 | [docs/related_work/background_with_citations.md](docs/related_work/background_with_citations.md) | Lit review + regulatory framework + user ecosystem (cited) |
 | [docs/related_work/legal_cheatsheet.md](docs/related_work/legal_cheatsheet.md) | 1-page reference: the 8 legal anchors every audit metric maps to |
@@ -190,6 +191,7 @@ Coca-Cola smoke passes all Layer 1 paths.
 - Current summer midpoint progress audit is [docs/research/summer_midpoint_progress_audit_2026-06-29.md](docs/research/summer_midpoint_progress_audit_2026-06-29.md).
 - Current July 1 midpoint recheck and work note is [docs/research/today_work_note_2026-07-01.md](docs/research/today_work_note_2026-07-01.md).
 - Current July 2 fact audit and work note is [docs/research/today_work_note_2026-07-02.md](docs/research/today_work_note_2026-07-02.md).
+- Current canonical project goal is [docs/research/current_project_goal_2026-07-02.md](docs/research/current_project_goal_2026-07-02.md).
 - Current presentation/poster work order is [docs/research/presentation_poster_work_order_2026-07-02.md](docs/research/presentation_poster_work_order_2026-07-02.md).
 - Current project inventory and poster story is [docs/research/project_inventory_and_poster_story_2026-07-02.md](docs/research/project_inventory_and_poster_story_2026-07-02.md).
 - Previous short advisor decision email is [docs/research/advisor_email_current_five_decision_2026-06-19.md](docs/research/advisor_email_current_five_decision_2026-06-19.md).

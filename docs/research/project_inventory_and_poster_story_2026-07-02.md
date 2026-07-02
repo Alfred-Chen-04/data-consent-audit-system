@@ -23,6 +23,10 @@ So the correct framing is:
 - Screenshots, DOM refs, hashes, visible text, and event logs are the evidence
   used to answer those questions.
 
+For the current canonical goal statement, see:
+
+- `docs/research/current_project_goal_2026-07-02.md`
+
 ## 一句话版本
 
 这个项目不是在做一个法律结论系统，也不是在证明某家公司违规。

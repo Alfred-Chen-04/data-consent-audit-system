@@ -18,6 +18,8 @@ If any conflict between this doc and a companion: the companion wins for its dom
 > **Source of truth**: Chen, Q. *Privacy Interfaces as Corporate Communication: A Computational Auditing Framework for Tracking the Interface Designs*, SSRP 2026 Proposal, §3, p. 3. Approved by Dr. Jagdip Singh.
 >
 > **Discipline (binding)**: These two RQs are the spine of the project. They are quoted verbatim and NEVER paraphrased without explicit user approval. Any "research question" elsewhere in this repo that differs from the two below is wrong and must be corrected. Methodological additions (AI / NLP / VLM / multimodal) are *means of addressing RQ1 and RQ2 more effectively*; they do NOT modify the RQs themselves.
+>
+> **Current plain-language goal**: see `docs/research/current_project_goal_2026-07-02.md`. That file is the current user-facing explanation: RQ1 scoring + RQ2 versioning are the project spine; screenshots/DOM/hashes/event logs are evidence inputs, not the project objective.
 
 ### 1.1 RQ1 — The audit/scoring system
 

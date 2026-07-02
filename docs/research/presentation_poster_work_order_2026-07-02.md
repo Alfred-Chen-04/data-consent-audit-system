@@ -4,6 +4,10 @@
 
 This is the current work order after the July 1 scope update.
 
+Canonical goal statement:
+
+- `docs/research/current_project_goal_2026-07-02.md`
+
 The summer deliverables are:
 
 - presentation;

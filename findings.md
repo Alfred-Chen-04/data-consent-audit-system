@@ -603,3 +603,10 @@
 - Proposal text extracted from `Chen_Qianyi_SSRP 2026_Proposal_Final Version.docx.pdf` matches the RQ framing already recorded in `SCHEMA.md`.
 - Screenshots, DOM refs, hashes, visible text, and event logs should be described as evidence inputs for RQ1/RQ2, not as the research objective.
 - Corrected `docs/research/project_inventory_and_poster_story_2026-07-02.md` and `docs/research/presentation_poster_work_order_2026-07-02.md` so the poster story centers RQ1 scoring plus RQ2 longitudinal versioning.
+
+## 2026-07-02 Canonical Project Goal Findings
+
+- Added `docs/research/current_project_goal_2026-07-02.md` as the current user-facing source for the project goal.
+- The canonical goal states: RQ1 scores layered consent interfaces for unbiased choice across the full consent pathway; RQ2 captures and versions those interfaces to document change over time.
+- The canonical goal explicitly says screenshots/DOM/text/hashes/event logs are evidence inputs, while evidence traceability is a design requirement rather than a replacement research question.
+- Linked the canonical goal from README, SCHEMA, current scope, project inventory, poster work order, and the Week 2 check-in index.

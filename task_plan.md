@@ -142,6 +142,7 @@ audit invariants.
 | 129. July 2 fact audit and presentation/poster work order | complete | Rechecked PR #8, research status, CSV counts, screenshot/HTML counts, midpoint math, and current entrypoints; added a July 2 work note plus a concrete presentation/poster work order. |
 | 130. July 2 inventory and poster-story clarification | complete | Verified screenshot existence/format/path coverage, visually rechecked the five current screenshots, and added a plain-language inventory plus poster-story handoff. |
 | 131. July 2 proposal-alignment correction | complete | Re-read the original proposal RQs from the PDF/SCHEMA and corrected the inventory handoff plus poster work order so screenshots are evidence inputs, while RQ1 scoring and RQ2 longitudinal versioning remain the project spine. |
+| 132. July 2 canonical project goal alignment | complete | Added `docs/research/current_project_goal_2026-07-02.md` as the canonical user-facing goal and linked it from README, SCHEMA, current scope, inventory, poster work order, and the Week 2 check-in index. |
 
 ## Decisions
 
