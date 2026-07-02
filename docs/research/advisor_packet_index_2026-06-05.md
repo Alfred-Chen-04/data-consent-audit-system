@@ -63,6 +63,10 @@ The project-level implementation is recorded in:
 These facts are current as of the latest 2026-07-01 scope update and
 `research-status` check:
 
+2026-07-02 confirmation: the same counts and blockers still hold; see
+`docs/research/today_work_note_2026-07-02.md` and
+`docs/research/presentation_poster_work_order_2026-07-02.md`.
+
 - Week 2 targets: 5
 - Categories: finance=1, food=1, news=2, travel=1
 - Preflight status: `ready_for_capture`
@@ -131,9 +135,13 @@ After the completed June 6 evidence gate:
 
    - `docs/research/advisor_email_scope_update_2026-07-01.md`
 
-3. Keep the 8 CMP/manual-review rows separate from locked sample decisions.
+3. Follow the current presentation/poster work order:
 
-4. Expand beyond the current five-site evidence gate only after deciding:
+   - `docs/research/presentation_poster_work_order_2026-07-02.md`
+
+4. Keep the 8 CMP/manual-review rows separate from locked sample decisions.
+
+5. Expand beyond the current five-site evidence gate only after deciding:
 
    - how many clean no-banner contrast rows to include;
    - which access-friction rows to replace;

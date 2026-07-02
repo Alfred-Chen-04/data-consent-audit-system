@@ -139,6 +139,7 @@ audit invariants.
 | 126. July 1 midpoint recheck and sanity caveat | complete | Rechecked PR #8, research status, decision sheets, evidence counts, and calendar progress; added a July 1 work note and a sanity-check caveat so evidence completeness is not misread as synced raw HTML availability. |
 | 127. July 1 completion-audit terminology cleanup | complete | Rechecked overclaim keywords and changed remaining code-facing `paper-ready` wording for SSRP result tables to `paper-facing`. |
 | 128. July 1 scope update and advisor email | complete | Added the current scope note and latest advisor email for presentation + large poster deliverables, marked the June 28 email superseded, and updated current status entrypoints away from formal-paper-as-summer-deliverable wording. |
+| 129. July 2 fact audit and presentation/poster work order | complete | Rechecked PR #8, research status, CSV counts, screenshot/HTML counts, midpoint math, and current entrypoints; added a July 2 work note plus a concrete presentation/poster work order. |
 
 ## Decisions
 

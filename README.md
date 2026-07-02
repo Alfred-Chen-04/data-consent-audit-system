@@ -189,6 +189,8 @@ Coca-Cola smoke passes all Layer 1 paths.
 - Current plain-language project handoff is [docs/research/project_status_plain_language_2026-06-28.md](docs/research/project_status_plain_language_2026-06-28.md).
 - Current summer midpoint progress audit is [docs/research/summer_midpoint_progress_audit_2026-06-29.md](docs/research/summer_midpoint_progress_audit_2026-06-29.md).
 - Current July 1 midpoint recheck and work note is [docs/research/today_work_note_2026-07-01.md](docs/research/today_work_note_2026-07-01.md).
+- Current July 2 fact audit and work note is [docs/research/today_work_note_2026-07-02.md](docs/research/today_work_note_2026-07-02.md).
+- Current presentation/poster work order is [docs/research/presentation_poster_work_order_2026-07-02.md](docs/research/presentation_poster_work_order_2026-07-02.md).
 - Previous short advisor decision email is [docs/research/advisor_email_current_five_decision_2026-06-19.md](docs/research/advisor_email_current_five_decision_2026-06-19.md).
 - The Week 2 capture runbook remains [docs/research/week2_execution_runbook_2026-06-06.md](docs/research/week2_execution_runbook_2026-06-06.md).
 - Current advisor-facing update brief is [docs/research/week2_advisor_update_2026-06-06.md](docs/research/week2_advisor_update_2026-06-06.md).
@@ -210,7 +212,7 @@ Coca-Cola smoke passes all Layer 1 paths.
 - Current Week 3 continuity target list is [data/week3_continuity_targets_2026-06-13.csv](data/week3_continuity_targets_2026-06-13.csv).
 - Current June 14 capture attempt audit is [docs/research/june14_capture_attempt_audit_2026-06-14.md](docs/research/june14_capture_attempt_audit_2026-06-14.md).
 - Current June 15 Coca-Cola smoke capture audit is [docs/research/june15_coca_cola_smoke_audit_2026-06-15.md](docs/research/june15_coca_cola_smoke_audit_2026-06-15.md).
-- Current daily work note is [docs/research/today_work_note_2026-07-01.md](docs/research/today_work_note_2026-07-01.md).
+- Current daily work note is [docs/research/today_work_note_2026-07-02.md](docs/research/today_work_note_2026-07-02.md).
 - Current current-five evidence packet is [docs/research/current_five_evidence_packet_2026-06-19.md](docs/research/current_five_evidence_packet_2026-06-19.md).
 - Current current-five decision sheet is [data/current_five_decision_sheet_2026-06-19.csv](data/current_five_decision_sheet_2026-06-19.csv).
 - Current full project audit is [docs/research/full_project_audit_2026-06-15.md](docs/research/full_project_audit_2026-06-15.md).

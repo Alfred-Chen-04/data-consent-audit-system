@@ -576,3 +576,14 @@
 - Updated `research-status` visible wording from `Paper artifacts` to
   `Support artifacts` so the daily dashboard matches the current
   presentation/poster scope.
+
+## 2026-07-02 Fact Audit Findings
+
+- GitHub PR #8 is still open/draft/mergeable and not merged into `main`.
+- Local branch `codex/project-status-plain-language` is synced to origin at `467e7bc9fbee260d35eaa3d9a73ba54f872096b0` before today's note.
+- `research-status` still reports Week 2 targets=5, sanity `ready`, cycle `completed`, 42 audit reports, 20 longitudinal summaries, and 8 pending CMP confirmations.
+- Structured CSV reads still show 7 blank current-five decisions and 8 pending CMP/manual-review confirmations.
+- Current checkout has 326 tracked/filesystem `layer1.png` screenshots and 0 tracked/filesystem `layer1.html` raw DOM files under `data/captures/sites`.
+- Calendar math for 2026-07-02 is 34 elapsed days out of the 70-day May 30-August 7 core cycle, about 48.6%; the calendar midpoint is around 2026-07-03 to 2026-07-04.
+- Current entrypoint keyword checks did not find a current claim that raw HTML is synced, the 20-site sample is locked, no-visible-banner rows are confirmed banner-path failures, the final dataset is complete, or a formal paper is required for the current summer scope.
+- Added `docs/research/today_work_note_2026-07-02.md` and `docs/research/presentation_poster_work_order_2026-07-02.md` so the next work block is presentation/poster execution, not more scaffolding or blind capture.

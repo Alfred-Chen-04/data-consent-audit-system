@@ -708,3 +708,44 @@ def test_ssrp_poster_plan_exists_and_marks_week2_gate_ready() -> None:
     assert "## Before Final Poster" in text
     assert "Use the completed Week 2 gate as first evidence, not the final dataset." in text
     assert "## Source Artifacts" in text
+
+
+def test_current_scope_and_advisor_email_reflect_presentation_poster_deliverable() -> None:
+    scope_path = Path("docs/research/current_scope_2026-07-01.md")
+    email_path = Path("docs/research/advisor_email_scope_update_2026-07-01.md")
+    readme_path = Path("README.md")
+    index_path = Path("docs/research/week2_checkin_index_2026-06-06.md")
+
+    scope_text = scope_path.read_text(encoding="utf-8")
+    email_text = email_path.read_text(encoding="utf-8")
+    readme_text = readme_path.read_text(encoding="utf-8")
+    index_text = index_path.read_text(encoding="utf-8")
+
+    assert "presentation;" in scope_text
+    assert "large poster;" in scope_text
+    assert "A formal SSRP paper is not required as a summer deliverable" in scope_text
+    assert "Subject: Current project scope and next consent-audit decisions" in email_text
+    assert "presentation + large poster + traceable" in readme_text
+    assert "advisor_email_scope_update_2026-07-01.md" in readme_text
+    assert "[Current scope note, 2026-07-01](current_scope_2026-07-01.md)" in index_text
+
+
+def test_july2_work_note_and_poster_work_order_are_current_entrypoints() -> None:
+    today_path = Path("docs/research/today_work_note_2026-07-02.md")
+    work_order_path = Path("docs/research/presentation_poster_work_order_2026-07-02.md")
+    readme_path = Path("README.md")
+    index_path = Path("docs/research/week2_checkin_index_2026-06-06.md")
+
+    today_text = today_path.read_text(encoding="utf-8")
+    work_order_text = work_order_path.read_text(encoding="utf-8")
+    readme_text = readme_path.read_text(encoding="utf-8")
+    index_text = index_path.read_text(encoding="utf-8")
+
+    assert "Calendar progress | about 48.6%" in today_text
+    assert "0 tracked or filesystem `layer1.html` raw DOM files" in today_text
+    assert "There is still no evidence-based reason to run a blind live capture." in today_text
+    assert "## Presentation/Poster Story" in work_order_text
+    assert "Guardian and Coca-Cola are the current banner-present evidence-card" in work_order_text
+    assert "today_work_note_2026-07-02.md" in readme_text
+    assert "presentation_poster_work_order_2026-07-02.md" in readme_text
+    assert "[Today work note, 2026-07-02](today_work_note_2026-07-02.md)" in index_text
