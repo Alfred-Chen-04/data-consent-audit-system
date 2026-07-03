@@ -811,3 +811,37 @@ def test_current_project_goal_is_canonical_entrypoint() -> None:
     assert "current_project_goal_2026-07-02.md" in work_order_text
     assert "current_project_goal_2026-07-02.md" in inventory_text
     assert "[Current project goal, 2026-07-02](current_project_goal_2026-07-02.md)" in index_text
+
+
+def test_july3_scope_fact_review_and_poster_plan_is_current_entrypoint() -> None:
+    review_path = Path("docs/research/july3_scope_fact_review_and_poster_plan_2026-07-03.md")
+    readme_path = Path("README.md")
+    index_path = Path("docs/research/week2_checkin_index_2026-06-06.md")
+    advisor_index_path = Path("docs/research/advisor_packet_index_2026-06-05.md")
+    goal_path = Path("docs/research/current_project_goal_2026-07-02.md")
+
+    review_text = review_path.read_text(encoding="utf-8")
+    readme_text = readme_path.read_text(encoding="utf-8")
+    index_text = index_path.read_text(encoding="utf-8")
+    advisor_index_text = advisor_index_path.read_text(encoding="utf-8")
+    goal_text = goal_path.read_text(encoding="utf-8")
+
+    assert "# July 3 Scope/Fact Review and Poster Plan, 2026-07-03" in review_text
+    assert "35 of 70" in review_text
+    assert "50.0%" in review_text
+    assert "RQ1 scoring" in review_text
+    assert "RQ2 versioning" in review_text
+    assert "326 tracked site `layer1.png`" in review_text
+    assert "0 synced `layer1.html`" in review_text
+    assert "42 audit reports and 20 longitudinal summaries" in review_text
+    assert "7 blank current-five decisions" in review_text
+    assert "8 pending CMP/manual-review" in review_text
+    assert "Poster can be drafted now as a pilot/evidence poster" in review_text
+    assert "not a completed 20-site final dataset" in advisor_index_text
+    assert "july3_scope_fact_review_and_poster_plan_2026-07-03.md" in readme_text
+    assert (
+        "[July 3 scope/fact review and poster plan, 2026-07-03]"
+        "(july3_scope_fact_review_and_poster_plan_2026-07-03.md)"
+    ) in index_text
+    assert "july3_scope_fact_review_and_poster_plan_2026-07-03.md" in advisor_index_text
+    assert "july3_scope_fact_review_and_poster_plan_2026-07-03.md" in goal_text

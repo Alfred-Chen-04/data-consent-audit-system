@@ -6,12 +6,18 @@ interface audit status to Dr. Singh after his June 5 guidance.
 ## What Can Be Sent Today
 
 After the successful June 6 live capture, June 8 no-visible-banner review, June
-28 fact audit, and July 1 scope update, use this draft as the current advisor
-email:
+28 fact audit, July 1 scope update, and July 3 scope/fact review, start with
+this current project-state note:
+
+- `docs/research/july3_scope_fact_review_and_poster_plan_2026-07-03.md`
+
+Use this draft as the current advisor email:
 
 - `docs/research/advisor_email_scope_update_2026-07-01.md`
 
-The current scope note is:
+The current canonical goal and scope notes are:
+
+- `docs/research/current_project_goal_2026-07-02.md`
 
 - `docs/research/current_scope_2026-07-01.md`
 
@@ -60,12 +66,17 @@ The project-level implementation is recorded in:
 
 ## Current Facts To Report
 
-These facts are current as of the latest 2026-07-01 scope update and
+These facts are current as of the latest 2026-07-03 scope/fact review and
 `research-status` check:
 
 2026-07-02 confirmation: the same counts and blockers still hold; see
 `docs/research/today_work_note_2026-07-02.md` and
 `docs/research/presentation_poster_work_order_2026-07-02.md`.
+
+2026-07-03 confirmation: the project is at 35 of 70 core-cycle days, or 50.0%
+of the May 30-August 7 core window. PR #8 remains an open draft PR. The current
+safe final product is a presentation + large poster + traceable pilot evidence
+package, not a completed 20-site final dataset.
 
 - Week 2 targets: 5
 - Categories: finance=1, food=1, news=2, travel=1

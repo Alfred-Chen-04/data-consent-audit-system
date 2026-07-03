@@ -95,6 +95,7 @@ Current verified state:
 | `SCHEMA.md` | Research questions, ontology navigator, pipeline map. |
 | `CONCEPTS.md` | Authoritative scoring ontology. |
 | `docs/research/current_project_goal_2026-07-02.md` | Canonical plain-language goal and presentation framing. |
+| `docs/research/july3_scope_fact_review_and_poster_plan_2026-07-03.md` | Latest scope/fact review, completion-risk check, and poster-safe writing plan. |
 | `docs/research/current_scope_2026-07-01.md` | Current summer deliverable scope. |
 | `docs/research/project_inventory_and_poster_story_2026-07-02.md` | What exists, what evidence is verified, and how to avoid screenshot-only framing. |
 | `docs/research/presentation_poster_work_order_2026-07-02.md` | Operational order for building presentation/poster materials. |

@@ -610,3 +610,14 @@
 - The canonical goal states: RQ1 scores layered consent interfaces for unbiased choice across the full consent pathway; RQ2 captures and versions those interfaces to document change over time.
 - The canonical goal explicitly says screenshots/DOM/text/hashes/event logs are evidence inputs, while evidence traceability is a design requirement rather than a replacement research question.
 - Linked the canonical goal from README, SCHEMA, current scope, project inventory, poster work order, and the Week 2 check-in index.
+
+## 2026-07-03 Scope/Fact Review and Poster Plan Findings
+
+- GitHub PR #8 remains open, draft, mergeable, and pointed at `main`; local branch `codex/project-status-plain-language` was synced to origin at `42f8b76` before today's edits.
+- `research-status` still reports Week 2 targets=5, preflight `ready_for_capture`, sanity `ready`, cycle capture `completed`, 42 audit reports, 20 longitudinal summaries, and 8 pending CMP confirmations.
+- Calendar math for 2026-07-03 is 35 elapsed days out of the 70-day May 30-August 7 core cycle, or 50.0%.
+- Structured CSV reads still show 7 blank current-five decisions and 8 pending CMP/manual-review confirmations.
+- Current checkout has 326 tracked/filesystem `layer1.png` screenshots and 0 synced `layer1.html` raw DOM files under `data/captures/sites`.
+- Keyword review across README, SCHEMA, CONCEPTS, and the existing research Markdown docs found that the current entrypoints guard against the main overclaims: final dataset complete, 20-site sample locked, raw HTML synced, no-visible-banner rows as banner-path failures, and formal paper required as the current summer deliverable.
+- Added `docs/research/july3_scope_fact_review_and_poster_plan_2026-07-03.md` to answer what the project is, what is done, what is unresolved, whether the final summer plan is realistic, and how far the poster can be written now.
+- Current completion judgment: presentation + large poster + traceable pilot evidence package is realistic; a finished 20-site longitudinal dataset or conference-ready paper is not safe to promise without more advisor/sample decisions.
