@@ -621,3 +621,16 @@
 - Keyword review across README, SCHEMA, CONCEPTS, and the existing research Markdown docs found that the current entrypoints guard against the main overclaims: final dataset complete, 20-site sample locked, raw HTML synced, no-visible-banner rows as banner-path failures, and formal paper required as the current summer deliverable.
 - Added `docs/research/july3_scope_fact_review_and_poster_plan_2026-07-03.md` to answer what the project is, what is done, what is unresolved, whether the final summer plan is realistic, and how far the poster can be written now.
 - Current completion judgment: presentation + large poster + traceable pilot evidence package is realistic; a finished 20-site longitudinal dataset or conference-ready paper is not safe to promise without more advisor/sample decisions.
+
+## 2026-07-05 Evidence Sync Audit Findings
+
+- Local branch `codex/project-status-plain-language` and its upstream are both at `3c202181ca6510e5fd395989b2b62511aa155641`.
+- GitHub PR #8 is open, draft, mergeable, and not merged; its head SHA is the same `3c202181ca6510e5fd395989b2b62511aa155641`.
+- Local filesystem and Git tracking both show 365 capture PNG files, including 326 site `layer1.png` files.
+- The remote PR branch `origin/codex/project-status-plain-language` also contains 365 capture PNG files and 326 site `layer1.png` files.
+- All 365 local PNG files parse as valid PNG images, all are 1440x900, and sizes range from 14,031 bytes to 1,294,565 bytes.
+- Local Git tracking and the remote PR branch both show 0 site `layer1.html` raw DOM files.
+- `data/research_package/audit_report_summary.csv` has 42 rows with 42 screenshot refs; all screenshot refs exist locally. It also has 42 DOM refs, but all 42 raw DOM HTML files are missing in this checkout.
+- `data/week2_manual_evidence_review_2026-06-10.csv` has 5 current-five rows with 0 missing/bad screenshots and 5 missing raw DOM HTML files.
+- `data/cmp_review_queue_pilot_2026-05-30.csv` has 8 rows with 0 missing access screenshots, 0 missing capture screenshots, 0 bad capture screenshots, and 8 missing raw DOM HTML files.
+- The evidence-complete statement is therefore limited: screenshot/CSV/hash/report evidence is synced to the PR branch; raw DOM HTML files and manual/advisor confirmations are not complete.

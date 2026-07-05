@@ -6,9 +6,10 @@ interface audit status to Dr. Singh after his June 5 guidance.
 ## What Can Be Sent Today
 
 After the successful June 6 live capture, June 8 no-visible-banner review, June
-28 fact audit, July 1 scope update, and July 3 scope/fact review, start with
-this current project-state note:
+28 fact audit, July 1 scope update, July 3 scope/fact review, and July 5
+evidence sync audit, start with these current project-state notes:
 
+- `docs/research/july5_evidence_sync_audit_2026-07-05.md`
 - `docs/research/july3_scope_fact_review_and_poster_plan_2026-07-03.md`
 
 Use this draft as the current advisor email:
@@ -66,8 +67,8 @@ The project-level implementation is recorded in:
 
 ## Current Facts To Report
 
-These facts are current as of the latest 2026-07-03 scope/fact review and
-`research-status` check:
+These facts are current as of the latest 2026-07-05 evidence sync audit,
+2026-07-03 scope/fact review, and `research-status` check:
 
 2026-07-02 confirmation: the same counts and blockers still hold; see
 `docs/research/today_work_note_2026-07-02.md` and
@@ -77,6 +78,11 @@ These facts are current as of the latest 2026-07-03 scope/fact review and
 of the May 30-August 7 core window. PR #8 remains an open draft PR. The current
 safe final product is a presentation + large poster + traceable pilot evidence
 package, not a completed 20-site final dataset.
+
+2026-07-05 evidence sync confirmation: local Git and the remote PR branch both
+contain 365 capture PNG files, including 326 site `layer1.png` files. Both show
+0 site `layer1.html` raw DOM files. PR #8 remains open, draft, mergeable, and
+not merged into `main`.
 
 - Week 2 targets: 5
 - Categories: finance=1, food=1, news=2, travel=1

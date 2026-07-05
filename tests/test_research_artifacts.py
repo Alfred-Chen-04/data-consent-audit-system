@@ -845,3 +845,39 @@ def test_july3_scope_fact_review_and_poster_plan_is_current_entrypoint() -> None
     ) in index_text
     assert "july3_scope_fact_review_and_poster_plan_2026-07-03.md" in advisor_index_text
     assert "july3_scope_fact_review_and_poster_plan_2026-07-03.md" in goal_text
+
+
+def test_july5_evidence_sync_audit_is_current_entrypoint() -> None:
+    audit_path = Path("docs/research/july5_evidence_sync_audit_2026-07-05.md")
+    readme_path = Path("README.md")
+    index_path = Path("docs/research/week2_checkin_index_2026-06-06.md")
+    advisor_index_path = Path("docs/research/advisor_packet_index_2026-06-05.md")
+
+    audit_text = audit_path.read_text(encoding="utf-8")
+    readme_text = readme_path.read_text(encoding="utf-8")
+    index_text = index_path.read_text(encoding="utf-8")
+    advisor_index_text = advisor_index_path.read_text(encoding="utf-8")
+
+    assert "# July 5 Evidence Sync Audit, 2026-07-05" in audit_text
+    assert "Local HEAD: `3c202181ca6510e5fd395989b2b62511aa155641`" in audit_text
+    assert "PR #8: open, draft, mergeable, not merged." in audit_text
+    assert "`data/captures` contains 365 PNG files." in audit_text
+    assert "Git tracks 365 capture PNG files." in audit_text
+    assert (
+        "`origin/codex/project-status-plain-language` contains 365 capture PNG files."
+        in audit_text
+    )
+    assert "Missing screenshot refs: 0." in audit_text
+    assert "Missing raw DOM HTML files: 42." in audit_text
+    assert "Missing raw DOM HTML files: 5." in audit_text
+    assert "Missing raw DOM HTML files: 8." in audit_text
+    assert "Blank confirmed decisions: 7." in audit_text
+    assert "Pending confirmations: 8." in audit_text
+    assert "Screenshot evidence is tracked by Git and present on the GitHub PR branch." in audit_text
+    assert "2026-07-05 evidence sync confirmation" in advisor_index_text
+    assert "july5_evidence_sync_audit_2026-07-05.md" in readme_text
+    assert (
+        "[July 5 evidence sync audit, 2026-07-05]"
+        "(july5_evidence_sync_audit_2026-07-05.md)"
+    ) in index_text
+    assert "july5_evidence_sync_audit_2026-07-05.md" in advisor_index_text

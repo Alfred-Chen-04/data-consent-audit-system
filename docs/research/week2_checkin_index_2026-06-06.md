@@ -11,6 +11,7 @@ Use this index as the first file for advisor check-ins.
 
 ## Read First
 
+- [July 5 evidence sync audit, 2026-07-05](july5_evidence_sync_audit_2026-07-05.md)
 - [July 3 scope/fact review and poster plan, 2026-07-03](july3_scope_fact_review_and_poster_plan_2026-07-03.md)
 - [Current project goal, 2026-07-02](current_project_goal_2026-07-02.md)
 - [Project inventory and poster story, 2026-07-02](project_inventory_and_poster_story_2026-07-02.md)
