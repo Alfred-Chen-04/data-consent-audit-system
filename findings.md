@@ -634,3 +634,14 @@
 - `data/week2_manual_evidence_review_2026-06-10.csv` has 5 current-five rows with 0 missing/bad screenshots and 5 missing raw DOM HTML files.
 - `data/cmp_review_queue_pilot_2026-05-30.csv` has 8 rows with 0 missing access screenshots, 0 missing capture screenshots, 0 bad capture screenshots, and 8 missing raw DOM HTML files.
 - The evidence-complete statement is therefore limited: screenshot/CSV/hash/report evidence is synced to the PR branch; raw DOM HTML files and manual/advisor confirmations are not complete.
+
+## 2026-07-06 Poster Section Draft Findings
+
+- Local branch `codex/project-status-plain-language` and upstream both remain at `dfa1d437aa7413fc4072fe50a4f95fd9ed565284` before today's edits.
+- GitHub PR #8 remains open, draft, mergeable, and not merged into `main`.
+- `research-status` still reports preflight `ready_for_capture`, sanity `ready`, cycle capture `completed`, 42 audit reports, 20 longitudinal summaries, and 8 pending CMP confirmations.
+- Calendar math for 2026-07-06 is 38 elapsed days out of the 70-day May 30-August 7 core cycle, or 54.3%; there are 32 days left before August 7 and 56 days before August 31.
+- Structured CSV reads still show 7 blank current-five decisions and 8 pending CMP/manual-review confirmations.
+- Current evidence counts remain 42 audit reports, 20 longitudinal summaries, 326 site `layer1.png` files, and 0 synced site `layer1.html` files.
+- Because the unresolved items are human/advisor decisions and PR review, the fact-based work available today is poster/presentation drafting from existing verified pilot evidence, not blind new browser capture.
+- Added `docs/research/july6_poster_section_draft_2026-07-06.md` with poster-safe RQ, method, evidence snapshot, evidence-card, contrast-case, findings-so-far, limitation, and next-step text.

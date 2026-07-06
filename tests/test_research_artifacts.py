@@ -881,3 +881,36 @@ def test_july5_evidence_sync_audit_is_current_entrypoint() -> None:
         "(july5_evidence_sync_audit_2026-07-05.md)"
     ) in index_text
     assert "july5_evidence_sync_audit_2026-07-05.md" in advisor_index_text
+
+
+def test_july6_poster_section_draft_is_current_entrypoint() -> None:
+    draft_path = Path("docs/research/july6_poster_section_draft_2026-07-06.md")
+    readme_path = Path("README.md")
+    index_path = Path("docs/research/week2_checkin_index_2026-06-06.md")
+    advisor_index_path = Path("docs/research/advisor_packet_index_2026-06-05.md")
+
+    draft_text = draft_path.read_text(encoding="utf-8")
+    readme_text = readme_path.read_text(encoding="utf-8")
+    index_text = index_path.read_text(encoding="utf-8")
+    advisor_index_text = advisor_index_path.read_text(encoding="utf-8")
+
+    assert "# July 6 Poster Section Draft, 2026-07-06" in draft_text
+    assert "38 of 70 core-cycle days" in draft_text
+    assert "54.3%" in draft_text
+    assert "PR #8: open, draft, mergeable, not merged into `main`." in draft_text
+    assert "42 audit reports and 20 longitudinal summaries" in draft_text
+    assert "Banner-detected counts" in draft_text
+    assert "true=9, false=33" in draft_text
+    assert "326 site `layer1.png` files" in draft_text
+    assert "0 synced site" in draft_text
+    assert "Current-five decision sheet: 7 rows, 7 blank decisions." in draft_text
+    assert "CMP/manual-review confirmation sheet: 8 rows, 8 pending confirmations." in draft_text
+    assert "Traceable Consent Interface Audit and Versioning" in draft_text
+    assert "No-visible-banner contrast cases are not banner-path failures." in draft_text
+    assert "The poster can now safely include:" in draft_text
+    assert "july6_poster_section_draft_2026-07-06.md" in readme_text
+    assert (
+        "[July 6 poster section draft, 2026-07-06]"
+        "(july6_poster_section_draft_2026-07-06.md)"
+    ) in index_text
+    assert "july6_poster_section_draft_2026-07-06.md" in advisor_index_text

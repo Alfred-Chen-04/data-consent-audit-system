@@ -145,6 +145,7 @@ audit invariants.
 | 132. July 2 canonical project goal alignment | complete | Added `docs/research/current_project_goal_2026-07-02.md` as the canonical user-facing goal and linked it from README, SCHEMA, current scope, inventory, poster work order, and the Week 2 check-in index. |
 | 133. July 3 scope/fact review and poster plan | complete | Rechecked GitHub, Git, research-status, CSV counts, screenshot/raw-HTML counts, and current scope-drift risks; added the July 3 completion-risk/poster plan as the current fact-grounded user handoff. |
 | 134. July 5 evidence sync audit | complete | Rechecked local evidence files, Git tracking, remote PR-branch evidence files, research package refs, current-five/CMP evidence refs, and PR #8 state; added the July 5 evidence sync audit as the current proof of what is present vs missing. |
+| 135. July 6 poster section draft | complete | Rechecked PR #8, research-status, calendar progress, decision sheets, and evidence counts; added a fact-only poster/presentation section draft using current pilot evidence and limitations. |
 
 ## Decisions
 

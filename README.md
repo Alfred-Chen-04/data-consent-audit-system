@@ -21,6 +21,7 @@ This project sits in the gap none of them close: **multimodal AI grounding (VLM 
 | [AGENTS.md](AGENTS.md) | How AI agents (Claude Code, Cursor, etc.) collaborate on this repo |
 | [CONCEPTS.md](CONCEPTS.md) | Precise definitions of every audit dimension — the project's ontology |
 | [docs/research/current_project_goal_2026-07-02.md](docs/research/current_project_goal_2026-07-02.md) | Current canonical plain-language goal: RQ1 scoring + RQ2 versioning, not screenshot-only framing |
+| [docs/research/july6_poster_section_draft_2026-07-06.md](docs/research/july6_poster_section_draft_2026-07-06.md) | Current July 6 fact-based poster/presentation section draft built only from verified pilot evidence |
 | [docs/research/july5_evidence_sync_audit_2026-07-05.md](docs/research/july5_evidence_sync_audit_2026-07-05.md) | Current July 5 evidence sync audit: local evidence, Git-tracked screenshots, GitHub PR branch state, and remaining raw-HTML/manual-decision gaps |
 | [docs/research/july3_scope_fact_review_and_poster_plan_2026-07-03.md](docs/research/july3_scope_fact_review_and_poster_plan_2026-07-03.md) | Current July 3 scope/fact review: what is done, what is still unresolved, and what the poster can safely say |
 | [docs/architecture.md](docs/architecture.md) | Technical architecture, data flow, module boundaries |
@@ -194,6 +195,7 @@ Coca-Cola smoke passes all Layer 1 paths.
 - Current July 1 midpoint recheck and work note is [docs/research/today_work_note_2026-07-01.md](docs/research/today_work_note_2026-07-01.md).
 - Current July 2 fact audit and work note is [docs/research/today_work_note_2026-07-02.md](docs/research/today_work_note_2026-07-02.md).
 - Current canonical project goal is [docs/research/current_project_goal_2026-07-02.md](docs/research/current_project_goal_2026-07-02.md).
+- Current July 6 poster section draft is [docs/research/july6_poster_section_draft_2026-07-06.md](docs/research/july6_poster_section_draft_2026-07-06.md).
 - Current July 5 evidence sync audit is [docs/research/july5_evidence_sync_audit_2026-07-05.md](docs/research/july5_evidence_sync_audit_2026-07-05.md).
 - Current July 3 scope/fact review and poster plan is [docs/research/july3_scope_fact_review_and_poster_plan_2026-07-03.md](docs/research/july3_scope_fact_review_and_poster_plan_2026-07-03.md).
 - Current presentation/poster work order is [docs/research/presentation_poster_work_order_2026-07-02.md](docs/research/presentation_poster_work_order_2026-07-02.md).
