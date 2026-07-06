@@ -654,3 +654,13 @@
 - Current state is OK for the safe scope: pilot evidence package plus presentation/poster support.
 - Current state is not complete for a final experiment endpoint because PR #8 is still not merged, 7 current-five decisions are blank, 8 CMP confirmations are pending, raw HTML files are not synced, the 20-site sample is not locked, and final poster layout/result freeze are not done.
 - Added `docs/research/july6_recent_work_validation_and_gap_audit_2026-07-06.md` as the current fact-based answer to what is OK and what remains.
+
+## 2026-07-07 Poster Build Work Order Findings
+
+- Calendar math for 2026-07-07 is 39 elapsed days out of the 70-day May 30-August 7 core cycle, or 55.7%; 31 days remain before August 7 and 55 days remain before August 31.
+- Local branch `codex/project-status-plain-language` and upstream both started the day at `958d22046c0383493cc0e255433a5867008d6adc`; PR #8 remains open, draft, mergeable, and not merged.
+- `research-status` still reports preflight `ready_for_capture`, sanity `ready`, cycle capture `completed`, 42 audit reports, 20 longitudinal summaries, and 8 pending CMP confirmations.
+- Structured CSV reads still show 7 blank current-five decisions and 8 pending CMP/manual-review confirmations.
+- Current evidence counts remain 326 site `layer1.png` files and 0 synced site `layer1.html` raw DOM files.
+- Because the unresolved work is poster assembly plus human/advisor decisions, the safe July 7 work is an execution-ready poster build order from existing verified evidence, not new live capture.
+- The poster build should use Guardian and Coca-Cola as banner-present evidence cards, CNN/Booking.com/NerdWallet as no-visible-banner contrast cases, and explicit limitations for raw HTML, current-five decisions, CMP confirmations, and PR #8 merge state.

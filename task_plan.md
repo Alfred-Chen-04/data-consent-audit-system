@@ -147,6 +147,7 @@ audit invariants.
 | 134. July 5 evidence sync audit | complete | Rechecked local evidence files, Git tracking, remote PR-branch evidence files, research package refs, current-five/CMP evidence refs, and PR #8 state; added the July 5 evidence sync audit as the current proof of what is present vs missing. |
 | 135. July 6 poster section draft | complete | Rechecked PR #8, research-status, calendar progress, decision sheets, and evidence counts; added a fact-only poster/presentation section draft using current pilot evidence and limitations. |
 | 136. July 6 recent-work validation and gap audit | complete | Scanned recent/current materials for factual overclaims or scope drift, reran targeted validation, and added a current OK/not-OK assessment plus remaining experiment gaps. |
+| 137. July 7 poster build work order | complete | Turned the July 6 poster section draft into a panel-by-panel build order using existing verified evidence, with safe claims, asset refs, limitations, and next decisions. |
 
 ## Decisions
 

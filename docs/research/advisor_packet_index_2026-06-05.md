@@ -7,9 +7,10 @@ interface audit status to Dr. Singh after his June 5 guidance.
 
 After the successful June 6 live capture, June 8 no-visible-banner review, June
 28 fact audit, July 1 scope update, July 3 scope/fact review, July 5 evidence
-sync audit, July 6 poster-section draft, and July 6 validation/gap audit, start
-with these current project-state notes:
+sync audit, July 6 poster-section draft, July 6 validation/gap audit, and July 7
+poster build work order, start with these current project-state notes:
 
+- `docs/research/july7_poster_build_work_order_2026-07-07.md`
 - `docs/research/july6_recent_work_validation_and_gap_audit_2026-07-06.md`
 - `docs/research/july6_poster_section_draft_2026-07-06.md`
 - `docs/research/july5_evidence_sync_audit_2026-07-05.md`
@@ -70,8 +71,9 @@ The project-level implementation is recorded in:
 
 ## Current Facts To Report
 
-These facts are current as of the latest 2026-07-05 evidence sync audit,
-2026-07-03 scope/fact review, and `research-status` check:
+These facts are current as of the latest 2026-07-07 poster build work order,
+2026-07-05 evidence sync audit, 2026-07-03 scope/fact review, and
+`research-status` check:
 
 2026-07-02 confirmation: the same counts and blockers still hold; see
 `docs/research/today_work_note_2026-07-02.md` and
@@ -86,6 +88,12 @@ package, not a completed 20-site final dataset.
 contain 365 capture PNG files, including 326 site `layer1.png` files. Both show
 0 site `layer1.html` raw DOM files. PR #8 remains open, draft, mergeable, and
 not merged into `main`.
+
+2026-07-07 poster build confirmation: the current next artifact is a
+panel-by-panel pilot/method poster build order, not new live capture. It uses
+Guardian and Coca-Cola as banner-present evidence cards, CNN/Booking.com/
+NerdWallet as no-visible-banner contrast cases, and keeps final 20-site,
+raw-HTML, and legal-compliance claims out of scope.
 
 - Week 2 targets: 5
 - Categories: finance=1, food=1, news=2, travel=1

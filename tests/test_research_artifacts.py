@@ -947,3 +947,42 @@ def test_july6_recent_work_validation_and_gap_audit_is_current_entrypoint() -> N
         "(july6_recent_work_validation_and_gap_audit_2026-07-06.md)"
     ) in index_text
     assert "july6_recent_work_validation_and_gap_audit_2026-07-06.md" in advisor_index_text
+
+
+def test_july7_poster_build_work_order_is_current_entrypoint() -> None:
+    work_order_path = Path("docs/research/july7_poster_build_work_order_2026-07-07.md")
+    readme_path = Path("README.md")
+    index_path = Path("docs/research/week2_checkin_index_2026-06-06.md")
+    advisor_index_path = Path("docs/research/advisor_packet_index_2026-06-05.md")
+
+    work_order_text = work_order_path.read_text(encoding="utf-8")
+    readme_text = readme_path.read_text(encoding="utf-8")
+    index_text = index_path.read_text(encoding="utf-8")
+    advisor_index_text = advisor_index_path.read_text(encoding="utf-8")
+
+    assert "# July 7 Poster Build Work Order, 2026-07-07" in work_order_text
+    assert "39 of 70 core-cycle days" in work_order_text
+    assert "55.7%" in work_order_text
+    assert "Days left before August 7 core deadline: 31." in work_order_text
+    assert "PR #8: open, draft, mergeable, not merged into `main`." in work_order_text
+    assert "Research package: 42 audit reports and 20 longitudinal summaries." in work_order_text
+    assert "Banner-detected counts" in work_order_text
+    assert "true=9, false=33" in work_order_text
+    assert "326 site `layer1.png` files" in work_order_text
+    assert "0 synced site" in work_order_text
+    assert "Current-five decision sheet: 7 rows, 7 blank decisions." in work_order_text
+    assert "CMP/manual-review confirmation sheet: 8 rows, 8 pending confirmations." in work_order_text
+    assert "Build the poster as a pilot/method poster with seven panels:" in work_order_text
+    assert "Guardian" in work_order_text
+    assert "Coca-Cola" in work_order_text
+    assert "CNN" in work_order_text
+    assert "Booking.com" in work_order_text
+    assert "NerdWallet" in work_order_text
+    assert "No-visible-banner contrast cases are not banner-path failures." in work_order_text
+    assert "The final dataset is complete." in work_order_text
+    assert "july7_poster_build_work_order_2026-07-07.md" in readme_text
+    assert (
+        "[July 7 poster build work order, 2026-07-07]"
+        "(july7_poster_build_work_order_2026-07-07.md)"
+    ) in index_text
+    assert "july7_poster_build_work_order_2026-07-07.md" in advisor_index_text
