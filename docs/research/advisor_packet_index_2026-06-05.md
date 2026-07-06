@@ -7,9 +7,10 @@ interface audit status to Dr. Singh after his June 5 guidance.
 
 After the successful June 6 live capture, June 8 no-visible-banner review, June
 28 fact audit, July 1 scope update, July 3 scope/fact review, July 5 evidence
-sync audit, and July 6 poster-section draft, start with these current
-project-state notes:
+sync audit, July 6 poster-section draft, and July 6 validation/gap audit, start
+with these current project-state notes:
 
+- `docs/research/july6_recent_work_validation_and_gap_audit_2026-07-06.md`
 - `docs/research/july6_poster_section_draft_2026-07-06.md`
 - `docs/research/july5_evidence_sync_audit_2026-07-05.md`
 - `docs/research/july3_scope_fact_review_and_poster_plan_2026-07-03.md`

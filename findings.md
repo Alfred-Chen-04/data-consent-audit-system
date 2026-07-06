@@ -645,3 +645,12 @@
 - Current evidence counts remain 42 audit reports, 20 longitudinal summaries, 326 site `layer1.png` files, and 0 synced site `layer1.html` files.
 - Because the unresolved items are human/advisor decisions and PR review, the fact-based work available today is poster/presentation drafting from existing verified pilot evidence, not blind new browser capture.
 - Added `docs/research/july6_poster_section_draft_2026-07-06.md` with poster-safe RQ, method, evidence snapshot, evidence-card, contrast-case, findings-so-far, limitation, and next-step text.
+
+## 2026-07-06 Recent-Work Validation And Gap Audit Findings
+
+- Risk-keyword scan across README, SCHEMA, CONCEPTS, and `docs/research/*.md` found risky phrases only in safe contexts: `Do not claim`/limitation sections or dated historical audit notes.
+- No current unqualified claim was found that the final dataset is complete, the 20-site sample is locked, raw HTML is synced, CNN/Booking.com/NerdWallet are banner-path failures, PR #8 is merged, a formal paper is required, or the project makes legal compliance verdicts.
+- Targeted validation after the July 6 poster section draft passed: 39 pytest checks, Ruff, Mypy, `research-status`, and `git diff --check`.
+- Current state is OK for the safe scope: pilot evidence package plus presentation/poster support.
+- Current state is not complete for a final experiment endpoint because PR #8 is still not merged, 7 current-five decisions are blank, 8 CMP confirmations are pending, raw HTML files are not synced, the 20-site sample is not locked, and final poster layout/result freeze are not done.
+- Added `docs/research/july6_recent_work_validation_and_gap_audit_2026-07-06.md` as the current fact-based answer to what is OK and what remains.

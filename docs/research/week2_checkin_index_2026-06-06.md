@@ -11,6 +11,7 @@ Use this index as the first file for advisor check-ins.
 
 ## Read First
 
+- [July 6 validation and gap audit, 2026-07-06](july6_recent_work_validation_and_gap_audit_2026-07-06.md)
 - [July 6 poster section draft, 2026-07-06](july6_poster_section_draft_2026-07-06.md)
 - [July 5 evidence sync audit, 2026-07-05](july5_evidence_sync_audit_2026-07-05.md)
 - [July 3 scope/fact review and poster plan, 2026-07-03](july3_scope_fact_review_and_poster_plan_2026-07-03.md)

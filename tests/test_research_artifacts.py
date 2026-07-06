@@ -914,3 +914,36 @@ def test_july6_poster_section_draft_is_current_entrypoint() -> None:
         "(july6_poster_section_draft_2026-07-06.md)"
     ) in index_text
     assert "july6_poster_section_draft_2026-07-06.md" in advisor_index_text
+
+
+def test_july6_recent_work_validation_and_gap_audit_is_current_entrypoint() -> None:
+    audit_path = Path("docs/research/july6_recent_work_validation_and_gap_audit_2026-07-06.md")
+    readme_path = Path("README.md")
+    index_path = Path("docs/research/week2_checkin_index_2026-06-06.md")
+    advisor_index_path = Path("docs/research/advisor_packet_index_2026-06-05.md")
+
+    audit_text = audit_path.read_text(encoding="utf-8")
+    readme_text = readme_path.read_text(encoding="utf-8")
+    index_text = index_path.read_text(encoding="utf-8")
+    advisor_index_text = advisor_index_path.read_text(encoding="utf-8")
+
+    assert "# July 6 Recent Work Validation and Gap Audit, 2026-07-06" in audit_text
+    assert "38 of 70 days" in audit_text
+    assert "54.3%" in audit_text
+    assert "PR #8 is open, draft, mergeable, and not merged into `main`." in audit_text
+    assert "Audit reports in package: 42." in audit_text
+    assert "Longitudinal summaries in package: 20." in audit_text
+    assert "Current-five decision sheet: 7 rows, 7 blank decisions." in audit_text
+    assert "CMP/manual-review confirmation sheet: 8 rows, 8 pending confirmations" in audit_text
+    assert "Site screenshot evidence: 326 `layer1.png` files." in audit_text
+    assert "Synced site raw HTML evidence: 0 `layer1.html` files." in audit_text
+    assert "No code/data correction was required by this scan." in audit_text
+    assert "Yes, for the current safe scope:" in audit_text
+    assert "No, if \"OK\" means final experiment complete:" in audit_text
+    assert "Remaining Gaps Before Experiment Endpoint" in audit_text
+    assert "july6_recent_work_validation_and_gap_audit_2026-07-06.md" in readme_text
+    assert (
+        "[July 6 validation and gap audit, 2026-07-06]"
+        "(july6_recent_work_validation_and_gap_audit_2026-07-06.md)"
+    ) in index_text
+    assert "july6_recent_work_validation_and_gap_audit_2026-07-06.md" in advisor_index_text
