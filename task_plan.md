@@ -148,6 +148,7 @@ audit invariants.
 | 135. July 6 poster section draft | complete | Rechecked PR #8, research-status, calendar progress, decision sheets, and evidence counts; added a fact-only poster/presentation section draft using current pilot evidence and limitations. |
 | 136. July 6 recent-work validation and gap audit | complete | Scanned recent/current materials for factual overclaims or scope drift, reran targeted validation, and added a current OK/not-OK assessment plus remaining experiment gaps. |
 | 137. July 7 poster build work order | complete | Turned the July 6 poster section draft into a panel-by-panel build order using existing verified evidence, with safe claims, asset refs, limitations, and next decisions. |
+| 138. July 7 poster layout draft | complete | Converted the July 7 build work order into a first three-column poster layout draft with direct panel copy, screenshot placements, limitations, and build notes. |
 
 ## Decisions
 

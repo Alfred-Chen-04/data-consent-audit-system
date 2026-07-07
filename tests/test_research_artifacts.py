@@ -986,3 +986,43 @@ def test_july7_poster_build_work_order_is_current_entrypoint() -> None:
         "(july7_poster_build_work_order_2026-07-07.md)"
     ) in index_text
     assert "july7_poster_build_work_order_2026-07-07.md" in advisor_index_text
+
+
+def test_july7_poster_layout_draft_is_current_entrypoint() -> None:
+    layout_path = Path("docs/research/july7_poster_layout_draft_2026-07-07.md")
+    readme_path = Path("README.md")
+    index_path = Path("docs/research/week2_checkin_index_2026-06-06.md")
+    advisor_index_path = Path("docs/research/advisor_packet_index_2026-06-05.md")
+
+    layout_text = layout_path.read_text(encoding="utf-8")
+    readme_text = readme_path.read_text(encoding="utf-8")
+    index_text = index_path.read_text(encoding="utf-8")
+    advisor_index_text = advisor_index_path.read_text(encoding="utf-8")
+
+    assert "# July 7 Poster Layout Draft, 2026-07-07" in layout_text
+    assert "first poster layout" in layout_text
+    assert "This draft adds no new browser capture" in layout_text
+    assert "Build the poster as a pilot/method poster" in layout_text
+    assert "Top band" in layout_text
+    assert "Left column" in layout_text
+    assert "Middle column" in layout_text
+    assert "Right column" in layout_text
+    assert "Traceable Consent Interface Audit and Versioning" in layout_text
+    assert "Week 2 target sites | 5" in layout_text
+    assert "Audit reports | 42" in layout_text
+    assert "Longitudinal summaries | 20" in layout_text
+    assert "Synced raw `layer1.html` files | 0" in layout_text
+    assert "data/captures/sites/www_theguardian_com_20260605_160209/layer1.png" in layout_text
+    assert "data/captures/sites/www_coca_cola_com_20260605_160238/layer1.png" in layout_text
+    assert "data/captures/sites/www_cnn_com_20260605_160221/layer1.png" in layout_text
+    assert "data/captures/sites/www_booking_com_20260605_160226/layer1.png" in layout_text
+    assert "data/captures/sites/www_nerdwallet_com_20260605_160232/layer1.png" in layout_text
+    assert "No-visible-banner contrast cases are not banner-path failures." in layout_text
+    assert "final dataset complete" in layout_text
+    assert "ready for a first visual mockup" in layout_text
+    assert "july7_poster_layout_draft_2026-07-07.md" in readme_text
+    assert (
+        "[July 7 poster layout draft, 2026-07-07]"
+        "(july7_poster_layout_draft_2026-07-07.md)"
+    ) in index_text
+    assert "july7_poster_layout_draft_2026-07-07.md" in advisor_index_text

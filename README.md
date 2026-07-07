@@ -21,6 +21,7 @@ This project sits in the gap none of them close: **multimodal AI grounding (VLM 
 | [AGENTS.md](AGENTS.md) | How AI agents (Claude Code, Cursor, etc.) collaborate on this repo |
 | [CONCEPTS.md](CONCEPTS.md) | Precise definitions of every audit dimension — the project's ontology |
 | [docs/research/current_project_goal_2026-07-02.md](docs/research/current_project_goal_2026-07-02.md) | Current canonical plain-language goal: RQ1 scoring + RQ2 versioning, not screenshot-only framing |
+| [docs/research/july7_poster_layout_draft_2026-07-07.md](docs/research/july7_poster_layout_draft_2026-07-07.md) | Current July 7 poster layout draft: three-column poster structure, direct panel copy, screenshot placements, limitations, and build notes |
 | [docs/research/july7_poster_build_work_order_2026-07-07.md](docs/research/july7_poster_build_work_order_2026-07-07.md) | Current July 7 poster build work order: panel-by-panel build plan, safe claims, asset refs, limitations, and next decisions |
 | [docs/research/july6_recent_work_validation_and_gap_audit_2026-07-06.md](docs/research/july6_recent_work_validation_and_gap_audit_2026-07-06.md) | Current July 6 validation and gap audit: recent-work error check, validation results, OK/not-OK scope, and remaining experiment gaps |
 | [docs/research/july6_poster_section_draft_2026-07-06.md](docs/research/july6_poster_section_draft_2026-07-06.md) | Current July 6 fact-based poster/presentation section draft built only from verified pilot evidence |
@@ -197,6 +198,7 @@ Coca-Cola smoke passes all Layer 1 paths.
 - Current July 1 midpoint recheck and work note is [docs/research/today_work_note_2026-07-01.md](docs/research/today_work_note_2026-07-01.md).
 - Current July 2 fact audit and work note is [docs/research/today_work_note_2026-07-02.md](docs/research/today_work_note_2026-07-02.md).
 - Current canonical project goal is [docs/research/current_project_goal_2026-07-02.md](docs/research/current_project_goal_2026-07-02.md).
+- Current July 7 poster layout draft is [docs/research/july7_poster_layout_draft_2026-07-07.md](docs/research/july7_poster_layout_draft_2026-07-07.md).
 - Current July 7 poster build work order is [docs/research/july7_poster_build_work_order_2026-07-07.md](docs/research/july7_poster_build_work_order_2026-07-07.md).
 - Current July 6 validation and gap audit is [docs/research/july6_recent_work_validation_and_gap_audit_2026-07-06.md](docs/research/july6_recent_work_validation_and_gap_audit_2026-07-06.md).
 - Current July 6 poster section draft is [docs/research/july6_poster_section_draft_2026-07-06.md](docs/research/july6_poster_section_draft_2026-07-06.md).

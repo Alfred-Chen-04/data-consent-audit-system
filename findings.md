@@ -664,3 +664,12 @@
 - Current evidence counts remain 326 site `layer1.png` files and 0 synced site `layer1.html` raw DOM files.
 - Because the unresolved work is poster assembly plus human/advisor decisions, the safe July 7 work is an execution-ready poster build order from existing verified evidence, not new live capture.
 - The poster build should use Guardian and Coca-Cola as banner-present evidence cards, CNN/Booking.com/NerdWallet as no-visible-banner contrast cases, and explicit limitations for raw HTML, current-five decisions, CMP confirmations, and PR #8 merge state.
+
+## 2026-07-07 Poster Layout Draft Findings
+
+- After the poster build work order, the next safe work item is a first visual-layout draft rather than more status auditing.
+- The layout draft keeps the poster as a pilot/method poster with one top band, three main columns, and a bottom strip.
+- The left column covers why consent interfaces matter, the audit pipeline, and deterministic scoring guardrails.
+- The middle column carries the current evidence snapshot plus Guardian and Coca-Cola as banner-present evidence cards.
+- The right column carries CNN, Booking.com, and NerdWallet as no-visible-banner contrast cases, plus limitations and next decisions.
+- The layout draft preserves the main limits: no new browser capture, no raw HTML sync claim, no final 20-site claim, no legal-compliance claim, and no unqualified no-visible-banner failure claim.

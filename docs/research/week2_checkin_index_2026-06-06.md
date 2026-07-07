@@ -11,6 +11,7 @@ Use this index as the first file for advisor check-ins.
 
 ## Read First
 
+- [July 7 poster layout draft, 2026-07-07](july7_poster_layout_draft_2026-07-07.md)
 - [July 7 poster build work order, 2026-07-07](july7_poster_build_work_order_2026-07-07.md)
 - [July 6 validation and gap audit, 2026-07-06](july6_recent_work_validation_and_gap_audit_2026-07-06.md)
 - [July 6 poster section draft, 2026-07-06](july6_poster_section_draft_2026-07-06.md)
