@@ -1026,3 +1026,47 @@ def test_july7_poster_layout_draft_is_current_entrypoint() -> None:
         "(july7_poster_layout_draft_2026-07-07.md)"
     ) in index_text
     assert "july7_poster_layout_draft_2026-07-07.md" in advisor_index_text
+
+
+def test_july9_poster_asset_manifest_is_current_entrypoint() -> None:
+    manifest_path = Path("docs/research/july9_poster_asset_manifest_2026-07-09.md")
+    readme_path = Path("README.md")
+    index_path = Path("docs/research/week2_checkin_index_2026-06-06.md")
+    advisor_index_path = Path("docs/research/advisor_packet_index_2026-06-05.md")
+
+    manifest_text = manifest_path.read_text(encoding="utf-8")
+    readme_text = readme_path.read_text(encoding="utf-8")
+    index_text = index_path.read_text(encoding="utf-8")
+    advisor_index_text = advisor_index_path.read_text(encoding="utf-8")
+
+    assert "# July 9 Poster Asset Manifest, 2026-07-09" in manifest_text
+    assert "41 of 70 core-cycle days" in manifest_text
+    assert "58.6%" in manifest_text
+    assert "Days left before August 7 core deadline: 29." in manifest_text
+    assert "Research package: 42 audit reports and 20 longitudinal summaries." in manifest_text
+    assert "Banner-detected counts" in manifest_text
+    assert "true=9, false=33" in manifest_text
+    assert "326 site `layer1.png` files" in manifest_text
+    assert "0 synced site" in manifest_text
+    assert "Current-five decision sheet: 7 rows, 7 blank decisions." in manifest_text
+    assert "CMP/manual-review confirmation sheet: 8 rows, 8 pending confirmations." in manifest_text
+    assert "The July 8 draft task was carried forward on July 9" in manifest_text
+    assert "data/captures/sites/www_theguardian_com_20260605_160209/layer1.png" in manifest_text
+    assert "data/captures/sites/www_coca_cola_com_20260605_160238/layer1.png" in manifest_text
+    assert "data/captures/sites/www_cnn_com_20260605_160221/layer1.png" in manifest_text
+    assert "data/captures/sites/www_booking_com_20260605_160226/layer1.png" in manifest_text
+    assert "data/captures/sites/www_nerdwallet_com_20260605_160232/layer1.png" in manifest_text
+    assert manifest_text.count("1440x900") == 5
+    assert "144914" in manifest_text
+    assert "338126" in manifest_text
+    assert "439361" in manifest_text
+    assert "97083" in manifest_text
+    assert "608556" in manifest_text
+    assert "Do not treat as a banner-path failure without the separate table rule." in manifest_text
+    assert "This screenshot proves the site still looks the same today." in manifest_text
+    assert "july9_poster_asset_manifest_2026-07-09.md" in readme_text
+    assert (
+        "[July 9 poster asset manifest, 2026-07-09]"
+        "(july9_poster_asset_manifest_2026-07-09.md)"
+    ) in index_text
+    assert "july9_poster_asset_manifest_2026-07-09.md" in advisor_index_text

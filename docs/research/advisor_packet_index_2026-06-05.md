@@ -8,9 +8,10 @@ interface audit status to Dr. Singh after his June 5 guidance.
 After the successful June 6 live capture, June 8 no-visible-banner review, June
 28 fact audit, July 1 scope update, July 3 scope/fact review, July 5 evidence
 sync audit, July 6 poster-section draft, July 6 validation/gap audit, July 7
-poster build work order, and July 7 poster layout draft, start with these
-current project-state notes:
+poster build work order, July 7 poster layout draft, and July 9 poster asset
+manifest, start with these current project-state notes:
 
+- `docs/research/july9_poster_asset_manifest_2026-07-09.md`
 - `docs/research/july7_poster_layout_draft_2026-07-07.md`
 - `docs/research/july7_poster_build_work_order_2026-07-07.md`
 - `docs/research/july6_recent_work_validation_and_gap_audit_2026-07-06.md`
@@ -101,6 +102,11 @@ raw-HTML, and legal-compliance claims out of scope.
 layout draft with title/RQs, method pipeline, evidence snapshot, Guardian and
 Coca-Cola evidence-card slots, no-visible-banner contrast cases, limitations,
 and next-decision checklist.
+
+2026-07-09 poster asset confirmation: the five poster screenshot assets exist,
+parse as PNG, and are 1440x900. Guardian and Coca-Cola are the large
+banner-present evidence cards; CNN, Booking.com, and NerdWallet are compact
+no-visible-banner contrast assets.
 
 - Week 2 targets: 5
 - Categories: finance=1, food=1, news=2, travel=1

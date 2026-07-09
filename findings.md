@@ -673,3 +673,13 @@
 - The middle column carries the current evidence snapshot plus Guardian and Coca-Cola as banner-present evidence cards.
 - The right column carries CNN, Booking.com, and NerdWallet as no-visible-banner contrast cases, plus limitations and next decisions.
 - The layout draft preserves the main limits: no new browser capture, no raw HTML sync claim, no final 20-site claim, no legal-compliance claim, and no unqualified no-visible-banner failure claim.
+
+## 2026-07-09 Poster Asset Manifest Findings
+
+- Calendar math for 2026-07-09 is 41 elapsed days out of the 70-day May 30-August 7 core cycle, or 58.6%; 29 days remain before August 7 and 53 days remain before August 31.
+- Local branch `codex/project-status-plain-language` and upstream both started the work at `850b857ac2a6721c74a480d512c739479734f3cb`; PR #8 remains open, draft, mergeable, and not merged.
+- `research-status` still reports preflight `ready_for_capture`, sanity `ready`, cycle capture `completed`, 42 audit reports, 20 longitudinal summaries, and 8 pending CMP confirmations.
+- Structured CSV reads still show 7 blank current-five decisions and 8 pending CMP/manual-review confirmations.
+- Current evidence counts remain 326 site `layer1.png` files and 0 synced site `layer1.html` raw DOM files.
+- The five poster screenshot assets all exist, parse as PNG, and are 1440x900: Guardian, Coca-Cola, CNN, Booking.com, and NerdWallet.
+- The safest July 9 work is a poster asset manifest from existing screenshots, not new live capture or sample expansion.
