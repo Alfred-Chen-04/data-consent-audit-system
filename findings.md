@@ -683,3 +683,12 @@
 - Current evidence counts remain 326 site `layer1.png` files and 0 synced site `layer1.html` raw DOM files.
 - The five poster screenshot assets all exist, parse as PNG, and are 1440x900: Guardian, Coca-Cola, CNN, Booking.com, and NerdWallet.
 - The safest July 9 work is a poster asset manifest from existing screenshots, not new live capture or sample expansion.
+
+## 2026-07-12 Poster Assembly Packet Findings
+
+- Calendar math for 2026-07-12 is 44 elapsed days out of the 70-day May 30-August 7 core cycle, or 62.9%; 26 days remain before August 7 and 50 days remain before August 31.
+- Local branch `codex/project-status-plain-language` and upstream both start from `62e98b7f332c8ff958fe85f0dde6904eda41914e`; GitHub PR #8 is open, draft, mergeable, and not merged.
+- `research-status` still reports preflight `ready_for_capture`, sanity `ready`, cycle capture `completed`, 42 audit reports, 20 longitudinal summaries, and 8 pending CMP confirmations.
+- Current evidence counts remain 326 site `layer1.png` files and 0 synced site `layer1.html` raw DOM files.
+- Structured decision blockers remain unchanged: 7 current-five blank decisions and 8 pending CMP/manual-review confirmations.
+- The safe July 12 task is poster assembly from existing verified evidence, not new capture or final dataset claims.

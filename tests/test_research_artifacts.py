@@ -1070,3 +1070,48 @@ def test_july9_poster_asset_manifest_is_current_entrypoint() -> None:
         "(july9_poster_asset_manifest_2026-07-09.md)"
     ) in index_text
     assert "july9_poster_asset_manifest_2026-07-09.md" in advisor_index_text
+
+
+def test_july12_poster_assembly_packet_is_current_entrypoint() -> None:
+    packet_path = Path("docs/research/july12_poster_assembly_packet_2026-07-12.md")
+    readme_path = Path("README.md")
+    index_path = Path("docs/research/week2_checkin_index_2026-06-06.md")
+    advisor_index_path = Path("docs/research/advisor_packet_index_2026-06-05.md")
+
+    packet_text = packet_path.read_text(encoding="utf-8")
+    readme_text = readme_path.read_text(encoding="utf-8")
+    index_text = index_path.read_text(encoding="utf-8")
+    advisor_index_text = advisor_index_path.read_text(encoding="utf-8")
+
+    assert "# July 12 Poster Assembly Packet, 2026-07-12" in packet_text
+    assert "44 of 70 core-cycle days" in packet_text
+    assert "62.9%" in packet_text
+    assert "Days left before August 7 core deadline: 26." in packet_text
+    assert "Days left before August 31 polish deadline: 50." in packet_text
+    assert "62e98b7f332c8ff958fe85f0dde6904eda41914e" in packet_text
+    assert "GitHub PR #8: open, draft, mergeable, not merged into `main`." in packet_text
+    assert "Research package: 42 audit reports and 20 longitudinal summaries." in packet_text
+    assert "true=9, false=33" in packet_text
+    assert "326 site `layer1.png` files" in packet_text
+    assert "0 synced site" in packet_text
+    assert "Current-five decision sheet: 7 rows, 7 blank decisions." in packet_text
+    assert "CMP/manual-review confirmation sheet: 8 rows, 8 pending confirmations." in packet_text
+    assert "Build a first visual poster mockup from existing verified evidence." in packet_text
+    assert "Traceable Consent Interface Audit and Versioning" in packet_text
+    assert "Week 2 target sites | 5" in packet_text
+    assert "Audit reports | 42" in packet_text
+    assert "Longitudinal summaries | 20" in packet_text
+    assert "data/captures/sites/www_theguardian_com_20260605_160209/layer1.png" in packet_text
+    assert "data/captures/sites/www_coca_cola_com_20260605_160238/layer1.png" in packet_text
+    assert "data/captures/sites/www_cnn_com_20260605_160221/layer1.png" in packet_text
+    assert "data/captures/sites/www_booking_com_20260605_160226/layer1.png" in packet_text
+    assert "data/captures/sites/www_nerdwallet_com_20260605_160232/layer1.png" in packet_text
+    assert "No-visible-banner contrast cases are not banner-path failures." in packet_text
+    assert "Final dataset complete." in packet_text
+    assert "The live website still looks the same today." in packet_text
+    assert "july12_poster_assembly_packet_2026-07-12.md" in readme_text
+    assert (
+        "[July 12 poster assembly packet, 2026-07-12]"
+        "(july12_poster_assembly_packet_2026-07-12.md)"
+    ) in index_text
+    assert "july12_poster_assembly_packet_2026-07-12.md" in advisor_index_text
