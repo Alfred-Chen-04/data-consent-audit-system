@@ -11,6 +11,7 @@ Use this index as the first file for advisor check-ins.
 
 ## Read First
 
+- [July 14 first poster mockup, 2026-07-14](july14_first_poster_mockup_2026-07-14.md)
 - [July 12 poster assembly packet, 2026-07-12](july12_poster_assembly_packet_2026-07-12.md)
 - [July 9 poster asset manifest, 2026-07-09](july9_poster_asset_manifest_2026-07-09.md)
 - [July 7 poster layout draft, 2026-07-07](july7_poster_layout_draft_2026-07-07.md)

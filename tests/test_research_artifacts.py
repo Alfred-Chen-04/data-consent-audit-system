@@ -1115,3 +1115,45 @@ def test_july12_poster_assembly_packet_is_current_entrypoint() -> None:
         "(july12_poster_assembly_packet_2026-07-12.md)"
     ) in index_text
     assert "july12_poster_assembly_packet_2026-07-12.md" in advisor_index_text
+
+
+def test_july14_first_poster_mockup_is_traceable_and_rendered() -> None:
+    mockup_path = Path("docs/research/july14_first_poster_mockup_2026-07-14.md")
+    pptx_path = Path("docs/research/poster/ssrp_poster_mockup_2026-07-14.pptx")
+    preview_path = Path("docs/research/poster/ssrp_poster_mockup_2026-07-14.png")
+    readme_path = Path("README.md")
+    index_path = Path("docs/research/week2_checkin_index_2026-06-06.md")
+    advisor_index_path = Path("docs/research/advisor_packet_index_2026-06-05.md")
+
+    mockup_text = mockup_path.read_text(encoding="utf-8")
+    readme_text = readme_path.read_text(encoding="utf-8")
+    index_text = index_path.read_text(encoding="utf-8")
+    advisor_index_text = advisor_index_path.read_text(encoding="utf-8")
+
+    assert pptx_path.is_file()
+    assert pptx_path.stat().st_size > 1_000_000
+    assert preview_path.is_file()
+    assert preview_path.stat().st_size > 1_000_000
+    assert "# July 14 First Poster Mockup, 2026-07-14" in mockup_text
+    assert "48 x 36 inch landscape poster canvas" in mockup_text
+    assert "46 of 70 core-cycle days" in mockup_text
+    assert "65.7%" in mockup_text
+    assert "Research package: 42 audit reports and 20 longitudinal summaries." in mockup_text
+    assert "326 site `layer1.png` files" in mockup_text
+    assert "0 synced site" in mockup_text
+    assert "7 rows, 7 blank decisions" in mockup_text
+    assert "8 rows, 8 pending confirmations" in mockup_text
+    assert "data/captures/sites/www_theguardian_com_20260605_160209/layer1.png" in mockup_text
+    assert "data/captures/sites/www_coca_cola_com_20260605_160238/layer1.png" in mockup_text
+    assert "data/captures/sites/www_cnn_com_20260605_160221/layer1.png" in mockup_text
+    assert "data/captures/sites/www_booking_com_20260605_160226/layer1.png" in mockup_text
+    assert "data/captures/sites/www_nerdwallet_com_20260605_160232/layer1.png" in mockup_text
+    assert "no-visible-banner contrast case" in mockup_text
+    assert "does not claim legal compliance" in mockup_text
+    assert "Test passed. No overflow detected." in mockup_text
+    assert "july14_first_poster_mockup_2026-07-14.md" in readme_text
+    assert (
+        "[July 14 first poster mockup, 2026-07-14]"
+        "(july14_first_poster_mockup_2026-07-14.md)"
+    ) in index_text
+    assert "july14_first_poster_mockup_2026-07-14.md" in advisor_index_text

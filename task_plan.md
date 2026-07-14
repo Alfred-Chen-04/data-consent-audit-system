@@ -151,6 +151,7 @@ audit invariants.
 | 138. July 7 poster layout draft | complete | Converted the July 7 build work order into a first three-column poster layout draft with direct panel copy, screenshot placements, limitations, and build notes. |
 | 139. July 9 poster asset manifest | complete | Carried forward the July 8 asset-manifest task with July 9 calendar facts; verified five poster screenshot assets, placements, captions, dimensions, byte sizes, and claim guardrails. |
 | 140. July 12 poster assembly packet | complete | Converted the layout draft and asset manifest into a poster-ready assembly packet with build order, copy blocks, screenshot placements, guarded claims, and advisor questions. |
+| 141. July 14 first poster mockup | complete | Built and rendered an editable 48 x 36 pilot/method poster from the five verified stored screenshots, with evidence counts, claim guardrails, limitations, and next decisions visible on the poster. |
 
 ## Decisions
 

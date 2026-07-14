@@ -692,3 +692,10 @@
 - Current evidence counts remain 326 site `layer1.png` files and 0 synced site `layer1.html` raw DOM files.
 - Structured decision blockers remain unchanged: 7 current-five blank decisions and 8 pending CMP/manual-review confirmations.
 - The safe July 12 task is poster assembly from existing verified evidence, not new capture or final dataset claims.
+
+## 2026-07-14 First Poster Mockup Findings
+
+- The July 12 assembly packet's next concrete deliverable is now complete: an editable 48 x 36 landscape PPTX and a rendered PNG preview exist under `docs/research/poster/`.
+- The mockup uses Guardian and Coca-Cola as stored banner-present evidence cards and CNN, Booking.com, and NerdWallet as stored no-visible-first-screen-banner contrast cases.
+- The mockup preserves the evidence limits in visible copy: pilot/method evidence only; 42 audit reports; 20 longitudinal summaries; 326 screenshots; 0 synced raw HTML files; 7 blank current-five decisions; and 8 pending CMP confirmations.
+- The editable PPTX passed the slide overflow check and its rendered output was visually inspected. No new browser capture or new consent-interface evidence was created.

@@ -9,9 +9,11 @@ After the successful June 6 live capture, June 8 no-visible-banner review, June
 28 fact audit, July 1 scope update, July 3 scope/fact review, July 5 evidence
 sync audit, July 6 poster-section draft, July 6 validation/gap audit, July 7
 poster build work order, July 7 poster layout draft, July 9 poster asset
-manifest, and July 12 poster assembly packet, start with these current
+manifest, July 12 poster assembly packet, and July 14 first visual poster
+mockup, start with these current
 project-state notes:
 
+- `docs/research/july14_first_poster_mockup_2026-07-14.md`
 - `docs/research/july12_poster_assembly_packet_2026-07-12.md`
 - `docs/research/july9_poster_asset_manifest_2026-07-09.md`
 - `docs/research/july7_poster_layout_draft_2026-07-07.md`
@@ -114,6 +116,11 @@ no-visible-banner contrast assets.
 visual poster mockup from existing verified evidence. The assembly packet gives
 the build order, exact poster copy blocks, screenshot placements, safe claims,
 do-not-claim list, and concrete advisor questions.
+
+2026-07-14 poster mockup confirmation: a first editable 48 x 36 visual poster
+and rendered preview now exist. They use the five verified stored screenshots,
+preserve the pilot/method framing, and keep no-visible-banner, raw-HTML, and
+final-dataset claims explicitly limited.
 
 - Week 2 targets: 5
 - Categories: finance=1, food=1, news=2, travel=1
