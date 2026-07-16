@@ -1157,3 +1157,128 @@ def test_july14_first_poster_mockup_is_traceable_and_rendered() -> None:
         "(july14_first_poster_mockup_2026-07-14.md)"
     ) in index_text
     assert "july14_first_poster_mockup_2026-07-14.md" in advisor_index_text
+
+
+def test_july14_poster_mockup_review_email_is_current_advisor_entrypoint() -> None:
+    email_path = Path("docs/research/advisor_email_poster_mockup_review_2026-07-14.md")
+    readme_path = Path("README.md")
+    index_path = Path("docs/research/week2_checkin_index_2026-06-06.md")
+    advisor_index_path = Path("docs/research/advisor_packet_index_2026-06-05.md")
+
+    email_text = email_path.read_text(encoding="utf-8")
+    readme_text = readme_path.read_text(encoding="utf-8")
+    index_text = index_path.read_text(encoding="utf-8")
+    advisor_index_text = advisor_index_path.read_text(encoding="utf-8")
+
+    assert "# Advisor Email Poster Mockup Review, 2026-07-14" in email_text
+    assert "First poster mockup for review" in email_text
+    assert "docs/research/poster/ssrp_poster_mockup_2026-07-14.pptx" in email_text
+    assert "docs/research/poster/ssrp_poster_mockup_2026-07-14.png" in email_text
+    assert "docs/research/july14_first_poster_mockup_2026-07-14.md" in email_text
+    assert "42 audit reports" in email_text
+    assert "20 longitudinal summaries" in email_text
+    assert "326 synced site screenshot PNGs" in email_text
+    assert "0 synced raw HTML" in email_text
+    assert "7 blank current-five decisions" in email_text
+    assert "8 pending CMP/manual-review confirmations" in email_text
+    assert "five-site pilot/method poster" in email_text
+    assert "The Guardian and Coca-Cola" in email_text
+    assert "no-visible-first-screen-banner contrast cases" in email_text
+    assert "Do not claim the final dataset is complete." in email_text
+    assert "Do not make legal compliance or non-compliance verdicts." in email_text
+    assert "advisor_email_poster_mockup_review_2026-07-14.md" in readme_text
+    assert (
+        "[Current advisor email: poster mockup review, 2026-07-14]"
+        "(advisor_email_poster_mockup_review_2026-07-14.md)"
+    ) in index_text
+    assert "advisor_email_poster_mockup_review_2026-07-14.md" in advisor_index_text
+
+
+def test_july15_poster_pdf_is_verified_and_linked() -> None:
+    qa_path = Path("docs/research/july15_poster_pdf_and_print_qa_2026-07-15.md")
+    pdf_path = Path("docs/research/poster/ssrp_poster_mockup_2026-07-14.pdf")
+    mockup_path = Path("docs/research/july14_first_poster_mockup_2026-07-14.md")
+    email_path = Path("docs/research/advisor_email_poster_mockup_review_2026-07-14.md")
+    readme_path = Path("README.md")
+    index_path = Path("docs/research/week2_checkin_index_2026-06-06.md")
+    advisor_index_path = Path("docs/research/advisor_packet_index_2026-06-05.md")
+
+    qa_text = qa_path.read_text(encoding="utf-8")
+    linked_text = "\n".join(
+        path.read_text(encoding="utf-8")
+        for path in (
+            mockup_path,
+            email_path,
+            readme_path,
+            index_path,
+            advisor_index_path,
+        )
+    )
+
+    assert pdf_path.is_file()
+    assert pdf_path.stat().st_size > 500_000
+    assert pdf_path.read_bytes().startswith(b"%PDF-")
+    assert "# July 15 Poster PDF and Print QA, 2026-07-15" in qa_text
+    assert "PDF pages: 1" in qa_text
+    assert "3456 x 2592 points, exactly 48 x 36 inches" in qa_text
+    assert "Test passed. No overflow detected." in qa_text
+    assert "No clipping, overlap, black boxes, or broken glyphs" in qa_text
+    assert "47 of 70 core-cycle days" in qa_text
+    assert "67.1%" in qa_text
+    assert "23" in qa_text
+    assert "47" in qa_text
+    assert "42 audit reports" in qa_text
+    assert "20 longitudinal summaries" in qa_text
+    assert "326 site `layer1.png`" in qa_text
+    assert "0 synced site `layer1.html`" in qa_text
+    assert "7 blank current-five decisions" in qa_text
+    assert "8 pending CMP/manual" in qa_text
+    assert "ssrp_poster_mockup_2026-07-14.pdf" in linked_text
+    assert "july15_poster_pdf_and_print_qa_2026-07-15.md" in linked_text
+
+
+def test_july16_poster_review_decision_sheet_preserves_pending_decisions() -> None:
+    sheet_path = Path("data/poster_review_decision_sheet_2026-07-16.csv")
+    note_path = Path("docs/research/july16_poster_review_decision_sheet_2026-07-16.md")
+    email_path = Path("docs/research/advisor_email_poster_mockup_review_2026-07-14.md")
+    readme_path = Path("README.md")
+    index_path = Path("docs/research/week2_checkin_index_2026-06-06.md")
+    advisor_index_path = Path("docs/research/advisor_packet_index_2026-06-05.md")
+
+    with sheet_path.open(encoding="utf-8", newline="") as fh:
+        rows = list(csv.DictReader(fh))
+
+    note_text = note_path.read_text(encoding="utf-8")
+    linked_text = "\n".join(
+        path.read_text(encoding="utf-8")
+        for path in (email_path, readme_path, index_path, advisor_index_path)
+    )
+
+    assert len(rows) == 5
+    assert {row["decision_id"] for row in rows} == {
+        "poster_framing",
+        "main_evidence_cards",
+        "contrast_case_treatment",
+        "unresolved_review_items",
+        "final_print_revision",
+    }
+    assert all(row["review_status"] == "pending" for row in rows)
+    assert all(not row["confirmed_decision"] for row in rows)
+    assert all(not row["reviewer"] for row in rows)
+    assert all(not row["review_date"] for row in rows)
+    assert all(row["source_evidence"] for row in rows)
+    assert all(row["decision_options"] for row in rows)
+    assert rows[0]["recommended_default"] == "five_site_pilot_method"
+    assert rows[1]["recommended_default"] == "guardian_and_coca_cola"
+    assert (
+        rows[2]["recommended_default"]
+        == "no_visible_first_screen_banner_contrast"
+    )
+    assert "# July 16 Poster Review Decision Sheet, 2026-07-16" in note_text
+    assert "48 of 70 core-cycle days" in note_text
+    assert "68.6%" in note_text
+    assert "7 blank rows" in note_text
+    assert "8 pending rows" in note_text
+    assert "Do not copy `recommended_default`" in note_text
+    assert "poster_review_decision_sheet_2026-07-16.csv" in linked_text
+    assert "july16_poster_review_decision_sheet_2026-07-16.md" in linked_text

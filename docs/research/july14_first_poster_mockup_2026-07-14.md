@@ -8,6 +8,8 @@ and no final consent-interface judgment.
 
 - Editable poster: [ssrp_poster_mockup_2026-07-14.pptx](poster/ssrp_poster_mockup_2026-07-14.pptx)
 - Rendered preview: [ssrp_poster_mockup_2026-07-14.png](poster/ssrp_poster_mockup_2026-07-14.png)
+- Print/review PDF: [ssrp_poster_mockup_2026-07-14.pdf](poster/ssrp_poster_mockup_2026-07-14.pdf)
+- PDF and print QA: [July 15 poster PDF and print QA](july15_poster_pdf_and_print_qa_2026-07-15.md)
 
 The editable file uses a 48 x 36 inch landscape poster canvas. The layout is a
 single title band, three content columns, and a bottom contribution strip.
@@ -59,6 +61,8 @@ failure for any no-visible-banner contrast case.
 - The slide overflow check passed: `Test passed. No overflow detected.`
 - The preview is a rendering of the editable PPTX, not a separately composed
   image.
+- On 2026-07-15, the same PPTX was exported as a one-page 48 x 36 inch PDF and
+  passed the separate PDF/render checks recorded in the linked QA note.
 
 ## What Still Needs a Decision
 

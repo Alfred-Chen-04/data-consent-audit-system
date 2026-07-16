@@ -152,6 +152,9 @@ audit invariants.
 | 139. July 9 poster asset manifest | complete | Carried forward the July 8 asset-manifest task with July 9 calendar facts; verified five poster screenshot assets, placements, captions, dimensions, byte sizes, and claim guardrails. |
 | 140. July 12 poster assembly packet | complete | Converted the layout draft and asset manifest into a poster-ready assembly packet with build order, copy blocks, screenshot placements, guarded claims, and advisor questions. |
 | 141. July 14 first poster mockup | complete | Built and rendered an editable 48 x 36 pilot/method poster from the five verified stored screenshots, with evidence counts, claim guardrails, limitations, and next decisions visible on the poster. |
+| 142. July 14 poster mockup advisor review email | complete | Added a short sendable advisor email for reviewing the first poster mockup, focusing on pilot/method framing, evidence-card selection, no-visible-banner labels, and final claim limits. |
+| 143. July 15 poster PDF and print QA | complete | Exported the verified July 14 PPTX as a one-page 48 x 36 inch PDF, checked its physical dimensions, overflow, text presence, hashes, and full-page render, then linked it into the current advisor-review entrypoints. |
+| 144. July 16 poster review decision sheet | complete | Mapped the five current advisor-review questions into a structured CSV with source evidence, explicit options, separate recommended defaults, pending review states, and blank confirmed-decision fields. |
 
 ## Decisions
 

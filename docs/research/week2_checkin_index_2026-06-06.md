@@ -11,7 +11,10 @@ Use this index as the first file for advisor check-ins.
 
 ## Read First
 
+- [July 16 poster review decision sheet, 2026-07-16](july16_poster_review_decision_sheet_2026-07-16.md)
+- [July 15 poster PDF and print QA, 2026-07-15](july15_poster_pdf_and_print_qa_2026-07-15.md)
 - [July 14 first poster mockup, 2026-07-14](july14_first_poster_mockup_2026-07-14.md)
+- [Current advisor email: poster mockup review, 2026-07-14](advisor_email_poster_mockup_review_2026-07-14.md)
 - [July 12 poster assembly packet, 2026-07-12](july12_poster_assembly_packet_2026-07-12.md)
 - [July 9 poster asset manifest, 2026-07-09](july9_poster_asset_manifest_2026-07-09.md)
 - [July 7 poster layout draft, 2026-07-07](july7_poster_layout_draft_2026-07-07.md)
@@ -25,7 +28,7 @@ Use this index as the first file for advisor check-ins.
 - [Today work note, 2026-07-02](today_work_note_2026-07-02.md)
 - [Presentation/poster work order, 2026-07-02](presentation_poster_work_order_2026-07-02.md)
 - [Current scope note, 2026-07-01](current_scope_2026-07-01.md)
-- [Current advisor email: scope update and next decisions, 2026-07-01](advisor_email_scope_update_2026-07-01.md)
+- [Previous advisor email: scope update and next decisions, 2026-07-01](advisor_email_scope_update_2026-07-01.md)
 - [Today work note, 2026-07-01](today_work_note_2026-07-01.md)
 - [Today work note, 2026-06-29](today_work_note_2026-06-29.md)
 - [Summer midpoint progress audit, 2026-06-29](summer_midpoint_progress_audit_2026-06-29.md)

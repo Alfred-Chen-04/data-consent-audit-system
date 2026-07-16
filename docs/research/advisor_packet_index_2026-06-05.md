@@ -10,10 +10,14 @@ After the successful June 6 live capture, June 8 no-visible-banner review, June
 sync audit, July 6 poster-section draft, July 6 validation/gap audit, July 7
 poster build work order, July 7 poster layout draft, July 9 poster asset
 manifest, July 12 poster assembly packet, and July 14 first visual poster
-mockup, start with these current
+mockup, the July 15 print/review PDF QA, and the July 16 poster-review decision
+sheet, start with these current
 project-state notes:
 
+- `docs/research/july16_poster_review_decision_sheet_2026-07-16.md`
+- `docs/research/july15_poster_pdf_and_print_qa_2026-07-15.md`
 - `docs/research/july14_first_poster_mockup_2026-07-14.md`
+- `docs/research/advisor_email_poster_mockup_review_2026-07-14.md`
 - `docs/research/july12_poster_assembly_packet_2026-07-12.md`
 - `docs/research/july9_poster_asset_manifest_2026-07-09.md`
 - `docs/research/july7_poster_layout_draft_2026-07-07.md`
@@ -25,13 +29,23 @@ project-state notes:
 
 Use this draft as the current advisor email:
 
-- `docs/research/advisor_email_scope_update_2026-07-01.md`
+- `docs/research/advisor_email_poster_mockup_review_2026-07-14.md`
+
+Record the five poster-review answers here without overwriting the recommended
+defaults:
+
+- `data/poster_review_decision_sheet_2026-07-16.csv`
 
 The current canonical goal and scope notes are:
 
 - `docs/research/current_project_goal_2026-07-02.md`
 
 - `docs/research/current_scope_2026-07-01.md`
+
+The July 1 scope-update email remains useful background, but it is no longer
+the current sendable poster-review email:
+
+- `docs/research/advisor_email_scope_update_2026-07-01.md`
 
 The June 28 decision-gate email is now historical because it still treated a
 formal SSRP paper as a current summer deliverable:
@@ -118,9 +132,21 @@ the build order, exact poster copy blocks, screenshot placements, safe claims,
 do-not-claim list, and concrete advisor questions.
 
 2026-07-14 poster mockup confirmation: a first editable 48 x 36 visual poster
-and rendered preview now exist. They use the five verified stored screenshots,
-preserve the pilot/method framing, and keep no-visible-banner, raw-HTML, and
-final-dataset claims explicitly limited.
+and rendered preview now exist, plus a short sendable advisor review email.
+They use the five verified stored screenshots, preserve the pilot/method
+framing, and keep no-visible-banner, raw-HTML, and final-dataset claims
+explicitly limited.
+
+2026-07-15 print/review confirmation: a one-page 48 x 36 inch PDF now exists
+beside the editable PPTX and PNG preview. The PDF passed page-size, overflow,
+text-presence, and full-page render checks; its export did not change research
+content or resolve any outstanding human/advisor decision.
+
+2026-07-16 decision-recording confirmation: the five questions in the current
+advisor email now map one-to-one to a structured CSV. All five
+`confirmed_decision` cells remain blank and all five review states remain
+`pending`; recommendations are recorded separately and are not treated as
+advisor decisions.
 
 - Week 2 targets: 5
 - Categories: finance=1, food=1, news=2, travel=1
@@ -162,19 +188,18 @@ Do not claim these yet:
 
 ## Open Questions For Dr. Singh
 
-The current July 1 email draft asks these decision questions:
+The current July 14 poster-review email asks these decision questions:
 
-1. Confirm, rerun, or replace The Guardian and Coca-Cola as banner-present
-   evidence-card rows.
-2. Keep CNN, Booking.com, and NerdWallet as separate no-visible-banner contrast
-   rows, move them into the main RQ1 table with a clear label, rerun them, or
-   replace them.
-3. Choose the next work block: current-five rerun, manual validation then
-   expansion, banner-present expansion first, or CMP/manual-review resolution
-   first.
-4. Confirm whether the presentation/poster should stay centered on the
-   five-site evidence gate or expand toward more banner-present examples.
-5. Confirm that a formal paper is not part of the current summer deliverable.
+1. Should the poster stay framed as a five-site pilot/method poster?
+2. Are The Guardian and Coca-Cola the right two main evidence-card examples?
+3. Should CNN, Booking.com, and NerdWallet be labeled as
+   no-visible-first-screen-banner contrast cases, unresolved cases, or excluded
+   from final scoring claims?
+4. Should the 7 current-five blank decisions and 8 CMP/manual-review pending
+   confirmations be resolved before final poster claims, or carried as visible
+   limitations?
+5. What should change before the final print version: content priority, claim
+   scope, visual hierarchy, or evidence-card selection?
 
 ## Current Work Order
 
@@ -186,9 +211,9 @@ After the completed June 6 evidence gate:
    PYTHONPATH=src .venv/bin/python -m consent_audit.cli research-status
    ```
 
-2. Send or discuss the current decision-gate email:
+2. Send or discuss the current poster mockup review email:
 
-   - `docs/research/advisor_email_scope_update_2026-07-01.md`
+   - `docs/research/advisor_email_poster_mockup_review_2026-07-14.md`
 
 3. Follow the current presentation/poster work order:
 

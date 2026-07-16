@@ -699,3 +699,54 @@
 - The mockup uses Guardian and Coca-Cola as stored banner-present evidence cards and CNN, Booking.com, and NerdWallet as stored no-visible-first-screen-banner contrast cases.
 - The mockup preserves the evidence limits in visible copy: pilot/method evidence only; 42 audit reports; 20 longitudinal summaries; 326 screenshots; 0 synced raw HTML files; 7 blank current-five decisions; and 8 pending CMP confirmations.
 - The editable PPTX passed the slide overflow check and its rendered output was visually inspected. No new browser capture or new consent-interface evidence was created.
+
+## 2026-07-14 Poster Review Email Findings
+
+- After the first poster mockup, the safest next action is advisor review of
+  the poster framing and claim limits, not new live capture or sample expansion.
+- Added `docs/research/advisor_email_poster_mockup_review_2026-07-14.md` as the
+  current sendable review request.
+- The email points to the editable PPTX, rendered PNG preview, and July 14
+  traceability note, then asks five concrete decisions about pilot/method
+  framing, evidence-card selection, no-visible-banner labels, unresolved
+  decision sheets, and final-print revisions.
+- The review email preserves the same guardrails as the poster mockup: no final
+  dataset claim, no 20-site lock claim, no raw-HTML sync claim, no
+  no-visible-banner failure claim, and no legal verdict.
+
+## 2026-07-15 Poster PDF and Print QA Findings
+
+- The current research dashboard remains unchanged at 5 Week 2 targets, 42
+  audit reports, 20 longitudinal summaries, and 8 pending CMP confirmations.
+- Structured CSV reads still show 7 blank current-five decisions and 8 pending
+  CMP/manual-review confirmations; the checkout still has 326 site screenshots
+  and 0 synced site raw-HTML files.
+- The safe next internal deliverable was therefore a print/review derivative of
+  the verified poster, not new capture, sample expansion, or stronger claims.
+- Exported `docs/research/poster/ssrp_poster_mockup_2026-07-14.pdf` directly
+  from the July 14 PPTX. It is one page at 3456 x 2592 points, exactly 48 x 36
+  inches.
+- The PPTX overflow test passed, the PDF's key claims were text-extractable,
+  and a 72-dpi full-page render showed no clipping, overlap, black boxes, or
+  broken glyphs.
+- The PDF adds a review and print format only. It does not change evidence,
+  resolve human decisions, establish current live-site conditions, or support
+  final-dataset or legal-compliance claims.
+
+## 2026-07-16 Poster Review Decision Sheet Findings
+
+- The current advisor email asks five poster decisions, but there was no
+  poster-specific structured artifact for recording the answers.
+- Research status remains unchanged at 5 Week 2 targets, 42 audit reports, 20
+  longitudinal summaries, and 8 pending CMP confirmations; structured source
+  sheets still show 7 blank current-five decisions and 8 pending CMP reviews.
+- Added `data/poster_review_decision_sheet_2026-07-16.csv` with exactly five
+  rows matching the email questions: framing, evidence cards, contrast-case
+  treatment, unresolved-review treatment, and final-print priority.
+- Recommendations are stored in `recommended_default`, while all
+  `confirmed_decision` cells remain blank and all `review_status` values remain
+  `pending`. This prevents recommendations from being mistaken for advisor
+  decisions.
+- The decision sheet advances the existing advisor-review plan without adding
+  capture evidence, changing scores, resolving human decisions, or expanding
+  poster claims.

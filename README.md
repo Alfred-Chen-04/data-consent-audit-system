@@ -21,7 +21,10 @@ This project sits in the gap none of them close: **multimodal AI grounding (VLM 
 | [AGENTS.md](AGENTS.md) | How AI agents (Claude Code, Cursor, etc.) collaborate on this repo |
 | [CONCEPTS.md](CONCEPTS.md) | Precise definitions of every audit dimension — the project's ontology |
 | [docs/research/current_project_goal_2026-07-02.md](docs/research/current_project_goal_2026-07-02.md) | Current canonical plain-language goal: RQ1 scoring + RQ2 versioning, not screenshot-only framing |
-| [docs/research/july14_first_poster_mockup_2026-07-14.md](docs/research/july14_first_poster_mockup_2026-07-14.md) | Current July 14 first visual poster mockup: editable 48 x 36 PPTX, rendered preview, verified evidence inputs, and claim limits |
+| [docs/research/july16_poster_review_decision_sheet_2026-07-16.md](docs/research/july16_poster_review_decision_sheet_2026-07-16.md) | Current July 16 poster-review handoff: five advisor questions mapped to a structured CSV with recommendations kept separate from confirmed decisions |
+| [docs/research/july15_poster_pdf_and_print_qa_2026-07-15.md](docs/research/july15_poster_pdf_and_print_qa_2026-07-15.md) | Current July 15 print/review PDF export: one-page 48 x 36 PDF, visual QA, hashes, and unchanged claim boundary |
+| [docs/research/july14_first_poster_mockup_2026-07-14.md](docs/research/july14_first_poster_mockup_2026-07-14.md) | Current July 14 first visual poster mockup: editable 48 x 36 PPTX, PDF, rendered preview, verified evidence inputs, and claim limits |
+| [docs/research/advisor_email_poster_mockup_review_2026-07-14.md](docs/research/advisor_email_poster_mockup_review_2026-07-14.md) | Current sendable advisor review email for the first poster mockup and final claim-limit decisions |
 | [docs/research/july12_poster_assembly_packet_2026-07-12.md](docs/research/july12_poster_assembly_packet_2026-07-12.md) | Current July 12 poster assembly packet: build order, poster copy, evidence placements, safe claims, and advisor questions |
 | [docs/research/july9_poster_asset_manifest_2026-07-09.md](docs/research/july9_poster_asset_manifest_2026-07-09.md) | Current July 9 poster asset manifest: verified poster screenshot paths, dimensions, byte sizes, captions, and claim guardrails |
 | [docs/research/july7_poster_layout_draft_2026-07-07.md](docs/research/july7_poster_layout_draft_2026-07-07.md) | Current July 7 poster layout draft: three-column poster structure, direct panel copy, screenshot placements, limitations, and build notes |
@@ -194,14 +197,18 @@ Coca-Cola smoke passes all Layer 1 paths.
 - Next operational step is advisor/sample review plus a decision on whether to
   rerun the current five with the fixed capture agent, or switch this week to a
   semi-automated screenshot/DOM/manual-validation protocol.
-- Current advisor decision email is [docs/research/advisor_email_scope_update_2026-07-01.md](docs/research/advisor_email_scope_update_2026-07-01.md).
+- Current advisor poster mockup review email is [docs/research/advisor_email_poster_mockup_review_2026-07-14.md](docs/research/advisor_email_poster_mockup_review_2026-07-14.md).
+- Previous scope-update advisor email is [docs/research/advisor_email_scope_update_2026-07-01.md](docs/research/advisor_email_scope_update_2026-07-01.md).
 - Current scope note is [docs/research/current_scope_2026-07-01.md](docs/research/current_scope_2026-07-01.md).
 - Current plain-language project handoff is [docs/research/project_status_plain_language_2026-06-28.md](docs/research/project_status_plain_language_2026-06-28.md).
 - Current summer midpoint progress audit is [docs/research/summer_midpoint_progress_audit_2026-06-29.md](docs/research/summer_midpoint_progress_audit_2026-06-29.md).
 - Current July 1 midpoint recheck and work note is [docs/research/today_work_note_2026-07-01.md](docs/research/today_work_note_2026-07-01.md).
 - Current July 2 fact audit and work note is [docs/research/today_work_note_2026-07-02.md](docs/research/today_work_note_2026-07-02.md).
 - Current canonical project goal is [docs/research/current_project_goal_2026-07-02.md](docs/research/current_project_goal_2026-07-02.md).
+- Current poster review decision sheet is [docs/research/july16_poster_review_decision_sheet_2026-07-16.md](docs/research/july16_poster_review_decision_sheet_2026-07-16.md).
+- Current poster PDF and print QA is [docs/research/july15_poster_pdf_and_print_qa_2026-07-15.md](docs/research/july15_poster_pdf_and_print_qa_2026-07-15.md).
 - Current first visual poster mockup is [docs/research/july14_first_poster_mockup_2026-07-14.md](docs/research/july14_first_poster_mockup_2026-07-14.md).
+- Current poster mockup advisor review email is [docs/research/advisor_email_poster_mockup_review_2026-07-14.md](docs/research/advisor_email_poster_mockup_review_2026-07-14.md).
 - Current July 12 poster assembly packet is [docs/research/july12_poster_assembly_packet_2026-07-12.md](docs/research/july12_poster_assembly_packet_2026-07-12.md).
 - Current July 9 poster asset manifest is [docs/research/july9_poster_asset_manifest_2026-07-09.md](docs/research/july9_poster_asset_manifest_2026-07-09.md).
 - Current July 7 poster layout draft is [docs/research/july7_poster_layout_draft_2026-07-07.md](docs/research/july7_poster_layout_draft_2026-07-07.md).
