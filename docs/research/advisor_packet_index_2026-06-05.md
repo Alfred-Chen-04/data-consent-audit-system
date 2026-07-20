@@ -10,10 +10,11 @@ After the successful June 6 live capture, June 8 no-visible-banner review, June
 sync audit, July 6 poster-section draft, July 6 validation/gap audit, July 7
 poster build work order, July 7 poster layout draft, July 9 poster asset
 manifest, July 12 poster assembly packet, and July 14 first visual poster
-mockup, the July 15 print/review PDF QA, and the July 16 poster-review decision
-sheet, start with these current
+mockup, the July 15 print/review PDF QA, the July 16 poster-review decision
+sheet, and the July 20 PR publication check, start with these current
 project-state notes:
 
+- `docs/research/today_work_note_2026-07-20.md`
 - `docs/research/july16_poster_review_decision_sheet_2026-07-16.md`
 - `docs/research/july15_poster_pdf_and_print_qa_2026-07-15.md`
 - `docs/research/july14_first_poster_mockup_2026-07-14.md`
@@ -147,6 +148,12 @@ advisor email now map one-to-one to a structured CSV. All five
 `confirmed_decision` cells remain blank and all five review states remain
 `pending`; recommendations are recorded separately and are not treated as
 advisor decisions.
+
+2026-07-20 publication confirmation: the poster-review payload commit
+`d0134303f5cffd0737d1d13926a2351966660fe7` was confirmed on the local branch,
+remote branch, and PR #8 head immediately after its push, so the verified
+poster-review email, PDF, QA note, and decision sheet are present on the draft
+PR branch. No review decision has been filled in.
 
 - Week 2 targets: 5
 - Categories: finance=1, food=1, news=2, travel=1

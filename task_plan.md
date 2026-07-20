@@ -155,6 +155,7 @@ audit invariants.
 | 142. July 14 poster mockup advisor review email | complete | Added a short sendable advisor email for reviewing the first poster mockup, focusing on pilot/method framing, evidence-card selection, no-visible-banner labels, and final claim limits. |
 | 143. July 15 poster PDF and print QA | complete | Exported the verified July 14 PPTX as a one-page 48 x 36 inch PDF, checked its physical dimensions, overflow, text presence, hashes, and full-page render, then linked it into the current advisor-review entrypoints. |
 | 144. July 16 poster review decision sheet | complete | Mapped the five current advisor-review questions into a structured CSV with source evidence, explicit options, separate recommended defaults, pending review states, and blank confirmed-decision fields. |
+| 145. July 20 publish poster-review workflow | complete | Rechecked research and decision status, verified the one-commit local/remote gap, pushed `d013430` to the existing PR #8 branch, confirmed local/remote/PR head equality, and recorded the unchanged advisor-decision gate. |
 
 ## Decisions
 

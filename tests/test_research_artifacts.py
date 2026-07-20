@@ -1282,3 +1282,30 @@ def test_july16_poster_review_decision_sheet_preserves_pending_decisions() -> No
     assert "Do not copy `recommended_default`" in note_text
     assert "poster_review_decision_sheet_2026-07-16.csv" in linked_text
     assert "july16_poster_review_decision_sheet_2026-07-16.md" in linked_text
+
+
+def test_july20_publish_note_records_published_payload_and_decision_gate() -> None:
+    note_path = Path("docs/research/today_work_note_2026-07-20.md")
+    readme_path = Path("README.md")
+    index_path = Path("docs/research/week2_checkin_index_2026-06-06.md")
+    advisor_index_path = Path("docs/research/advisor_packet_index_2026-06-05.md")
+
+    note_text = note_path.read_text(encoding="utf-8")
+    linked_text = "\n".join(
+        path.read_text(encoding="utf-8")
+        for path in (readme_path, index_path, advisor_index_path)
+    )
+
+    assert "# Today Work Note, 2026-07-20" in note_text
+    assert "52 of 70 core-cycle days" in note_text
+    assert "74.3%" in note_text
+    assert "Days before August 7: 18" in note_text
+    assert "Days before August 31: 42" in note_text
+    assert "d0134303f5cffd0737d1d13926a2351966660fe7" in note_text
+    assert "draft PR #8" in note_text
+    assert "tests/test_research_artifacts.py` passed 46 tests" in note_text
+    assert "5 pending reviews and 5 blank confirmed" in note_text
+    assert "7 blank confirmed decisions" in note_text
+    assert "8 pending confirmations and 8 blank confirmed" in note_text
+    assert "No poster-review, current-five, or CMP/manual-review decision" in note_text
+    assert "today_work_note_2026-07-20.md" in linked_text

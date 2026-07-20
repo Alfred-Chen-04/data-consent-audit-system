@@ -750,3 +750,22 @@
 - The decision sheet advances the existing advisor-review plan without adding
   capture evidence, changing scores, resolving human decisions, or expanding
   poster claims.
+
+## 2026-07-20 Poster Review Publication Findings
+
+- The local branch began the day one commit ahead of
+  `origin/codex/project-status-plain-language`; the unpublished commit was
+  `d013430`, containing the verified poster-review workflow.
+- GitHub's public PR page showed PR #8 as an open draft from the same branch to
+  `main`, while the branch and PR head still ended at the prior poster commit.
+- Research status remained at 5 Week 2 targets, 42 audit reports, 20
+  longitudinal summaries, and 8 pending CMP confirmations.
+- Structured reads showed no new human input: 5 blank poster-review decisions,
+  7 blank current-five decisions, and 8 pending CMP/manual-review decisions.
+- After 46 research-artifact tests and a clean diff check, pushed `d013430` to
+  the existing remote branch. Local HEAD, remote branch HEAD, and
+  `refs/pull/8/head` then matched at
+  `d0134303f5cffd0737d1d13926a2351966660fe7`.
+- Publication makes the existing evidence package reviewable; it does not
+  authorize stronger claims, new capture, or a final poster revision before
+  confirmed review decisions exist.

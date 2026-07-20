@@ -11,6 +11,7 @@ Use this index as the first file for advisor check-ins.
 
 ## Read First
 
+- [Today work note, 2026-07-20](today_work_note_2026-07-20.md)
 - [July 16 poster review decision sheet, 2026-07-16](july16_poster_review_decision_sheet_2026-07-16.md)
 - [July 15 poster PDF and print QA, 2026-07-15](july15_poster_pdf_and_print_qa_2026-07-15.md)
 - [July 14 first poster mockup, 2026-07-14](july14_first_poster_mockup_2026-07-14.md)
