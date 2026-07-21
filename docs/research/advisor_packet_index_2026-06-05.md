@@ -15,6 +15,9 @@ sheet, the July 20 PR publication check, and the July 21 single-file review
 bundle, start with these current
 project-state notes:
 
+- `docs/research/july22_closeout_audit_and_plan_2026-07-22.md`
+- `docs/research/july22_first_presentation_draft_2026-07-22.md`
+- `docs/research/july22_presentation_content_plan_2026-07-22.md`
 - `docs/research/july21_poster_review_bundle_2026-07-21.md`
 - `docs/research/today_work_note_2026-07-20.md`
 - `docs/research/july16_poster_review_decision_sheet_2026-07-16.md`

@@ -11,6 +11,9 @@ Use this index as the first file for advisor check-ins.
 
 ## Read First
 
+- [July 22 closeout audit and plan, 2026-07-22](july22_closeout_audit_and_plan_2026-07-22.md)
+- [July 22 first presentation draft, 2026-07-22](july22_first_presentation_draft_2026-07-22.md)
+- [July 22 presentation content plan, 2026-07-22](july22_presentation_content_plan_2026-07-22.md)
 - [July 21 single-file poster review bundle, 2026-07-21](july21_poster_review_bundle_2026-07-21.md)
 - [Today work note, 2026-07-20](today_work_note_2026-07-20.md)
 - [July 16 poster review decision sheet, 2026-07-16](july16_poster_review_decision_sheet_2026-07-16.md)

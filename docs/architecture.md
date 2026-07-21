@@ -1,110 +1,84 @@
 # Architecture
 
-High-level overview of how the audit system is wired. For audit *definitions*, see [CONCEPTS.md](../CONCEPTS.md). For AI-agent conventions, see [AGENTS.md](../AGENTS.md).
+High-level overview of the audited local runtime. For audit definitions, see
+[CONCEPTS.md](../CONCEPTS.md). For the current project goal and scope, see
+[current_project_goal_2026-07-02.md](research/current_project_goal_2026-07-02.md)
+and [current_scope_2026-07-01.md](research/current_scope_2026-07-01.md).
 
-## System diagram
+## Current Local Runtime (verified 2026-07-22)
 
-```
-┌─────────────────────────────────────────────────────────────────┐
-│                         ORCHESTRATION                           │
-│   scripts/run_audit.py (single URL) · scripts/run_weekly.py     │
-│                  (cron — full site list)                        │
-└─────────────────┬───────────────────────────────────────────────┘
-                  │
-                  ▼
-┌──────────────────────────┐      ┌──────────────────────────────┐
-│      capture.agent       │◄────▶│     llm.vision  (VLM)        │
-│  Playwright + Agent loop │      │   locate buttons, bbox        │
-│  · launches Chromium     │      │   describe visual features   │
-│  · per pathway: find →   │      └──────────────────────────────┘
-│    click → screenshot →  │
-│    record event          │
-│  · outputs CaptureBundle │      ┌──────────────────────────────┐
-└────────────┬─────────────┘      │     llm.text  (LLM)          │
-             │                    │  disclosure topic coverage,   │
-             │                    │  framing analysis, quotes     │
-             │                    └──────────────────────────────┘
-             │                              ▲       ▲
-             ▼                              │       │
-┌──────────────────────────┐                │       │
-│     capture.fingerprint  │                │       │
-│  DOM hash + pHash + embed│                │       │
-└────────────┬─────────────┘                │       │
-             │                              │       │
-             ▼                              │       │
-      CaptureBundle ─────┬──────────┬──────┘       │
-                         │          │               │
-                         ▼          ▼               │
-           ┌──────────────────────────────┐         │
-           │   layers.layer1 → result     │         │
-           │   layers.layer2 → result ◄───┘         │
-           │   layers.layer3 → result ◄─────────────┘
-           └──────────────┬───────────────┘
-                          │
-                          ▼
-           ┌──────────────────────────────┐
-           │    report.generator          │
-           │  (Markdown + JSON + PDF)     │
-           └──────────────┬───────────────┘
-                          │
-                          ▼
-           ┌──────────────────────────────┐      ┌──────────────┐
-           │      storage.db              │◄────▶│   diff.engine│
-           │  (PostgreSQL — versioned)    │      │ week-over-wk │
-           └──────────────┬───────────────┘      └──────────────┘
-                          │
-                          ▼
-              storage.object_store
-              (R2 / S3 — screenshots, DOM snapshots)
+```text
+CLI / scripts
+     |
+     v
+Playwright capture.agent
+  - fresh browser context
+  - screenshot + DOM-derived evidence
+  - deterministic candidate classification and click replay
+     |
+     v
+CaptureBundle + fingerprint
+     |
+     +--> Layer 1: deterministic path availability gate
+     +--> Layer 2: deterministic path-effort scoring
+     +--> Layer 3: deterministic topic/framing/unbiased-choice rules
+     |
+     v
+AuditReport (structured object + Markdown; JSON serialization available)
+     |
+     +--> local append-only JSONL records
+     +--> local sanitized evidence-file copies
+     +--> deterministic week-over-week diff + WeeklySummary
 ```
 
-## Key runtime contracts
+The `llm/text.py` and `llm/vision.py` modules are no-network fallbacks that
+preserve future adapter shapes. They are not imported by the capture or layer
+orchestration, and no external model provider is called by the current pilot.
 
-1. **`CaptureBundle` is immutable.** Layer scorers never mutate captures; they only emit new result objects. This makes all scoring deterministic given a bundle, which is essential for reproducibility and testing.
+## Current Runtime Contracts
 
-2. **One bundle → three layer results → one report.** These four objects are all Pydantic models defined in `src/consent_audit/models/audit.py`. The schemas are the interface between stages.
+1. **`CaptureBundle` is immutable.** Scorers emit new result objects and do not
+   mutate captured evidence.
+2. **One bundle -> three layer results -> one report.** Pydantic models in
+   `src/consent_audit/models/audit.py` define the stage boundaries.
+3. **Final scoring is deterministic in the current runtime.** DOM candidates,
+   visible text, stored evidence refs, and fixed rules drive results.
+4. **Persistence is local.** `storage/db.py` appends JSONL; the object-store
+   module copies sanitized files beneath `data/object_store/`.
+5. **Scheduling is external to the repository.** Operators run CLI/scripts;
+   an OS scheduler may invoke them, but APScheduler is not implemented here.
 
-3. **LLM/VLM output always goes through schema validation.** If a model returns something that fails validation, we retry once with an explicit schema-correction prompt, then fall back to a conservative default with a flag `confidence_low = True`. We never pass un-validated model output downstream.
+## Target Architecture (not implemented)
 
-4. **No LLM call has side effects on DB or storage.** Storage writes happen only in the orchestration layer (`scripts/`) after all scoring is complete.
+The following items describe possible continuation work, not current
+capabilities:
 
-## Deployment topology (summer MVP)
+- schema-validated external LLM/VLM adapters and model benchmarking;
+- PostgreSQL/Supabase persistence;
+- Cloudflare R2 or another S3-compatible object store;
+- an in-process scheduler and hosted browser worker;
+- a deployed web demo;
+- per-report PDF generation.
 
-```
-Vercel (Next.js demo) ──┐
-                        │ HTTP
-                        ▼
-                   Cloud VM (1 vCPU / 2 GB, ~$10/mo)
-                   ├─ pipeline runtime (APScheduler)
-                   ├─ Playwright + Chromium
-                   └─ calls out to Anthropic/OpenAI APIs
-                        │
-                        ├──▶ Supabase Postgres (audit records)
-                        └──▶ Cloudflare R2 (screenshots / DOM)
-```
+Any future model adapter must validate outputs, attach an evidence ref or
+screenshot bbox, enforce a per-call budget cap, and have no direct storage side
+effects.
 
-This stays within the $4000 SSRP budget comfortably: ~$120/yr VM + ~$0 DB/storage on free tiers + API spend is the main variable.
+## Testing Strategy
 
-## Testing strategy
+| Level | Current coverage |
+|---|---|
+| Unit | Models, deterministic layer functions, diffing, storage, exports, and helpers |
+| Schema | Pydantic validation and round trips |
+| Integration | Capture helpers and local fixture-site browser behavior |
+| Workflow | CLI/script wrappers, Week 2 controls, evidence exports, and research artifacts |
+| Live checks | Explicit operator-run smoke captures; no active weekly scheduler |
 
-| Level | Scope | When |
-|---|---|---|
-| **Unit** | Each `layers/*.py` function against fixture `CaptureBundle` JSONs | Every commit |
-| **Schema** | Pydantic round-trip on all models | Every commit |
-| **Integration** | `capture.agent` against a local static HTML fixture site (`tests/fixtures/sites/`) | Every PR |
-| **End-to-end** | Full pipeline on 3 canary real sites | Weekly (same cron as production) |
-| **Drift** | LLM/VLM outputs on frozen fixtures — flag if week-over-week JSON diffs beyond threshold | Weekly |
+## Failure Modes To Watch
 
-## Failure modes to watch for
-
-- **Cloudflare / CAPTCHA walls** — Playwright gets blocked. Mitigation: detect via HTTP status + DOM pattern, mark site `capture_failed`, skip (don't retry hard — accidental DoS risk).
-- **Consent banner hidden by cookie acceptance from prior run** — Playwright must launch with a fresh user-data-dir per site.
-- **VLM hallucinated bbox outside image bounds** — validate bbox is inside screenshot dimensions; reject if not.
-- **Runaway LLM cost** — budget cap check before each API call (not just at run start).
-
-## Open technical decisions
-
-Tracked in [AGENTS.md §3](../AGENTS.md) and plan §7. Deferred decisions:
-1. Which VLM gives best button-bbox grounding — to be benchmarked week 3
-2. Whether to use `sentence-transformers` locally or the Anthropic/OpenAI embedding APIs for text fingerprinting
-3. Exact Postgres schema — designed in week 1 after Pydantic models stabilize
+- **Cloudflare/CAPTCHA walls**: record `capture_failed` and avoid aggressive retries.
+- **Prior consent state**: use a fresh browser context per site.
+- **Dynamic navigation churn**: use the DOM snapshot fallback and record warnings.
+- **No-visible-banner rows**: do not treat them as banner-path failures without a confirmed coding rule.
+- **Missing evidence files**: distinguish a stored reference from a file actually present in the checkout.
+- **Future model output**: reject unsupported values or out-of-bounds bboxes before scoring.

@@ -292,6 +292,7 @@ def test_cli_research_status_invokes_renderer(
         writing_pack_md: Path,
         claim_register_md: Path,
         poster_plan_md: Path,
+        current_closeout_md: Path,
     ) -> str:
         seen["targets_csv"] = targets_csv
         seen["research_manifest_json"] = research_manifest_json
@@ -305,6 +306,7 @@ def test_cli_research_status_invokes_renderer(
         seen["writing_pack_md"] = writing_pack_md
         seen["claim_register_md"] = claim_register_md
         seen["poster_plan_md"] = poster_plan_md
+        seen["current_closeout_md"] = current_closeout_md
         return "research status"
 
     monkeypatch.setattr(
@@ -325,6 +327,7 @@ def test_cli_research_status_invokes_renderer(
     writing_pack_md = tmp_path / "writing_pack.md"
     claim_register_md = tmp_path / "claim_register.md"
     poster_plan_md = tmp_path / "poster_plan.md"
+    current_closeout_md = tmp_path / "current_closeout.md"
 
     result = runner.invoke(
         cli.app,
@@ -354,6 +357,8 @@ def test_cli_research_status_invokes_renderer(
             str(claim_register_md),
             "--poster-plan-md",
             str(poster_plan_md),
+            "--current-closeout-md",
+            str(current_closeout_md),
         ],
     )
 
@@ -371,6 +376,7 @@ def test_cli_research_status_invokes_renderer(
         "writing_pack_md": writing_pack_md,
         "claim_register_md": claim_register_md,
         "poster_plan_md": poster_plan_md,
+        "current_closeout_md": current_closeout_md,
     }
     assert "research status" in result.output
 

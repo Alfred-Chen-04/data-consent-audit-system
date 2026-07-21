@@ -1,6 +1,7 @@
-"""LLM text calls — disclosure topic coverage, framing analysis.
+"""Deterministic no-network fallback for topic and framing extraction.
 
-Haiku for first pass; escalate to Opus on low-confidence or schema-validation failure.
+The public functions preserve a future model-adapter boundary, but the current
+implementation uses regex and rule-based evidence extraction only.
 """
 
 import re
@@ -65,7 +66,7 @@ async def classify_topics(
 ) -> dict[DisclosureTopic, TopicCoverageResult]:
     """Per-topic presence + clarity grade + verbatim evidence quote.
 
-    Uses function-calling / structured output so presence and quote are forced.
+    Returns schema-shaped results from deterministic pattern matching.
     """
     ledger.record("llm.text.classify_topics", TEXT_CALL_COST_USD)
     source_text = _combined_text(banner_text, layer2_text)

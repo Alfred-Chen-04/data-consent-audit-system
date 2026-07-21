@@ -1,4 +1,4 @@
-"""S3-compatible object storage for screenshots and DOM snapshots.
+"""Local object-store fallback for screenshots and DOM snapshots.
 
 All uploads pass through capture.sanitize first (AGENTS.md §8).
 """
@@ -12,7 +12,7 @@ LOCAL_OBJECT_STORE_ROOT = Path("data/object_store")
 
 
 def upload_screenshot(local_path: Path, *, key: str) -> str:
-    """Upload a (sanitized) screenshot. Returns the object-store URL/key for later retrieval."""
+    """Copy a sanitized screenshot into the local object-store directory."""
     sanitized_path = sanitize_screenshot(local_path)
     return _copy_to_local_store(sanitized_path, key=key)
 

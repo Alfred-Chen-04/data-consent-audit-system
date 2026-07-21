@@ -2,7 +2,11 @@
 
 **SSRP 2026** · Qianyi (Alfred) Chen · Mentor: Dr. Jagdip Singh
 
-An AI-driven, agent-based, longitudinal audit framework for website consent interfaces (cookie banners, privacy pages). Combines **Vision-Language Models** (for visual analysis of banner screenshots), **Large Language Models** (for content and framing analysis), and **Browser Agents** (for dynamic consent-path traversal).
+A browser-assisted, evidence-linked audit and versioning framework for website
+consent interfaces (cookie banners and preference panels). The current pilot
+runtime uses Playwright capture plus deterministic DOM, text, scoring, and diff
+logic. The `llm/` modules are schema-shaped, no-network fallbacks; external
+LLM/VLM calls are not wired into production scoring.
 
 ## Why this project
 
@@ -11,7 +15,15 @@ Current approaches leave a gap:
 - **UMBRA / "When the Abyss Looks Back"** (Singh, Jin & Kim, 2026) audits banner *interfaces* with rule-based heuristics + multi-step interaction tracing + cookie-state monitoring; 14k sites, 19 dark patterns — but no LLM/VLM, and not longitudinal.
 - **ConsentDiff at Scale** (Guo, 2026) is longitudinal (9 months) and pairs DOM signals with screenshot cues — but uses weak-supervision vision rather than VLM-driven action execution.
 
-This project sits in the gap none of them close: **multimodal AI grounding (VLM + LLM) × agent-dynamic multi-step traversal × longitudinal time series × text-framing analysis × volatility/trajectory as first-class outputs**. Built on the Notice-and-Choice framework with a three-layer audit (Path Availability → Path Effort → Transparency & Unbiased Choice). See [`docs/related_work/background_with_citations.md`](docs/related_work/background_with_citations.md) for the full positioning.
+The research design targets the combination of dynamic multi-step traversal,
+evidence-linked scoring, longitudinal comparison, and text/visual framing
+analysis. The current pilot proves the browser-capture, deterministic-scoring,
+export, and versioning path; it does not yet prove live external-model execution
+or a production longitudinal deployment. The audit ontology is built on the
+Notice-and-Choice framework (Path Availability -> Path Effort -> Transparency &
+Unbiased Choice). See
+[`docs/related_work/background_with_citations.md`](docs/related_work/background_with_citations.md)
+for the full positioning.
 
 ## Documents
 
@@ -21,6 +33,9 @@ This project sits in the gap none of them close: **multimodal AI grounding (VLM 
 | [AGENTS.md](AGENTS.md) | How AI agents (Claude Code, Cursor, etc.) collaborate on this repo |
 | [CONCEPTS.md](CONCEPTS.md) | Precise definitions of every audit dimension — the project's ontology |
 | [docs/research/current_project_goal_2026-07-02.md](docs/research/current_project_goal_2026-07-02.md) | Current canonical plain-language goal: RQ1 scoring + RQ2 versioning, not screenshot-only framing |
+| [docs/research/july22_closeout_audit_and_plan_2026-07-22.md](docs/research/july22_closeout_audit_and_plan_2026-07-22.md) | Current full-work audit: verified deadlines, deliverable state, implementation boundary, omissions, and the July 22-August 7 closeout plan |
+| [docs/research/july22_first_presentation_draft_2026-07-22.md](docs/research/july22_first_presentation_draft_2026-07-22.md) | First independent 10-slide presentation draft: editable PPTX, rendered overview, evidence boundary, QA, and hashes |
+| [docs/research/july22_presentation_content_plan_2026-07-22.md](docs/research/july22_presentation_content_plan_2026-07-22.md) | Source-by-source content and asset map for the first presentation draft |
 | [docs/research/july21_poster_review_bundle_2026-07-21.md](docs/research/july21_poster_review_bundle_2026-07-21.md) | Current July 21 single-file advisor review bundle: PPTX, PDF, PNG, email, QA, decision sheet, manifest, and verified hashes |
 | [docs/research/today_work_note_2026-07-20.md](docs/research/today_work_note_2026-07-20.md) | Current July 20 fact/publish note: PR #8 updated to the verified poster-review commit, decision gates unchanged, and no new capture |
 | [docs/research/july16_poster_review_decision_sheet_2026-07-16.md](docs/research/july16_poster_review_decision_sheet_2026-07-16.md) | Current July 16 poster-review handoff: five advisor questions mapped to a structured CSV with recommendations kept separate from confirmed decisions |
@@ -168,7 +183,7 @@ uv run consent-audit export-research-package
 src/consent_audit/
 ├── capture/    — browser agent, multimodal fingerprinting
 ├── layers/     — Layer 1/2/3 audit logic
-├── llm/        — LLM and VLM client wrappers
+├── llm/        — deterministic no-network fallbacks; future model adapters
 ├── models/     — Pydantic data models (audit report schema)
 ├── storage/    — DB + object storage
 ├── diff/       — longitudinal diff engine
@@ -176,7 +191,7 @@ src/consent_audit/
 scripts/        — direct-execution wrappers and research utility scripts
 data/           — site lists, research exports, and selected evidence artifacts
 tests/          — unit + integration tests
-docs/           — architecture, references, paper drafts
+docs/           — architecture, research records, and delivery artifacts
 ```
 
 ## Status
@@ -191,9 +206,18 @@ Coca-Cola smoke passes all Layer 1 paths.
 
 - Core capture/scoring/export pipeline is executable for the pilot sample and the frozen Week 2 targets.
 - Current evidence-facing exports contain 42 audit reports and 20 longitudinal weekly summaries.
+- Current model boundary: capture and scoring do not call an external LLM/VLM;
+  `llm/text.py` and `llm/vision.py` are deterministic no-network fallbacks and
+  are not wired into the capture/scoring orchestration.
+- Current persistence is local append-only JSONL plus a local object-store
+  fallback. PostgreSQL, R2/S3, APScheduler, and PDF report generation remain
+  target architecture, not active runtime capabilities.
 - Current summer deliverables are presentation + large poster + traceable
   evidence package. A formal paper is not required for the current summer
   scope unless Dr. Singh reintroduces it later.
+- As of 2026-07-22, the poster has a reviewable mockup and verified review ZIP;
+  the independent presentation deck is still a closeout deliverable, and the
+  poster cannot be called final while its five review decisions remain pending.
 - Week 2 default capture list is `data/week2_deep_sample_targets_2026-06-06.csv`.
 - The Week 2 live cycle completed 5/5 captures; sanity is `ready`.
 - Next operational step is advisor/sample review plus a decision on whether to

@@ -1,8 +1,8 @@
-"""Weekly pipeline: audit every site in the list, diff against last week, store summaries.
+"""Weekly pipeline: audit every listed site, diff, and store summaries.
 
-Scheduled via APScheduler or an OS-level cron. On failure for a single site, continue
-the rest — log the failure, do not abort the run (AGENTS.md §7 — budget cap is the
-only hard abort condition).
+This script is an operator entrypoint that may be invoked by an OS scheduler;
+the repository does not install or configure a scheduler. A single-site failure
+is logged without aborting the remaining sites.
 """
 # ruff: noqa: E402
 

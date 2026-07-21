@@ -147,6 +147,9 @@ def research_status(
     writing_pack_md: Path = Path("docs/research/ssrp_writing_pack_2026-06-06.md"),
     claim_register_md: Path = Path("docs/research/ssrp_claim_register_2026-06-06.md"),
     poster_plan_md: Path = Path("docs/research/ssrp_poster_plan_2026-06-06.md"),
+    current_closeout_md: Path = Path(
+        "docs/research/july22_closeout_audit_and_plan_2026-07-22.md"
+    ),
 ) -> None:
     """Print a compact current-state dashboard for the SSRP workflow."""
     typer.echo(
@@ -163,6 +166,7 @@ def research_status(
             writing_pack_md=writing_pack_md,
             claim_register_md=claim_register_md,
             poster_plan_md=poster_plan_md,
+            current_closeout_md=current_closeout_md,
         )
     )
 

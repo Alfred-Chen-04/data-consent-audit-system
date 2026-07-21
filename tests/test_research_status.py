@@ -65,6 +65,8 @@ def test_render_research_status_summarizes_week2_state(tmp_path: Path) -> None:
     claim_register_md.write_text("# Claims\n", encoding="utf-8")
     poster_plan_md = tmp_path / "ssrp_poster_plan.md"
     poster_plan_md.write_text("# Poster\n", encoding="utf-8")
+    current_closeout_md = tmp_path / "current_closeout.md"
+    current_closeout_md.write_text("# Closeout\n", encoding="utf-8")
 
     text = render_research_status(
         targets_csv=targets_csv,
@@ -79,6 +81,7 @@ def test_render_research_status_summarizes_week2_state(tmp_path: Path) -> None:
         writing_pack_md=writing_pack_md,
         claim_register_md=claim_register_md,
         poster_plan_md=poster_plan_md,
+        current_closeout_md=current_closeout_md,
     )
 
     assert "# SSRP Research Status" in text
@@ -95,10 +98,15 @@ def test_render_research_status_summarizes_week2_state(tmp_path: Path) -> None:
         "paper_skeleton=present, poster_plan=present, results_tables=present, "
         "writing_pack=present"
     ) in text
-    assert "- Next action: Start live capture with `week2-cycle` when ready." in text
+    assert (
+        "- Cycle-report next action: Start live capture with `week2-cycle` when ready."
+        in text
+    )
+    assert f"- Current closeout plan: `{current_closeout_md}` (present)" in text
     assert f"- SSRP results tables: `{results_tables_md}`" in text
     assert f"- Optional future-paper skeleton: `{paper_skeleton_md}`" in text
     assert f"- SSRP presentation/poster figure plan: `{figure_plan_md}`" in text
     assert f"- SSRP writing support pack: `{writing_pack_md}`" in text
     assert f"- SSRP evidence claim register: `{claim_register_md}`" in text
     assert f"- SSRP poster plan: `{poster_plan_md}`" in text
+    assert f"- Current closeout plan: `{current_closeout_md}`" in text

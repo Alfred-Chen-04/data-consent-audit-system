@@ -1380,3 +1380,84 @@ def test_july21_poster_review_bundle_is_complete_and_source_matched() -> None:
     assert "41 days remain before" in note_text
     assert "ssrp_poster_review_bundle_2026-07-21.zip" in linked_text
     assert "july21_poster_review_bundle_2026-07-21.md" in linked_text
+
+
+def test_july22_closeout_audit_preserves_current_fact_boundaries() -> None:
+    audit_path = Path("docs/research/july22_closeout_audit_and_plan_2026-07-22.md")
+    content_path = Path(
+        "docs/research/july22_presentation_content_plan_2026-07-22.md"
+    )
+    linked_text = "\n".join(
+        path.read_text(encoding="utf-8")
+        for path in (
+            Path("README.md"),
+            Path("docs/research/week2_checkin_index_2026-06-06.md"),
+            Path("docs/research/advisor_packet_index_2026-06-05.md"),
+        )
+    )
+
+    audit_text = audit_path.read_text(encoding="utf-8")
+    content_text = content_path.read_text(encoding="utf-8")
+    readme_text = Path("README.md").read_text(encoding="utf-8")
+    schema_text = Path("SCHEMA.md").read_text(encoding="utf-8")
+    architecture_text = Path("docs/architecture.md").read_text(encoding="utf-8")
+
+    assert "day 54 of the 70-day core window" in audit_text
+    assert "16 calendar days remain before August 7" in audit_text
+    assert "No independent presentation PPTX existed" in audit_text
+    assert "42 audit-report rows and 20 longitudinal-summary rows" in audit_text
+    assert "0 of 42" in audit_text
+    assert "not safe final findings" in audit_text
+    assert "Latest `week_of` value" in audit_text
+    assert "June 6, 2026" in audit_text
+    assert "not wired into production scoring" in readme_text
+    assert "Current implementation boundary" in schema_text
+    assert "Current Local Runtime" in architecture_text
+    assert "Target Architecture (not implemented)" in architecture_text
+    assert "Do not display the 40 High-Risk / 2 Compliant" in content_text
+    assert "july22_closeout_audit_and_plan_2026-07-22.md" in linked_text
+    assert "july22_presentation_content_plan_2026-07-22.md" in linked_text
+
+
+def test_july22_presentation_draft_is_reviewable_and_source_bounded() -> None:
+    pptx_path = Path(
+        "docs/research/presentation/"
+        "ssrp_consent_audit_presentation_draft_2026-07-22.pptx"
+    )
+    montage_path = Path(
+        "docs/research/presentation/"
+        "ssrp_consent_audit_presentation_draft_2026-07-22_montage.png"
+    )
+    note_path = Path("docs/research/july22_first_presentation_draft_2026-07-22.md")
+    note_text = note_path.read_text(encoding="utf-8")
+    linked_text = "\n".join(
+        path.read_text(encoding="utf-8")
+        for path in (
+            Path("README.md"),
+            Path("docs/research/week2_checkin_index_2026-06-06.md"),
+            Path("docs/research/advisor_packet_index_2026-06-05.md"),
+            Path("docs/research/july22_presentation_content_plan_2026-07-22.md"),
+        )
+    )
+
+    assert pptx_path.is_file()
+    assert pptx_path.stat().st_size == 1_645_523
+    assert montage_path.is_file()
+    assert montage_path.stat().st_size == 360_887
+    assert montage_path.read_bytes().startswith(b"\x89PNG\r\n\x1a\n")
+    with zipfile.ZipFile(pptx_path) as deck:
+        names = set(deck.namelist())
+    assert len(
+        {
+            name
+            for name in names
+            if name.startswith("ppt/slides/slide") and name.endswith(".xml")
+        }
+    ) == 10
+    assert len({name for name in names if name.startswith("ppt/media/")}) == 5
+    assert "No overflow detected" in note_text
+    assert "40 High-Risk / 2" in note_text
+    assert "continuous July tracking" in note_text
+    assert "607ab0791f0062c91ec52090d5b598d936f7de2d033de04af5fe49fb368bcd1a" in note_text
+    assert "july22_first_presentation_draft_2026-07-22.md" in linked_text
+    assert "ssrp_consent_audit_presentation_draft_2026-07-22.pptx" in linked_text

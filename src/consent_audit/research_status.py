@@ -23,6 +23,7 @@ def render_research_status(
     writing_pack_md: Path,
     claim_register_md: Path,
     poster_plan_md: Path,
+    current_closeout_md: Path,
 ) -> str:
     """Render a concise status view from existing research artifacts."""
 
@@ -60,7 +61,9 @@ def render_research_status(
         f"- Longitudinal summaries in package: {manifest.get('weekly_summary_count', 0)}\n"
         f"- CMP confirmations: {_format_counts(confirmation_counts) or 'none'}\n"
         f"- Support artifacts: {_format_counts(support_artifacts)}\n"
-        f"- Next action: {next_action}\n\n"
+        f"- Cycle-report next action: {next_action}\n"
+        f"- Current closeout plan: `{current_closeout_md}` "
+        f"({_artifact_status(current_closeout_md)})\n\n"
         "## Key Artifacts\n\n"
         f"- Targets: `{targets_csv}`\n"
         f"- Research manifest: `{research_manifest_json}`\n"
@@ -74,6 +77,7 @@ def render_research_status(
         f"- SSRP writing support pack: `{writing_pack_md}`\n"
         f"- SSRP evidence claim register: `{claim_register_md}`\n"
         f"- SSRP poster plan: `{poster_plan_md}`\n"
+        f"- Current closeout plan: `{current_closeout_md}`\n"
     )
 
 

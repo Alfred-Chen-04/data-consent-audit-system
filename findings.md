@@ -789,3 +789,26 @@
 - The bundle changes delivery convenience only. It does not resolve decisions,
   change evidence, establish current live-site conditions, or authorize final
   empirical/legal claims.
+
+## 2026-07-22 Closeout Audit And Presentation Findings
+
+- The May 30-August 7 core execution window is 70 days; July 22 is day 54,
+  leaving 16 calendar days. The original proposal period continues through
+  August 14, leaving 23 days.
+- The current presentation + poster + evidence-package scope supersedes the
+  original paper deliverable unless the advisor reintroduces it.
+- The poster has a reviewable mockup and verified review ZIP; no independent
+  presentation PPTX existed at the start of the audit.
+- Current evidence consists of 42 report rows, 20 longitudinal-summary rows,
+  326 tracked site screenshots, 42 present screenshot refs, 42 missing raw-DOM
+  refs, and no populated report-PDF refs.
+- The latest exported longitudinal `week_of` is 2026-06-06, so the repository
+  does not support a continuous-through-July tracking claim.
+- The current runtime is Playwright plus deterministic DOM/text/scoring/diff
+  logic with local JSONL/file persistence. External LLM/VLM calls,
+  PostgreSQL/R2, APScheduler, hosted deployment, and per-report PDFs are target
+  architecture only.
+- Built a 10-slide first presentation draft from the five verified stored
+  screenshots. It passed overflow checks and full final-PPTX visual QA after
+  correcting cover overflow, title collisions/clipping, and a Layer 3 text
+  overlap.

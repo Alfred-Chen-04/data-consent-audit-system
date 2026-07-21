@@ -157,6 +157,8 @@ audit invariants.
 | 144. July 16 poster review decision sheet | complete | Mapped the five current advisor-review questions into a structured CSV with source evidence, explicit options, separate recommended defaults, pending review states, and blank confirmed-decision fields. |
 | 145. July 20 publish poster-review workflow | complete | Rechecked research and decision status, verified the one-commit local/remote gap, pushed `d013430` to the existing PR #8 branch, confirmed local/remote/PR head equality, and recorded the unchanged advisor-decision gate. |
 | 146. July 21 single-file poster review bundle | complete | Packaged the existing PPTX, PDF, PNG, advisor email, QA notes, decision CSV, and internal manifest into one verified ZIP; checked archive integrity and all extracted hashes without changing evidence or decisions. |
+| 147. July 22 full closeout audit and fact correction | complete | Re-read the proposal and current scope, audited evidence/deliverables/code/docs/Git, verified the 16-day core window, and corrected current docs that overstated active model/cloud/runtime capabilities. |
+| 148. July 22 first presentation draft | complete | Built a 10-slide independent PPTX from the five verified stored screenshots, rendered and inspected every slide, fixed layout defects, and recorded evidence boundaries plus hashes. |
 
 ## Decisions
 

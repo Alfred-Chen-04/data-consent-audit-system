@@ -1,10 +1,10 @@
-"""Browser agent: Playwright + VLM loop that walks the four consent pathways.
+"""Browser capture: Playwright + deterministic DOM loop for consent pathways.
 
 Flow (per site):
     1. Launch Chromium with a fresh user-data-dir (no stale cookies).
     2. Navigate to URL, wait for consent banner to render.
     3. Take first-layer screenshot + DOM snapshot.
-    4. Ask VLM to locate candidate elements for each Pathway (Accept/Reject/Customize/Dismiss).
+    4. Collect and classify visible DOM candidates for each consent pathway.
     5. For each Pathway: attempt click → observe outcome → record PathOutcome.
     6. If Customize opens a second-layer panel: capture it too.
     7. Compute fingerprint, assemble CaptureBundle.
