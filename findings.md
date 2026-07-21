@@ -769,3 +769,23 @@
 - Publication makes the existing evidence package reviewable; it does not
   authorize stronger claims, new capture, or a final poster revision before
   confirmed review decisions exist.
+
+## 2026-07-21 Single-File Poster Review Bundle Findings
+
+- Local branch, remote branch, and PR #8 head started the day synchronized at
+  `a689fb9971b54599d725d89e699d9b0eacf447e2`.
+- Research status remained at 5 Week 2 targets, 42 audit reports, 20
+  longitudinal summaries, and 8 pending CMP confirmations.
+- Structured reads showed no new human input: 5 blank poster-review decisions,
+  7 blank current-five decisions, and 8 pending CMP/manual-review decisions.
+- The next safe work item was therefore transport packaging for advisor review,
+  not new capture, sample expansion, or a stronger poster claim.
+- Created `docs/research/poster/ssrp_poster_review_bundle_2026-07-21.zip`
+  with eight files: the PPTX, PDF, PNG, advisor email, two QA/decision notes,
+  blank decision CSV, and internal README/manifest.
+- The 3,973,713-byte ZIP passed `unzip -t`; every extracted file hash matched
+  its source. ZIP SHA-256 is
+  `4f697275580b0a05cf0197c51493147953d6755c6667fdf8cf970c0734e9de1c`.
+- The bundle changes delivery convenience only. It does not resolve decisions,
+  change evidence, establish current live-site conditions, or authorize final
+  empirical/legal claims.

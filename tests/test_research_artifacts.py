@@ -1,6 +1,8 @@
 """Tests for paper-facing research scaffolding files."""
 
 import csv
+import hashlib
+import zipfile
 from pathlib import Path
 
 
@@ -1309,3 +1311,72 @@ def test_july20_publish_note_records_published_payload_and_decision_gate() -> No
     assert "8 pending confirmations and 8 blank confirmed" in note_text
     assert "No poster-review, current-five, or CMP/manual-review decision" in note_text
     assert "today_work_note_2026-07-20.md" in linked_text
+
+
+def test_july21_poster_review_bundle_is_complete_and_source_matched() -> None:
+    bundle_path = Path("docs/research/poster/ssrp_poster_review_bundle_2026-07-21.zip")
+    note_path = Path("docs/research/july21_poster_review_bundle_2026-07-21.md")
+    readme_path = Path(
+        "docs/research/poster/ssrp_poster_review_bundle_README_2026-07-21.txt"
+    )
+    source_paths = {
+        "ssrp_poster_mockup_2026-07-14.pdf": Path(
+            "docs/research/poster/ssrp_poster_mockup_2026-07-14.pdf"
+        ),
+        "ssrp_poster_mockup_2026-07-14.pptx": Path(
+            "docs/research/poster/ssrp_poster_mockup_2026-07-14.pptx"
+        ),
+        "ssrp_poster_mockup_2026-07-14.png": Path(
+            "docs/research/poster/ssrp_poster_mockup_2026-07-14.png"
+        ),
+        "advisor_email_poster_mockup_review_2026-07-14.md": Path(
+            "docs/research/advisor_email_poster_mockup_review_2026-07-14.md"
+        ),
+        "july15_poster_pdf_and_print_qa_2026-07-15.md": Path(
+            "docs/research/july15_poster_pdf_and_print_qa_2026-07-15.md"
+        ),
+        "july16_poster_review_decision_sheet_2026-07-16.md": Path(
+            "docs/research/july16_poster_review_decision_sheet_2026-07-16.md"
+        ),
+        "poster_review_decision_sheet_2026-07-16.csv": Path(
+            "data/poster_review_decision_sheet_2026-07-16.csv"
+        ),
+        "ssrp_poster_review_bundle_README_2026-07-21.txt": readme_path,
+    }
+
+    note_text = note_path.read_text(encoding="utf-8")
+    readme_text = readme_path.read_text(encoding="utf-8")
+    linked_text = "\n".join(
+        path.read_text(encoding="utf-8")
+        for path in (
+            Path("README.md"),
+            Path("docs/research/week2_checkin_index_2026-06-06.md"),
+            Path("docs/research/advisor_packet_index_2026-06-05.md"),
+            Path("docs/research/advisor_email_poster_mockup_review_2026-07-14.md"),
+        )
+    )
+
+    assert bundle_path.is_file()
+    assert bundle_path.stat().st_size == 3_973_713
+    assert (
+        hashlib.sha256(bundle_path.read_bytes()).hexdigest()
+        == "4f697275580b0a05cf0197c51493147953d6755c6667fdf8cf970c0734e9de1c"
+    )
+    with zipfile.ZipFile(bundle_path) as archive:
+        assert archive.testzip() is None
+        assert set(archive.namelist()) == set(source_paths)
+        for archive_name, source_path in source_paths.items():
+            assert hashlib.sha256(archive.read(archive_name)).digest() == hashlib.sha256(
+                source_path.read_bytes()
+            ).digest()
+
+    assert "5 pending rows and 5 blank confirmed decisions" in readme_text
+    assert "Do not copy a recommended default" in readme_text
+    assert "# July 21 Poster Review Bundle, 2026-07-21" in note_text
+    assert "File count: 8" in note_text
+    assert "53 of 70 core-cycle days" in note_text
+    assert "75.7%" in note_text
+    assert "17 days remain before" in note_text
+    assert "41 days remain before" in note_text
+    assert "ssrp_poster_review_bundle_2026-07-21.zip" in linked_text
+    assert "july21_poster_review_bundle_2026-07-21.md" in linked_text

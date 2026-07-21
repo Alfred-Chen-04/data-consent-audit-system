@@ -11,9 +11,11 @@ sync audit, July 6 poster-section draft, July 6 validation/gap audit, July 7
 poster build work order, July 7 poster layout draft, July 9 poster asset
 manifest, July 12 poster assembly packet, and July 14 first visual poster
 mockup, the July 15 print/review PDF QA, the July 16 poster-review decision
-sheet, and the July 20 PR publication check, start with these current
+sheet, the July 20 PR publication check, and the July 21 single-file review
+bundle, start with these current
 project-state notes:
 
+- `docs/research/july21_poster_review_bundle_2026-07-21.md`
 - `docs/research/today_work_note_2026-07-20.md`
 - `docs/research/july16_poster_review_decision_sheet_2026-07-16.md`
 - `docs/research/july15_poster_pdf_and_print_qa_2026-07-15.md`
@@ -31,6 +33,10 @@ project-state notes:
 Use this draft as the current advisor email:
 
 - `docs/research/advisor_email_poster_mockup_review_2026-07-14.md`
+
+Use this ZIP when one attachment is preferable to separate review files:
+
+- `docs/research/poster/ssrp_poster_review_bundle_2026-07-21.zip`
 
 Record the five poster-review answers here without overwriting the recommended
 defaults:
@@ -154,6 +160,11 @@ advisor decisions.
 remote branch, and PR #8 head immediately after its push, so the verified
 poster-review email, PDF, QA note, and decision sheet are present on the draft
 PR branch. No review decision has been filled in.
+
+2026-07-21 bundle confirmation: the current poster-review materials are also
+available as one verified eight-file ZIP with an internal README, source
+hashes, and a blank five-row decision CSV. The bundle is a transport artifact;
+it does not resolve any review decision or expand the poster's claim scope.
 
 - Week 2 targets: 5
 - Categories: finance=1, food=1, news=2, travel=1

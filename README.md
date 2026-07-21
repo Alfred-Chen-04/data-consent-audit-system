@@ -21,6 +21,7 @@ This project sits in the gap none of them close: **multimodal AI grounding (VLM 
 | [AGENTS.md](AGENTS.md) | How AI agents (Claude Code, Cursor, etc.) collaborate on this repo |
 | [CONCEPTS.md](CONCEPTS.md) | Precise definitions of every audit dimension — the project's ontology |
 | [docs/research/current_project_goal_2026-07-02.md](docs/research/current_project_goal_2026-07-02.md) | Current canonical plain-language goal: RQ1 scoring + RQ2 versioning, not screenshot-only framing |
+| [docs/research/july21_poster_review_bundle_2026-07-21.md](docs/research/july21_poster_review_bundle_2026-07-21.md) | Current July 21 single-file advisor review bundle: PPTX, PDF, PNG, email, QA, decision sheet, manifest, and verified hashes |
 | [docs/research/today_work_note_2026-07-20.md](docs/research/today_work_note_2026-07-20.md) | Current July 20 fact/publish note: PR #8 updated to the verified poster-review commit, decision gates unchanged, and no new capture |
 | [docs/research/july16_poster_review_decision_sheet_2026-07-16.md](docs/research/july16_poster_review_decision_sheet_2026-07-16.md) | Current July 16 poster-review handoff: five advisor questions mapped to a structured CSV with recommendations kept separate from confirmed decisions |
 | [docs/research/july15_poster_pdf_and_print_qa_2026-07-15.md](docs/research/july15_poster_pdf_and_print_qa_2026-07-15.md) | Current July 15 print/review PDF export: one-page 48 x 36 PDF, visual QA, hashes, and unchanged claim boundary |
@@ -206,6 +207,7 @@ Coca-Cola smoke passes all Layer 1 paths.
 - Current July 1 midpoint recheck and work note is [docs/research/today_work_note_2026-07-01.md](docs/research/today_work_note_2026-07-01.md).
 - Current July 2 fact audit and work note is [docs/research/today_work_note_2026-07-02.md](docs/research/today_work_note_2026-07-02.md).
 - Current canonical project goal is [docs/research/current_project_goal_2026-07-02.md](docs/research/current_project_goal_2026-07-02.md).
+- Current single-file poster review bundle is [docs/research/july21_poster_review_bundle_2026-07-21.md](docs/research/july21_poster_review_bundle_2026-07-21.md).
 - Current July 20 fact/publish note is [docs/research/today_work_note_2026-07-20.md](docs/research/today_work_note_2026-07-20.md).
 - Current poster review decision sheet is [docs/research/july16_poster_review_decision_sheet_2026-07-16.md](docs/research/july16_poster_review_decision_sheet_2026-07-16.md).
 - Current poster PDF and print QA is [docs/research/july15_poster_pdf_and_print_qa_2026-07-15.md](docs/research/july15_poster_pdf_and_print_qa_2026-07-15.md).

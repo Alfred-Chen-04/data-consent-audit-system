@@ -18,6 +18,8 @@ and versioning workflow, not as a final 20-site dataset.
 
 Files for review:
 
+- Single-file review bundle:
+  `docs/research/poster/ssrp_poster_review_bundle_2026-07-21.zip`
 - Editable poster: `docs/research/poster/ssrp_poster_mockup_2026-07-14.pptx`
 - Print/review PDF: `docs/research/poster/ssrp_poster_mockup_2026-07-14.pdf`
 - Rendered preview: `docs/research/poster/ssrp_poster_mockup_2026-07-14.png`
