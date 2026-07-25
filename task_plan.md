@@ -159,6 +159,8 @@ audit invariants.
 | 146. July 21 single-file poster review bundle | complete | Packaged the existing PPTX, PDF, PNG, advisor email, QA notes, decision CSV, and internal manifest into one verified ZIP; checked archive integrity and all extracted hashes without changing evidence or decisions. |
 | 147. July 22 full closeout audit and fact correction | complete | Re-read the proposal and current scope, audited evidence/deliverables/code/docs/Git, verified the 16-day core window, and corrected current docs that overstated active model/cloud/runtime capabilities. |
 | 148. July 22 first presentation draft | complete | Built a 10-slide independent PPTX from the five verified stored screenshots, rendered and inspected every slide, fixed layout defects, and recorded evidence boundaries plus hashes. |
+| 149. July 25 joint artifact gap review | complete | Rechecked Git, evidence counts, calendar dates, decision sheets, and the July 22 plan; reviewed the presentation and poster together and created a fact-aligned poster revision without changing evidence or layout. |
+| 150. July 25 joint advisor review packet | complete | Created and verified a shared five-row decision sheet, sendable joint email, gap/closeout note, aligned poster outputs, and a nine-file source-matched ZIP; all confirmed-decision fields remain blank. |
 
 ## Decisions
 

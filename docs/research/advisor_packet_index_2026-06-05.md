@@ -5,6 +5,16 @@ interface audit status to Dr. Singh after his June 5 guidance.
 
 ## What Can Be Sent Today
 
+The current entrypoint is the July 25 joint presentation/poster packet:
+
+- `docs/research/july25_gap_review_and_joint_packet_2026-07-25.md`
+- `docs/research/advisor_email_joint_presentation_poster_review_2026-07-25.md`
+- `docs/research/joint_review/ssrp_joint_advisor_review_2026-07-25.zip`
+- `data/joint_advisor_review_decision_sheet_2026-07-25.csv`
+
+It supersedes the poster-only email, ZIP, and response path for current review;
+those files remain as dated history and their blank decisions remain unchanged.
+
 After the successful June 6 live capture, June 8 no-visible-banner review, June
 28 fact audit, July 1 scope update, July 3 scope/fact review, July 5 evidence
 sync audit, July 6 poster-section draft, July 6 validation/gap audit, July 7
@@ -35,16 +45,16 @@ project-state notes:
 
 Use this draft as the current advisor email:
 
-- `docs/research/advisor_email_poster_mockup_review_2026-07-14.md`
+- `docs/research/advisor_email_joint_presentation_poster_review_2026-07-25.md`
 
 Use this ZIP when one attachment is preferable to separate review files:
 
-- `docs/research/poster/ssrp_poster_review_bundle_2026-07-21.zip`
+- `docs/research/joint_review/ssrp_joint_advisor_review_2026-07-25.zip`
 
-Record the five poster-review answers here without overwriting the recommended
+Record the five joint review answers here without overwriting the recommended
 defaults:
 
-- `data/poster_review_decision_sheet_2026-07-16.csv`
+- `data/joint_advisor_review_decision_sheet_2026-07-25.csv`
 
 The current canonical goal and scope notes are:
 
@@ -209,18 +219,17 @@ Do not claim these yet:
 
 ## Open Questions For Dr. Singh
 
-The current July 14 poster-review email asks these decision questions:
+The current July 25 joint-review email asks these decision questions:
 
-1. Should the poster stay framed as a five-site pilot/method poster?
-2. Are The Guardian and Coca-Cola the right two main evidence-card examples?
-3. Should CNN, Booking.com, and NerdWallet be labeled as
-   no-visible-first-screen-banner contrast cases, unresolved cases, or excluded
-   from final scoring claims?
-4. Should the 7 current-five blank decisions and 8 CMP/manual-review pending
-   confirmations be resolved before final poster claims, or carried as visible
-   limitations?
-5. What should change before the final print version: content priority, claim
-   scope, visual hierarchy, or evidence-card selection?
+1. Should the presentation and poster remain a five-site pilot/method
+   contribution?
+2. Should The Guardian and Coca-Cola remain the two main evidence cards?
+3. Should CNN, Booking.com, and NerdWallet remain labeled as
+   no-visible-first-screen-banner contrast cases?
+4. Should the 7 current-five blanks and 8 pending CMP confirmations be resolved
+   before stronger claims, or carried as visible limitations?
+5. Should the current evidence package be frozen, or should one controlled RQ2
+   continuity capture answer a specific approved question?
 
 ## Current Work Order
 
@@ -232,13 +241,13 @@ After the completed June 6 evidence gate:
    PYTHONPATH=src .venv/bin/python -m consent_audit.cli research-status
    ```
 
-2. Send or discuss the current poster mockup review email:
+2. Send or discuss the current joint presentation/poster review email:
 
-   - `docs/research/advisor_email_poster_mockup_review_2026-07-14.md`
+   - `docs/research/advisor_email_joint_presentation_poster_review_2026-07-25.md`
 
-3. Follow the current presentation/poster work order:
+3. Record answers only in the joint decision sheet:
 
-   - `docs/research/presentation_poster_work_order_2026-07-02.md`
+   - `data/joint_advisor_review_decision_sheet_2026-07-25.csv`
 
 4. Keep the 8 CMP/manual-review rows separate from locked sample decisions.
 

@@ -812,3 +812,34 @@
   screenshots. It passed overflow checks and full final-PPTX visual QA after
   correcting cover overflow, title collisions/clipping, and a Layer 3 text
   overlap.
+
+## 2026-07-25 Joint Gap Review And Packet Findings
+
+- July 25 is day 57 of the 70-day May 30-August 7 core window, leaving 13
+  calendar days before core closeout and 20 before the original August 14 end
+  date. This is calendar progress, not a research-completion percentage.
+- The presentation, large poster, and traceable pilot evidence package all
+  exist, so the project is on track for the current summer scope. The remaining
+  work is advisor/fallback decisions, final revision, evidence freeze, hashes,
+  rehearsal, and backup rather than broad sample expansion.
+- The evidence state is unchanged at 5 Week 2 targets, 42 audit-report rows, 20
+  longitudinal-summary rows, 326 tracked site screenshots, 0 synced referenced
+  raw HTML files, and a latest exported `week_of` of 2026-06-06.
+- Existing human gates remain unresolved: 5 poster-only rows pending/blank, 7
+  current-five rows blank, and 8 CMP/manual-review rows pending/blank. The new
+  joint sheet also has 5 pending rows and 5 blank confirmations.
+- Joint review found one material wording risk in the poster: the old guardrail
+  could imply model extraction participates in current scoring. The aligned
+  revision now states that current pilot scoring is deterministic and external
+  models are not wired into scoring.
+- The July 25 poster revision preserves the source layout and images and changes
+  only three inherited text boxes. Artifact-tool template fidelity passed with
+  zero issues; PPTX overflow, source render, PDF render, and visual checks also
+  passed.
+- The joint advisor ZIP contains nine source-matched files, is 5,964,170 bytes,
+  and has SHA-256
+  `98b2c7b779a9a4b451c6cde992fee9c582b56ebdc90872c9d09169548de00fdd`.
+- Repository verification passed 246 tests, Ruff, Mypy on 52 source files, 166
+  current local links, and `git diff --check`. No new browser capture, site
+  observation, score, legal judgment, sample expansion, or advisor response was
+  introduced.

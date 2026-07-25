@@ -1161,7 +1161,7 @@ def test_july14_first_poster_mockup_is_traceable_and_rendered() -> None:
     assert "july14_first_poster_mockup_2026-07-14.md" in advisor_index_text
 
 
-def test_july14_poster_mockup_review_email_is_current_advisor_entrypoint() -> None:
+def test_july14_poster_mockup_review_email_is_preserved_as_history() -> None:
     email_path = Path("docs/research/advisor_email_poster_mockup_review_2026-07-14.md")
     readme_path = Path("README.md")
     index_path = Path("docs/research/week2_checkin_index_2026-06-06.md")
@@ -1190,7 +1190,7 @@ def test_july14_poster_mockup_review_email_is_current_advisor_entrypoint() -> No
     assert "Do not make legal compliance or non-compliance verdicts." in email_text
     assert "advisor_email_poster_mockup_review_2026-07-14.md" in readme_text
     assert (
-        "[Current advisor email: poster mockup review, 2026-07-14]"
+        "[Previous poster-only advisor email, 2026-07-14]"
         "(advisor_email_poster_mockup_review_2026-07-14.md)"
     ) in index_text
     assert "advisor_email_poster_mockup_review_2026-07-14.md" in advisor_index_text
@@ -1461,3 +1461,103 @@ def test_july22_presentation_draft_is_reviewable_and_source_bounded() -> None:
     assert "607ab0791f0062c91ec52090d5b598d936f7de2d033de04af5fe49fb368bcd1a" in note_text
     assert "july22_first_presentation_draft_2026-07-22.md" in linked_text
     assert "ssrp_consent_audit_presentation_draft_2026-07-22.pptx" in linked_text
+
+
+def test_july25_joint_review_packet_is_aligned_pending_and_source_matched() -> None:
+    bundle_path = Path(
+        "docs/research/joint_review/ssrp_joint_advisor_review_2026-07-25.zip"
+    )
+    manifest_path = Path(
+        "docs/research/joint_review/"
+        "ssrp_joint_advisor_review_README_2026-07-25.txt"
+    )
+    poster_pptx = Path(
+        "docs/research/poster/ssrp_poster_aligned_review_2026-07-25.pptx"
+    )
+    poster_pdf = Path(
+        "docs/research/poster/ssrp_poster_aligned_review_2026-07-25.pdf"
+    )
+    poster_png = Path(
+        "docs/research/poster/ssrp_poster_aligned_review_2026-07-25.png"
+    )
+    decision_path = Path("data/joint_advisor_review_decision_sheet_2026-07-25.csv")
+    note_path = Path("docs/research/july25_gap_review_and_joint_packet_2026-07-25.md")
+    email_path = Path(
+        "docs/research/advisor_email_joint_presentation_poster_review_2026-07-25.md"
+    )
+    source_paths = {
+        poster_pptx.name: poster_pptx,
+        poster_pdf.name: poster_pdf,
+        poster_png.name: poster_png,
+        "ssrp_consent_audit_presentation_draft_2026-07-22.pptx": Path(
+            "docs/research/presentation/"
+            "ssrp_consent_audit_presentation_draft_2026-07-22.pptx"
+        ),
+        "ssrp_consent_audit_presentation_draft_2026-07-22_montage.png": Path(
+            "docs/research/presentation/"
+            "ssrp_consent_audit_presentation_draft_2026-07-22_montage.png"
+        ),
+        decision_path.name: decision_path,
+        email_path.name: email_path,
+        note_path.name: note_path,
+        manifest_path.name: manifest_path,
+    }
+
+    with decision_path.open(encoding="utf-8", newline="") as fh:
+        rows = list(csv.DictReader(fh))
+    assert len(rows) == 5
+    assert {row["decision_id"] for row in rows} == {
+        "shared_scope_framing",
+        "main_evidence_cards",
+        "contrast_case_treatment",
+        "unresolved_review_items",
+        "rq2_continuity_gate",
+    }
+    assert all(row["review_status"] == "pending" for row in rows)
+    assert all(not row["confirmed_decision"] for row in rows)
+    assert all(not row["reviewer"] for row in rows)
+    assert all(not row["review_date"] for row in rows)
+
+    assert poster_pdf.read_bytes().startswith(b"%PDF-")
+    assert poster_png.read_bytes().startswith(b"\x89PNG\r\n\x1a\n")
+    with zipfile.ZipFile(poster_pptx) as deck:
+        slide_names = {
+            name
+            for name in deck.namelist()
+            if name.startswith("ppt/slides/slide") and name.endswith(".xml")
+        }
+        slide_xml = deck.read("ppt/slides/slide1.xml").decode("utf-8")
+    assert len(slide_names) == 1
+    assert "Current pilot scoring uses deterministic DOM and text rules" in slide_xml
+    assert "External models are not wired into scoring" in slide_xml
+    assert "rechecked July 25, 2026" in slide_xml
+    assert "Aligned review draft 2 | 2026-07-25" in slide_xml
+
+    assert bundle_path.stat().st_size > 5_000_000
+    with zipfile.ZipFile(bundle_path) as archive:
+        assert archive.testzip() is None
+        assert set(archive.namelist()) == set(source_paths)
+        for archive_name, source_path in source_paths.items():
+            assert hashlib.sha256(archive.read(archive_name)).digest() == hashlib.sha256(
+                source_path.read_bytes()
+            ).digest()
+
+    note_text = note_path.read_text(encoding="utf-8")
+    email_text = email_path.read_text(encoding="utf-8")
+    manifest_text = manifest_path.read_text(encoding="utf-8")
+    linked_text = "\n".join(
+        path.read_text(encoding="utf-8")
+        for path in (
+            Path("README.md"),
+            Path("docs/research/week2_checkin_index_2026-06-06.md"),
+            Path("docs/research/advisor_packet_index_2026-06-05.md"),
+        )
+    )
+    assert "day 57 of the 70-day" in note_text
+    assert "Thirteen calendar days remain before August 7" in note_text
+    assert "five closeout decisions" in email_text
+    assert "5 pending and 5 blank confirmed" in manifest_text
+    assert "Do not copy a recommended default" in manifest_text
+    assert "july25_gap_review_and_joint_packet_2026-07-25.md" in linked_text
+    assert "advisor_email_joint_presentation_poster_review_2026-07-25.md" in linked_text
+    assert "joint_advisor_review_decision_sheet_2026-07-25.csv" in linked_text
