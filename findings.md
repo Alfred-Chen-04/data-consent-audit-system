@@ -991,3 +991,33 @@
 - Full verification passed 256 tests, Ruff, Mypy on 53 source files,
   compileall, 160 decoded local links with zero missing, both ZIP integrity
   checks, schema-v2 JSON gate assertions, and `git diff --check`.
+
+## 2026-07-27 Response-Intake Contract Findings
+
+- A structured audit of all 10 rows with `recommended_default` and
+  `decision_options` found four mismatches: two in the active July 25 joint
+  sheet and two in the superseded July 16 poster-only sheet.
+- The active mismatches were `unresolved_review_items` and
+  `rq2_continuity_gate`. Their recommended defaults now use the existing
+  actual-response options `carry_as_visible_limitations` and
+  `freeze_current_evidence`; the longer no-response labels remain separate
+  project fallback provenance.
+- All five active joint rows remain `pending`; every `confirmed_decision`,
+  `reviewer`, and `review_date` field remains blank. The correction does not
+  represent an advisor response or a fallback selection.
+- The two July 16 mismatches remain unchanged as dated provenance because that
+  sheet is superseded. The closeout control page now explicitly says not to use
+  it for current response intake.
+- Schema v2 now blocks final freeze when the active joint sheet has a missing
+  or duplicate decision ID, a recommended default outside its options, no
+  `other` option, pending rows with response fields, confirmed rows without
+  valid option/provenance, or an `other` response without notes.
+- The rebuilt nine-file joint packet is 5,963,814 bytes with SHA-256
+  `0b4374a85cd1c7a27f2b5307abd0d19246cb5110b4335c44b5b657e86393737a`;
+  every archive member matches its repository source and `unzip -t` passes.
+- The regenerated manifest reports 14/14 key deliverables, zero active joint
+  contract errors, zero response-basis claims/errors, 20 waiting revision
+  rows, and `ready_for_final_freeze=false` with the same execution blocker.
+- Full verification passed 257 tests, Ruff, Mypy on 53 source files,
+  compileall, 160 decoded local links with zero missing, both ZIP integrity
+  checks, JSON gate assertions, and `git diff --check`.

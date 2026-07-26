@@ -31,6 +31,11 @@ reviewer response. Keep review_status=pending until that response exists. If no
 response arrives by the review cutoff, document a conservative project fallback
 label separately; do not call it advisor-confirmed.
 
+Every recommended_default in the active joint sheet is one of that row's
+decision_options. Record an actual response with the exact selected option (or
+other plus the reviewer's wording in notes). The longer no-response labels in
+the July 26 protocol are project fallback provenance, not advisor options.
+
 FILES AND SOURCE SHA-256
 ssrp_poster_aligned_review_2026-07-25.pptx
   source: docs/research/poster/ssrp_poster_aligned_review_2026-07-25.pptx
@@ -59,8 +64,8 @@ ssrp_consent_audit_presentation_draft_2026-07-22_montage.png
 
 joint_advisor_review_decision_sheet_2026-07-25.csv
   source: data/joint_advisor_review_decision_sheet_2026-07-25.csv
-  bytes: 2493
-  sha256: 875a708c56ccfa44301762df93740597df0d2eab71667b6670e75646fbd91888
+  bytes: 2419
+  sha256: 0789672311fde4907c93744cd0d3d27b58d3c216ef9c375bd590687d44de059d
 
 advisor_email_joint_presentation_poster_review_2026-07-25.md
   source: docs/research/advisor_email_joint_presentation_poster_review_2026-07-25.md

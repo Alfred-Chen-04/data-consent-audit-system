@@ -34,14 +34,14 @@
     },
     "joint_advisor_review": {
       "blank_confirmation_count": 5,
-      "bytes": 2493,
+      "bytes": 2419,
       "confirmation_column": "confirmed_decision",
       "confirmation_column_present": true,
       "open_row_count": 5,
       "path": "data/joint_advisor_review_decision_sheet_2026-07-25.csv",
       "pending_count": 5,
       "row_count": 5,
-      "sha256": "875a708c56ccfa44301762df93740597df0d2eab71667b6670e75646fbd91888",
+      "sha256": "0789672311fde4907c93744cd0d3d27b58d3c216ef9c375bd590687d44de059d",
       "status": "present",
       "status_column": "review_status",
       "status_column_present": true,
@@ -135,7 +135,7 @@
     ],
     "ready_for_final_freeze": false
   },
-  "generated_at": "2026-07-26T16:05:28.546074+00:00",
+  "generated_at": "2026-07-26T16:33:25.853571+00:00",
   "key_deliverables": [
     {
       "bytes": 20937,
@@ -186,21 +186,21 @@
       "status": "present"
     },
     {
-      "bytes": 5964170,
+      "bytes": 5963814,
       "path": "docs/research/joint_review/ssrp_joint_advisor_review_2026-07-25.zip",
-      "sha256": "98b2c7b779a9a4b451c6cde992fee9c582b56ebdc90872c9d09169548de00fdd",
+      "sha256": "0b4374a85cd1c7a27f2b5307abd0d19246cb5110b4335c44b5b657e86393737a",
       "status": "present"
     },
     {
-      "bytes": 2493,
+      "bytes": 2419,
       "path": "data/joint_advisor_review_decision_sheet_2026-07-25.csv",
-      "sha256": "875a708c56ccfa44301762df93740597df0d2eab71667b6670e75646fbd91888",
+      "sha256": "0789672311fde4907c93744cd0d3d27b58d3c216ef9c375bd590687d44de059d",
       "status": "present"
     },
     {
-      "bytes": 6424,
+      "bytes": 7170,
       "path": "docs/research/july26_advisor_response_and_fallback_protocol_2026-07-26.md",
-      "sha256": "5b44891287430d52c3df79501fe9addf4b17e9a11e8a05a5b855d6ba809b5da5",
+      "sha256": "99b7d03ffb15c276a678f8fabee2a50a468b0911aa385e1db82b5ca970165a9b",
       "status": "present"
     },
     {
@@ -216,9 +216,9 @@
       "status": "present"
     },
     {
-      "bytes": 10049,
+      "bytes": 10176,
       "path": "docs/research/closeout_control_index_2026-07-26.md",
-      "sha256": "ee4615741e4bdf105934493293fb3eed2d771d2dc461ace2412e222fb2b21573",
+      "sha256": "c9e97648be2f9db20ac8793fb9ecfd95ac5a15bbcf6b5e26280e3a5378e80d5b",
       "status": "present"
     }
   ],
@@ -732,6 +732,8 @@
     },
     "duplicate_revision_ids": [],
     "inconsistent_revision_ids": [],
+    "joint_decision_contract_valid": true,
+    "joint_decision_contract_validation_errors": [],
     "missing_required_columns": [],
     "missing_required_revision_ids": [],
     "not_applied_verified_count": 20,
@@ -740,10 +742,10 @@
     "response_basis_claim_count": 0,
     "response_basis_claims_valid": true,
     "response_basis_source": {
-      "bytes": 2493,
+      "bytes": 2419,
       "path": "data/joint_advisor_review_decision_sheet_2026-07-25.csv",
       "schema_valid": true,
-      "sha256": "875a708c56ccfa44301762df93740597df0d2eab71667b6670e75646fbd91888",
+      "sha256": "0789672311fde4907c93744cd0d3d27b58d3c216ef9c375bd590687d44de059d",
       "status": "present"
     },
     "response_basis_validation_errors": [],
@@ -761,6 +763,7 @@
   "summary": {
     "decision_gate_count": 4,
     "final_freeze_blocker_count": 1,
+    "joint_decision_contract_error_count": 0,
     "key_deliverable_count": 14,
     "missing_key_deliverable_count": 0,
     "open_decision_row_count_across_sheets": 25,

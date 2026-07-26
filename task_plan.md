@@ -167,6 +167,7 @@ audit invariants.
 | 154. July 26 final-freeze readiness gate | complete | Upgraded the reproducible manifest to schema v2 so file presence cannot imply completion: it now validates all 20 revision rows, records execution/provenance consistency, and reports `ready_for_final_freeze=false` with one 20-row execution blocker. |
 | 155. July 26 closeout control index and history cleanup | complete | Added one pre-freeze control page for the active artifacts, response/revision/freeze sequence, dated work order, historical classifications, and final acceptance checks; reduced README to current controls and relabeled the Week 2/advisor indexes as complete dated history. |
 | 156. July 26 closeout runtime-status alignment | complete | Replaced the stale July 22 dashboard default with the current control index, derived closeout counts/readiness/next action from the schema-v2 manifest, and labeled the older Week 2 cycle action as historical support. |
+| 157. July 27 response-intake contract correction | complete | Corrected two active recommended-default/option mismatches, rebuilt the source-matched joint ZIP, added joint-sheet contract validation to the freeze gate, and explicitly excluded the two preserved historical poster-only mismatches from current intake. |
 
 ## Decisions
 

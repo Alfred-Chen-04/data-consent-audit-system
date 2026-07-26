@@ -68,6 +68,9 @@ def render_research_status(
     response_basis_errors = _integer_value(
         closeout_summary, "revision_response_basis_error_count"
     )
+    decision_contract_errors = _integer_value(
+        closeout_summary, "joint_decision_contract_error_count"
+    )
     freeze_ready = _boolean_label(
         closeout_summary.get("ready_for_final_freeze")
     )
@@ -89,7 +92,7 @@ def render_research_status(
         f"- Revision execution: "
         f"{_format_counts(revision_status_counts) or 'none'}\n"
         f"- Response-basis claims: {response_basis_claims}; "
-        f"validation errors: {response_basis_errors}\n"
+        f"validation errors: {response_basis_errors + decision_contract_errors}\n"
         f"- Final-freeze readiness: `{freeze_ready}`; "
         f"blockers={freeze_blockers or 'none'}\n"
         f"- Current next action: {closeout_next_action}\n"

@@ -50,6 +50,16 @@ REVISION_MATRIX_REQUIRED_COLUMNS = (
     "applied_by",
     "applied_at",
 )
+JOINT_DECISION_REQUIRED_COLUMNS = (
+    "decision_id",
+    "recommended_default",
+    "decision_options",
+    "review_status",
+    "confirmed_decision",
+    "reviewer",
+    "review_date",
+    "notes",
+)
 ALLOWED_REVISION_STATUSES = frozenset(
     {
         "waiting_for_response_branch",
@@ -341,6 +351,82 @@ def _has_timezone(value: str) -> bool:
     return parsed.tzinfo is not None and parsed.utcoffset() is not None
 
 
+def _joint_decision_contract_errors(
+    *,
+    source_present: bool,
+    fields: Sequence[str],
+    rows: Sequence[dict[str, str]],
+    required_decision_ids: set[str],
+) -> list[dict[str, str]]:
+    errors: list[dict[str, str]] = []
+
+    def add(decision_id: str, code: str) -> None:
+        item = {"decision_id": decision_id, "code": code}
+        if item not in errors:
+            errors.append(item)
+
+    if not source_present:
+        add("<sheet>", "joint_decision_source_missing")
+        return errors
+
+    missing_columns = sorted(set(JOINT_DECISION_REQUIRED_COLUMNS) - set(fields))
+    for column in missing_columns:
+        add("<sheet>", f"joint_decision_missing_column:{column}")
+    if missing_columns:
+        return errors
+
+    decision_ids = [
+        (row.get("decision_id") or "").strip() for row in rows
+    ]
+    decision_id_counts = Counter(
+        decision_id for decision_id in decision_ids if decision_id
+    )
+    for index, decision_id in enumerate(decision_ids, start=1):
+        if not decision_id:
+            add(f"<row_{index}>", "decision_id_missing")
+    for decision_id, count in sorted(decision_id_counts.items()):
+        if count > 1:
+            add(decision_id, "decision_id_not_unique")
+    for decision_id in sorted(required_decision_ids - set(decision_id_counts)):
+        add(decision_id, "required_decision_missing")
+
+    for index, row in enumerate(rows, start=1):
+        decision_id = (row.get("decision_id") or "").strip() or f"<row_{index}>"
+        options = {
+            option.strip()
+            for option in (row.get("decision_options") or "").split("|")
+            if option.strip()
+        }
+        recommended_default = (row.get("recommended_default") or "").strip()
+        status = (row.get("review_status") or "").strip().casefold()
+        confirmed_decision = (row.get("confirmed_decision") or "").strip()
+        reviewer = (row.get("reviewer") or "").strip()
+        review_date = (row.get("review_date") or "").strip()
+        notes = (row.get("notes") or "").strip()
+
+        if not recommended_default:
+            add(decision_id, "recommended_default_missing")
+        elif recommended_default not in options:
+            add(decision_id, "recommended_default_not_in_options")
+        if "other" not in options:
+            add(decision_id, "other_option_missing")
+
+        if status == "pending":
+            if any((confirmed_decision, reviewer, review_date)):
+                add(decision_id, "pending_response_fields_not_blank")
+        elif status == "confirmed":
+            if not all((confirmed_decision, reviewer, review_date)):
+                add(decision_id, "confirmed_response_fields_missing")
+            if confirmed_decision and confirmed_decision not in options:
+                add(decision_id, "confirmed_decision_not_in_options")
+            if confirmed_decision == "other" and not notes:
+                add(decision_id, "other_response_notes_missing")
+        else:
+            add(decision_id, "review_status_invalid")
+
+    return errors
+
+
 def _revision_matrix_record(
     repo_root: Path,
     path: Path,
@@ -378,6 +464,8 @@ def _revision_matrix_record(
             "response_basis_source": response_source,
             "response_basis_validation_errors": [],
             "response_basis_claims_valid": False,
+            "joint_decision_contract_validation_errors": [],
+            "joint_decision_contract_valid": False,
         }
 
     fields, rows = _read_csv(_resolve_input(repo_root, path))
@@ -408,19 +496,23 @@ def _revision_matrix_record(
         joint_fields, joint_rows = _read_csv(
             _resolve_input(repo_root, joint_decision_csv)
         )
-    joint_required = {
-        "decision_id",
-        "review_status",
-        "confirmed_decision",
-        "reviewer",
-        "review_date",
-    }
-    joint_schema_valid = joint_required.issubset(joint_fields)
+    joint_schema_valid = set(JOINT_DECISION_REQUIRED_COLUMNS).issubset(
+        joint_fields
+    )
     joint_rows_by_id: dict[str, list[dict[str, str]]] = {}
     for row in joint_rows:
         decision_id = (row.get("decision_id") or "").strip()
         if decision_id:
             joint_rows_by_id.setdefault(decision_id, []).append(row)
+
+    joint_contract_errors = _joint_decision_contract_errors(
+        source_present=response_source["status"] == "present",
+        fields=joint_fields,
+        rows=joint_rows,
+        required_decision_ids={
+            decision_id for decision_id in decision_counts if decision_id
+        },
+    )
 
     response_basis_errors: list[dict[str, str]] = []
 
@@ -561,6 +653,8 @@ def _revision_matrix_record(
         },
         "response_basis_validation_errors": response_basis_errors,
         "response_basis_claims_valid": not response_basis_errors,
+        "joint_decision_contract_validation_errors": joint_contract_errors,
+        "joint_decision_contract_valid": not joint_contract_errors,
     }
 
 
@@ -618,6 +712,19 @@ def _freeze_readiness(
                 {
                     "code": "revision_matrix_inconsistent_rows",
                     "count": len(inconsistent_ids),
+                }
+            )
+        joint_contract_errors = revision_matrix[
+            "joint_decision_contract_validation_errors"
+        ]
+        if joint_contract_errors:
+            affected_decision_ids = {
+                error["decision_id"] for error in joint_contract_errors
+            }
+            blockers.append(
+                {
+                    "code": "joint_decision_contract_invalid",
+                    "count": len(affected_decision_ids),
                 }
             )
         response_basis_errors = revision_matrix[
@@ -735,6 +842,11 @@ def build_closeout_prefreeze_manifest(
             ],
             "revision_response_basis_error_count": len(
                 revision_matrix["response_basis_validation_errors"]
+            ),
+            "joint_decision_contract_error_count": len(
+                revision_matrix[
+                    "joint_decision_contract_validation_errors"
+                ]
             ),
             "revision_missing_required_row_count": len(
                 revision_matrix["missing_required_revision_ids"]
@@ -874,6 +986,9 @@ def render_closeout_prefreeze_markdown(
                 inconsistent=len(revision.get("inconsistent_revision_ids") or []),
                 status=revision["status"],
             ),
+            "",
+            "Joint decision contract errors: "
+            f"{len(revision.get('joint_decision_contract_validation_errors') or [])}.",
             "",
             "**Ready for final freeze: "
             f"`{str(manifest['freeze_readiness']['ready_for_final_freeze']).lower()}`.**",

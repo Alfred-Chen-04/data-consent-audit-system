@@ -23,7 +23,8 @@ advisor response or project fallback.**
 - Human-decision sheets: 25 open rows across four dated sheets. This is a
   cross-sheet row count, not 25 unique questions.
 - Joint revision matrix: exactly 20 expected rows, all
-  `waiting_for_response_branch`; 0 response-basis claims and 0 basis errors.
+  `waiting_for_response_branch`; 0 response-basis claims, 0 basis errors, and
+  0 active joint-sheet contract errors.
 - Final-freeze readiness: `false`. The current blocker is
   `revision_rows_not_applied_verified` for all 20 rows.
 
@@ -62,7 +63,7 @@ current closeout response path.
 | [July 14 poster mockup](july14_first_poster_mockup_2026-07-14.md) | Historical first visual draft | July 25 aligned poster files |
 | [July 21 poster-only review bundle](july21_poster_review_bundle_2026-07-21.md) | Superseded review attachment | July 25 joint review ZIP |
 | [July 14 poster-only email](advisor_email_poster_mockup_review_2026-07-14.md) | Superseded email | July 25 joint advisor email |
-| [July 16 poster-only decision sheet](july16_poster_review_decision_sheet_2026-07-16.md) | Superseded response path; preserve its pending rows as dated history | July 25 joint decision sheet |
+| [July 16 poster-only decision sheet](july16_poster_review_decision_sheet_2026-07-16.md) | Superseded response path; preserve its pending rows as dated history; two recommended defaults are not listed options, so do not use it for current intake | July 25 joint decision sheet |
 | [July 1 scope email](advisor_email_scope_update_2026-07-01.md) and [June 28 decision email](advisor_email_decision_gate_2026-06-28.md) | Historical communication | July 25 joint advisor email |
 | [Week 2 check-in index](week2_checkin_index_2026-06-06.md) | Full evidence/history navigation | This closeout control index |
 | [Advisor packet index](advisor_packet_index_2026-06-05.md) | Full communication history | This closeout control index |

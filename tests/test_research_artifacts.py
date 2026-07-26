@@ -1532,6 +1532,14 @@ def test_july25_joint_review_packet_is_aligned_pending_and_source_matched() -> N
     assert all(not row["confirmed_decision"] for row in rows)
     assert all(not row["reviewer"] for row in rows)
     assert all(not row["review_date"] for row in rows)
+    for row in rows:
+        decision_options = {
+            option.strip()
+            for option in row["decision_options"].split("|")
+            if option.strip()
+        }
+        assert row["recommended_default"] in decision_options
+        assert "other" in decision_options
 
     assert poster_pdf.read_bytes().startswith(b"%PDF-")
     assert poster_png.read_bytes().startswith(b"\x89PNG\r\n\x1a\n")
@@ -1607,6 +1615,11 @@ def test_july26_response_protocol_keeps_advisor_and_fallback_states_separate() -
     assert "five_site_pilot_method" in protocol_text
     assert "no_visible_first_screen_banner_contrast" in protocol_text
     assert "freeze_current_evidence_unless_specific_rq2_question_is_approved" in protocol_text
+    assert "## July 27 Intake Contract Check" in protocol_text
+    assert "Every joint-sheet `recommended_default`" in protocol_text
+    assert "two historical default/option" in protocol_text
+    assert "5,963,814-byte packet" in protocol_text
+    assert "0b4374a85cd1c7a27f2b5307abd0d19246cb5110b4335c44b5b657e86393737a" in protocol_text
     assert "july26_advisor_response_and_fallback_protocol_2026-07-26.md" in linked_text
 
 
@@ -1670,6 +1683,8 @@ def test_july26_closeout_prefreeze_manifest_matches_current_checkout() -> None:
     assert revision_gate["project_fallback_basis_count"] == 0
     assert revision_gate["response_basis_claims_valid"] is True
     assert revision_gate["response_basis_validation_errors"] == []
+    assert revision_gate["joint_decision_contract_valid"] is True
+    assert revision_gate["joint_decision_contract_validation_errors"] == []
     assert revision_gate["response_basis_source"]["status"] == "present"
     assert revision_gate["response_basis_source"]["schema_valid"] is True
     assert manifest["freeze_readiness"] == {
@@ -1682,6 +1697,7 @@ def test_july26_closeout_prefreeze_manifest_matches_current_checkout() -> None:
     assert manifest["summary"] == {
         "decision_gate_count": 4,
         "final_freeze_blocker_count": 1,
+        "joint_decision_contract_error_count": 0,
         "key_deliverable_count": 14,
         "missing_key_deliverable_count": 0,
         "open_decision_row_count_across_sheets": 25,
@@ -1726,6 +1742,7 @@ def test_july26_closeout_prefreeze_manifest_matches_current_checkout() -> None:
     assert "Ready for final freeze: `false`" in note_text
     assert "`revision_rows_not_applied_verified` | 20" in note_text
     assert "| 20 | 20 | 0 | 0 | 0 | 0 | 0 | 0 | present |" in note_text
+    assert "Joint decision contract errors: 0." in note_text
     assert "`report_pdf_ref` | false | n/a | n/a" in note_text
     assert "july26_closeout_prefreeze_manifest_2026-07-26.md" in linked_text
     assert "closeout_prefreeze_manifest_2026-07-26.json" in linked_text
@@ -1750,7 +1767,8 @@ def test_july26_closeout_control_index_separates_current_and_history() -> None:
     assert "Key deliverables present: 14/14" in control_text
     assert "Final-freeze readiness: `false`" in control_text
     assert "`revision_rows_not_applied_verified` for all 20 rows" in control_text
-    assert "0 response-basis claims and 0 basis errors" in control_text
+    assert "0 response-basis claims, 0 basis errors, and" in control_text
+    assert "0 active joint-sheet contract errors" in control_text
     assert "July 29, 23:59 Asia/Shanghai" in control_text
     assert "August 7, 2026" in control_text
     assert control_text.count("- [ ]") == 8
@@ -1759,6 +1777,7 @@ def test_july26_closeout_control_index_separates_current_and_history() -> None:
     assert "## Historical Trail" in control_text
     assert "`uv run consent-audit research-status`" in control_text
     assert "schema-v2 pre-freeze manifest" in control_text
+    assert "two recommended defaults are not listed options" in control_text
 
     current_paths = (
         "presentation/ssrp_consent_audit_presentation_draft_2026-07-22.pptx",

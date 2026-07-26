@@ -104,18 +104,24 @@ def test_manifest_classifies_actual_reference_and_decision_states(
         joint_decisions,
         [
             "decision_id",
+            "recommended_default",
+            "decision_options",
             "review_status",
             "confirmed_decision",
             "reviewer",
             "review_date",
+            "notes",
         ],
         [
             {
                 "decision_id": "scope",
+                "recommended_default": "pilot",
+                "decision_options": "pilot|other",
                 "review_status": "confirmed",
                 "confirmed_decision": "pilot",
                 "reviewer": "advisor",
                 "review_date": "2026-07-26",
+                "notes": "",
             }
         ],
     )
@@ -254,18 +260,24 @@ def test_manifest_readiness_requires_verified_rows_with_provenance(
         joint_decisions,
         [
             "decision_id",
+            "recommended_default",
+            "decision_options",
             "review_status",
             "confirmed_decision",
             "reviewer",
             "review_date",
+            "notes",
         ],
         [
             {
                 "decision_id": "shared_scope_framing",
+                "recommended_default": "five_site_pilot_method",
+                "decision_options": "five_site_pilot_method|other",
                 "review_status": "pending",
                 "confirmed_decision": "",
                 "reviewer": "",
                 "review_date": "",
+                "notes": "",
             }
         ],
     )
@@ -349,4 +361,88 @@ def test_manifest_readiness_requires_verified_rows_with_provenance(
     ]
     assert too_early["freeze_readiness"]["blockers"] == [
         {"code": "revision_response_basis_unverified", "count": 1}
+    ]
+
+
+def test_manifest_blocks_invalid_joint_decision_contract(tmp_path: Path) -> None:
+    audit_csv = tmp_path / "audit.csv"
+    longitudinal_csv = tmp_path / "longitudinal.csv"
+    deliverable = tmp_path / "deliverable.txt"
+    matrix = tmp_path / "revision_matrix.csv"
+    joint_decisions = tmp_path / "joint_decisions.csv"
+    _write_csv(audit_csv, ["report_id"], [{"report_id": "1"}])
+    _write_csv(longitudinal_csv, ["week_of"], [{"week_of": "2026-06-06"}])
+    deliverable.write_text("ready", encoding="utf-8")
+    _write_csv(
+        matrix,
+        [
+            "revision_id",
+            "decision_id",
+            "artifact",
+            "execution_status",
+            "selected_value",
+            "response_basis",
+            "applied_by",
+            "applied_at",
+        ],
+        [
+            {
+                "revision_id": "rev_1",
+                "decision_id": "scope",
+                "artifact": "presentation",
+                "execution_status": "applied_verified",
+                "selected_value": "mistyped_value",
+                "response_basis": "actual_advisor_response",
+                "applied_by": "researcher",
+                "applied_at": "2026-07-27T10:00:00+08:00",
+            }
+        ],
+    )
+    _write_csv(
+        joint_decisions,
+        [
+            "decision_id",
+            "recommended_default",
+            "decision_options",
+            "review_status",
+            "confirmed_decision",
+            "reviewer",
+            "review_date",
+            "notes",
+        ],
+        [
+            {
+                "decision_id": "scope",
+                "recommended_default": "unlisted_default",
+                "decision_options": "pilot|other",
+                "review_status": "confirmed",
+                "confirmed_decision": "mistyped_value",
+                "reviewer": "advisor",
+                "review_date": "2026-07-27",
+                "notes": "",
+            }
+        ],
+    )
+
+    manifest = build_closeout_prefreeze_manifest(
+        tmp_path,
+        generated_at=datetime(2026, 7, 27, 2, tzinfo=UTC),
+        audit_csv=audit_csv,
+        longitudinal_csv=longitudinal_csv,
+        revision_matrix_csv=matrix,
+        joint_decision_csv=joint_decisions,
+        required_revision_ids=("rev_1",),
+        decision_sheets=(),
+        deliverable_paths=(deliverable,),
+    )
+
+    revision_gate = manifest["revision_execution_gate"]
+    assert revision_gate["joint_decision_contract_validation_errors"] == [
+        {"decision_id": "scope", "code": "recommended_default_not_in_options"},
+        {"decision_id": "scope", "code": "confirmed_decision_not_in_options"},
+    ]
+    assert revision_gate["joint_decision_contract_valid"] is False
+    assert manifest["summary"]["joint_decision_contract_error_count"] == 2
+    assert manifest["freeze_readiness"]["blockers"] == [
+        {"code": "joint_decision_contract_invalid", "count": 1}
     ]

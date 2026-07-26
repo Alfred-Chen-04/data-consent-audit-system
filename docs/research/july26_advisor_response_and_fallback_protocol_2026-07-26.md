@@ -16,10 +16,10 @@ Verified on July 26:
   `confirmed_decision` fields.
 - The poster-only sheet remains 5 pending/blank, the current-five sheet remains
   7 blank, and the CMP confirmation sheet remains 8 pending/blank.
-- The nine-file joint ZIP passes archive integrity checks locally and is
-  available on the remote PR branch with the same 5,964,170-byte size and
+- The current nine-file joint ZIP passes archive integrity checks locally. The
+  July 27 response-contract correction produces a 5,963,814-byte packet with
   SHA-256
-  `98b2c7b779a9a4b451c6cde992fee9c582b56ebdc90872c9d09169548de00fdd`.
+  `0b4374a85cd1c7a27f2b5307abd0d19246cb5110b4335c44b5b657e86393737a`.
 - At pre-freeze publication head
   `7c51f985599647637dfaa95b766bfc4186bcae38`, PR #8 was open, draft,
   mergeable, 26 commits ahead of and 0 behind `main`.
@@ -28,6 +28,20 @@ Verified on July 26:
 
 The absence of review input is evidence only that no response is recorded. It
 does not imply approval, disagreement, or silence from any specific person.
+
+## July 27 Intake Contract Check
+
+- The joint sheet still has 5 pending rows; every `confirmed_decision`,
+  `reviewer`, and `review_date` field remains blank.
+- Every joint-sheet `recommended_default` is now one of its row's listed
+  `decision_options`. This fixes two response-recording mismatches without
+  selecting a response or changing a review state.
+- Actual responses use the exact joint-sheet option value. The longer labels in
+  the no-response table below remain separate project fallback provenance and
+  are not advisor-response options.
+- The superseded July 16 poster-only sheet has two historical default/option
+  mismatches. It remains unchanged as dated provenance and must not be used for
+  current response intake.
 
 ## Send Preflight
 
