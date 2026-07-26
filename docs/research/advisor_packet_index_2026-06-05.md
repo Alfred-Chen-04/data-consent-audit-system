@@ -1,12 +1,14 @@
 # Advisor Packet Index, 2026-06-05
 
-This is the one-file entrypoint for communicating the current SSRP consent
-interface audit status to Dr. Singh after his June 5 guidance.
+This is the complete dated advisor-communication history after the June 5
+guidance. For the current closeout artifact set, response gate, and work order,
+start with `docs/research/closeout_control_index_2026-07-26.md`.
 
 ## What Can Be Sent Today
 
 The current entrypoint is the July 25 joint presentation/poster packet:
 
+- `docs/research/closeout_control_index_2026-07-26.md`
 - `docs/research/july26_decision_to_revision_matrix_2026-07-26.md`
 - `data/closeout/joint_decision_revision_matrix_2026-07-26.csv`
 - `docs/research/july26_advisor_response_and_fallback_protocol_2026-07-26.md`

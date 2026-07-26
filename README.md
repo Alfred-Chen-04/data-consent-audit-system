@@ -29,7 +29,8 @@ for the full positioning.
 
 | File | Purpose |
 |---|---|
-| [SCHEMA.md](SCHEMA.md) | **Start here** — one-page master view: research question → ontology → pipeline → modules → status → open decisions |
+| [docs/research/closeout_control_index_2026-07-26.md](docs/research/closeout_control_index_2026-07-26.md) | **Start here for closeout** — current artifacts, response/revision/freeze gates, dated work order, historical map, and final acceptance checklist |
+| [SCHEMA.md](SCHEMA.md) | One-page technical master view: research question → ontology → pipeline → modules → status → open decisions |
 | [AGENTS.md](AGENTS.md) | How AI agents (Claude Code, Cursor, etc.) collaborate on this repo |
 | [CONCEPTS.md](CONCEPTS.md) | Precise definitions of every audit dimension — the project's ontology |
 | [docs/research/current_project_goal_2026-07-02.md](docs/research/current_project_goal_2026-07-02.md) | Current canonical plain-language goal: RQ1 scoring + RQ2 versioning, not screenshot-only framing |
@@ -38,28 +39,14 @@ for the full positioning.
 | [docs/research/july26_advisor_response_and_fallback_protocol_2026-07-26.md](docs/research/july26_advisor_response_and_fallback_protocol_2026-07-26.md) | Current response gate: verified send preflight plus actual-response and no-response closeout paths |
 | [docs/research/july25_gap_review_and_joint_packet_2026-07-25.md](docs/research/july25_gap_review_and_joint_packet_2026-07-25.md) | Current gap review: on-track assessment, remaining evidence/decision gaps, July 25-August 7 plan, and joint review packet |
 | [docs/research/advisor_email_joint_presentation_poster_review_2026-07-25.md](docs/research/advisor_email_joint_presentation_poster_review_2026-07-25.md) | Current sendable advisor email for five shared presentation/poster closeout decisions |
-| [docs/research/july22_closeout_audit_and_plan_2026-07-22.md](docs/research/july22_closeout_audit_and_plan_2026-07-22.md) | Current full-work audit: verified deadlines, deliverable state, implementation boundary, omissions, and the July 22-August 7 closeout plan |
-| [docs/research/july22_first_presentation_draft_2026-07-22.md](docs/research/july22_first_presentation_draft_2026-07-22.md) | First independent 10-slide presentation draft: editable PPTX, rendered overview, evidence boundary, QA, and hashes |
-| [docs/research/july22_presentation_content_plan_2026-07-22.md](docs/research/july22_presentation_content_plan_2026-07-22.md) | Source-by-source content and asset map for the first presentation draft |
-| [docs/research/july21_poster_review_bundle_2026-07-21.md](docs/research/july21_poster_review_bundle_2026-07-21.md) | Historical poster-only review bundle: PPTX, PDF, PNG, email, QA, decision sheet, manifest, and verified hashes |
-| [docs/research/today_work_note_2026-07-20.md](docs/research/today_work_note_2026-07-20.md) | Current July 20 fact/publish note: PR #8 updated to the verified poster-review commit, decision gates unchanged, and no new capture |
-| [docs/research/july16_poster_review_decision_sheet_2026-07-16.md](docs/research/july16_poster_review_decision_sheet_2026-07-16.md) | Historical poster-only decision handoff; its pending state is preserved separately from the current joint sheet |
-| [docs/research/july15_poster_pdf_and_print_qa_2026-07-15.md](docs/research/july15_poster_pdf_and_print_qa_2026-07-15.md) | Current July 15 print/review PDF export: one-page 48 x 36 PDF, visual QA, hashes, and unchanged claim boundary |
-| [docs/research/july14_first_poster_mockup_2026-07-14.md](docs/research/july14_first_poster_mockup_2026-07-14.md) | Current July 14 first visual poster mockup: editable 48 x 36 PPTX, PDF, rendered preview, verified evidence inputs, and claim limits |
-| [docs/research/advisor_email_poster_mockup_review_2026-07-14.md](docs/research/advisor_email_poster_mockup_review_2026-07-14.md) | Historical poster-only advisor review email, superseded by the July 25 joint email |
-| [docs/research/july12_poster_assembly_packet_2026-07-12.md](docs/research/july12_poster_assembly_packet_2026-07-12.md) | Current July 12 poster assembly packet: build order, poster copy, evidence placements, safe claims, and advisor questions |
-| [docs/research/july9_poster_asset_manifest_2026-07-09.md](docs/research/july9_poster_asset_manifest_2026-07-09.md) | Current July 9 poster asset manifest: verified poster screenshot paths, dimensions, byte sizes, captions, and claim guardrails |
-| [docs/research/july7_poster_layout_draft_2026-07-07.md](docs/research/july7_poster_layout_draft_2026-07-07.md) | Current July 7 poster layout draft: three-column poster structure, direct panel copy, screenshot placements, limitations, and build notes |
-| [docs/research/july7_poster_build_work_order_2026-07-07.md](docs/research/july7_poster_build_work_order_2026-07-07.md) | Current July 7 poster build work order: panel-by-panel build plan, safe claims, asset refs, limitations, and next decisions |
-| [docs/research/july6_recent_work_validation_and_gap_audit_2026-07-06.md](docs/research/july6_recent_work_validation_and_gap_audit_2026-07-06.md) | Current July 6 validation and gap audit: recent-work error check, validation results, OK/not-OK scope, and remaining experiment gaps |
-| [docs/research/july6_poster_section_draft_2026-07-06.md](docs/research/july6_poster_section_draft_2026-07-06.md) | Current July 6 fact-based poster/presentation section draft built only from verified pilot evidence |
-| [docs/research/july5_evidence_sync_audit_2026-07-05.md](docs/research/july5_evidence_sync_audit_2026-07-05.md) | Current July 5 evidence sync audit: local evidence, Git-tracked screenshots, GitHub PR branch state, and remaining raw-HTML/manual-decision gaps |
-| [docs/research/july3_scope_fact_review_and_poster_plan_2026-07-03.md](docs/research/july3_scope_fact_review_and_poster_plan_2026-07-03.md) | Current July 3 scope/fact review: what is done, what is still unresolved, and what the poster can safely say |
+| [docs/research/presentation/ssrp_consent_audit_presentation_draft_2026-07-22.pptx](docs/research/presentation/ssrp_consent_audit_presentation_draft_2026-07-22.pptx) | Current 10-slide presentation draft pending decision-aware final revision |
+| [docs/research/poster/ssrp_poster_aligned_review_2026-07-25.pdf](docs/research/poster/ssrp_poster_aligned_review_2026-07-25.pdf) | Current aligned 48 x 36 poster review PDF; not final |
+| [docs/research/joint_review/ssrp_joint_advisor_review_2026-07-25.zip](docs/research/joint_review/ssrp_joint_advisor_review_2026-07-25.zip) | Current source-matched single-attachment joint review packet |
+| [docs/research/week2_checkin_index_2026-06-06.md](docs/research/week2_checkin_index_2026-06-06.md) | Full dated evidence and work-history navigation; no longer the current closeout entrypoint |
+| [docs/research/advisor_packet_index_2026-06-05.md](docs/research/advisor_packet_index_2026-06-05.md) | Full dated advisor-communication history; no longer the current closeout entrypoint |
 | [docs/architecture.md](docs/architecture.md) | Technical architecture, data flow, module boundaries |
 | [docs/related_work/background_with_citations.md](docs/related_work/background_with_citations.md) | Lit review + regulatory framework + user ecosystem (cited) |
 | [docs/related_work/legal_cheatsheet.md](docs/related_work/legal_cheatsheet.md) | 1-page reference: the 8 legal anchors every audit metric maps to |
-| [docs/research/project_status_plain_language_2026-06-28.md](docs/research/project_status_plain_language_2026-06-28.md) | Plain-language current-state handoff: what exists, where evidence is, what is still unresolved |
-| [docs/research/week2_execution_runbook_2026-06-06.md](docs/research/week2_execution_runbook_2026-06-06.md) | Current Week 2 capture + advisor-review runbook |
 | [Chen_Qianyi_SSRP 2026_Proposal_Final Version.docx.pdf](./Chen_Qianyi_SSRP%202026_Proposal_Final%20Version.docx.pdf) | Original SSRP research proposal |
 
 ## Quick start (WIP)
@@ -230,62 +217,12 @@ Coca-Cola smoke passes all Layer 1 paths.
 - The Week 2 live cycle completed 5/5 captures; sanity is `ready`.
 - Next operational step is the joint presentation/poster review gate; freeze
   current evidence unless one specific RQ2 continuity question is approved.
-- Current decision-aware revision map is [docs/research/july26_decision_to_revision_matrix_2026-07-26.md](docs/research/july26_decision_to_revision_matrix_2026-07-26.md); all execution rows are still waiting for the response branch.
-- Current reproducible evidence inventory is [docs/research/july26_closeout_prefreeze_manifest_2026-07-26.md](docs/research/july26_closeout_prefreeze_manifest_2026-07-26.md); 13/13 files are present, but `ready_for_final_freeze=false` because 20 revision rows are not yet applied and verified.
-- Current response/fallback protocol is [docs/research/july26_advisor_response_and_fallback_protocol_2026-07-26.md](docs/research/july26_advisor_response_and_fallback_protocol_2026-07-26.md).
-- Current joint gap review and closeout plan is [docs/research/july25_gap_review_and_joint_packet_2026-07-25.md](docs/research/july25_gap_review_and_joint_packet_2026-07-25.md).
-- Current joint advisor email is [docs/research/advisor_email_joint_presentation_poster_review_2026-07-25.md](docs/research/advisor_email_joint_presentation_poster_review_2026-07-25.md).
-- Previous scope-update advisor email is [docs/research/advisor_email_scope_update_2026-07-01.md](docs/research/advisor_email_scope_update_2026-07-01.md).
-- Current scope note is [docs/research/current_scope_2026-07-01.md](docs/research/current_scope_2026-07-01.md).
-- Current plain-language project handoff is [docs/research/project_status_plain_language_2026-06-28.md](docs/research/project_status_plain_language_2026-06-28.md).
-- Current summer midpoint progress audit is [docs/research/summer_midpoint_progress_audit_2026-06-29.md](docs/research/summer_midpoint_progress_audit_2026-06-29.md).
-- Current July 1 midpoint recheck and work note is [docs/research/today_work_note_2026-07-01.md](docs/research/today_work_note_2026-07-01.md).
-- Current July 2 fact audit and work note is [docs/research/today_work_note_2026-07-02.md](docs/research/today_work_note_2026-07-02.md).
+- Current closeout entrypoint is [docs/research/closeout_control_index_2026-07-26.md](docs/research/closeout_control_index_2026-07-26.md); it separates the active working set from dated history.
 - Current canonical project goal is [docs/research/current_project_goal_2026-07-02.md](docs/research/current_project_goal_2026-07-02.md).
-- Current single-file joint review bundle is `docs/research/joint_review/ssrp_joint_advisor_review_2026-07-25.zip`.
-- Previous poster-only review bundle is [docs/research/july21_poster_review_bundle_2026-07-21.md](docs/research/july21_poster_review_bundle_2026-07-21.md).
-- Current July 20 fact/publish note is [docs/research/today_work_note_2026-07-20.md](docs/research/today_work_note_2026-07-20.md).
-- Current joint review decision sheet is [data/joint_advisor_review_decision_sheet_2026-07-25.csv](data/joint_advisor_review_decision_sheet_2026-07-25.csv).
-- Previous poster-only review decision sheet is [docs/research/july16_poster_review_decision_sheet_2026-07-16.md](docs/research/july16_poster_review_decision_sheet_2026-07-16.md).
-- Current poster PDF and print QA is [docs/research/july15_poster_pdf_and_print_qa_2026-07-15.md](docs/research/july15_poster_pdf_and_print_qa_2026-07-15.md).
-- Current first visual poster mockup is [docs/research/july14_first_poster_mockup_2026-07-14.md](docs/research/july14_first_poster_mockup_2026-07-14.md).
-- Previous poster-only advisor review email is [docs/research/advisor_email_poster_mockup_review_2026-07-14.md](docs/research/advisor_email_poster_mockup_review_2026-07-14.md).
-- Current July 12 poster assembly packet is [docs/research/july12_poster_assembly_packet_2026-07-12.md](docs/research/july12_poster_assembly_packet_2026-07-12.md).
-- Current July 9 poster asset manifest is [docs/research/july9_poster_asset_manifest_2026-07-09.md](docs/research/july9_poster_asset_manifest_2026-07-09.md).
-- Current July 7 poster layout draft is [docs/research/july7_poster_layout_draft_2026-07-07.md](docs/research/july7_poster_layout_draft_2026-07-07.md).
-- Current July 7 poster build work order is [docs/research/july7_poster_build_work_order_2026-07-07.md](docs/research/july7_poster_build_work_order_2026-07-07.md).
-- Current July 6 validation and gap audit is [docs/research/july6_recent_work_validation_and_gap_audit_2026-07-06.md](docs/research/july6_recent_work_validation_and_gap_audit_2026-07-06.md).
-- Current July 6 poster section draft is [docs/research/july6_poster_section_draft_2026-07-06.md](docs/research/july6_poster_section_draft_2026-07-06.md).
-- Current July 5 evidence sync audit is [docs/research/july5_evidence_sync_audit_2026-07-05.md](docs/research/july5_evidence_sync_audit_2026-07-05.md).
-- Current July 3 scope/fact review and poster plan is [docs/research/july3_scope_fact_review_and_poster_plan_2026-07-03.md](docs/research/july3_scope_fact_review_and_poster_plan_2026-07-03.md).
-- Current presentation/poster work order is [docs/research/presentation_poster_work_order_2026-07-02.md](docs/research/presentation_poster_work_order_2026-07-02.md).
-- Current project inventory and poster story is [docs/research/project_inventory_and_poster_story_2026-07-02.md](docs/research/project_inventory_and_poster_story_2026-07-02.md).
-- Previous short advisor decision email is [docs/research/advisor_email_current_five_decision_2026-06-19.md](docs/research/advisor_email_current_five_decision_2026-06-19.md).
-- The Week 2 capture runbook remains [docs/research/week2_execution_runbook_2026-06-06.md](docs/research/week2_execution_runbook_2026-06-06.md).
-- Current advisor-facing update brief is [docs/research/week2_advisor_update_2026-06-06.md](docs/research/week2_advisor_update_2026-06-06.md).
-- Optional future-paper support skeleton is [docs/research/ssrp_paper_skeleton_2026-06-06.md](docs/research/ssrp_paper_skeleton_2026-06-06.md).
-- Current paper-facing current-evidence RQ1/RQ2 results tables are [docs/research/ssrp_results_tables_2026-06-06.md](docs/research/ssrp_results_tables_2026-06-06.md).
-- Current presentation/poster figure plan is [docs/research/ssrp_figure_plan_2026-06-06.md](docs/research/ssrp_figure_plan_2026-06-06.md).
-- Current presentation/poster writing support pack is [docs/research/ssrp_writing_pack_2026-06-06.md](docs/research/ssrp_writing_pack_2026-06-06.md).
-- Current evidence claim register is [docs/research/ssrp_claim_register_2026-06-06.md](docs/research/ssrp_claim_register_2026-06-06.md).
-- Current SSRP poster plan is [docs/research/ssrp_poster_plan_2026-06-06.md](docs/research/ssrp_poster_plan_2026-06-06.md).
-- Current remaining-work audit is [docs/research/ssrp_remaining_work_audit_2026-05-30.md](docs/research/ssrp_remaining_work_audit_2026-05-30.md).
-- Current CMP confirmation request is [docs/research/cmp_confirmation_request_2026-05-30.md](docs/research/cmp_confirmation_request_2026-05-30.md).
-- Current Week 2 sanity check is [docs/research/week2_sanity_check_2026-06-06.md](docs/research/week2_sanity_check_2026-06-06.md).
-- Current Week 2 advisor check-in index is [docs/research/week2_checkin_index_2026-06-06.md](docs/research/week2_checkin_index_2026-06-06.md).
-- Current Week 2 capture-day checklist is [docs/research/week2_capture_day_checklist_2026-06-06.md](docs/research/week2_capture_day_checklist_2026-06-06.md).
-- Current Week 2 cycle report is [docs/research/week2_cycle_report_2026-06-06.md](docs/research/week2_cycle_report_2026-06-06.md).
-- Current Week 2 preflight check is [docs/research/week2_preflight_check_2026-06-06.md](docs/research/week2_preflight_check_2026-06-06.md).
-- Current Week 2 refresh report is [docs/research/week2_refresh_report_2026-06-06.md](docs/research/week2_refresh_report_2026-06-06.md).
-- Current Week 2 manual evidence review worksheet is [data/week2_manual_evidence_review_2026-06-10.csv](data/week2_manual_evidence_review_2026-06-10.csv).
-- Current Week 3 continuity target list is [data/week3_continuity_targets_2026-06-13.csv](data/week3_continuity_targets_2026-06-13.csv).
-- Current June 14 capture attempt audit is [docs/research/june14_capture_attempt_audit_2026-06-14.md](docs/research/june14_capture_attempt_audit_2026-06-14.md).
-- Current June 15 Coca-Cola smoke capture audit is [docs/research/june15_coca_cola_smoke_audit_2026-06-15.md](docs/research/june15_coca_cola_smoke_audit_2026-06-15.md).
-- Current daily work note is [docs/research/today_work_note_2026-07-02.md](docs/research/today_work_note_2026-07-02.md).
-- Current current-five evidence packet is [docs/research/current_five_evidence_packet_2026-06-19.md](docs/research/current_five_evidence_packet_2026-06-19.md).
-- Current current-five decision sheet is [data/current_five_decision_sheet_2026-06-19.csv](data/current_five_decision_sheet_2026-06-19.csv).
-- Current full project audit is [docs/research/full_project_audit_2026-06-15.md](docs/research/full_project_audit_2026-06-15.md).
-- Current recent-task fact audit is [docs/research/recent_task_fact_audit_2026-06-28.md](docs/research/recent_task_fact_audit_2026-06-28.md).
-- Previous full fact audit is [docs/research/full_project_fact_audit_2026-06-10.md](docs/research/full_project_fact_audit_2026-06-10.md).
-- Run `uv run consent-audit research-status` for a compact current-state dashboard and next action.
+- Current reproducible evidence inventory is [docs/research/july26_closeout_prefreeze_manifest_2026-07-26.md](docs/research/july26_closeout_prefreeze_manifest_2026-07-26.md); 14/14 files are present, but `ready_for_final_freeze=false` because all 20 revision rows still await application and verification.
+- Current decision-aware revision map is [docs/research/july26_decision_to_revision_matrix_2026-07-26.md](docs/research/july26_decision_to_revision_matrix_2026-07-26.md).
+- Current response/fallback protocol is [docs/research/july26_advisor_response_and_fallback_protocol_2026-07-26.md](docs/research/july26_advisor_response_and_fallback_protocol_2026-07-26.md).
+- Current review path is the [joint advisor email](docs/research/advisor_email_joint_presentation_poster_review_2026-07-25.md), [joint review ZIP](docs/research/joint_review/ssrp_joint_advisor_review_2026-07-25.zip), and [joint decision sheet](data/joint_advisor_review_decision_sheet_2026-07-25.csv).
+- Full dated evidence/work history remains in the [Week 2 index](docs/research/week2_checkin_index_2026-06-06.md); communication history remains in the [advisor packet index](docs/research/advisor_packet_index_2026-06-05.md).
+- Run `uv run consent-audit research-status` for the compact runtime dashboard and `uv run consent-audit closeout-prefreeze-manifest` for the reproducible freeze gate.
 - The 8 pending CMP/manual-review rows remain advisor-review material, not locked sample decisions.

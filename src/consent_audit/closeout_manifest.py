@@ -156,6 +156,7 @@ DEFAULT_DELIVERABLE_PATHS = (
     ),
     DEFAULT_REVISION_MATRIX_CSV,
     Path("docs/research/july26_decision_to_revision_matrix_2026-07-26.md"),
+    Path("docs/research/closeout_control_index_2026-07-26.md"),
 )
 
 

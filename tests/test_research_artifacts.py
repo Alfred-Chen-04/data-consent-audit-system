@@ -3,6 +3,7 @@
 import csv
 import hashlib
 import json
+import re
 import xml.etree.ElementTree as ET
 import zipfile
 from collections import Counter
@@ -740,11 +741,12 @@ def test_current_scope_and_advisor_email_reflect_presentation_poster_deliverable
     assert "not as a replacement research question" in scope_text
     assert "Subject: Current project scope and next consent-audit decisions" in email_text
     assert "presentation + large poster + traceable" in readme_text
-    assert "advisor_email_scope_update_2026-07-01.md" in readme_text
+    assert "advisor_email_scope_update_2026-07-01.md" not in readme_text
+    assert "advisor_email_scope_update_2026-07-01.md" in index_text
     assert "[Current scope note, 2026-07-01](current_scope_2026-07-01.md)" in index_text
 
 
-def test_july2_work_note_and_poster_work_order_are_current_entrypoints() -> None:
+def test_july2_work_note_and_poster_work_order_remain_in_history_index() -> None:
     today_path = Path("docs/research/today_work_note_2026-07-02.md")
     work_order_path = Path("docs/research/presentation_poster_work_order_2026-07-02.md")
     readme_path = Path("README.md")
@@ -762,12 +764,12 @@ def test_july2_work_note_and_poster_work_order_are_current_entrypoints() -> None
     assert "RQ1 computational" in work_order_text
     assert "RQ2 automatic" in work_order_text
     assert "Guardian and Coca-Cola are the current banner-present evidence-card" in work_order_text
-    assert "today_work_note_2026-07-02.md" in readme_text
-    assert "presentation_poster_work_order_2026-07-02.md" in readme_text
+    assert "today_work_note_2026-07-02.md" not in readme_text
+    assert "presentation_poster_work_order_2026-07-02.md" not in readme_text
     assert "[Today work note, 2026-07-02](today_work_note_2026-07-02.md)" in index_text
 
 
-def test_project_inventory_and_poster_story_is_current_entrypoint() -> None:
+def test_project_inventory_and_poster_story_remains_in_history_index() -> None:
     inventory_path = Path("docs/research/project_inventory_and_poster_story_2026-07-02.md")
     readme_path = Path("README.md")
     index_path = Path("docs/research/week2_checkin_index_2026-06-06.md")
@@ -784,7 +786,7 @@ def test_project_inventory_and_poster_story_is_current_entrypoint() -> None:
     assert "42 audit reports and 20 longitudinal summaries" in inventory_text
     assert "All 42 referenced screenshot paths exist locally." in inventory_text
     assert "Do not say:" in inventory_text
-    assert "project_inventory_and_poster_story_2026-07-02.md" in readme_text
+    assert "project_inventory_and_poster_story_2026-07-02.md" not in readme_text
     assert (
         "[Project inventory and poster story, 2026-07-02]"
         "(project_inventory_and_poster_story_2026-07-02.md)"
@@ -825,7 +827,7 @@ def test_current_project_goal_is_canonical_entrypoint() -> None:
     assert "[Current project goal, 2026-07-02](current_project_goal_2026-07-02.md)" in index_text
 
 
-def test_july3_scope_fact_review_and_poster_plan_is_current_entrypoint() -> None:
+def test_july3_scope_fact_review_and_poster_plan_remains_in_history() -> None:
     review_path = Path("docs/research/july3_scope_fact_review_and_poster_plan_2026-07-03.md")
     readme_path = Path("README.md")
     index_path = Path("docs/research/week2_checkin_index_2026-06-06.md")
@@ -850,7 +852,7 @@ def test_july3_scope_fact_review_and_poster_plan_is_current_entrypoint() -> None
     assert "8 pending CMP/manual-review" in review_text
     assert "Poster can be drafted now as a pilot/evidence poster" in review_text
     assert "not a completed 20-site final dataset" in advisor_index_text
-    assert "july3_scope_fact_review_and_poster_plan_2026-07-03.md" in readme_text
+    assert "july3_scope_fact_review_and_poster_plan_2026-07-03.md" not in readme_text
     assert (
         "[July 3 scope/fact review and poster plan, 2026-07-03]"
         "(july3_scope_fact_review_and_poster_plan_2026-07-03.md)"
@@ -859,7 +861,7 @@ def test_july3_scope_fact_review_and_poster_plan_is_current_entrypoint() -> None
     assert "july3_scope_fact_review_and_poster_plan_2026-07-03.md" in goal_text
 
 
-def test_july5_evidence_sync_audit_is_current_entrypoint() -> None:
+def test_july5_evidence_sync_audit_remains_in_history() -> None:
     audit_path = Path("docs/research/july5_evidence_sync_audit_2026-07-05.md")
     readme_path = Path("README.md")
     index_path = Path("docs/research/week2_checkin_index_2026-06-06.md")
@@ -887,7 +889,7 @@ def test_july5_evidence_sync_audit_is_current_entrypoint() -> None:
     assert "Pending confirmations: 8." in audit_text
     assert "Screenshot evidence is tracked by Git and present on the GitHub PR branch." in audit_text
     assert "2026-07-05 evidence sync confirmation" in advisor_index_text
-    assert "july5_evidence_sync_audit_2026-07-05.md" in readme_text
+    assert "july5_evidence_sync_audit_2026-07-05.md" not in readme_text
     assert (
         "[July 5 evidence sync audit, 2026-07-05]"
         "(july5_evidence_sync_audit_2026-07-05.md)"
@@ -895,7 +897,7 @@ def test_july5_evidence_sync_audit_is_current_entrypoint() -> None:
     assert "july5_evidence_sync_audit_2026-07-05.md" in advisor_index_text
 
 
-def test_july6_poster_section_draft_is_current_entrypoint() -> None:
+def test_july6_poster_section_draft_remains_in_history() -> None:
     draft_path = Path("docs/research/july6_poster_section_draft_2026-07-06.md")
     readme_path = Path("README.md")
     index_path = Path("docs/research/week2_checkin_index_2026-06-06.md")
@@ -920,7 +922,7 @@ def test_july6_poster_section_draft_is_current_entrypoint() -> None:
     assert "Traceable Consent Interface Audit and Versioning" in draft_text
     assert "No-visible-banner contrast cases are not banner-path failures." in draft_text
     assert "The poster can now safely include:" in draft_text
-    assert "july6_poster_section_draft_2026-07-06.md" in readme_text
+    assert "july6_poster_section_draft_2026-07-06.md" not in readme_text
     assert (
         "[July 6 poster section draft, 2026-07-06]"
         "(july6_poster_section_draft_2026-07-06.md)"
@@ -928,7 +930,7 @@ def test_july6_poster_section_draft_is_current_entrypoint() -> None:
     assert "july6_poster_section_draft_2026-07-06.md" in advisor_index_text
 
 
-def test_july6_recent_work_validation_and_gap_audit_is_current_entrypoint() -> None:
+def test_july6_recent_work_validation_and_gap_audit_remains_in_history() -> None:
     audit_path = Path("docs/research/july6_recent_work_validation_and_gap_audit_2026-07-06.md")
     readme_path = Path("README.md")
     index_path = Path("docs/research/week2_checkin_index_2026-06-06.md")
@@ -953,7 +955,7 @@ def test_july6_recent_work_validation_and_gap_audit_is_current_entrypoint() -> N
     assert "Yes, for the current safe scope:" in audit_text
     assert "No, if \"OK\" means final experiment complete:" in audit_text
     assert "Remaining Gaps Before Experiment Endpoint" in audit_text
-    assert "july6_recent_work_validation_and_gap_audit_2026-07-06.md" in readme_text
+    assert "july6_recent_work_validation_and_gap_audit_2026-07-06.md" not in readme_text
     assert (
         "[July 6 validation and gap audit, 2026-07-06]"
         "(july6_recent_work_validation_and_gap_audit_2026-07-06.md)"
@@ -961,7 +963,7 @@ def test_july6_recent_work_validation_and_gap_audit_is_current_entrypoint() -> N
     assert "july6_recent_work_validation_and_gap_audit_2026-07-06.md" in advisor_index_text
 
 
-def test_july7_poster_build_work_order_is_current_entrypoint() -> None:
+def test_july7_poster_build_work_order_remains_in_history() -> None:
     work_order_path = Path("docs/research/july7_poster_build_work_order_2026-07-07.md")
     readme_path = Path("README.md")
     index_path = Path("docs/research/week2_checkin_index_2026-06-06.md")
@@ -992,7 +994,7 @@ def test_july7_poster_build_work_order_is_current_entrypoint() -> None:
     assert "NerdWallet" in work_order_text
     assert "No-visible-banner contrast cases are not banner-path failures." in work_order_text
     assert "The final dataset is complete." in work_order_text
-    assert "july7_poster_build_work_order_2026-07-07.md" in readme_text
+    assert "july7_poster_build_work_order_2026-07-07.md" not in readme_text
     assert (
         "[July 7 poster build work order, 2026-07-07]"
         "(july7_poster_build_work_order_2026-07-07.md)"
@@ -1000,7 +1002,7 @@ def test_july7_poster_build_work_order_is_current_entrypoint() -> None:
     assert "july7_poster_build_work_order_2026-07-07.md" in advisor_index_text
 
 
-def test_july7_poster_layout_draft_is_current_entrypoint() -> None:
+def test_july7_poster_layout_draft_remains_in_history() -> None:
     layout_path = Path("docs/research/july7_poster_layout_draft_2026-07-07.md")
     readme_path = Path("README.md")
     index_path = Path("docs/research/week2_checkin_index_2026-06-06.md")
@@ -1032,7 +1034,7 @@ def test_july7_poster_layout_draft_is_current_entrypoint() -> None:
     assert "No-visible-banner contrast cases are not banner-path failures." in layout_text
     assert "final dataset complete" in layout_text
     assert "ready for a first visual mockup" in layout_text
-    assert "july7_poster_layout_draft_2026-07-07.md" in readme_text
+    assert "july7_poster_layout_draft_2026-07-07.md" not in readme_text
     assert (
         "[July 7 poster layout draft, 2026-07-07]"
         "(july7_poster_layout_draft_2026-07-07.md)"
@@ -1040,7 +1042,7 @@ def test_july7_poster_layout_draft_is_current_entrypoint() -> None:
     assert "july7_poster_layout_draft_2026-07-07.md" in advisor_index_text
 
 
-def test_july9_poster_asset_manifest_is_current_entrypoint() -> None:
+def test_july9_poster_asset_manifest_remains_in_history() -> None:
     manifest_path = Path("docs/research/july9_poster_asset_manifest_2026-07-09.md")
     readme_path = Path("README.md")
     index_path = Path("docs/research/week2_checkin_index_2026-06-06.md")
@@ -1076,7 +1078,7 @@ def test_july9_poster_asset_manifest_is_current_entrypoint() -> None:
     assert "608556" in manifest_text
     assert "Do not treat as a banner-path failure without the separate table rule." in manifest_text
     assert "This screenshot proves the site still looks the same today." in manifest_text
-    assert "july9_poster_asset_manifest_2026-07-09.md" in readme_text
+    assert "july9_poster_asset_manifest_2026-07-09.md" not in readme_text
     assert (
         "[July 9 poster asset manifest, 2026-07-09]"
         "(july9_poster_asset_manifest_2026-07-09.md)"
@@ -1084,7 +1086,7 @@ def test_july9_poster_asset_manifest_is_current_entrypoint() -> None:
     assert "july9_poster_asset_manifest_2026-07-09.md" in advisor_index_text
 
 
-def test_july12_poster_assembly_packet_is_current_entrypoint() -> None:
+def test_july12_poster_assembly_packet_remains_in_history() -> None:
     packet_path = Path("docs/research/july12_poster_assembly_packet_2026-07-12.md")
     readme_path = Path("README.md")
     index_path = Path("docs/research/week2_checkin_index_2026-06-06.md")
@@ -1121,7 +1123,7 @@ def test_july12_poster_assembly_packet_is_current_entrypoint() -> None:
     assert "No-visible-banner contrast cases are not banner-path failures." in packet_text
     assert "Final dataset complete." in packet_text
     assert "The live website still looks the same today." in packet_text
-    assert "july12_poster_assembly_packet_2026-07-12.md" in readme_text
+    assert "july12_poster_assembly_packet_2026-07-12.md" not in readme_text
     assert (
         "[July 12 poster assembly packet, 2026-07-12]"
         "(july12_poster_assembly_packet_2026-07-12.md)"
@@ -1163,7 +1165,7 @@ def test_july14_first_poster_mockup_is_traceable_and_rendered() -> None:
     assert "no-visible-banner contrast case" in mockup_text
     assert "does not claim legal compliance" in mockup_text
     assert "Test passed. No overflow detected." in mockup_text
-    assert "july14_first_poster_mockup_2026-07-14.md" in readme_text
+    assert "july14_first_poster_mockup_2026-07-14.md" not in readme_text
     assert (
         "[July 14 first poster mockup, 2026-07-14]"
         "(july14_first_poster_mockup_2026-07-14.md)"
@@ -1198,7 +1200,7 @@ def test_july14_poster_mockup_review_email_is_preserved_as_history() -> None:
     assert "no-visible-first-screen-banner contrast cases" in email_text
     assert "Do not claim the final dataset is complete." in email_text
     assert "Do not make legal compliance or non-compliance verdicts." in email_text
-    assert "advisor_email_poster_mockup_review_2026-07-14.md" in readme_text
+    assert "advisor_email_poster_mockup_review_2026-07-14.md" not in readme_text
     assert (
         "[Previous poster-only advisor email, 2026-07-14]"
         "(advisor_email_poster_mockup_review_2026-07-14.md)"
@@ -1677,10 +1679,10 @@ def test_july26_closeout_prefreeze_manifest_matches_current_checkout() -> None:
     assert manifest["summary"] == {
         "decision_gate_count": 4,
         "final_freeze_blocker_count": 1,
-        "key_deliverable_count": 13,
+        "key_deliverable_count": 14,
         "missing_key_deliverable_count": 0,
         "open_decision_row_count_across_sheets": 25,
-        "present_key_deliverable_count": 13,
+        "present_key_deliverable_count": 14,
         "ready_for_final_freeze": False,
         "revision_matrix_row_count": 20,
         "revision_missing_required_row_count": 0,
@@ -1713,6 +1715,9 @@ def test_july26_closeout_prefreeze_manifest_matches_current_checkout() -> None:
         "docs/research/july26_decision_to_revision_matrix_2026-07-26.md"
         in deliverable_paths
     )
+    assert "docs/research/closeout_control_index_2026-07-26.md" in (
+        deliverable_paths
+    )
 
     assert "not a final or frozen manifest" in note_text
     assert "Ready for final freeze: `false`" in note_text
@@ -1724,6 +1729,57 @@ def test_july26_closeout_prefreeze_manifest_matches_current_checkout() -> None:
     assert "all `report_pdf_ref` fields are blank" not in Path(
         "docs/research/july22_closeout_audit_and_plan_2026-07-22.md"
     ).read_text(encoding="utf-8")
+
+
+def test_july26_closeout_control_index_separates_current_and_history() -> None:
+    control_path = Path("docs/research/closeout_control_index_2026-07-26.md")
+    readme_text = Path("README.md").read_text(encoding="utf-8")
+    week2_text = Path(
+        "docs/research/week2_checkin_index_2026-06-06.md"
+    ).read_text(encoding="utf-8")
+    advisor_text = Path(
+        "docs/research/advisor_packet_index_2026-06-05.md"
+    ).read_text(encoding="utf-8")
+    control_text = control_path.read_text(encoding="utf-8")
+
+    assert "**Status: `pre_freeze`" in control_text
+    assert "This is not a final index" in control_text
+    assert "Key deliverables present: 14/14" in control_text
+    assert "Final-freeze readiness: `false`" in control_text
+    assert "`revision_rows_not_applied_verified` for all 20 rows" in control_text
+    assert "0 response-basis claims and 0 basis errors" in control_text
+    assert "July 29, 23:59 Asia/Shanghai" in control_text
+    assert "August 7, 2026" in control_text
+    assert control_text.count("- [ ]") == 8
+    assert "## Current Working Set" in control_text
+    assert "## Superseded Or Historical Paths" in control_text
+    assert "## Historical Trail" in control_text
+
+    current_paths = (
+        "presentation/ssrp_consent_audit_presentation_draft_2026-07-22.pptx",
+        "poster/ssrp_poster_aligned_review_2026-07-25.pdf",
+        "joint_review/ssrp_joint_advisor_review_2026-07-25.zip",
+        "../../data/joint_advisor_review_decision_sheet_2026-07-25.csv",
+        "../../data/closeout/joint_decision_revision_matrix_2026-07-26.csv",
+        "../../data/closeout/closeout_prefreeze_manifest_2026-07-26.json",
+    )
+    assert all(path in control_text for path in current_paths)
+
+    local_links = re.findall(r"\]\(([^)]+)\)", control_text)
+    assert local_links
+    for target in local_links:
+        assert not target.startswith(("http://", "https://", "#"))
+        assert (control_path.parent / target).resolve().exists(), target
+
+    control_name = "closeout_control_index_2026-07-26.md"
+    assert "**Start here for closeout**" in readme_text
+    assert readme_text.index(control_name) < readme_text.index("[SCHEMA.md]")
+    assert "july7_poster_layout_draft_2026-07-07.md" not in readme_text
+    assert "today_work_note_2026-07-02.md" not in readme_text
+    assert "complete dated Week 2 evidence and work-history index" in week2_text
+    assert control_name in week2_text
+    assert "complete dated advisor-communication history" in advisor_text
+    assert control_name in advisor_text
 
 
 def test_july26_manifest_fallback_contract_matches_protocol() -> None:

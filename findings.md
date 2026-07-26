@@ -945,3 +945,27 @@
   facts, not 25 unique decisions and not automatic proof of failure. Under the
   documented no-response branch they remain blank/pending while the project
   fallback basis is recorded separately in the revision matrix.
+
+## 2026-07-26 Closeout Control Index Findings
+
+- README and the two legacy indexes still mixed the current closeout path with
+  many June and early-July notes labeled as current. The files were valid dated
+  history, but the navigation hierarchy no longer matched the project's final
+  two-week phase.
+- `docs/research/closeout_control_index_2026-07-26.md` is now the one current
+  pre-freeze entrypoint. It opens the active presentation, aligned poster,
+  evidence exports, joint review packet, response sheet, revision matrix,
+  protocol, manifest, and closeout assessment.
+- Superseded poster-only assets, emails, and decision paths are explicitly
+  classified without deletion or state rewriting. The Week 2 and advisor
+  indexes remain complete historical navigation rather than competing current
+  entrypoints.
+- The control page carries the exact current non-final state: 14/14 key files,
+  25 cross-sheet open rows, 20 waiting revision rows, zero response-basis
+  claims/errors, and `ready_for_final_freeze=false`.
+- The May 30-July 26 work trail is condensed into five dated periods, while the
+  July 26-August 7 table and eight acceptance checks define the remaining
+  response, revision, freeze, render, rehearsal, and backup work.
+- Current plus historical entrypoints resolve 160 local links with zero
+  missing. The lower count is intentional removal of duplicate README links,
+  not loss of artifacts or provenance.

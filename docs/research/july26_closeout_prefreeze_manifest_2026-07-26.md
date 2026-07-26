@@ -2,7 +2,7 @@
 
 **Status: `pre_freeze` - this is not a final or frozen manifest.**
 
-Generated at: `2026-07-26T13:26:21.784147+00:00`
+Generated at: `2026-07-26T13:43:20.041658+00:00`
 
 Machine-readable source: [`../../data/closeout/closeout_prefreeze_manifest_2026-07-26.json`](../../data/closeout/closeout_prefreeze_manifest_2026-07-26.json)
 
@@ -61,6 +61,7 @@ Regenerate from the repository root with `uv run consent-audit closeout-prefreez
 | `docs/research/july26_advisor_response_and_fallback_protocol_2026-07-26.md` | present | 6424 | `5b44891287430d52c3df79501fe9addf4b17e9a11e8a05a5b855d6ba809b5da5` |
 | `data/closeout/joint_decision_revision_matrix_2026-07-26.csv` | present | 13778 | `01a14c29a661280cacf742a7ea2ad51e6b4bdf37798f3a77ac19527c0179cc6f` |
 | `docs/research/july26_decision_to_revision_matrix_2026-07-26.md` | present | 5453 | `a4d712da03aa4b5b80ac2410cf51bacc763ae6465f6ea1cff284eae85503e522` |
+| `docs/research/closeout_control_index_2026-07-26.md` | present | 9775 | `6b08637f9cfe41c66bd3c32488d64ed936ec155bd867008ee2ebe48d1caf1e4b` |
 
 ## Limitations
 

@@ -1,6 +1,8 @@
 # Week 2 Advisor Check-in Index, 2026-06-06
 
-Use this index as the first file for advisor check-ins.
+This is the complete dated Week 2 evidence and work-history index. For the
+current closeout window, start with the
+[July 26 closeout control index](closeout_control_index_2026-07-26.md).
 
 ## Status
 
@@ -11,6 +13,7 @@ Use this index as the first file for advisor check-ins.
 
 ## Read First
 
+- [Current closeout control index, 2026-07-26](closeout_control_index_2026-07-26.md)
 - [July 26 decision-to-revision matrix, 2026-07-26](july26_decision_to_revision_matrix_2026-07-26.md)
 - [July 26 closeout pre-freeze manifest, 2026-07-26](july26_closeout_prefreeze_manifest_2026-07-26.md)
 - [July 26 advisor response and fallback protocol, 2026-07-26](july26_advisor_response_and_fallback_protocol_2026-07-26.md)

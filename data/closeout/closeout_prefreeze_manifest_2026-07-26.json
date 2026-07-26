@@ -135,7 +135,7 @@
     ],
     "ready_for_final_freeze": false
   },
-  "generated_at": "2026-07-26T13:26:21.784147+00:00",
+  "generated_at": "2026-07-26T13:43:20.041658+00:00",
   "key_deliverables": [
     {
       "bytes": 20937,
@@ -213,6 +213,12 @@
       "bytes": 5453,
       "path": "docs/research/july26_decision_to_revision_matrix_2026-07-26.md",
       "sha256": "a4d712da03aa4b5b80ac2410cf51bacc763ae6465f6ea1cff284eae85503e522",
+      "status": "present"
+    },
+    {
+      "bytes": 9775,
+      "path": "docs/research/closeout_control_index_2026-07-26.md",
+      "sha256": "6b08637f9cfe41c66bd3c32488d64ed936ec155bd867008ee2ebe48d1caf1e4b",
       "status": "present"
     }
   ],
@@ -755,10 +761,10 @@
   "summary": {
     "decision_gate_count": 4,
     "final_freeze_blocker_count": 1,
-    "key_deliverable_count": 13,
+    "key_deliverable_count": 14,
     "missing_key_deliverable_count": 0,
     "open_decision_row_count_across_sheets": 25,
-    "present_key_deliverable_count": 13,
+    "present_key_deliverable_count": 14,
     "ready_for_final_freeze": false,
     "revision_matrix_row_count": 20,
     "revision_missing_required_row_count": 0,
