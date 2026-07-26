@@ -162,6 +162,7 @@ audit invariants.
 | 149. July 25 joint artifact gap review | complete | Rechecked Git, evidence counts, calendar dates, decision sheets, and the July 22 plan; reviewed the presentation and poster together and created a fact-aligned poster revision without changing evidence or layout. |
 | 150. July 25 joint advisor review packet | complete | Created and verified a shared five-row decision sheet, sendable joint email, gap/closeout note, aligned poster outputs, and a nine-file source-matched ZIP; all confirmed-decision fields remain blank. |
 | 151. July 26 advisor response and fallback protocol | complete | Verified the remote packet and PR review state, then defined and tested separate actual-response and no-response execution paths with a July 29 internal cutoff and unchanged blank confirmation fields. |
+| 152. July 26 closeout pre-freeze manifest | complete | Added a reproducible JSON/Markdown inventory for evidence tables, local reference availability, four human-decision gates, and hashed key deliverables; corrected two stale closeout statements and kept the manifest explicitly non-final. |
 
 ## Decisions
 

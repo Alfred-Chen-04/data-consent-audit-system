@@ -2,6 +2,7 @@
 
 import csv
 import hashlib
+import json
 import zipfile
 from pathlib import Path
 
@@ -1592,3 +1593,64 @@ def test_july26_response_protocol_keeps_advisor_and_fallback_states_separate() -
     assert "no_visible_first_screen_banner_contrast" in protocol_text
     assert "freeze_current_evidence_unless_specific_rq2_question_is_approved" in protocol_text
     assert "july26_advisor_response_and_fallback_protocol_2026-07-26.md" in linked_text
+
+
+def test_july26_closeout_prefreeze_manifest_matches_current_checkout() -> None:
+    manifest_path = Path(
+        "data/closeout/closeout_prefreeze_manifest_2026-07-26.json"
+    )
+    note_path = Path(
+        "docs/research/july26_closeout_prefreeze_manifest_2026-07-26.md"
+    )
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    note_text = note_path.read_text(encoding="utf-8")
+    linked_text = "\n".join(
+        path.read_text(encoding="utf-8")
+        for path in (
+            Path("README.md"),
+            Path("docs/research/week2_checkin_index_2026-06-06.md"),
+            Path("docs/research/advisor_packet_index_2026-06-05.md"),
+        )
+    )
+
+    assert manifest["manifest_status"] == "pre_freeze"
+    assert manifest["finalized"] is False
+    assert manifest["repository_path"] == "."
+    assert manifest["evidence_tables"]["audit_report_summary"]["row_count"] == 42
+    assert manifest["evidence_tables"]["longitudinal_summary"]["row_count"] == 20
+
+    screenshot_refs = manifest["reference_audit"]["first_screenshot_ref"]
+    dom_refs = manifest["reference_audit"]["first_dom_snapshot_ref"]
+    pdf_refs = manifest["reference_audit"]["report_pdf_ref"]
+    assert screenshot_refs["status_counts_by_row"] == {"present": 42}
+    assert dom_refs["status_counts_by_row"] == {"missing": 42}
+    assert pdf_refs["column_present"] is False
+    assert pdf_refs["blank_rows"] is None
+
+    gates = manifest["decision_gates"]
+    assert gates["joint_advisor_review"]["open_row_count"] == 5
+    assert gates["poster_review"]["open_row_count"] == 5
+    assert gates["current_five"]["open_row_count"] == 7
+    assert gates["cmp_manual_review"]["open_row_count"] == 8
+    assert manifest["summary"] == {
+        "decision_gate_count": 4,
+        "key_deliverable_count": 11,
+        "missing_key_deliverable_count": 0,
+        "open_decision_row_count_across_sheets": 25,
+        "present_key_deliverable_count": 11,
+    }
+
+    for record in manifest["key_deliverables"]:
+        path = Path(record["path"])
+        assert not path.is_absolute()
+        assert record["status"] == "present"
+        assert record["bytes"] == path.stat().st_size
+        assert record["sha256"] == hashlib.sha256(path.read_bytes()).hexdigest()
+
+    assert "not a final or frozen manifest" in note_text
+    assert "`report_pdf_ref` | false | n/a | n/a" in note_text
+    assert "july26_closeout_prefreeze_manifest_2026-07-26.md" in linked_text
+    assert "closeout_prefreeze_manifest_2026-07-26.json" in linked_text
+    assert "all `report_pdf_ref` fields are blank" not in Path(
+        "docs/research/july22_closeout_audit_and_plan_2026-07-22.md"
+    ).read_text(encoding="utf-8")

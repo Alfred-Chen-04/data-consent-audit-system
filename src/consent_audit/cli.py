@@ -11,6 +11,7 @@ from consent_audit.access_probe_summary import render_access_probe_summary
 from consent_audit.advisor_brief import export_weekly_advisor_brief
 from consent_audit.audit_export import export_audit_reports_to_csv
 from consent_audit.checkin_index import export_checkin_index
+from consent_audit.closeout_manifest import export_closeout_prefreeze_manifest
 from consent_audit.cmp_review import (
     apply_cmp_review_confirmations_to_worksheet,
     build_cmp_review_confirmation_sheet,
@@ -977,6 +978,32 @@ def export_research_package(
         "Wrote research package "
         f"({manifest['audit_report_count']} reports, "
         f"{manifest['weekly_summary_count']} weekly summaries) to {out_dir}"
+    )
+
+
+@app.command("closeout-prefreeze-manifest")
+def closeout_prefreeze_manifest(
+    repo_root: Path = Path("."),
+    out_json: Path = Path(
+        "data/closeout/closeout_prefreeze_manifest_2026-07-26.json"
+    ),
+    out_markdown: Path = Path(
+        "docs/research/july26_closeout_prefreeze_manifest_2026-07-26.md"
+    ),
+) -> None:
+    """Inventory closeout evidence and decisions without claiming a final freeze."""
+    manifest = export_closeout_prefreeze_manifest(
+        repo_root,
+        out_json,
+        out_markdown,
+    )
+    summary = manifest["summary"]
+    typer.echo(
+        "Wrote pre-freeze closeout manifest "
+        f"({summary['present_key_deliverable_count']}/"
+        f"{summary['key_deliverable_count']} key deliverables present; "
+        f"{summary['open_decision_row_count_across_sheets']} open rows across "
+        f"{summary['decision_gate_count']} decision sheets)"
     )
 
 

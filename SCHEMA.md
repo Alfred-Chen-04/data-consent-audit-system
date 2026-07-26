@@ -356,10 +356,10 @@ For a live one-screen view, run `consent-audit research-status`.
 - [ ] Advisor/human confirmation is still needed for the 8 pending CMP/manual-review rows before changing sample-lock status.
 - [ ] The deep sample is currently 5 frozen Week 2 targets; expand toward ~20 well-documented sites only after the capture/evidence gate stays stable and the no-visible-banner rule is confirmed.
 - [ ] Week 3 continuity capture can now be rerun with the fixed OneTrust/click-replay logic, or replaced by a semi-automated manual-validation protocol if advisor/sample priorities say not to rerun yet; the 2026-06-14 attempt remains a failed capture-context observation, not consent-interface evidence.
-- [ ] The presentation must be drafted, rendered, and checked against the same evidence limits as the poster.
+- [ ] The drafted and rendered presentation still needs the final decision-aware revision and rerender before closeout.
 - [ ] The poster remains a review draft until its five pending review decisions are confirmed or explicitly carried as limitations.
 - [ ] RQ2 evidence stops at `week_of=2026-06-06`; do not describe the package as continuous through July without new validated observations.
-- [ ] Raw DOM paths referenced by all 42 report rows are not present in this checkout, and all `report_pdf_ref` fields are blank.
+- [ ] Raw DOM paths referenced by all 42 report rows are not present in this checkout; the current audit export has no `report_pdf_ref` column, and per-report PDFs are not an active runtime output.
 
 ### 9.3 Documents that are drafted but not yet sent / published
 - `docs/alignment_memo.md` — drafted, not yet sent to Dr. Singh + Qiyao (Alfred's decision)

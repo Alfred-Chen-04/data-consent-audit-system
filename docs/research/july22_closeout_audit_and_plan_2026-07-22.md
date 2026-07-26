@@ -39,7 +39,8 @@ project prose:
 - Synced site raw DOM files: 0 `layer1.html` files.
 - Screenshot refs in report export: 42 of 42 resolve to files.
 - DOM refs in report export: 0 of 42 resolve to files.
-- `report_pdf_ref`: blank in all 42 audit-report rows.
+- `report_pdf_ref`: the current audit export has no such column, so no
+  per-report PDF reference can be audited from this table.
 - Poster-review sheet: 5 pending rows and 5 blank confirmed decisions.
 - Current-five sheet: 7 rows and 7 blank confirmed decisions.
 - CMP/manual-review confirmation sheet: 8 pending rows and 8 blank confirmed

@@ -45,6 +45,7 @@ Use:
 - Email: `docs/research/advisor_email_joint_presentation_poster_review_2026-07-25.md`
 - Attachment: `docs/research/joint_review/ssrp_joint_advisor_review_2026-07-25.zip`
 - Response record: `data/joint_advisor_review_decision_sheet_2026-07-25.csv`
+- Current evidence inventory: `docs/research/july26_closeout_prefreeze_manifest_2026-07-26.md`
 
 ## Actual-Response Path
 

@@ -868,3 +868,25 @@
   recommendations may only be recorded as project closeout fallback labels.
   The protocol does not authorize stronger claims, sample expansion, or a new
   continuity capture.
+
+## 2026-07-26 Closeout Pre-Freeze Manifest Findings
+
+- The historical `data/research_package/research_manifest.json` records only
+  two CSV names and row counts. It does not establish whether row-level
+  screenshot/DOM references or current presentation/poster deliverables are
+  present in the checkout.
+- The current audit CSV has 42 rows, 42 present screenshot references, and 42
+  missing DOM references. It has no `report_pdf_ref` column; the July 22 claim
+  that this column contained 42 blanks was inaccurate and is now corrected.
+- The four current decision sheets contain 25 open rows in total when counted
+  by sheet: 5 joint, 5 historical poster-only, 7 current-five, and 8 CMP/manual
+  review. This is a cross-sheet row count, not 25 unique advisor questions.
+- All 11 selected closeout deliverables are present and now have byte sizes and
+  SHA-256 hashes in the generated manifest. The inventory also hashes each of
+  the 42 locally present screenshot references.
+- The new JSON and Markdown outputs are labeled `pre_freeze` and
+  `finalized=false`. File presence and byte identity do not resolve research
+  validity, legal compliance, advisor decisions, or final artifact status.
+- SCHEMA still said the presentation needed to be drafted even though the July
+  22 deck and montage exist. The remaining gate is now stated as final
+  decision-aware revision and rerendering.

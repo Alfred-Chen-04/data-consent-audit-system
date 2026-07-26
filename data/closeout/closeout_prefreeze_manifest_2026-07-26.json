@@ -1,0 +1,675 @@
+{
+  "decision_gates": {
+    "cmp_manual_review": {
+      "blank_confirmation_count": 8,
+      "bytes": 2912,
+      "confirmation_column": "confirmed_decision",
+      "confirmation_column_present": true,
+      "open_row_count": 8,
+      "path": "data/cmp_review_confirmation_sheet_pilot_2026-05-30.csv",
+      "pending_count": 8,
+      "row_count": 8,
+      "sha256": "91ace59665983cb6ba6e1633060c0c0dcf32153d9d40d51c259490e6f8465d61",
+      "status": "present",
+      "status_column": "confirmation_status",
+      "status_column_present": true,
+      "status_counts": {
+        "pending": 8
+      }
+    },
+    "current_five": {
+      "blank_confirmation_count": 7,
+      "bytes": 2409,
+      "confirmation_column": "confirmed_decision",
+      "confirmation_column_present": true,
+      "open_row_count": 7,
+      "path": "data/current_five_decision_sheet_2026-06-19.csv",
+      "pending_count": null,
+      "row_count": 7,
+      "sha256": "06158d3c365079fc7f70f6743f34e89dd2d950c03611483fe8fa1fe1ec4c7664",
+      "status": "present",
+      "status_column": null,
+      "status_column_present": null,
+      "status_counts": null
+    },
+    "joint_advisor_review": {
+      "blank_confirmation_count": 5,
+      "bytes": 2493,
+      "confirmation_column": "confirmed_decision",
+      "confirmation_column_present": true,
+      "open_row_count": 5,
+      "path": "data/joint_advisor_review_decision_sheet_2026-07-25.csv",
+      "pending_count": 5,
+      "row_count": 5,
+      "sha256": "875a708c56ccfa44301762df93740597df0d2eab71667b6670e75646fbd91888",
+      "status": "present",
+      "status_column": "review_status",
+      "status_column_present": true,
+      "status_counts": {
+        "pending": 5
+      }
+    },
+    "poster_review": {
+      "blank_confirmation_count": 5,
+      "bytes": 2007,
+      "confirmation_column": "confirmed_decision",
+      "confirmation_column_present": true,
+      "open_row_count": 5,
+      "path": "data/poster_review_decision_sheet_2026-07-16.csv",
+      "pending_count": 5,
+      "row_count": 5,
+      "sha256": "e3565c6949ba4bca9db624f4fcf0ef87badda20a91c0ffe0210c119455762904",
+      "status": "present",
+      "status_column": "review_status",
+      "status_column_present": true,
+      "status_counts": {
+        "pending": 5
+      }
+    }
+  },
+  "evidence_tables": {
+    "audit_report_summary": {
+      "bytes": 20937,
+      "columns": [
+        "report_id",
+        "bundle_id",
+        "url",
+        "capture_date",
+        "captured_at",
+        "generated_at",
+        "banner_detected",
+        "tier",
+        "layer1_gate_passed",
+        "accept_available",
+        "reject_available",
+        "customize_available",
+        "dismiss_available",
+        "missing_paths",
+        "layer2_mean_effort",
+        "layer2_overall_category",
+        "transparency_grade",
+        "unbiased_choice_grade",
+        "biased_toward",
+        "first_screenshot_ref",
+        "first_dom_snapshot_ref",
+        "dom_hash",
+        "image_hash",
+        "api_cost_usd"
+      ],
+      "path": "data/research_package/audit_report_summary.csv",
+      "row_count": 42,
+      "sha256": "c4fd673a115f14c6969dcaa58e50c7e1c52a23d98bb590411497cce8a078bc49",
+      "status": "present"
+    },
+    "longitudinal_summary": {
+      "bytes": 9141,
+      "columns": [
+        "url",
+        "week_of",
+        "severity",
+        "event_count",
+        "event_types",
+        "max_magnitude",
+        "has_pathway_change",
+        "has_score_change",
+        "has_copy_change",
+        "has_layout_change",
+        "has_dom_restructure",
+        "summary",
+        "implications_for_user"
+      ],
+      "path": "data/research_package/longitudinal_summary.csv",
+      "row_count": 20,
+      "sha256": "f1069383db8bd2ac9b777eaefbff26d4134490c55d397198275db0f5602258c0",
+      "status": "present"
+    }
+  },
+  "finalized": false,
+  "generated_at": "2026-07-26T12:21:10.210044+00:00",
+  "key_deliverables": [
+    {
+      "bytes": 20937,
+      "path": "data/research_package/audit_report_summary.csv",
+      "sha256": "c4fd673a115f14c6969dcaa58e50c7e1c52a23d98bb590411497cce8a078bc49",
+      "status": "present"
+    },
+    {
+      "bytes": 9141,
+      "path": "data/research_package/longitudinal_summary.csv",
+      "sha256": "f1069383db8bd2ac9b777eaefbff26d4134490c55d397198275db0f5602258c0",
+      "status": "present"
+    },
+    {
+      "bytes": 244,
+      "path": "data/research_package/research_manifest.json",
+      "sha256": "628236fe5b418dde276f9f212153fc784bd98ed34b76cd3bc57be914514bfc7f",
+      "status": "present"
+    },
+    {
+      "bytes": 1645523,
+      "path": "docs/research/presentation/ssrp_consent_audit_presentation_draft_2026-07-22.pptx",
+      "sha256": "607ab0791f0062c91ec52090d5b598d936f7de2d033de04af5fe49fb368bcd1a",
+      "status": "present"
+    },
+    {
+      "bytes": 360887,
+      "path": "docs/research/presentation/ssrp_consent_audit_presentation_draft_2026-07-22_montage.png",
+      "sha256": "ae25bd0bde2d68f5aace2a5d5d58a5be16c61b8ef2fdef376065ab74af99ebb6",
+      "status": "present"
+    },
+    {
+      "bytes": 1619551,
+      "path": "docs/research/poster/ssrp_poster_aligned_review_2026-07-25.pptx",
+      "sha256": "c2dd51ea3c7711785ecccb8850c5d6648ae65a7711fba645c13d87ce49655220",
+      "status": "present"
+    },
+    {
+      "bytes": 840621,
+      "path": "docs/research/poster/ssrp_poster_aligned_review_2026-07-25.pdf",
+      "sha256": "1cf0121ca68d8d6c1693cf623e6eb7c7e236af65bfff6d6bf8e533540661819f",
+      "status": "present"
+    },
+    {
+      "bytes": 1694393,
+      "path": "docs/research/poster/ssrp_poster_aligned_review_2026-07-25.png",
+      "sha256": "73427915c149d0fe75d74cccf838670eda109e81d4b104a3e5e39ed4a8c50f71",
+      "status": "present"
+    },
+    {
+      "bytes": 5964170,
+      "path": "docs/research/joint_review/ssrp_joint_advisor_review_2026-07-25.zip",
+      "sha256": "98b2c7b779a9a4b451c6cde992fee9c582b56ebdc90872c9d09169548de00fdd",
+      "status": "present"
+    },
+    {
+      "bytes": 2493,
+      "path": "data/joint_advisor_review_decision_sheet_2026-07-25.csv",
+      "sha256": "875a708c56ccfa44301762df93740597df0d2eab71667b6670e75646fbd91888",
+      "status": "present"
+    },
+    {
+      "bytes": 6301,
+      "path": "docs/research/july26_advisor_response_and_fallback_protocol_2026-07-26.md",
+      "sha256": "8f53bdafd5d088390dfdafad294c38b8657d19847c3647dcd3d958bcae4bc070",
+      "status": "present"
+    }
+  ],
+  "limitations": [
+    "This is a pre-freeze inventory, not a final or frozen manifest.",
+    "A missing reference records checkout availability only; it does not prove the artifact never existed.",
+    "Recommendations and fallback labels are not counted as confirmed human decisions.",
+    "File hashes establish byte identity, not research validity or legal compliance."
+  ],
+  "manifest_status": "pre_freeze",
+  "reference_audit": {
+    "first_dom_snapshot_ref": {
+      "blank_rows": 0,
+      "column_present": true,
+      "nonblank_rows": 42,
+      "references": [
+        {
+          "ref": "data/captures/sites/example_com_20260529_171354/layer1.html",
+          "status": "missing"
+        },
+        {
+          "ref": "data/captures/sites/weather_com_20260529_190138/layer1.html",
+          "status": "missing"
+        },
+        {
+          "ref": "data/captures/sites/weather_com_20260529_190718/layer1.html",
+          "status": "missing"
+        },
+        {
+          "ref": "data/captures/sites/weather_com_20260529_190849/layer1.html",
+          "status": "missing"
+        },
+        {
+          "ref": "data/captures/sites/www_airbnb_com_20260529_173756/layer1.html",
+          "status": "missing"
+        },
+        {
+          "ref": "data/captures/sites/www_airbnb_com_20260529_184932/layer1.html",
+          "status": "missing"
+        },
+        {
+          "ref": "data/captures/sites/www_amazon_com_20260529_173741/layer1.html",
+          "status": "missing"
+        },
+        {
+          "ref": "data/captures/sites/www_amazon_com_20260529_184922/layer1.html",
+          "status": "missing"
+        },
+        {
+          "ref": "data/captures/sites/www_bbc_com_20260529_161000/layer1.html",
+          "status": "missing"
+        },
+        {
+          "ref": "data/captures/sites/www_bbc_com_20260529_184907/layer1.html",
+          "status": "missing"
+        },
+        {
+          "ref": "data/captures/sites/www_booking_com_20260529_182438/layer1.html",
+          "status": "missing"
+        },
+        {
+          "ref": "data/captures/sites/www_booking_com_20260529_193509/layer1.html",
+          "status": "missing"
+        },
+        {
+          "ref": "data/captures/sites/www_booking_com_20260605_160226/layer1.html",
+          "status": "missing"
+        },
+        {
+          "ref": "data/captures/sites/www_chase_com_20260529_173803/layer1.html",
+          "status": "missing"
+        },
+        {
+          "ref": "data/captures/sites/www_chase_com_20260529_184940/layer1.html",
+          "status": "missing"
+        },
+        {
+          "ref": "data/captures/sites/www_cnn_com_20260529_173735/layer1.html",
+          "status": "missing"
+        },
+        {
+          "ref": "data/captures/sites/www_cnn_com_20260529_181620/layer1.html",
+          "status": "missing"
+        },
+        {
+          "ref": "data/captures/sites/www_cnn_com_20260529_193504/layer1.html",
+          "status": "missing"
+        },
+        {
+          "ref": "data/captures/sites/www_cnn_com_20260605_160221/layer1.html",
+          "status": "missing"
+        },
+        {
+          "ref": "data/captures/sites/www_coca_cola_com_20260529_191747/layer1.html",
+          "status": "missing"
+        },
+        {
+          "ref": "data/captures/sites/www_coca_cola_com_20260529_193519/layer1.html",
+          "status": "missing"
+        },
+        {
+          "ref": "data/captures/sites/www_coca_cola_com_20260605_160238/layer1.html",
+          "status": "missing"
+        },
+        {
+          "ref": "data/captures/sites/www_ibm_com_20260529_191806/layer1.html",
+          "status": "missing"
+        },
+        {
+          "ref": "data/captures/sites/www_ikea_com_20260529_191757/layer1.html",
+          "status": "missing"
+        },
+        {
+          "ref": "data/captures/sites/www_intuit_com_20260529_191813/layer1.html",
+          "status": "missing"
+        },
+        {
+          "ref": "data/captures/sites/www_nerdwallet_com_20260529_173808/layer1.html",
+          "status": "missing"
+        },
+        {
+          "ref": "data/captures/sites/www_nerdwallet_com_20260529_181624/layer1.html",
+          "status": "missing"
+        },
+        {
+          "ref": "data/captures/sites/www_nerdwallet_com_20260529_193515/layer1.html",
+          "status": "missing"
+        },
+        {
+          "ref": "data/captures/sites/www_nerdwallet_com_20260605_160232/layer1.html",
+          "status": "missing"
+        },
+        {
+          "ref": "data/captures/sites/www_nytimes_com_20260529_161016/layer1.html",
+          "status": "missing"
+        },
+        {
+          "ref": "data/captures/sites/www_nytimes_com_20260529_184912/layer1.html",
+          "status": "missing"
+        },
+        {
+          "ref": "data/captures/sites/www_reddit_com_20260529_161027/layer1.html",
+          "status": "missing"
+        },
+        {
+          "ref": "data/captures/sites/www_reuters_com_20260529_161025/layer1.html",
+          "status": "missing"
+        },
+        {
+          "ref": "data/captures/sites/www_spotify_com_20260529_173759/layer1.html",
+          "status": "missing"
+        },
+        {
+          "ref": "data/captures/sites/www_spotify_com_20260529_184935/layer1.html",
+          "status": "missing"
+        },
+        {
+          "ref": "data/captures/sites/www_theguardian_com_20260529_161010/layer1.html",
+          "status": "missing"
+        },
+        {
+          "ref": "data/captures/sites/www_theguardian_com_20260529_181602/layer1.html",
+          "status": "missing"
+        },
+        {
+          "ref": "data/captures/sites/www_theguardian_com_20260529_193456/layer1.html",
+          "status": "missing"
+        },
+        {
+          "ref": "data/captures/sites/www_theguardian_com_20260605_160209/layer1.html",
+          "status": "missing"
+        },
+        {
+          "ref": "data/captures/sites/www_walmart_com_20260529_173749/layer1.html",
+          "status": "missing"
+        },
+        {
+          "ref": "data/captures/sites/www_walmart_com_20260529_184926/layer1.html",
+          "status": "missing"
+        },
+        {
+          "ref": "data/captures/sites/www_wikipedia_org_20260529_161030/layer1.html",
+          "status": "missing"
+        }
+      ],
+      "status_counts_by_row": {
+        "missing": 42
+      },
+      "status_counts_unique": {
+        "missing": 42
+      },
+      "total_rows": 42,
+      "unique_reference_count": 42
+    },
+    "first_screenshot_ref": {
+      "blank_rows": 0,
+      "column_present": true,
+      "nonblank_rows": 42,
+      "references": [
+        {
+          "bytes": 18486,
+          "ref": "data/captures/sites/example_com_20260529_171354/layer1.png",
+          "sha256": "e7bfca3fc482966b1be4c13367fbedcab54aa096b44bdb2ac688b3302c0c3839",
+          "status": "present"
+        },
+        {
+          "bytes": 367852,
+          "ref": "data/captures/sites/weather_com_20260529_190138/layer1.png",
+          "sha256": "e707cd569a1e838a2a80fefbc7abe69fae1a6f5d9ec90d878e6b18dbf49b324a",
+          "status": "present"
+        },
+        {
+          "bytes": 367852,
+          "ref": "data/captures/sites/weather_com_20260529_190718/layer1.png",
+          "sha256": "e707cd569a1e838a2a80fefbc7abe69fae1a6f5d9ec90d878e6b18dbf49b324a",
+          "status": "present"
+        },
+        {
+          "bytes": 367852,
+          "ref": "data/captures/sites/weather_com_20260529_190849/layer1.png",
+          "sha256": "e707cd569a1e838a2a80fefbc7abe69fae1a6f5d9ec90d878e6b18dbf49b324a",
+          "status": "present"
+        },
+        {
+          "bytes": 21007,
+          "ref": "data/captures/sites/www_airbnb_com_20260529_173756/layer1.png",
+          "sha256": "6a57e60c8d862a7269a4bbf5633b1a37d9ebc7627b78b75c6a6266902b6e731a",
+          "status": "present"
+        },
+        {
+          "bytes": 28000,
+          "ref": "data/captures/sites/www_airbnb_com_20260529_184932/layer1.png",
+          "sha256": "8eba4e8ded1c7818d07c8ef99f3f7c532d626bf472ba35171be0d84cc48dc762",
+          "status": "present"
+        },
+        {
+          "bytes": 738290,
+          "ref": "data/captures/sites/www_amazon_com_20260529_173741/layer1.png",
+          "sha256": "04d7f70f4a8a49f503a6d8b8a3f761bb04103fb1da540076c14a88cb4c1de226",
+          "status": "present"
+        },
+        {
+          "bytes": 738434,
+          "ref": "data/captures/sites/www_amazon_com_20260529_184922/layer1.png",
+          "sha256": "22f4665875eb3dff6c5c8e12ac15feb2902ef3e02daff0bbfd7a4a26000c85ea",
+          "status": "present"
+        },
+        {
+          "bytes": 412473,
+          "ref": "data/captures/sites/www_bbc_com_20260529_161000/layer1.png",
+          "sha256": "b52bedab45eecdc2b7fa0fca990e14942e03fe9b18bc876a14b6a2a604aff974",
+          "status": "present"
+        },
+        {
+          "bytes": 456634,
+          "ref": "data/captures/sites/www_bbc_com_20260529_184907/layer1.png",
+          "sha256": "aac144ca2ef0476043f3911d6d8b4ed35f9421d0522282c5777887d9c2f58ef3",
+          "status": "present"
+        },
+        {
+          "bytes": 107079,
+          "ref": "data/captures/sites/www_booking_com_20260529_182438/layer1.png",
+          "sha256": "f05320c257f4daf7ed68080437fca97daf6387eb1d1ed072ba2d78dd005447ef",
+          "status": "present"
+        },
+        {
+          "bytes": 92718,
+          "ref": "data/captures/sites/www_booking_com_20260529_193509/layer1.png",
+          "sha256": "fc3403b1c41f46dceb485337847ebc14d5c466d50917f956ccae605e5178813a",
+          "status": "present"
+        },
+        {
+          "bytes": 97083,
+          "ref": "data/captures/sites/www_booking_com_20260605_160226/layer1.png",
+          "sha256": "0bb0845189d1f375b0265b7317f2e864e603f0f4dbf878f8f615986443c57907",
+          "status": "present"
+        },
+        {
+          "bytes": 157465,
+          "ref": "data/captures/sites/www_chase_com_20260529_173803/layer1.png",
+          "sha256": "8de5d4b6eaa7c164cf698b871e40da6b6560f40d636031f43aba450b851818d5",
+          "status": "present"
+        },
+        {
+          "bytes": 158662,
+          "ref": "data/captures/sites/www_chase_com_20260529_184940/layer1.png",
+          "sha256": "d7bcfb337af1388b56a9e2330fecbce6708ce46b77ac6ee3edd977efe153d893",
+          "status": "present"
+        },
+        {
+          "bytes": 345936,
+          "ref": "data/captures/sites/www_cnn_com_20260529_173735/layer1.png",
+          "sha256": "f351d7de76b5dc1edffaeb687a356e26f93586e8df9e08b1d555fa3aeda89b12",
+          "status": "present"
+        },
+        {
+          "bytes": 693267,
+          "ref": "data/captures/sites/www_cnn_com_20260529_181620/layer1.png",
+          "sha256": "4567ca8ad264424598642d998e2229e4601dbc4c404bab7a431a411557d25d35",
+          "status": "present"
+        },
+        {
+          "bytes": 642176,
+          "ref": "data/captures/sites/www_cnn_com_20260529_193504/layer1.png",
+          "sha256": "3143c6a335fc692f90de68e3724649453912be6c19972cdfd1f049433081857a",
+          "status": "present"
+        },
+        {
+          "bytes": 439361,
+          "ref": "data/captures/sites/www_cnn_com_20260605_160221/layer1.png",
+          "sha256": "1e3682704522cd9c7b8b0f4d0182a19d81907405c86571a8859caef1c47c5a68",
+          "status": "present"
+        },
+        {
+          "bytes": 358743,
+          "ref": "data/captures/sites/www_coca_cola_com_20260529_191747/layer1.png",
+          "sha256": "c9730a63fd9db7df9876e915a19728170956dc8b6b127aba1d61074e662b4504",
+          "status": "present"
+        },
+        {
+          "bytes": 358743,
+          "ref": "data/captures/sites/www_coca_cola_com_20260529_193519/layer1.png",
+          "sha256": "c9730a63fd9db7df9876e915a19728170956dc8b6b127aba1d61074e662b4504",
+          "status": "present"
+        },
+        {
+          "bytes": 338126,
+          "ref": "data/captures/sites/www_coca_cola_com_20260605_160238/layer1.png",
+          "sha256": "d073cbf7a3201dcfb38729402de676ab986e910e986d531425152eda4c849e1b",
+          "status": "present"
+        },
+        {
+          "bytes": 429661,
+          "ref": "data/captures/sites/www_ibm_com_20260529_191806/layer1.png",
+          "sha256": "5b4b1898aa293deab3b0d4941e89b0525cabdcfcd3a290915854a68fd868d320",
+          "status": "present"
+        },
+        {
+          "bytes": 444610,
+          "ref": "data/captures/sites/www_ikea_com_20260529_191757/layer1.png",
+          "sha256": "4e7a043aacb102fc96bfdcef4e56dcf5ce361dc66fdbd4437621b6be2225336f",
+          "status": "present"
+        },
+        {
+          "bytes": 14031,
+          "ref": "data/captures/sites/www_intuit_com_20260529_191813/layer1.png",
+          "sha256": "3c6d88664dbbb6a3120215bd31b8797a73b451cae2e7efb736d3ad0232e09b2a",
+          "status": "present"
+        },
+        {
+          "bytes": 608556,
+          "ref": "data/captures/sites/www_nerdwallet_com_20260529_173808/layer1.png",
+          "sha256": "abd1f0c3a7c94814a1c4152a4343ff6de54b7f65093d1085ea65fc50e6a22186",
+          "status": "present"
+        },
+        {
+          "bytes": 608556,
+          "ref": "data/captures/sites/www_nerdwallet_com_20260529_181624/layer1.png",
+          "sha256": "abd1f0c3a7c94814a1c4152a4343ff6de54b7f65093d1085ea65fc50e6a22186",
+          "status": "present"
+        },
+        {
+          "bytes": 616238,
+          "ref": "data/captures/sites/www_nerdwallet_com_20260529_193515/layer1.png",
+          "sha256": "a0f296d2a45ef5e10dd0f4723e6d86082590618dbd6abd9f05d4c7654acc8f29",
+          "status": "present"
+        },
+        {
+          "bytes": 608556,
+          "ref": "data/captures/sites/www_nerdwallet_com_20260605_160232/layer1.png",
+          "sha256": "abd1f0c3a7c94814a1c4152a4343ff6de54b7f65093d1085ea65fc50e6a22186",
+          "status": "present"
+        },
+        {
+          "bytes": 394750,
+          "ref": "data/captures/sites/www_nytimes_com_20260529_161016/layer1.png",
+          "sha256": "3a217523486891e271874f2b857fd0e2d642c682ab8b811af4e89978fbd140fc",
+          "status": "present"
+        },
+        {
+          "bytes": 466242,
+          "ref": "data/captures/sites/www_nytimes_com_20260529_184912/layer1.png",
+          "sha256": "e605e30226de951d93d69d0704b26039a9b84682d5eee5cd50db6364aced834b",
+          "status": "present"
+        },
+        {
+          "bytes": 75853,
+          "ref": "data/captures/sites/www_reddit_com_20260529_161027/layer1.png",
+          "sha256": "09257e5194a97b035720233cd6abf610c1887316f387f22c0c9077ec42d8f198",
+          "status": "present"
+        },
+        {
+          "bytes": 39329,
+          "ref": "data/captures/sites/www_reuters_com_20260529_161025/layer1.png",
+          "sha256": "396bab62dbd99d6155b5ebf137b87d423ec683f8232721f5659785d3725cf2e2",
+          "status": "present"
+        },
+        {
+          "bytes": 19583,
+          "ref": "data/captures/sites/www_spotify_com_20260529_173759/layer1.png",
+          "sha256": "d46410f7355c881895171e8da68cb76e2d76839d1fcf98e462962b42398f30f5",
+          "status": "present"
+        },
+        {
+          "bytes": 164723,
+          "ref": "data/captures/sites/www_spotify_com_20260529_184935/layer1.png",
+          "sha256": "1d66c936cbcb9f31c9bb2e105bcf00ef32b83243a338906ec2a262bd938f17fe",
+          "status": "present"
+        },
+        {
+          "bytes": 272631,
+          "ref": "data/captures/sites/www_theguardian_com_20260529_161010/layer1.png",
+          "sha256": "e2238e874e0baa80efbfdb5b1bdc3945f71a4258bd954600907f45c8858bbcc0",
+          "status": "present"
+        },
+        {
+          "bytes": 139803,
+          "ref": "data/captures/sites/www_theguardian_com_20260529_181602/layer1.png",
+          "sha256": "a408457277df27145c920fb137c767ea06e4c01f02d56b8fdfb39f87d9df238e",
+          "status": "present"
+        },
+        {
+          "bytes": 139803,
+          "ref": "data/captures/sites/www_theguardian_com_20260529_193456/layer1.png",
+          "sha256": "a408457277df27145c920fb137c767ea06e4c01f02d56b8fdfb39f87d9df238e",
+          "status": "present"
+        },
+        {
+          "bytes": 144914,
+          "ref": "data/captures/sites/www_theguardian_com_20260605_160209/layer1.png",
+          "sha256": "12bfcbb7edac5d3ebfe34517845d6db997f0e0f654f3470fa37430376c56458b",
+          "status": "present"
+        },
+        {
+          "bytes": 381786,
+          "ref": "data/captures/sites/www_walmart_com_20260529_173749/layer1.png",
+          "sha256": "17766a54640331e1b819b2928ec147fd0bf5d24fc2676fac805ad21bd7cd9d41",
+          "status": "present"
+        },
+        {
+          "bytes": 448794,
+          "ref": "data/captures/sites/www_walmart_com_20260529_184926/layer1.png",
+          "sha256": "b9335efa0dfdda3cd233ee4b1254deadf9f97c6a7adc47823b7716fb203b40ea",
+          "status": "present"
+        },
+        {
+          "bytes": 162361,
+          "ref": "data/captures/sites/www_wikipedia_org_20260529_161030/layer1.png",
+          "sha256": "a769d45af303379444f4479011b5745911f581d5b349f65843ef18e8466a44fc",
+          "status": "present"
+        }
+      ],
+      "status_counts_by_row": {
+        "present": 42
+      },
+      "status_counts_unique": {
+        "present": 42
+      },
+      "total_rows": 42,
+      "unique_reference_count": 42
+    },
+    "report_pdf_ref": {
+      "blank_rows": null,
+      "column_present": false,
+      "nonblank_rows": null,
+      "references": [],
+      "status_counts_by_row": null,
+      "status_counts_unique": {},
+      "total_rows": 42,
+      "unique_reference_count": 0
+    }
+  },
+  "repository_path": ".",
+  "schema_version": 1,
+  "summary": {
+    "decision_gate_count": 4,
+    "key_deliverable_count": 11,
+    "missing_key_deliverable_count": 0,
+    "open_decision_row_count_across_sheets": 25,
+    "present_key_deliverable_count": 11
+  }
+}

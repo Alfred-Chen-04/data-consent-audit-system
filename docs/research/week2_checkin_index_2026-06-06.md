@@ -11,6 +11,7 @@ Use this index as the first file for advisor check-ins.
 
 ## Read First
 
+- [July 26 closeout pre-freeze manifest, 2026-07-26](july26_closeout_prefreeze_manifest_2026-07-26.md)
 - [July 26 advisor response and fallback protocol, 2026-07-26](july26_advisor_response_and_fallback_protocol_2026-07-26.md)
 - [July 25 gap review and joint packet, 2026-07-25](july25_gap_review_and_joint_packet_2026-07-25.md)
 - [Current joint advisor email, 2026-07-25](advisor_email_joint_presentation_poster_review_2026-07-25.md)
@@ -77,6 +78,7 @@ Use this index as the first file for advisor check-ins.
 
 ## Data Package
 
+- [Closeout pre-freeze JSON manifest](../../data/closeout/closeout_prefreeze_manifest_2026-07-26.json)
 - [Research package](../../data/research_package)
 - [Research manifest](../../data/research_package/research_manifest.json)
 - [Audit report summary](../../data/research_package/audit_report_summary.csv)
@@ -98,6 +100,7 @@ Use this index as the first file for advisor check-ins.
 - `PYTHONPATH=src .venv/bin/python -m consent_audit.cli week2-refresh-outputs`
 - `PYTHONPATH=src .venv/bin/python -m consent_audit.cli week2-capture-checklist`
 - `PYTHONPATH=src .venv/bin/python -m consent_audit.cli export-research-package`
+- `PYTHONPATH=src .venv/bin/python -m consent_audit.cli closeout-prefreeze-manifest`
 - `PYTHONPATH=src .venv/bin/python -m consent_audit.cli advisor-update-brief`
 - `PYTHONPATH=src .venv/bin/python -m consent_audit.cli week2-sanity-check`
 - `PYTHONPATH=src .venv/bin/python -m consent_audit.cli checkin-index`

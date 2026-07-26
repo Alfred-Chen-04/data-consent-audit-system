@@ -29,6 +29,7 @@ def test_cli_help_lists_research_export_commands() -> None:
     assert "export-audit-reports" in result.output
     assert "export-longitudinal-summary" in result.output
     assert "export-research-package" in result.output
+    assert "closeout-prefreeze-manifest" in result.output
     assert "cmp-review-queue" in result.output
     assert "cmp-review-worksheet" in result.output
     assert "cmp-review-packet" in result.output
@@ -3536,3 +3537,59 @@ def test_cli_export_research_package_invokes_exporter(
     assert seen == {"out_dir": tmp_path, "limit": 7}
     assert "3 reports" in result.output
     assert "2 weekly summaries" in result.output
+
+
+def test_cli_closeout_prefreeze_manifest_invokes_exporter(
+    monkeypatch,
+    tmp_path: Path,
+) -> None:
+    seen: dict[str, Any] = {}
+
+    def fake_export_closeout_prefreeze_manifest(
+        repo_root: Path,
+        out_json: Path,
+        out_markdown: Path,
+    ) -> dict[str, Any]:
+        seen.update(
+            repo_root=repo_root,
+            out_json=out_json,
+            out_markdown=out_markdown,
+        )
+        return {
+            "summary": {
+                "present_key_deliverable_count": 9,
+                "key_deliverable_count": 11,
+                "open_decision_row_count_across_sheets": 25,
+                "decision_gate_count": 4,
+            }
+        }
+
+    monkeypatch.setattr(
+        cli,
+        "export_closeout_prefreeze_manifest",
+        fake_export_closeout_prefreeze_manifest,
+    )
+    out_json = tmp_path / "manifest.json"
+    out_markdown = tmp_path / "manifest.md"
+
+    result = runner.invoke(
+        cli.app,
+        [
+            "closeout-prefreeze-manifest",
+            "--repo-root",
+            str(tmp_path),
+            "--out-json",
+            str(out_json),
+            "--out-markdown",
+            str(out_markdown),
+        ],
+    )
+
+    assert result.exit_code == 0
+    assert seen == {
+        "repo_root": tmp_path,
+        "out_json": out_json,
+        "out_markdown": out_markdown,
+    }
+    assert "9/11 key deliverables present" in result.output
+    assert "25 open rows across 4 decision sheets" in result.output
