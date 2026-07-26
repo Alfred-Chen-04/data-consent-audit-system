@@ -283,6 +283,7 @@ def test_cli_research_status_invokes_renderer(
         *,
         targets_csv: Path,
         research_manifest_json: Path,
+        closeout_manifest_json: Path,
         cmp_confirmation_csv: Path,
         preflight_md: Path,
         sanity_md: Path,
@@ -297,6 +298,7 @@ def test_cli_research_status_invokes_renderer(
     ) -> str:
         seen["targets_csv"] = targets_csv
         seen["research_manifest_json"] = research_manifest_json
+        seen["closeout_manifest_json"] = closeout_manifest_json
         seen["cmp_confirmation_csv"] = cmp_confirmation_csv
         seen["preflight_md"] = preflight_md
         seen["sanity_md"] = sanity_md
@@ -318,6 +320,7 @@ def test_cli_research_status_invokes_renderer(
     )
     targets_csv = tmp_path / "targets.csv"
     manifest_json = tmp_path / "manifest.json"
+    closeout_manifest_json = tmp_path / "closeout_manifest.json"
     cmp_csv = tmp_path / "cmp.csv"
     preflight_md = tmp_path / "preflight.md"
     sanity_md = tmp_path / "sanity.md"
@@ -338,6 +341,8 @@ def test_cli_research_status_invokes_renderer(
             str(targets_csv),
             "--research-manifest-json",
             str(manifest_json),
+            "--closeout-manifest-json",
+            str(closeout_manifest_json),
             "--cmp-confirmation-csv",
             str(cmp_csv),
             "--preflight-md",
@@ -367,6 +372,7 @@ def test_cli_research_status_invokes_renderer(
     assert seen == {
         "targets_csv": targets_csv,
         "research_manifest_json": manifest_json,
+        "closeout_manifest_json": closeout_manifest_json,
         "cmp_confirmation_csv": cmp_csv,
         "preflight_md": preflight_md,
         "sanity_md": sanity_md,

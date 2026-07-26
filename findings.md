@@ -969,3 +969,25 @@
 - Current plus historical entrypoints resolve 160 local links with zero
   missing. The lower count is intentional removal of duplicate README links,
   not loss of artifacts or provenance.
+
+## 2026-07-26 Closeout Runtime-Status Findings
+
+- `research-status` still defaulted to the July 22 closeout plan and displayed
+  a June cycle-report next action without identifying it as historical. That
+  conflicted with the July 26 single-entrypoint hierarchy.
+- The dashboard now reads the schema-v2 pre-freeze manifest and reports its
+  checked-in deliverable, revision-execution, response-basis, blocker, and
+  readiness facts instead of maintaining a separate closeout claim.
+- The current output reports 14/14 key deliverables, 20
+  `waiting_for_response_branch` rows, zero response-basis claims, zero basis
+  errors, and `ready_for_final_freeze=false` with the 20-row execution blocker.
+- The current next action is derived from that state: record only actual joint
+  decisions through July 29, then use the documented no-response branch only
+  after the internal cutoff if no response was recorded.
+- A repository-level CLI regression runs the default command and prevents the
+  July 22 plan from being relabeled as the current closeout path. Historical
+  Week 2 metrics remain available, but their old next action is explicitly
+  labeled historical.
+- Full verification passed 256 tests, Ruff, Mypy on 53 source files,
+  compileall, 160 decoded local links with zero missing, both ZIP integrity
+  checks, schema-v2 JSON gate assertions, and `git diff --check`.

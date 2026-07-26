@@ -31,6 +31,11 @@ File presence is not completion. The machine-readable source for these counts
 is the current pre-freeze manifest, and the selected response branch must be
 applied and verified before this index can be replaced by a final index.
 
+Run `uv run consent-audit research-status` for the compact current-state
+dashboard. It reads this control index and the schema-v2 pre-freeze manifest;
+its closeout counts and next action are derived from those checked-in sources,
+not maintained as a separate status claim.
+
 ## Current Working Set
 
 | Role | Current file | Current use |

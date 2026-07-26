@@ -23,6 +23,34 @@ def test_render_research_status_summarizes_week2_state(tmp_path: Path) -> None:
         json.dumps({"audit_report_count": 37, "weekly_summary_count": 15}),
         encoding="utf-8",
     )
+    closeout_manifest_json = tmp_path / "closeout_manifest.json"
+    closeout_manifest_json.write_text(
+        json.dumps(
+            {
+                "manifest_status": "pre_freeze",
+                "summary": {
+                    "key_deliverable_count": 14,
+                    "present_key_deliverable_count": 14,
+                    "revision_response_basis_claim_count": 0,
+                    "revision_response_basis_error_count": 0,
+                    "revision_rows_not_applied_verified_count": 20,
+                    "ready_for_final_freeze": False,
+                },
+                "revision_execution_gate": {
+                    "status_counts": {"waiting_for_response_branch": 20}
+                },
+                "freeze_readiness": {
+                    "blockers": [
+                        {
+                            "code": "revision_rows_not_applied_verified",
+                            "count": 20,
+                        }
+                    ]
+                },
+            }
+        ),
+        encoding="utf-8",
+    )
     cmp_confirmation_csv = tmp_path / "cmp_confirmation.csv"
     with cmp_confirmation_csv.open("w", newline="", encoding="utf-8") as csv_file:
         writer = csv.DictWriter(csv_file, fieldnames=["url", "confirmation_status"])
@@ -71,6 +99,7 @@ def test_render_research_status_summarizes_week2_state(tmp_path: Path) -> None:
     text = render_research_status(
         targets_csv=targets_csv,
         research_manifest_json=manifest_json,
+        closeout_manifest_json=closeout_manifest_json,
         cmp_confirmation_csv=cmp_confirmation_csv,
         preflight_md=preflight_md,
         sanity_md=sanity_md,
@@ -85,6 +114,20 @@ def test_render_research_status_summarizes_week2_state(tmp_path: Path) -> None:
     )
 
     assert "# SSRP Research Status" in text
+    assert "- Current phase: `closeout`" in text
+    assert f"- Closeout control index: `{current_closeout_md}` (present)" in text
+    assert "- Closeout manifest: `pre_freeze`; key deliverables=14/14" in text
+    assert "- Revision execution: waiting_for_response_branch=20" in text
+    assert "- Response-basis claims: 0; validation errors: 0" in text
+    assert (
+        "- Final-freeze readiness: `false`; "
+        "blockers=revision_rows_not_applied_verified=20" in text
+    )
+    assert (
+        "- Current next action: Record actual joint decisions through July 29; "
+        "if none are recorded, wait until the internal cutoff before selecting "
+        "the documented project fallbacks." in text
+    )
     assert "- Week 2 targets: 5" in text
     assert "- Categories: finance=1, food=1, news=2, travel=1" in text
     assert "- Preflight status: `ready_for_capture`" in text
@@ -94,19 +137,23 @@ def test_render_research_status_summarizes_week2_state(tmp_path: Path) -> None:
     assert "- Longitudinal summaries in package: 15" in text
     assert "- CMP confirmations: pending=8" in text
     assert (
-        "- Support artifacts: claim_register=present, figure_plan=present, "
+        "- Historical/support artifacts: claim_register=present, figure_plan=present, "
         "paper_skeleton=present, poster_plan=present, results_tables=present, "
         "writing_pack=present"
     ) in text
     assert (
-        "- Cycle-report next action: Start live capture with `week2-cycle` when ready."
+        "- Historical cycle-report next action: Start live capture with "
+        "`week2-cycle` when ready."
         in text
     )
-    assert f"- Current closeout plan: `{current_closeout_md}` (present)" in text
+    assert "## Current Closeout Artifacts" in text
+    assert f"- Closeout control index: `{current_closeout_md}`" in text
+    assert f"- Closeout pre-freeze manifest: `{closeout_manifest_json}`" in text
+    assert "## Historical And Supporting Artifacts" in text
     assert f"- SSRP results tables: `{results_tables_md}`" in text
     assert f"- Optional future-paper skeleton: `{paper_skeleton_md}`" in text
     assert f"- SSRP presentation/poster figure plan: `{figure_plan_md}`" in text
     assert f"- SSRP writing support pack: `{writing_pack_md}`" in text
     assert f"- SSRP evidence claim register: `{claim_register_md}`" in text
     assert f"- SSRP poster plan: `{poster_plan_md}`" in text
-    assert f"- Current closeout plan: `{current_closeout_md}`" in text
+    assert "- Current closeout plan:" not in text

@@ -10,6 +10,9 @@ from collections import Counter
 from datetime import datetime
 from pathlib import Path
 
+from typer.testing import CliRunner
+
+from consent_audit import cli
 from consent_audit.closeout_manifest import (
     PROJECT_FALLBACK_CUTOFF,
     PROJECT_FALLBACK_VALUES,
@@ -1754,6 +1757,8 @@ def test_july26_closeout_control_index_separates_current_and_history() -> None:
     assert "## Current Working Set" in control_text
     assert "## Superseded Or Historical Paths" in control_text
     assert "## Historical Trail" in control_text
+    assert "`uv run consent-audit research-status`" in control_text
+    assert "schema-v2 pre-freeze manifest" in control_text
 
     current_paths = (
         "presentation/ssrp_consent_audit_presentation_draft_2026-07-22.pptx",
@@ -1780,6 +1785,26 @@ def test_july26_closeout_control_index_separates_current_and_history() -> None:
     assert control_name in week2_text
     assert "complete dated advisor-communication history" in advisor_text
     assert control_name in advisor_text
+
+
+def test_research_status_default_entrypoint_uses_current_closeout_gate() -> None:
+    result = CliRunner().invoke(cli.app, ["research-status"])
+
+    assert result.exit_code == 0
+    assert "Current phase: `closeout`" in result.output
+    assert (
+        "Closeout control index: "
+        "`docs/research/closeout_control_index_2026-07-26.md` (present)"
+        in result.output
+    )
+    assert (
+        "Closeout pre-freeze manifest: "
+        "`data/closeout/closeout_prefreeze_manifest_2026-07-26.json`"
+        in result.output
+    )
+    assert "Final-freeze readiness: `false`" in result.output
+    assert "Historical cycle-report next action:" in result.output
+    assert "Current closeout plan: `docs/research/july22" not in result.output
 
 
 def test_july26_manifest_fallback_contract_matches_protocol() -> None:

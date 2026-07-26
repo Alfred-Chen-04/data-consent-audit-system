@@ -136,6 +136,9 @@ def access_probe_summary(
 def research_status(
     targets_csv: Path = Path("data/week2_deep_sample_targets_2026-06-06.csv"),
     research_manifest_json: Path = Path("data/research_package/research_manifest.json"),
+    closeout_manifest_json: Path = Path(
+        "data/closeout/closeout_prefreeze_manifest_2026-07-26.json"
+    ),
     cmp_confirmation_csv: Path = Path(
         "data/cmp_review_confirmation_sheet_pilot_2026-05-30.csv"
     ),
@@ -149,7 +152,7 @@ def research_status(
     claim_register_md: Path = Path("docs/research/ssrp_claim_register_2026-06-06.md"),
     poster_plan_md: Path = Path("docs/research/ssrp_poster_plan_2026-06-06.md"),
     current_closeout_md: Path = Path(
-        "docs/research/july22_closeout_audit_and_plan_2026-07-22.md"
+        "docs/research/closeout_control_index_2026-07-26.md"
     ),
 ) -> None:
     """Print a compact current-state dashboard for the SSRP workflow."""
@@ -157,6 +160,7 @@ def research_status(
         render_research_status(
             targets_csv=targets_csv,
             research_manifest_json=research_manifest_json,
+            closeout_manifest_json=closeout_manifest_json,
             cmp_confirmation_csv=cmp_confirmation_csv,
             preflight_md=preflight_md,
             sanity_md=sanity_md,
