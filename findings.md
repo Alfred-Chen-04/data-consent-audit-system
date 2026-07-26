@@ -890,3 +890,28 @@
 - SCHEMA still said the presentation needed to be drafted even though the July
   22 deck and montage exist. The remaining gate is now stated as final
   decision-aware revision and rerendering.
+
+## 2026-07-26 Decision-To-Revision Matrix Findings
+
+- The presentation and poster were structurally inspected rather than inferred
+  from planning prose. The current presentation has 10 slides; the aligned
+  poster has one 48 x 36 inch slide with stable named shapes.
+- The five joint decisions touch 20 mapped execution surfaces: 8 in the
+  presentation, 8 in the poster, and 4 in the evidence package. Scope framing
+  has 7 rows, evidence-card selection 4, and the remaining three decisions 3
+  rows each.
+- Every mapped presentation/poster `current_surface` string resolves in the
+  actual PPTX slide XML after normalizing text-run whitespace. This prevents a
+  plan row from pointing at wording that is not in the current artifact.
+- All matrix rows remain `waiting_for_response_branch`; `selected_value`,
+  `response_basis`, `applied_by`, `applied_at`, and `notes` are blank. The map
+  prepares work but does not represent a response or authorize edits.
+- Actual advisor answers and project fallbacks have separate response-basis
+  labels. A fallback may be selected only after the July 29 internal cutoff,
+  while advisor-confirmation fields remain blank/pending.
+- The historical poster-only `final_print_revision` question is not part of
+  the five-row joint sheet. It remains pending dated history and is not treated
+  as a sixth joint decision; final poster visual/print QA remains mandatory
+  regardless.
+- Adding the matrix and handoff raised the checked pre-freeze deliverable set
+  from 11/11 to 13/13 present files, each with bytes and SHA-256 recorded.

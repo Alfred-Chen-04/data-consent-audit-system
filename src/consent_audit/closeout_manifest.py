@@ -84,6 +84,8 @@ DEFAULT_DELIVERABLE_PATHS = (
         "docs/research/"
         "july26_advisor_response_and_fallback_protocol_2026-07-26.md"
     ),
+    Path("data/closeout/joint_decision_revision_matrix_2026-07-26.csv"),
+    Path("docs/research/july26_decision_to_revision_matrix_2026-07-26.md"),
 )
 
 

@@ -11,6 +11,7 @@ Use this index as the first file for advisor check-ins.
 
 ## Read First
 
+- [July 26 decision-to-revision matrix, 2026-07-26](july26_decision_to_revision_matrix_2026-07-26.md)
 - [July 26 closeout pre-freeze manifest, 2026-07-26](july26_closeout_prefreeze_manifest_2026-07-26.md)
 - [July 26 advisor response and fallback protocol, 2026-07-26](july26_advisor_response_and_fallback_protocol_2026-07-26.md)
 - [July 25 gap review and joint packet, 2026-07-25](july25_gap_review_and_joint_packet_2026-07-25.md)
@@ -78,6 +79,7 @@ Use this index as the first file for advisor check-ins.
 
 ## Data Package
 
+- [Joint decision revision matrix](../../data/closeout/joint_decision_revision_matrix_2026-07-26.csv)
 - [Closeout pre-freeze JSON manifest](../../data/closeout/closeout_prefreeze_manifest_2026-07-26.json)
 - [Research package](../../data/research_package)
 - [Research manifest](../../data/research_package/research_manifest.json)

@@ -3,7 +3,9 @@
 import csv
 import hashlib
 import json
+import xml.etree.ElementTree as ET
 import zipfile
+from collections import Counter
 from pathlib import Path
 
 
@@ -1581,8 +1583,9 @@ def test_july26_response_protocol_keeps_advisor_and_fallback_states_separate() -
     assert "day 58 of the 70-day" in protocol_text
     assert "Twelve calendar days remain before August 7" in protocol_text
     assert "5 pending rows and 5 blank" in protocol_text
-    assert "24 commits ahead of and 0 behind" in protocol_text
-    assert "merge state as `clean`" in protocol_text
+    assert "26 commits ahead of and 0 behind" in protocol_text
+    assert "open, draft," in protocol_text
+    assert "mergeable" in protocol_text
     assert "0 conversation comments" in protocol_text
     assert "ready_to_send_or_discuss" in protocol_text
     assert "July 29, 2026 at 23:59 Asia/Shanghai" in protocol_text
@@ -1634,10 +1637,10 @@ def test_july26_closeout_prefreeze_manifest_matches_current_checkout() -> None:
     assert gates["cmp_manual_review"]["open_row_count"] == 8
     assert manifest["summary"] == {
         "decision_gate_count": 4,
-        "key_deliverable_count": 11,
+        "key_deliverable_count": 13,
         "missing_key_deliverable_count": 0,
         "open_decision_row_count_across_sheets": 25,
-        "present_key_deliverable_count": 11,
+        "present_key_deliverable_count": 13,
     }
 
     for record in manifest["key_deliverables"]:
@@ -1647,6 +1650,17 @@ def test_july26_closeout_prefreeze_manifest_matches_current_checkout() -> None:
         assert record["bytes"] == path.stat().st_size
         assert record["sha256"] == hashlib.sha256(path.read_bytes()).hexdigest()
 
+    deliverable_paths = {
+        record["path"] for record in manifest["key_deliverables"]
+    }
+    assert "data/closeout/joint_decision_revision_matrix_2026-07-26.csv" in (
+        deliverable_paths
+    )
+    assert (
+        "docs/research/july26_decision_to_revision_matrix_2026-07-26.md"
+        in deliverable_paths
+    )
+
     assert "not a final or frozen manifest" in note_text
     assert "`report_pdf_ref` | false | n/a | n/a" in note_text
     assert "july26_closeout_prefreeze_manifest_2026-07-26.md" in linked_text
@@ -1654,3 +1668,100 @@ def test_july26_closeout_prefreeze_manifest_matches_current_checkout() -> None:
     assert "all `report_pdf_ref` fields are blank" not in Path(
         "docs/research/july22_closeout_audit_and_plan_2026-07-22.md"
     ).read_text(encoding="utf-8")
+
+
+def test_july26_decision_revision_matrix_maps_real_surfaces_without_applying() -> None:
+    matrix_path = Path(
+        "data/closeout/joint_decision_revision_matrix_2026-07-26.csv"
+    )
+    note_path = Path(
+        "docs/research/july26_decision_to_revision_matrix_2026-07-26.md"
+    )
+    presentation_path = Path(
+        "docs/research/presentation/"
+        "ssrp_consent_audit_presentation_draft_2026-07-22.pptx"
+    )
+    poster_path = Path(
+        "docs/research/poster/ssrp_poster_aligned_review_2026-07-25.pptx"
+    )
+
+    with matrix_path.open(newline="", encoding="utf-8") as handle:
+        rows = list(csv.DictReader(handle))
+
+    def extract_slide_text(path: Path) -> str:
+        text_runs: list[str] = []
+        with zipfile.ZipFile(path) as archive:
+            slide_names = sorted(
+                name
+                for name in archive.namelist()
+                if name.startswith("ppt/slides/slide") and name.endswith(".xml")
+            )
+            for name in slide_names:
+                root = ET.fromstring(archive.read(name))
+                text_runs.extend(
+                    node.text or "" for node in root.iter() if node.tag.endswith("}t")
+                )
+        return " ".join(" ".join(text_runs).split())
+
+    presentation_text = extract_slide_text(presentation_path)
+    poster_text = extract_slide_text(poster_path)
+    linked_text = "\n".join(
+        path.read_text(encoding="utf-8")
+        for path in (
+            Path("README.md"),
+            Path("docs/research/week2_checkin_index_2026-06-06.md"),
+            Path("docs/research/advisor_packet_index_2026-06-05.md"),
+            Path(
+                "docs/research/"
+                "july26_advisor_response_and_fallback_protocol_2026-07-26.md"
+            ),
+        )
+    )
+
+    assert len(rows) == 20
+    assert len({row["revision_id"] for row in rows}) == 20
+    assert Counter(row["artifact"] for row in rows) == {
+        "presentation": 8,
+        "poster": 8,
+        "evidence_package": 4,
+    }
+    assert Counter(row["decision_id"] for row in rows) == {
+        "shared_scope_framing": 7,
+        "main_evidence_cards": 4,
+        "contrast_case_treatment": 3,
+        "unresolved_review_items": 3,
+        "rq2_continuity_gate": 3,
+    }
+    assert all(
+        row["execution_status"] == "waiting_for_response_branch" for row in rows
+    )
+    for field in (
+        "selected_value",
+        "response_basis",
+        "applied_by",
+        "applied_at",
+        "notes",
+    ):
+        assert all(not row[field] for row in rows)
+    assert all(row["default_or_fallback_action"] for row in rows)
+    assert all(row["alternate_answer_gate"] for row in rows)
+    assert all(row["required_verification"] for row in rows)
+
+    for row in rows:
+        if row["artifact"] == "presentation":
+            assert row["current_surface"] in presentation_text
+        elif row["artifact"] == "poster":
+            assert row["current_surface"] in poster_text
+        for source in row["source_evidence"].split(";"):
+            assert Path(source).exists(), (row["revision_id"], source)
+
+    note_text = note_path.read_text(encoding="utf-8")
+    assert "This is an execution map, not a decision record." in note_text
+    assert "20 execution rows" in note_text
+    assert "actual_advisor_response" in note_text
+    assert "project_fallback_after_internal_cutoff" in note_text
+    assert "execution_status=applied_verified" in note_text
+    assert "It is not silently promoted into a sixth joint decision" in note_text
+    assert "Do not fill `selected_value`" in note_text
+    assert "july26_decision_to_revision_matrix_2026-07-26.md" in linked_text
+    assert "joint_decision_revision_matrix_2026-07-26.csv" in linked_text

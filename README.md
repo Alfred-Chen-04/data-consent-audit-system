@@ -33,6 +33,7 @@ for the full positioning.
 | [AGENTS.md](AGENTS.md) | How AI agents (Claude Code, Cursor, etc.) collaborate on this repo |
 | [CONCEPTS.md](CONCEPTS.md) | Precise definitions of every audit dimension — the project's ontology |
 | [docs/research/current_project_goal_2026-07-02.md](docs/research/current_project_goal_2026-07-02.md) | Current canonical plain-language goal: RQ1 scoring + RQ2 versioning, not screenshot-only framing |
+| [docs/research/july26_decision_to_revision_matrix_2026-07-26.md](docs/research/july26_decision_to_revision_matrix_2026-07-26.md) | Current non-final execution map from five joint decisions to exact presentation, poster, and evidence-package surfaces |
 | [docs/research/july26_closeout_prefreeze_manifest_2026-07-26.md](docs/research/july26_closeout_prefreeze_manifest_2026-07-26.md) | Current reproducible pre-freeze inventory: evidence refs, decision gates, deliverable presence, and hashes; explicitly not final |
 | [docs/research/july26_advisor_response_and_fallback_protocol_2026-07-26.md](docs/research/july26_advisor_response_and_fallback_protocol_2026-07-26.md) | Current response gate: verified send preflight plus actual-response and no-response closeout paths |
 | [docs/research/july25_gap_review_and_joint_packet_2026-07-25.md](docs/research/july25_gap_review_and_joint_packet_2026-07-25.md) | Current gap review: on-track assessment, remaining evidence/decision gaps, July 25-August 7 plan, and joint review packet |
@@ -229,6 +230,7 @@ Coca-Cola smoke passes all Layer 1 paths.
 - The Week 2 live cycle completed 5/5 captures; sanity is `ready`.
 - Next operational step is the joint presentation/poster review gate; freeze
   current evidence unless one specific RQ2 continuity question is approved.
+- Current decision-aware revision map is [docs/research/july26_decision_to_revision_matrix_2026-07-26.md](docs/research/july26_decision_to_revision_matrix_2026-07-26.md); all execution rows are still waiting for the response branch.
 - Current reproducible evidence inventory is [docs/research/july26_closeout_prefreeze_manifest_2026-07-26.md](docs/research/july26_closeout_prefreeze_manifest_2026-07-26.md); its status is `pre_freeze`, not final.
 - Current response/fallback protocol is [docs/research/july26_advisor_response_and_fallback_protocol_2026-07-26.md](docs/research/july26_advisor_response_and_fallback_protocol_2026-07-26.md).
 - Current joint gap review and closeout plan is [docs/research/july25_gap_review_and_joint_packet_2026-07-25.md](docs/research/july25_gap_review_and_joint_packet_2026-07-25.md).

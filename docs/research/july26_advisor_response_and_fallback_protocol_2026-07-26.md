@@ -20,8 +20,9 @@ Verified on July 26:
   available on the remote PR branch with the same 5,964,170-byte size and
   SHA-256
   `98b2c7b779a9a4b451c6cde992fee9c582b56ebdc90872c9d09169548de00fdd`.
-- PR #8 is open and draft. Its branch is 24 commits ahead of and 0 behind
-  `main`; GitHub reports the merge state as `clean`.
+- At pre-freeze publication head
+  `7c51f985599647637dfaa95b766bfc4186bcae38`, PR #8 was open, draft,
+  mergeable, 26 commits ahead of and 0 behind `main`.
 - PR #8 has 0 conversation comments, 0 submitted reviews, 0 inline review
   threads, and 0 pull-request workflow runs for the current head.
 
@@ -45,6 +46,7 @@ Use:
 - Email: `docs/research/advisor_email_joint_presentation_poster_review_2026-07-25.md`
 - Attachment: `docs/research/joint_review/ssrp_joint_advisor_review_2026-07-25.zip`
 - Response record: `data/joint_advisor_review_decision_sheet_2026-07-25.csv`
+- Decision-aware execution map: `data/closeout/joint_decision_revision_matrix_2026-07-26.csv`
 - Current evidence inventory: `docs/research/july26_closeout_prefreeze_manifest_2026-07-26.md`
 
 ## Actual-Response Path

@@ -125,7 +125,7 @@
     }
   },
   "finalized": false,
-  "generated_at": "2026-07-26T12:21:10.210044+00:00",
+  "generated_at": "2026-07-26T12:43:49.197457+00:00",
   "key_deliverables": [
     {
       "bytes": 20937,
@@ -188,9 +188,21 @@
       "status": "present"
     },
     {
-      "bytes": 6301,
+      "bytes": 6424,
       "path": "docs/research/july26_advisor_response_and_fallback_protocol_2026-07-26.md",
-      "sha256": "8f53bdafd5d088390dfdafad294c38b8657d19847c3647dcd3d958bcae4bc070",
+      "sha256": "5b44891287430d52c3df79501fe9addf4b17e9a11e8a05a5b855d6ba809b5da5",
+      "status": "present"
+    },
+    {
+      "bytes": 13778,
+      "path": "data/closeout/joint_decision_revision_matrix_2026-07-26.csv",
+      "sha256": "01a14c29a661280cacf742a7ea2ad51e6b4bdf37798f3a77ac19527c0179cc6f",
+      "status": "present"
+    },
+    {
+      "bytes": 5453,
+      "path": "docs/research/july26_decision_to_revision_matrix_2026-07-26.md",
+      "sha256": "a4d712da03aa4b5b80ac2410cf51bacc763ae6465f6ea1cff284eae85503e522",
       "status": "present"
     }
   ],
@@ -667,9 +679,9 @@
   "schema_version": 1,
   "summary": {
     "decision_gate_count": 4,
-    "key_deliverable_count": 11,
+    "key_deliverable_count": 13,
     "missing_key_deliverable_count": 0,
     "open_decision_row_count_across_sheets": 25,
-    "present_key_deliverable_count": 11
+    "present_key_deliverable_count": 13
   }
 }
