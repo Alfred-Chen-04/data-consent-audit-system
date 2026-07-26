@@ -161,6 +161,7 @@ audit invariants.
 | 148. July 22 first presentation draft | complete | Built a 10-slide independent PPTX from the five verified stored screenshots, rendered and inspected every slide, fixed layout defects, and recorded evidence boundaries plus hashes. |
 | 149. July 25 joint artifact gap review | complete | Rechecked Git, evidence counts, calendar dates, decision sheets, and the July 22 plan; reviewed the presentation and poster together and created a fact-aligned poster revision without changing evidence or layout. |
 | 150. July 25 joint advisor review packet | complete | Created and verified a shared five-row decision sheet, sendable joint email, gap/closeout note, aligned poster outputs, and a nine-file source-matched ZIP; all confirmed-decision fields remain blank. |
+| 151. July 26 advisor response and fallback protocol | complete | Verified the remote packet and PR review state, then defined and tested separate actual-response and no-response execution paths with a July 29 internal cutoff and unchanged blank confirmation fields. |
 
 ## Decisions
 

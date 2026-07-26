@@ -11,6 +11,7 @@ Use this index as the first file for advisor check-ins.
 
 ## Read First
 
+- [July 26 advisor response and fallback protocol, 2026-07-26](july26_advisor_response_and_fallback_protocol_2026-07-26.md)
 - [July 25 gap review and joint packet, 2026-07-25](july25_gap_review_and_joint_packet_2026-07-25.md)
 - [Current joint advisor email, 2026-07-25](advisor_email_joint_presentation_poster_review_2026-07-25.md)
 - [Current joint decision sheet, 2026-07-25](../../data/joint_advisor_review_decision_sheet_2026-07-25.csv)

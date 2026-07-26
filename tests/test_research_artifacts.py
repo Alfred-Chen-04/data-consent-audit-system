@@ -1561,3 +1561,34 @@ def test_july25_joint_review_packet_is_aligned_pending_and_source_matched() -> N
     assert "july25_gap_review_and_joint_packet_2026-07-25.md" in linked_text
     assert "advisor_email_joint_presentation_poster_review_2026-07-25.md" in linked_text
     assert "joint_advisor_review_decision_sheet_2026-07-25.csv" in linked_text
+
+
+def test_july26_response_protocol_keeps_advisor_and_fallback_states_separate() -> None:
+    protocol_path = Path(
+        "docs/research/july26_advisor_response_and_fallback_protocol_2026-07-26.md"
+    )
+    protocol_text = protocol_path.read_text(encoding="utf-8")
+    linked_text = "\n".join(
+        path.read_text(encoding="utf-8")
+        for path in (
+            Path("README.md"),
+            Path("docs/research/week2_checkin_index_2026-06-06.md"),
+            Path("docs/research/advisor_packet_index_2026-06-05.md"),
+        )
+    )
+
+    assert "day 58 of the 70-day" in protocol_text
+    assert "Twelve calendar days remain before August 7" in protocol_text
+    assert "5 pending rows and 5 blank" in protocol_text
+    assert "24 commits ahead of and 0 behind" in protocol_text
+    assert "merge state as `clean`" in protocol_text
+    assert "0 conversation comments" in protocol_text
+    assert "ready_to_send_or_discuss" in protocol_text
+    assert "July 29, 2026 at 23:59 Asia/Shanghai" in protocol_text
+    assert "Leave `review_status=pending`" in protocol_text
+    assert "project closeout fallback labels" in protocol_text
+    assert "Do not place it in the CSV's advisor-confirmation" in protocol_text
+    assert "five_site_pilot_method" in protocol_text
+    assert "no_visible_first_screen_banner_contrast" in protocol_text
+    assert "freeze_current_evidence_unless_specific_rq2_question_is_approved" in protocol_text
+    assert "july26_advisor_response_and_fallback_protocol_2026-07-26.md" in linked_text

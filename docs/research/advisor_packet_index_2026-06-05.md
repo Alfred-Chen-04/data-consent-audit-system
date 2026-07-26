@@ -7,6 +7,7 @@ interface audit status to Dr. Singh after his June 5 guidance.
 
 The current entrypoint is the July 25 joint presentation/poster packet:
 
+- `docs/research/july26_advisor_response_and_fallback_protocol_2026-07-26.md`
 - `docs/research/july25_gap_review_and_joint_packet_2026-07-25.md`
 - `docs/research/advisor_email_joint_presentation_poster_review_2026-07-25.md`
 - `docs/research/joint_review/ssrp_joint_advisor_review_2026-07-25.zip`

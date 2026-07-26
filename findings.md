@@ -843,3 +843,28 @@
   current local links, and `git diff --check`. No new browser capture, site
   observation, score, legal judgment, sample expansion, or advisor response was
   introduced.
+
+## 2026-07-26 Advisor Response And Fallback Findings
+
+- July 26 is day 58 of the 70-day core window, leaving 12 calendar days before
+  August 7 and 19 before the original August 14 proposal end date.
+- The local branch, remote branch, and PR #8 head started synchronized at
+  `20176096327ce8bbbad631383db607c0653eb22c`.
+- GitHub compare state is ahead 24 / behind 0 relative to `main`. A direct REST
+  read reports `mergeable=true` and `mergeable_state=clean`; the earlier
+  connector snapshot's `mergeable=false` was not used as a conflict claim.
+- PR #8 has no conversation comments, submitted reviews, inline review threads,
+  or pull-request workflow runs for the current head. No advisor or code-review
+  input can therefore be inferred from GitHub.
+- The remote PR branch serves the nine-file joint ZIP with the same size and
+  SHA-256 as the local source, proving that the prepared attachment is present
+  remotely rather than only documented locally.
+- All decision gates remain unchanged: joint 5 pending/blank, poster-only 5
+  pending/blank, current-five 7 blank, and CMP 8 pending/blank.
+- Added an explicit actual-response path and no-response path. The July 29
+  23:59 Asia/Shanghai cutoff is labeled as an internal project-management
+  choice, not an advisor deadline or response.
+- Under the no-response path, confirmation fields stay blank and the existing
+  recommendations may only be recorded as project closeout fallback labels.
+  The protocol does not authorize stronger claims, sample expansion, or a new
+  continuity capture.

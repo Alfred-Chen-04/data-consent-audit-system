@@ -33,6 +33,7 @@ for the full positioning.
 | [AGENTS.md](AGENTS.md) | How AI agents (Claude Code, Cursor, etc.) collaborate on this repo |
 | [CONCEPTS.md](CONCEPTS.md) | Precise definitions of every audit dimension — the project's ontology |
 | [docs/research/current_project_goal_2026-07-02.md](docs/research/current_project_goal_2026-07-02.md) | Current canonical plain-language goal: RQ1 scoring + RQ2 versioning, not screenshot-only framing |
+| [docs/research/july26_advisor_response_and_fallback_protocol_2026-07-26.md](docs/research/july26_advisor_response_and_fallback_protocol_2026-07-26.md) | Current response gate: verified send preflight plus actual-response and no-response closeout paths |
 | [docs/research/july25_gap_review_and_joint_packet_2026-07-25.md](docs/research/july25_gap_review_and_joint_packet_2026-07-25.md) | Current gap review: on-track assessment, remaining evidence/decision gaps, July 25-August 7 plan, and joint review packet |
 | [docs/research/advisor_email_joint_presentation_poster_review_2026-07-25.md](docs/research/advisor_email_joint_presentation_poster_review_2026-07-25.md) | Current sendable advisor email for five shared presentation/poster closeout decisions |
 | [docs/research/july22_closeout_audit_and_plan_2026-07-22.md](docs/research/july22_closeout_audit_and_plan_2026-07-22.md) | Current full-work audit: verified deadlines, deliverable state, implementation boundary, omissions, and the July 22-August 7 closeout plan |
@@ -224,6 +225,7 @@ Coca-Cola smoke passes all Layer 1 paths.
 - The Week 2 live cycle completed 5/5 captures; sanity is `ready`.
 - Next operational step is the joint presentation/poster review gate; freeze
   current evidence unless one specific RQ2 continuity question is approved.
+- Current response/fallback protocol is [docs/research/july26_advisor_response_and_fallback_protocol_2026-07-26.md](docs/research/july26_advisor_response_and_fallback_protocol_2026-07-26.md).
 - Current joint gap review and closeout plan is [docs/research/july25_gap_review_and_joint_packet_2026-07-25.md](docs/research/july25_gap_review_and_joint_packet_2026-07-25.md).
 - Current joint advisor email is [docs/research/advisor_email_joint_presentation_poster_review_2026-07-25.md](docs/research/advisor_email_joint_presentation_poster_review_2026-07-25.md).
 - Previous scope-update advisor email is [docs/research/advisor_email_scope_update_2026-07-01.md](docs/research/advisor_email_scope_update_2026-07-01.md).
