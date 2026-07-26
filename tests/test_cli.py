@@ -30,6 +30,7 @@ def test_cli_help_lists_research_export_commands() -> None:
     assert "export-longitudinal-summary" in result.output
     assert "export-research-package" in result.output
     assert "closeout-prefreeze-manifest" in result.output
+    assert "closeout-prepare-revisions" in result.output
     assert "cmp-review-queue" in result.output
     assert "cmp-review-worksheet" in result.output
     assert "cmp-review-packet" in result.output
@@ -3603,3 +3604,64 @@ def test_cli_closeout_prefreeze_manifest_invokes_exporter(
     assert "25 open rows across 4 decision sheets" in result.output
     assert "final freeze ready=false" in result.output
     assert "2 blocker categories" in result.output
+
+
+def test_cli_closeout_prepare_revisions_invokes_preparer(
+    monkeypatch,
+    tmp_path: Path,
+) -> None:
+    seen: dict[str, Any] = {}
+    parsed = object()
+    prepared = object()
+
+    def fake_parse_as_of(value: str | None) -> object:
+        seen["as_of_value"] = value
+        return parsed
+
+    def fake_prepare_closeout_revision_branch(**kwargs: Any) -> object:
+        seen["prepare_kwargs"] = kwargs
+        return prepared
+
+    def fake_render_closeout_branch_result(result: object) -> str:
+        assert result is prepared
+        return "branch preparation report"
+
+    monkeypatch.setattr(cli, "parse_as_of", fake_parse_as_of)
+    monkeypatch.setattr(
+        cli,
+        "prepare_closeout_revision_branch",
+        fake_prepare_closeout_revision_branch,
+    )
+    monkeypatch.setattr(
+        cli,
+        "render_closeout_branch_result",
+        fake_render_closeout_branch_result,
+    )
+    joint = tmp_path / "joint.csv"
+    matrix = tmp_path / "matrix.csv"
+
+    result = runner.invoke(
+        cli.app,
+        [
+            "closeout-prepare-revisions",
+            "--joint-decision-csv",
+            str(joint),
+            "--revision-matrix-csv",
+            str(matrix),
+            "--as-of",
+            "2026-07-30T00:01:00+08:00",
+            "--write",
+        ],
+    )
+
+    assert result.exit_code == 0
+    assert seen == {
+        "as_of_value": "2026-07-30T00:01:00+08:00",
+        "prepare_kwargs": {
+            "joint_decision_csv": joint,
+            "revision_matrix_csv": matrix,
+            "as_of": parsed,
+            "write": True,
+        },
+    }
+    assert "branch preparation report" in result.output

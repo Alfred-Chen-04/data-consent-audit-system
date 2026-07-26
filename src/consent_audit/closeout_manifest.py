@@ -9,7 +9,7 @@ import os
 from collections import Counter
 from collections.abc import Sequence
 from dataclasses import dataclass
-from datetime import UTC, datetime, timedelta, timezone
+from datetime import UTC, date, datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any
 from urllib.parse import urlsplit
@@ -167,6 +167,7 @@ DEFAULT_DELIVERABLE_PATHS = (
     DEFAULT_REVISION_MATRIX_CSV,
     Path("docs/research/july26_decision_to_revision_matrix_2026-07-26.md"),
     Path("docs/research/closeout_control_index_2026-07-26.md"),
+    Path("docs/research/closeout_low_token_runbook_2026-07-27.md"),
 )
 
 
@@ -351,6 +352,14 @@ def _has_timezone(value: str) -> bool:
     return parsed.tzinfo is not None and parsed.utcoffset() is not None
 
 
+def _is_iso_date(value: str) -> bool:
+    try:
+        date.fromisoformat(value)
+    except ValueError:
+        return False
+    return True
+
+
 def _joint_decision_contract_errors(
     *,
     source_present: bool,
@@ -417,6 +426,8 @@ def _joint_decision_contract_errors(
         elif status == "confirmed":
             if not all((confirmed_decision, reviewer, review_date)):
                 add(decision_id, "confirmed_response_fields_missing")
+            elif not _is_iso_date(review_date):
+                add(decision_id, "review_date_invalid")
             if confirmed_decision and confirmed_decision not in options:
                 add(decision_id, "confirmed_decision_not_in_options")
             if confirmed_decision == "other" and not notes:
@@ -425,6 +436,22 @@ def _joint_decision_contract_errors(
             add(decision_id, "review_status_invalid")
 
     return errors
+
+
+def validate_joint_decision_contract(
+    *,
+    source_present: bool,
+    fields: Sequence[str],
+    rows: Sequence[dict[str, str]],
+    required_decision_ids: set[str],
+) -> list[dict[str, str]]:
+    """Return fact-only validation errors for the active joint decision sheet."""
+    return _joint_decision_contract_errors(
+        source_present=source_present,
+        fields=fields,
+        rows=rows,
+        required_decision_ids=required_decision_ids,
+    )
 
 
 def _revision_matrix_record(

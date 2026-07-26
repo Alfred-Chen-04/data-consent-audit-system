@@ -48,7 +48,12 @@ class DomSnapshot:
     warnings: list[str]
 
 
-async def capture_site(url: HttpUrl, *, timeout_seconds: int = 180) -> CaptureBundle:
+async def capture_site(
+    url: HttpUrl,
+    *,
+    timeout_seconds: int = 180,
+    capture_root: Path = Path("data/captures/sites"),
+) -> CaptureBundle:
     """Perform one dynamic capture of a site's consent interface.
 
     Returns a complete CaptureBundle. On unrecoverable errors (CAPTCHA walls,
@@ -62,7 +67,7 @@ async def capture_site(url: HttpUrl, *, timeout_seconds: int = 180) -> CaptureBu
     timeout_ms = timeout_seconds * 1000
     captured_at = datetime.now(UTC)
     timestamp = captured_at.strftime("%Y%m%d_%H%M%S")
-    capture_dir = Path("data") / "captures" / "sites" / f"{_slug(url)}_{timestamp}"
+    capture_dir = capture_root / f"{_slug(url)}_{timestamp}"
     capture_dir.mkdir(parents=True, exist_ok=True)
     screenshot_path = capture_dir / "layer1.png"
     dom_path = capture_dir / "layer1.html"

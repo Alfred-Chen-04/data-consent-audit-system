@@ -14,7 +14,7 @@ advisor response or project fallback.**
 
 - Core closeout target: August 7, 2026. Twelve calendar days remain from July
   26.
-- Key deliverables present: 14/14 after this control index is included in the
+- Key deliverables present: 15/15 after the low-token runbook is included in the
   reproducible manifest.
 - Evidence exports: 42 audit-report rows and 20 longitudinal rows; latest
   longitudinal `week_of` is 2026-06-06.
@@ -52,6 +52,7 @@ not maintained as a separate status claim.
 | Response branch | [Advisor response and fallback protocol](july26_advisor_response_and_fallback_protocol_2026-07-26.md) | Separates actual answers from the post-cutoff project fallback |
 | Freeze evidence | [Human-readable pre-freeze manifest](july26_closeout_prefreeze_manifest_2026-07-26.md) and [schema-v2 JSON](../../data/closeout/closeout_prefreeze_manifest_2026-07-26.json) | Reproducible presence, provenance, execution, and readiness gate |
 | Current closeout assessment | [July 25 gap review and joint packet](july25_gap_review_and_joint_packet_2026-07-25.md) | On-track assessment and July 25-August 7 work order |
+| Low-token execution | [July 27 low-token runbook](closeout_low_token_runbook_2026-07-27.md) | Four-step response, revision, verification, and freeze path with short prompts |
 
 ## Superseded Or Historical Paths
 

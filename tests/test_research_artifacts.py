@@ -1698,10 +1698,10 @@ def test_july26_closeout_prefreeze_manifest_matches_current_checkout() -> None:
         "decision_gate_count": 4,
         "final_freeze_blocker_count": 1,
         "joint_decision_contract_error_count": 0,
-        "key_deliverable_count": 14,
+        "key_deliverable_count": 15,
         "missing_key_deliverable_count": 0,
         "open_decision_row_count_across_sheets": 25,
-        "present_key_deliverable_count": 14,
+        "present_key_deliverable_count": 15,
         "ready_for_final_freeze": False,
         "revision_matrix_row_count": 20,
         "revision_missing_required_row_count": 0,
@@ -1737,6 +1737,9 @@ def test_july26_closeout_prefreeze_manifest_matches_current_checkout() -> None:
     assert "docs/research/closeout_control_index_2026-07-26.md" in (
         deliverable_paths
     )
+    assert "docs/research/closeout_low_token_runbook_2026-07-27.md" in (
+        deliverable_paths
+    )
 
     assert "not a final or frozen manifest" in note_text
     assert "Ready for final freeze: `false`" in note_text
@@ -1764,7 +1767,7 @@ def test_july26_closeout_control_index_separates_current_and_history() -> None:
 
     assert "**Status: `pre_freeze`" in control_text
     assert "This is not a final index" in control_text
-    assert "Key deliverables present: 14/14" in control_text
+    assert "Key deliverables present: 15/15" in control_text
     assert "Final-freeze readiness: `false`" in control_text
     assert "`revision_rows_not_applied_verified` for all 20 rows" in control_text
     assert "0 response-basis claims, 0 basis errors, and" in control_text
@@ -1778,6 +1781,7 @@ def test_july26_closeout_control_index_separates_current_and_history() -> None:
     assert "`uv run consent-audit research-status`" in control_text
     assert "schema-v2 pre-freeze manifest" in control_text
     assert "two recommended defaults are not listed options" in control_text
+    assert "closeout_low_token_runbook_2026-07-27.md" in control_text
 
     current_paths = (
         "presentation/ssrp_consent_audit_presentation_draft_2026-07-22.pptx",

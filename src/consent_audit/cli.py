@@ -11,6 +11,11 @@ from consent_audit.access_probe_summary import render_access_probe_summary
 from consent_audit.advisor_brief import export_weekly_advisor_brief
 from consent_audit.audit_export import export_audit_reports_to_csv
 from consent_audit.checkin_index import export_checkin_index
+from consent_audit.closeout_branch import (
+    parse_as_of,
+    prepare_closeout_revision_branch,
+    render_closeout_branch_result,
+)
 from consent_audit.closeout_manifest import export_closeout_prefreeze_manifest
 from consent_audit.cmp_review import (
     apply_cmp_review_confirmations_to_worksheet,
@@ -1013,6 +1018,31 @@ def closeout_prefreeze_manifest(
         f"{str(summary['ready_for_final_freeze']).lower()}; "
         f"{blocker_count} blocker {blocker_label})"
     )
+
+
+@app.command("closeout-prepare-revisions")
+def closeout_prepare_revisions(
+    joint_decision_csv: Path = Path(
+        "data/joint_advisor_review_decision_sheet_2026-07-25.csv"
+    ),
+    revision_matrix_csv: Path = Path(
+        "data/closeout/joint_decision_revision_matrix_2026-07-26.csv"
+    ),
+    as_of: str | None = None,
+    write: bool = False,
+) -> None:
+    """Prepare response-backed revision rows; dry-run unless --write is set."""
+    try:
+        result = prepare_closeout_revision_branch(
+            joint_decision_csv=joint_decision_csv,
+            revision_matrix_csv=revision_matrix_csv,
+            as_of=parse_as_of(as_of),
+            write=write,
+        )
+    except (OSError, ValueError) as exc:
+        typer.echo(str(exc))
+        raise typer.Exit(1) from exc
+    typer.echo(render_closeout_branch_result(result))
 
 
 if __name__ == "__main__":

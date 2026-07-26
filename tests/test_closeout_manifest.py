@@ -214,7 +214,7 @@ def test_export_writes_json_and_explicit_nonfinal_markdown(tmp_path: Path) -> No
     assert saved["finalized"] is False
     assert saved["freeze_readiness"]["ready_for_final_freeze"] is False
     assert saved["freeze_readiness"]["blockers"] == [
-        {"code": "missing_key_deliverables", "count": 12},
+        {"code": "missing_key_deliverables", "count": 13},
         {"code": "revision_matrix_missing", "count": 1},
     ]
     assert "not a final or frozen manifest" in markdown
@@ -418,7 +418,7 @@ def test_manifest_blocks_invalid_joint_decision_contract(tmp_path: Path) -> None
                 "review_status": "confirmed",
                 "confirmed_decision": "mistyped_value",
                 "reviewer": "advisor",
-                "review_date": "2026-07-27",
+                "review_date": "not-a-date",
                 "notes": "",
             }
         ],
@@ -439,10 +439,11 @@ def test_manifest_blocks_invalid_joint_decision_contract(tmp_path: Path) -> None
     revision_gate = manifest["revision_execution_gate"]
     assert revision_gate["joint_decision_contract_validation_errors"] == [
         {"decision_id": "scope", "code": "recommended_default_not_in_options"},
+        {"decision_id": "scope", "code": "review_date_invalid"},
         {"decision_id": "scope", "code": "confirmed_decision_not_in_options"},
     ]
     assert revision_gate["joint_decision_contract_valid"] is False
-    assert manifest["summary"]["joint_decision_contract_error_count"] == 2
+    assert manifest["summary"]["joint_decision_contract_error_count"] == 3
     assert manifest["freeze_readiness"]["blockers"] == [
         {"code": "joint_decision_contract_invalid", "count": 1}
     ]

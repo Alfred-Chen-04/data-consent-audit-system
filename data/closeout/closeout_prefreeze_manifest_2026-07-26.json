@@ -135,7 +135,7 @@
     ],
     "ready_for_final_freeze": false
   },
-  "generated_at": "2026-07-26T16:33:25.853571+00:00",
+  "generated_at": "2026-07-26T17:04:15.752310+00:00",
   "key_deliverables": [
     {
       "bytes": 20937,
@@ -216,9 +216,15 @@
       "status": "present"
     },
     {
-      "bytes": 10176,
+      "bytes": 10356,
       "path": "docs/research/closeout_control_index_2026-07-26.md",
-      "sha256": "c9e97648be2f9db20ac8793fb9ecfd95ac5a15bbcf6b5e26280e3a5378e80d5b",
+      "sha256": "ced66556d4bddcb3235704f8abe508afab309631ae591dc2f13c443d58b93b8a",
+      "status": "present"
+    },
+    {
+      "bytes": 6873,
+      "path": "docs/research/closeout_low_token_runbook_2026-07-27.md",
+      "sha256": "48626e174a266bfc5382ff99f7d635a7162a0be9c3c735b2638004db2002a088",
       "status": "present"
     }
   ],
@@ -764,10 +770,10 @@
     "decision_gate_count": 4,
     "final_freeze_blocker_count": 1,
     "joint_decision_contract_error_count": 0,
-    "key_deliverable_count": 14,
+    "key_deliverable_count": 15,
     "missing_key_deliverable_count": 0,
     "open_decision_row_count_across_sheets": 25,
-    "present_key_deliverable_count": 14,
+    "present_key_deliverable_count": 15,
     "ready_for_final_freeze": false,
     "revision_matrix_row_count": 20,
     "revision_missing_required_row_count": 0,

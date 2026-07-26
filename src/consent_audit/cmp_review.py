@@ -877,7 +877,7 @@ def _render_packet_html(
 <body>
   <header>
     <h1>CMP Manual Review Packet</h1>
-    <p class="summary">{len(rows)} pending review cards. Use these screenshots and DOM links to fill the worksheet decisions.</p>
+    <p class="summary">{len(rows)} pending review cards. Use available screenshots, exported refs, and hashes to fill the worksheet decisions. Missing raw files are labeled rather than linked.</p>
   </header>
   <main>
 {cards}
@@ -896,7 +896,9 @@ def _render_packet_html_card(
     name = row.get("name") or row.get("url") or "site"
     access_href = _asset_href(row.get("access_screenshot_path", ""), out_dir, project_root)
     capture_href = _asset_href(row.get("capture_screenshot_ref", ""), out_dir, project_root)
-    dom_href = _asset_href(row.get("capture_dom_snapshot_ref", ""), out_dir, project_root)
+    dom_ref = row.get("capture_dom_snapshot_ref", "")
+    dom_href = _asset_href(dom_ref, out_dir, project_root)
+    dom_html = _html_reference(dom_ref, dom_href, project_root=project_root)
     return f"""    <article class="review-card" id="{escape(_html_id(name))}">
       <div class="card-head">
         <h2>{escape(name)}</h2>
@@ -911,7 +913,7 @@ def _render_packet_html_card(
         <dt>Review reason</dt><dd>{escape(row.get("review_reason", ""))}</dd>
         <dt>Recommended action</dt><dd>{escape(row.get("recommended_action", ""))}</dd>
         <dt>Decision options</dt><dd><code>{escape(DECISION_OPTIONS)}</code></dd>
-        <dt>Capture DOM</dt><dd><a href="{escape(dom_href)}">{escape(row.get("capture_dom_snapshot_ref", ""))}</a></dd>
+        <dt>Capture DOM</dt><dd>{dom_html}</dd>
         <dt>DOM hash</dt><dd><code>{escape(row.get("dom_hash", ""))}</code></dd>
         <dt>Image hash</dt><dd><code>{escape(row.get("image_hash", ""))}</code></dd>
       </dl>
@@ -925,6 +927,17 @@ def _html_figure(label: str, href: str) -> str:
         f'<figure><img src="{escape(href)}" alt="{escape(label)} screenshot">'
         f"<figcaption>{escape(label)}</figcaption></figure>"
     )
+
+
+def _html_reference(ref: str, href: str, *, project_root: Path) -> str:
+    clean_ref = ref.strip()
+    if not clean_ref:
+        return "missing"
+    if "://" in clean_ref or _resolve_local_ref(
+        clean_ref, project_root=project_root
+    ).is_file():
+        return f'<a href="{escape(href)}">{escape(clean_ref)}</a>'
+    return f"<code>{escape(clean_ref)}</code> (raw file not present in this checkout)"
 
 
 def _render_packet_markdown(
@@ -941,7 +954,13 @@ def _render_packet_markdown(
         name = row.get("name") or row.get("url") or "site"
         access_href = _asset_href(row.get("access_screenshot_path", ""), out_dir, project_root)
         capture_href = _asset_href(row.get("capture_screenshot_ref", ""), out_dir, project_root)
-        dom_href = _asset_href(row.get("capture_dom_snapshot_ref", ""), out_dir, project_root)
+        dom_ref = row.get("capture_dom_snapshot_ref", "")
+        dom_href = _asset_href(dom_ref, out_dir, project_root)
+        dom_markdown = _markdown_reference(
+            dom_ref,
+            dom_href,
+            project_root=project_root,
+        )
         sections.extend(
             [
                 "",
@@ -952,7 +971,7 @@ def _render_packet_markdown(
                 f"- Review reason: {row.get('review_reason', '')}",
                 f"- Recommended action: {row.get('recommended_action', '')}",
                 f"- Decision options: `{DECISION_OPTIONS}`",
-                f"- Capture DOM: [Capture DOM]({dom_href})",
+                f"- Capture DOM: {dom_markdown}",
                 "",
                 f"![Access probe]({access_href})",
                 "",
@@ -960,6 +979,17 @@ def _render_packet_markdown(
             ]
         )
     return "\n".join(sections) + "\n"
+
+
+def _markdown_reference(ref: str, href: str, *, project_root: Path) -> str:
+    clean_ref = ref.strip()
+    if not clean_ref:
+        return "missing"
+    if "://" in clean_ref or _resolve_local_ref(
+        clean_ref, project_root=project_root
+    ).is_file():
+        return f"[Capture DOM]({href})"
+    return f"`{clean_ref}` (raw file not present in this checkout)"
 
 
 def _asset_href(ref: str, out_dir: Path, project_root: Path) -> str:

@@ -9,7 +9,7 @@
 - Review reason: no banner observed in access probe or weekly capture; inspect saved screenshots/DOM to verify CMP presence, region behavior, or sample fit
 - Recommended action: manual screenshot/DOM review; rerun with fresh browser context if a CMP is expected
 - Decision options: `keep_consent_sample|keep_no_banner_case|rerun_fresh_context|replace_candidate|exclude`
-- Capture DOM: [Capture DOM](../captures/sites/www_bbc_com_20260529_184907/layer1.html)
+- Capture DOM: `data/captures/sites/www_bbc_com_20260529_184907/layer1.html` (raw file not present in this checkout)
 
 ![Access probe](../captures/access_probe/www_bbc_com.png)
 
@@ -22,7 +22,7 @@
 - Review reason: no banner observed in access probe or weekly capture; inspect saved screenshots/DOM to verify CMP presence, region behavior, or sample fit
 - Recommended action: manual screenshot/DOM review; rerun with fresh browser context if a CMP is expected
 - Decision options: `keep_consent_sample|keep_no_banner_case|rerun_fresh_context|replace_candidate|exclude`
-- Capture DOM: [Capture DOM](../captures/sites/www_nytimes_com_20260529_184912/layer1.html)
+- Capture DOM: `data/captures/sites/www_nytimes_com_20260529_184912/layer1.html` (raw file not present in this checkout)
 
 ![Access probe](../captures/access_probe/www_nytimes_com.png)
 
@@ -35,7 +35,7 @@
 - Review reason: no banner observed in access probe or weekly capture; inspect saved screenshots/DOM to verify CMP presence, region behavior, or sample fit
 - Recommended action: manual screenshot/DOM review; rerun with fresh browser context if a CMP is expected
 - Decision options: `keep_consent_sample|keep_no_banner_case|rerun_fresh_context|replace_candidate|exclude`
-- Capture DOM: [Capture DOM](../captures/sites/www_reddit_com_20260529_161027/layer1.html)
+- Capture DOM: `data/captures/sites/www_reddit_com_20260529_161027/layer1.html` (raw file not present in this checkout)
 
 ![Access probe](../captures/access_probe/www_reddit_com.png)
 
@@ -48,7 +48,7 @@
 - Review reason: no banner observed in access probe or weekly capture; inspect saved screenshots/DOM to verify CMP presence, region behavior, or sample fit
 - Recommended action: manual screenshot/DOM review; rerun with fresh browser context if a CMP is expected
 - Decision options: `keep_consent_sample|keep_no_banner_case|rerun_fresh_context|replace_candidate|exclude`
-- Capture DOM: [Capture DOM](../captures/sites/www_amazon_com_20260529_184922/layer1.html)
+- Capture DOM: `data/captures/sites/www_amazon_com_20260529_184922/layer1.html` (raw file not present in this checkout)
 
 ![Access probe](../captures/access_probe/www_amazon_com.png)
 
@@ -61,7 +61,7 @@
 - Review reason: no banner observed in access probe or weekly capture; inspect saved screenshots/DOM to verify CMP presence, region behavior, or sample fit
 - Recommended action: manual screenshot/DOM review; rerun with fresh browser context if a CMP is expected
 - Decision options: `keep_consent_sample|keep_no_banner_case|rerun_fresh_context|replace_candidate|exclude`
-- Capture DOM: [Capture DOM](../captures/sites/www_walmart_com_20260529_184926/layer1.html)
+- Capture DOM: `data/captures/sites/www_walmart_com_20260529_184926/layer1.html` (raw file not present in this checkout)
 
 ![Access probe](../captures/access_probe/www_walmart_com.png)
 
@@ -74,7 +74,7 @@
 - Review reason: no banner observed in access probe or weekly capture; inspect saved screenshots/DOM to verify CMP presence, region behavior, or sample fit
 - Recommended action: manual screenshot/DOM review; rerun with fresh browser context if a CMP is expected
 - Decision options: `keep_consent_sample|keep_no_banner_case|rerun_fresh_context|replace_candidate|exclude`
-- Capture DOM: [Capture DOM](../captures/sites/www_airbnb_com_20260529_184932/layer1.html)
+- Capture DOM: `data/captures/sites/www_airbnb_com_20260529_184932/layer1.html` (raw file not present in this checkout)
 
 ![Access probe](../captures/access_probe/www_airbnb_com.png)
 
@@ -87,7 +87,7 @@
 - Review reason: no banner observed in access probe or weekly capture; inspect saved screenshots/DOM to verify CMP presence, region behavior, or sample fit
 - Recommended action: manual screenshot/DOM review; rerun with fresh browser context if a CMP is expected
 - Decision options: `keep_consent_sample|keep_no_banner_case|rerun_fresh_context|replace_candidate|exclude`
-- Capture DOM: [Capture DOM](../captures/sites/www_spotify_com_20260529_184935/layer1.html)
+- Capture DOM: `data/captures/sites/www_spotify_com_20260529_184935/layer1.html` (raw file not present in this checkout)
 
 ![Access probe](../captures/access_probe/www_spotify_com.png)
 
@@ -100,7 +100,7 @@
 - Review reason: no banner observed in access probe or weekly capture; inspect saved screenshots/DOM to verify CMP presence, region behavior, or sample fit
 - Recommended action: manual screenshot/DOM review; rerun with fresh browser context if a CMP is expected
 - Decision options: `keep_consent_sample|keep_no_banner_case|rerun_fresh_context|replace_candidate|exclude`
-- Capture DOM: [Capture DOM](../captures/sites/www_chase_com_20260529_184940/layer1.html)
+- Capture DOM: `data/captures/sites/www_chase_com_20260529_184940/layer1.html` (raw file not present in this checkout)
 
 ![Access probe](../captures/access_probe/www_chase_com.png)
 

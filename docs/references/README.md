@@ -5,10 +5,10 @@ file to one page — the goal is to find the fact later, not re-read the paper.
 
 ## Core comparisons
 
-- [PRISMe](prisme.md) — LLM + privacy policy text (Janecek et al., 2025)
-- [UMBRA / "Abyss"](umbra.md) — rule-based banner audit, cross-sectional (2026)
-- [Consent-O-Matic](consent-o-matic.md) — Aarhus University auto-filler (used longitudinally in CHI 2025)
-- [Matte et al. 2020](matte-2020.md) — original IAB TCF compliance audit
+- PRISMe — LLM + privacy policy text (Janecek et al., 2025); local note not checked in
+- UMBRA / "Abyss" — rule-based banner audit, cross-sectional (2026); local note not checked in
+- Consent-O-Matic — Aarhus University auto-filler (used longitudinally in CHI 2025); local note not checked in
+- Matte et al. 2020 — original IAB TCF compliance audit; local note not checked in
 
 ## Commercial landscape (shorter notes)
 

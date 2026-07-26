@@ -1021,3 +1021,48 @@
 - Full verification passed 257 tests, Ruff, Mypy on 53 source files,
   compileall, 160 decoded local links with zero missing, both ZIP integrity
   checks, JSON gate assertions, and `git diff --check`.
+
+## 2026-07-27 Low-Token Closeout Findings
+
+- The project is on track for the checked-in bounded deliverable: a five-site
+  pilot/method presentation, 48 x 36 poster, and traceable evidence package.
+  It is not evidence for a broad completed empirical study.
+- The current plan uses August 7, 2026 as the core closeout target. Framework
+  work is prepared; the remaining response, revision, visual QA, rehearsal,
+  and backup sequence is date- and evidence-dependent.
+- `closeout-prepare-revisions` closes the unsafe manual gap between the joint
+  response sheet and the 20-row revision matrix. It selects only confirmed
+  values with provenance or the five project fallbacks after the internal
+  cutoff, supports a mixed branch, defaults to dry-run, writes atomically, and
+  refuses malformed or conflicting state.
+- The command never changes a row to `applied_verified`. That status still
+  requires the row's actual artifact edit or retain-current check, required
+  verification, executor, and timezone-aware timestamp.
+- A simulated July 30 dry-run selected all five project fallbacks and prepared
+  all 20 rows without writing. The matrix SHA-256 remained
+  `01a14c29a661280cacf742a7ea2ad51e6b4bdf37798f3a77ac19527c0179cc6f`
+  before and after the simulation.
+- The new low-token runbook is the only future execution handoff needed beside
+  the control index. It records the current direction, work already prepared,
+  external dependencies, exact commands, stop conditions, and four short
+  prompts for later Codex turns.
+- The manifest now hashes 15/15 key deliverables. It still reports zero
+  response-basis claims, 20 `waiting_for_response_branch` rows, and
+  `ready_for_final_freeze=false` with the one 20-row execution blocker.
+- A full-repository Markdown scan initially found 13 missing local targets.
+  One was a repairable progress-log path; four were reference notes never
+  checked in; eight were historical raw DOM refs already known to be absent.
+  The generator and artifacts now label absent DOM files without linking them,
+  preserving refs and hashes without implying local availability. The final
+  scan covers 117 Markdown files and 255 local links with zero missing.
+- Browser integration tests previously wrote localhost captures into the real
+  repository tree. `capture_site` now accepts a capture root, and those tests
+  use pytest temporary directories, leaving the worktree clean after a full
+  run.
+- Final local verification passed 264 tests, Ruff, Mypy on 54 source files,
+  compileall, 2/2 JSON parses, 2/2 ZIP integrity checks, the full link scan,
+  and `git diff --check`.
+- There is still no checked-in proof that the joint packet was sent or
+  discussed, no recorded advisor response, and the July 29 cutoff has not
+  passed. Those facts prevent truthful response selection or final artifact
+  freeze today.
