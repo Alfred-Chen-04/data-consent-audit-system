@@ -6,7 +6,14 @@ import json
 import xml.etree.ElementTree as ET
 import zipfile
 from collections import Counter
+from datetime import datetime
 from pathlib import Path
+
+from consent_audit.closeout_manifest import (
+    PROJECT_FALLBACK_CUTOFF,
+    PROJECT_FALLBACK_VALUES,
+    build_closeout_prefreeze_manifest,
+)
 
 
 def test_smoke_site_list_has_week1_probe_size() -> None:
@@ -1617,6 +1624,7 @@ def test_july26_closeout_prefreeze_manifest_matches_current_checkout() -> None:
     )
 
     assert manifest["manifest_status"] == "pre_freeze"
+    assert manifest["schema_version"] == 2
     assert manifest["finalized"] is False
     assert manifest["repository_path"] == "."
     assert manifest["evidence_tables"]["audit_report_summary"]["row_count"] == 42
@@ -1635,13 +1643,58 @@ def test_july26_closeout_prefreeze_manifest_matches_current_checkout() -> None:
     assert gates["poster_review"]["open_row_count"] == 5
     assert gates["current_five"]["open_row_count"] == 7
     assert gates["cmp_manual_review"]["open_row_count"] == 8
+    revision_gate = manifest["revision_execution_gate"]
+    assert revision_gate["row_count"] == 20
+    assert revision_gate["status_counts"] == {
+        "waiting_for_response_branch": 20
+    }
+    assert revision_gate["artifact_counts"] == {
+        "evidence_package": 4,
+        "poster": 8,
+        "presentation": 8,
+    }
+    assert revision_gate["schema_valid"] is True
+    assert revision_gate["row_states_valid"] is True
+    assert revision_gate["coverage_valid"] is True
+    assert revision_gate["missing_required_revision_ids"] == []
+    assert revision_gate["unexpected_revision_ids"] == []
+    assert revision_gate["not_applied_verified_count"] == 20
+    assert revision_gate["inconsistent_revision_ids"] == []
+    assert revision_gate["response_basis_claim_count"] == 0
+    assert revision_gate["actual_response_basis_count"] == 0
+    assert revision_gate["project_fallback_basis_count"] == 0
+    assert revision_gate["response_basis_claims_valid"] is True
+    assert revision_gate["response_basis_validation_errors"] == []
+    assert revision_gate["response_basis_source"]["status"] == "present"
+    assert revision_gate["response_basis_source"]["schema_valid"] is True
+    assert manifest["freeze_readiness"] == {
+        "blocker_count": 1,
+        "blockers": [
+            {"code": "revision_rows_not_applied_verified", "count": 20}
+        ],
+        "ready_for_final_freeze": False,
+    }
     assert manifest["summary"] == {
         "decision_gate_count": 4,
+        "final_freeze_blocker_count": 1,
         "key_deliverable_count": 13,
         "missing_key_deliverable_count": 0,
         "open_decision_row_count_across_sheets": 25,
         "present_key_deliverable_count": 13,
+        "ready_for_final_freeze": False,
+        "revision_matrix_row_count": 20,
+        "revision_missing_required_row_count": 0,
+        "revision_response_basis_claim_count": 0,
+        "revision_response_basis_error_count": 0,
+        "revision_rows_applied_verified_count": 0,
+        "revision_rows_not_applied_verified_count": 20,
+        "revision_unexpected_row_count": 0,
     }
+
+    regenerated = build_closeout_prefreeze_manifest(
+        Path("."), generated_at=datetime.fromisoformat(manifest["generated_at"])
+    )
+    assert regenerated == manifest
 
     for record in manifest["key_deliverables"]:
         path = Path(record["path"])
@@ -1662,12 +1715,26 @@ def test_july26_closeout_prefreeze_manifest_matches_current_checkout() -> None:
     )
 
     assert "not a final or frozen manifest" in note_text
+    assert "Ready for final freeze: `false`" in note_text
+    assert "`revision_rows_not_applied_verified` | 20" in note_text
+    assert "| 20 | 20 | 0 | 0 | 0 | 0 | 0 | 0 | present |" in note_text
     assert "`report_pdf_ref` | false | n/a | n/a" in note_text
     assert "july26_closeout_prefreeze_manifest_2026-07-26.md" in linked_text
     assert "closeout_prefreeze_manifest_2026-07-26.json" in linked_text
     assert "all `report_pdf_ref` fields are blank" not in Path(
         "docs/research/july22_closeout_audit_and_plan_2026-07-22.md"
     ).read_text(encoding="utf-8")
+
+
+def test_july26_manifest_fallback_contract_matches_protocol() -> None:
+    protocol_text = Path(
+        "docs/research/july26_advisor_response_and_fallback_protocol_2026-07-26.md"
+    ).read_text(encoding="utf-8")
+
+    assert PROJECT_FALLBACK_CUTOFF.isoformat() == "2026-07-29T23:59:00+08:00"
+    assert "July 29, 2026 at 23:59 Asia/Shanghai" in protocol_text
+    for decision_id, fallback_value in PROJECT_FALLBACK_VALUES.items():
+        assert f"| `{decision_id}` | `{fallback_value}` |" in protocol_text
 
 
 def test_july26_decision_revision_matrix_maps_real_surfaces_without_applying() -> None:

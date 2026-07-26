@@ -998,12 +998,16 @@ def closeout_prefreeze_manifest(
         out_markdown,
     )
     summary = manifest["summary"]
+    blocker_count = summary["final_freeze_blocker_count"]
+    blocker_label = "category" if blocker_count == 1 else "categories"
     typer.echo(
         "Wrote pre-freeze closeout manifest "
         f"({summary['present_key_deliverable_count']}/"
         f"{summary['key_deliverable_count']} key deliverables present; "
         f"{summary['open_decision_row_count_across_sheets']} open rows across "
-        f"{summary['decision_gate_count']} decision sheets)"
+        f"{summary['decision_gate_count']} decision sheets; final freeze ready="
+        f"{str(summary['ready_for_final_freeze']).lower()}; "
+        f"{blocker_count} blocker {blocker_label})"
     )
 
 

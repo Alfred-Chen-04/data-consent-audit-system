@@ -125,7 +125,17 @@
     }
   },
   "finalized": false,
-  "generated_at": "2026-07-26T12:43:49.197457+00:00",
+  "freeze_readiness": {
+    "blocker_count": 1,
+    "blockers": [
+      {
+        "code": "revision_rows_not_applied_verified",
+        "count": 20
+      }
+    ],
+    "ready_for_final_freeze": false
+  },
+  "generated_at": "2026-07-26T13:26:21.784147+00:00",
   "key_deliverables": [
     {
       "bytes": 20937,
@@ -210,6 +220,7 @@
     "This is a pre-freeze inventory, not a final or frozen manifest.",
     "A missing reference records checkout availability only; it does not prove the artifact never existed.",
     "Recommendations and fallback labels are not counted as confirmed human decisions.",
+    "Open decision-sheet rows are reported separately from revision execution because the documented no-response branch preserves blank confirmations.",
     "File hashes establish byte identity, not research validity or legal compliance."
   ],
   "manifest_status": "pre_freeze",
@@ -676,12 +687,85 @@
     }
   },
   "repository_path": ".",
-  "schema_version": 1,
+  "revision_execution_gate": {
+    "actual_response_basis_count": 0,
+    "artifact_counts": {
+      "evidence_package": 4,
+      "poster": 8,
+      "presentation": 8
+    },
+    "blank_applied_at_count": 20,
+    "blank_applied_by_count": 20,
+    "blank_response_basis_count": 20,
+    "blank_selected_value_count": 20,
+    "bytes": 13778,
+    "columns": [
+      "revision_id",
+      "decision_id",
+      "artifact",
+      "location",
+      "current_surface",
+      "default_or_fallback_action",
+      "alternate_answer_gate",
+      "source_evidence",
+      "required_verification",
+      "execution_status",
+      "selected_value",
+      "response_basis",
+      "applied_by",
+      "applied_at",
+      "notes"
+    ],
+    "coverage_valid": true,
+    "decision_counts": {
+      "contrast_case_treatment": 3,
+      "main_evidence_cards": 4,
+      "rq2_continuity_gate": 3,
+      "shared_scope_framing": 7,
+      "unresolved_review_items": 3
+    },
+    "duplicate_revision_ids": [],
+    "inconsistent_revision_ids": [],
+    "missing_required_columns": [],
+    "missing_required_revision_ids": [],
+    "not_applied_verified_count": 20,
+    "path": "data/closeout/joint_decision_revision_matrix_2026-07-26.csv",
+    "project_fallback_basis_count": 0,
+    "response_basis_claim_count": 0,
+    "response_basis_claims_valid": true,
+    "response_basis_source": {
+      "bytes": 2493,
+      "path": "data/joint_advisor_review_decision_sheet_2026-07-25.csv",
+      "schema_valid": true,
+      "sha256": "875a708c56ccfa44301762df93740597df0d2eab71667b6670e75646fbd91888",
+      "status": "present"
+    },
+    "response_basis_validation_errors": [],
+    "row_count": 20,
+    "row_states_valid": true,
+    "schema_valid": true,
+    "sha256": "01a14c29a661280cacf742a7ea2ad51e6b4bdf37798f3a77ac19527c0179cc6f",
+    "status": "present",
+    "status_counts": {
+      "waiting_for_response_branch": 20
+    },
+    "unexpected_revision_ids": []
+  },
+  "schema_version": 2,
   "summary": {
     "decision_gate_count": 4,
+    "final_freeze_blocker_count": 1,
     "key_deliverable_count": 13,
     "missing_key_deliverable_count": 0,
     "open_decision_row_count_across_sheets": 25,
-    "present_key_deliverable_count": 13
+    "present_key_deliverable_count": 13,
+    "ready_for_final_freeze": false,
+    "revision_matrix_row_count": 20,
+    "revision_missing_required_row_count": 0,
+    "revision_response_basis_claim_count": 0,
+    "revision_response_basis_error_count": 0,
+    "revision_rows_applied_verified_count": 0,
+    "revision_rows_not_applied_verified_count": 20,
+    "revision_unexpected_row_count": 0
   }
 }

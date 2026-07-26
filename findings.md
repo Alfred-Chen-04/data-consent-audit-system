@@ -915,3 +915,33 @@
   regardless.
 - Adding the matrix and handoff raised the checked pre-freeze deliverable set
   from 11/11 to 13/13 present files, each with bytes and SHA-256 recorded.
+
+## 2026-07-26 Final-Freeze Readiness Findings
+
+- The pre-freeze manifest previously proved deliverable presence but did not
+  inspect the revision matrix. That left a machine-readable ambiguity where
+  13/13 files could be mistaken for closeout readiness.
+- Manifest schema v2 now records the revision matrix's row, artifact, decision,
+  and execution-status counts; blank selection/provenance counts; duplicate
+  IDs; missing columns; and inconsistent row IDs.
+- The expected 20 `revision_id` values are an explicit coverage contract;
+  missing or unexpected rows block readiness so removing unfinished work cannot
+  make the manifest appear complete.
+- State validation keeps the response paths distinct. Waiting rows must keep
+  selection and application fields blank; ready rows require a selected value
+  and one allowed response basis; applied-and-verified rows additionally
+  require an executor and an ISO 8601 timestamp with timezone.
+- Claimed actual responses must match one confirmed joint-sheet row and its
+  reviewer/date provenance. Claimed project fallbacks are invalid before the
+  July 29 23:59 Asia/Shanghai cutoff, outside the five protocol values, or when
+  they conflict with an already recorded response.
+- The current matrix is structurally valid and internally consistent: 20 rows,
+  20 unique IDs, 8 presentation / 8 poster / 4 evidence-package surfaces, and
+  no inconsistent rows. All 20 remain `waiting_for_response_branch`.
+- Final-freeze readiness is therefore false even though all 13 key deliverables
+  are present. The sole current blocker category is
+  `revision_rows_not_applied_verified`, with a count of 20.
+- The 25 open rows across four human-decision sheets remain visible reporting
+  facts, not 25 unique decisions and not automatic proof of failure. Under the
+  documented no-response branch they remain blank/pending while the project
+  fallback basis is recorded separately in the revision matrix.

@@ -3561,6 +3561,8 @@ def test_cli_closeout_prefreeze_manifest_invokes_exporter(
                 "key_deliverable_count": 11,
                 "open_decision_row_count_across_sheets": 25,
                 "decision_gate_count": 4,
+                "ready_for_final_freeze": False,
+                "final_freeze_blocker_count": 2,
             }
         }
 
@@ -3593,3 +3595,5 @@ def test_cli_closeout_prefreeze_manifest_invokes_exporter(
     }
     assert "9/11 key deliverables present" in result.output
     assert "25 open rows across 4 decision sheets" in result.output
+    assert "final freeze ready=false" in result.output
+    assert "2 blocker categories" in result.output

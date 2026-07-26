@@ -63,12 +63,71 @@ def test_manifest_classifies_actual_reference_and_decision_states(
     deliverable = tmp_path / "docs/deliverable.txt"
     deliverable.parent.mkdir(parents=True)
     deliverable.write_text("deliverable", encoding="utf-8")
+    revision_matrix = tmp_path / "data/revision_matrix.csv"
+    _write_csv(
+        revision_matrix,
+        [
+            "revision_id",
+            "decision_id",
+            "artifact",
+            "execution_status",
+            "selected_value",
+            "response_basis",
+            "applied_by",
+            "applied_at",
+        ],
+        [
+            {
+                "revision_id": "rev_waiting",
+                "decision_id": "scope",
+                "artifact": "presentation",
+                "execution_status": "waiting_for_response_branch",
+                "selected_value": "",
+                "response_basis": "",
+                "applied_by": "",
+                "applied_at": "",
+            },
+            {
+                "revision_id": "rev_applied",
+                "decision_id": "scope",
+                "artifact": "poster",
+                "execution_status": "applied_verified",
+                "selected_value": "pilot",
+                "response_basis": "actual_advisor_response",
+                "applied_by": "researcher",
+                "applied_at": "2026-07-26T20:00:00+08:00",
+            },
+        ],
+    )
+    joint_decisions = tmp_path / "data/joint_decisions.csv"
+    _write_csv(
+        joint_decisions,
+        [
+            "decision_id",
+            "review_status",
+            "confirmed_decision",
+            "reviewer",
+            "review_date",
+        ],
+        [
+            {
+                "decision_id": "scope",
+                "review_status": "confirmed",
+                "confirmed_decision": "pilot",
+                "reviewer": "advisor",
+                "review_date": "2026-07-26",
+            }
+        ],
+    )
 
     manifest = build_closeout_prefreeze_manifest(
         tmp_path,
         generated_at=datetime(2026, 7, 26, 12, tzinfo=UTC),
         audit_csv=audit_csv,
         longitudinal_csv=longitudinal_csv,
+        revision_matrix_csv=revision_matrix,
+        joint_decision_csv=joint_decisions,
+        required_revision_ids=("rev_waiting", "rev_applied"),
         decision_sheets=(
             DecisionSheetSpec(
                 "review",
@@ -81,6 +140,7 @@ def test_manifest_classifies_actual_reference_and_decision_states(
     )
 
     assert manifest["manifest_status"] == "pre_freeze"
+    assert manifest["schema_version"] == 2
     assert manifest["finalized"] is False
     assert manifest["repository_path"] == "."
     screenshot_refs = manifest["reference_audit"]["first_screenshot_ref"]
@@ -111,6 +171,19 @@ def test_manifest_classifies_actual_reference_and_decision_states(
         "present",
         "missing",
     ]
+    revision_gate = manifest["revision_execution_gate"]
+    assert revision_gate["row_count"] == 2
+    assert revision_gate["status_counts"] == {
+        "applied_verified": 1,
+        "waiting_for_response_branch": 1,
+    }
+    assert revision_gate["not_applied_verified_count"] == 1
+    assert revision_gate["row_states_valid"] is True
+    assert revision_gate["coverage_valid"] is True
+    assert manifest["freeze_readiness"]["ready_for_final_freeze"] is False
+    assert {
+        blocker["code"] for blocker in manifest["freeze_readiness"]["blockers"]
+    } == {"missing_key_deliverables", "revision_rows_not_applied_verified"}
     assert str(tmp_path) not in json.dumps(manifest)
 
 
@@ -133,6 +206,147 @@ def test_export_writes_json_and_explicit_nonfinal_markdown(tmp_path: Path) -> No
     markdown = (tmp_path / out_markdown).read_text(encoding="utf-8")
     assert saved["manifest_status"] == "pre_freeze"
     assert saved["finalized"] is False
+    assert saved["freeze_readiness"]["ready_for_final_freeze"] is False
+    assert saved["freeze_readiness"]["blockers"] == [
+        {"code": "missing_key_deliverables", "count": 11},
+        {"code": "revision_matrix_missing", "count": 1},
+    ]
     assert "not a final or frozen manifest" in markdown
+    assert "## Revision Execution Gate" in markdown
+    assert "Ready for final freeze: `false`" in markdown
     assert "../../data/closeout/manifest.json" in markdown
     assert "uv run consent-audit closeout-prefreeze-manifest" in markdown
+
+
+def test_manifest_readiness_requires_verified_rows_with_provenance(
+    tmp_path: Path,
+) -> None:
+    audit_csv = tmp_path / "audit.csv"
+    longitudinal_csv = tmp_path / "longitudinal.csv"
+    deliverable = tmp_path / "deliverable.txt"
+    matrix = tmp_path / "revision_matrix.csv"
+    joint_decisions = tmp_path / "joint_decisions.csv"
+    _write_csv(audit_csv, ["report_id"], [{"report_id": "1"}])
+    _write_csv(longitudinal_csv, ["week_of"], [{"week_of": "2026-06-06"}])
+    deliverable.write_text("ready", encoding="utf-8")
+    fields = [
+        "revision_id",
+        "decision_id",
+        "artifact",
+        "execution_status",
+        "selected_value",
+        "response_basis",
+        "applied_by",
+        "applied_at",
+    ]
+    applied_row = {
+        "revision_id": "rev_1",
+        "decision_id": "shared_scope_framing",
+        "artifact": "presentation",
+        "execution_status": "applied_verified",
+        "selected_value": "five_site_pilot_method",
+        "response_basis": "project_fallback_after_internal_cutoff",
+        "applied_by": "researcher",
+        "applied_at": "2026-07-30T09:00:00+08:00",
+    }
+    _write_csv(matrix, fields, [applied_row])
+    _write_csv(
+        joint_decisions,
+        [
+            "decision_id",
+            "review_status",
+            "confirmed_decision",
+            "reviewer",
+            "review_date",
+        ],
+        [
+            {
+                "decision_id": "shared_scope_framing",
+                "review_status": "pending",
+                "confirmed_decision": "",
+                "reviewer": "",
+                "review_date": "",
+            }
+        ],
+    )
+
+    ready = build_closeout_prefreeze_manifest(
+        tmp_path,
+        generated_at=datetime(2026, 7, 30, 1, tzinfo=UTC),
+        audit_csv=audit_csv,
+        longitudinal_csv=longitudinal_csv,
+        revision_matrix_csv=matrix,
+        joint_decision_csv=joint_decisions,
+        required_revision_ids=("rev_1",),
+        decision_sheets=(),
+        deliverable_paths=(deliverable,),
+    )
+
+    assert ready["freeze_readiness"] == {
+        "ready_for_final_freeze": True,
+        "blocker_count": 0,
+        "blockers": [],
+    }
+
+    incomplete = build_closeout_prefreeze_manifest(
+        tmp_path,
+        generated_at=datetime(2026, 7, 30, 1, tzinfo=UTC),
+        audit_csv=audit_csv,
+        longitudinal_csv=longitudinal_csv,
+        revision_matrix_csv=matrix,
+        joint_decision_csv=joint_decisions,
+        required_revision_ids=("rev_1", "rev_2"),
+        decision_sheets=(),
+        deliverable_paths=(deliverable,),
+    )
+    assert incomplete["revision_execution_gate"][
+        "missing_required_revision_ids"
+    ] == ["rev_2"]
+    assert incomplete["freeze_readiness"]["blockers"] == [
+        {"code": "revision_matrix_missing_required_rows", "count": 1}
+    ]
+
+    applied_row["applied_at"] = "2026-07-30T09:00:00"
+    _write_csv(matrix, fields, [applied_row])
+    invalid = build_closeout_prefreeze_manifest(
+        tmp_path,
+        generated_at=datetime(2026, 7, 30, 1, tzinfo=UTC),
+        audit_csv=audit_csv,
+        longitudinal_csv=longitudinal_csv,
+        revision_matrix_csv=matrix,
+        joint_decision_csv=joint_decisions,
+        required_revision_ids=("rev_1",),
+        decision_sheets=(),
+        deliverable_paths=(deliverable,),
+    )
+
+    assert invalid["revision_execution_gate"]["inconsistent_revision_ids"] == [
+        "rev_1"
+    ]
+    assert invalid["freeze_readiness"]["ready_for_final_freeze"] is False
+    assert invalid["freeze_readiness"]["blockers"] == [
+        {"code": "revision_matrix_inconsistent_rows", "count": 1}
+    ]
+
+    applied_row["applied_at"] = "2026-07-29T23:58:00+08:00"
+    _write_csv(matrix, fields, [applied_row])
+    too_early = build_closeout_prefreeze_manifest(
+        tmp_path,
+        generated_at=datetime(2026, 7, 29, 15, 58, tzinfo=UTC),
+        audit_csv=audit_csv,
+        longitudinal_csv=longitudinal_csv,
+        revision_matrix_csv=matrix,
+        joint_decision_csv=joint_decisions,
+        required_revision_ids=("rev_1",),
+        decision_sheets=(),
+        deliverable_paths=(deliverable,),
+    )
+
+    assert too_early["revision_execution_gate"][
+        "response_basis_validation_errors"
+    ] == [
+        {"revision_id": "rev_1", "code": "fallback_before_internal_cutoff"}
+    ]
+    assert too_early["freeze_readiness"]["blockers"] == [
+        {"code": "revision_response_basis_unverified", "count": 1}
+    ]

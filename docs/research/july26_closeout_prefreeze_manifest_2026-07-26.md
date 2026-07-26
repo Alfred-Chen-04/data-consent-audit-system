@@ -2,7 +2,7 @@
 
 **Status: `pre_freeze` - this is not a final or frozen manifest.**
 
-Generated at: `2026-07-26T12:43:49.197457+00:00`
+Generated at: `2026-07-26T13:26:21.784147+00:00`
 
 Machine-readable source: [`../../data/closeout/closeout_prefreeze_manifest_2026-07-26.json`](../../data/closeout/closeout_prefreeze_manifest_2026-07-26.json)
 
@@ -32,6 +32,18 @@ Regenerate from the repository root with `uv run consent-audit closeout-prefreez
 | `current_five` | 7 | n/a | 7 | 7 | present |
 | `cmp_manual_review` | 8 | 8 | 8 | 8 | present |
 
+## Revision Execution Gate
+
+| Matrix | Rows | Waiting | Ready to apply | Applied + verified | Basis claims | Basis errors | Coverage errors | Inconsistent | Status |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| `data/closeout/joint_decision_revision_matrix_2026-07-26.csv` | 20 | 20 | 0 | 0 | 0 | 0 | 0 | 0 | present |
+
+**Ready for final freeze: `false`.**
+
+| Readiness blocker | Count |
+|---|---:|
+| `revision_rows_not_applied_verified` | 20 |
+
 ## Key Deliverables
 
 | Path | Status | Bytes | SHA-256 |
@@ -55,4 +67,5 @@ Regenerate from the repository root with `uv run consent-audit closeout-prefreez
 - This is a pre-freeze inventory, not a final or frozen manifest.
 - A missing reference records checkout availability only; it does not prove the artifact never existed.
 - Recommendations and fallback labels are not counted as confirmed human decisions.
+- Open decision-sheet rows are reported separately from revision execution because the documented no-response branch preserves blank confirmations.
 - File hashes establish byte identity, not research validity or legal compliance.

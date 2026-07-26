@@ -9,7 +9,7 @@ import os
 from collections import Counter
 from collections.abc import Sequence
 from dataclasses import dataclass
-from datetime import UTC, datetime
+from datetime import UTC, datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any
 from urllib.parse import urlsplit
@@ -29,15 +29,85 @@ DEFAULT_AUDIT_CSV = Path("data/research_package/audit_report_summary.csv")
 DEFAULT_LONGITUDINAL_CSV = Path(
     "data/research_package/longitudinal_summary.csv"
 )
+DEFAULT_REVISION_MATRIX_CSV = Path(
+    "data/closeout/joint_decision_revision_matrix_2026-07-26.csv"
+)
+DEFAULT_JOINT_DECISION_CSV = Path(
+    "data/joint_advisor_review_decision_sheet_2026-07-25.csv"
+)
 DEFAULT_REFERENCE_COLUMNS = (
     "first_screenshot_ref",
     "first_dom_snapshot_ref",
     "report_pdf_ref",
 )
+REVISION_MATRIX_REQUIRED_COLUMNS = (
+    "revision_id",
+    "decision_id",
+    "artifact",
+    "execution_status",
+    "selected_value",
+    "response_basis",
+    "applied_by",
+    "applied_at",
+)
+ALLOWED_REVISION_STATUSES = frozenset(
+    {
+        "waiting_for_response_branch",
+        "ready_to_apply",
+        "applied_verified",
+    }
+)
+ALLOWED_RESPONSE_BASES = frozenset(
+    {
+        "actual_advisor_response",
+        "project_fallback_after_internal_cutoff",
+    }
+)
+PROJECT_FALLBACK_CUTOFF = datetime(
+    2026,
+    7,
+    29,
+    23,
+    59,
+    tzinfo=timezone(timedelta(hours=8)),
+)
+PROJECT_FALLBACK_VALUES = {
+    "shared_scope_framing": "five_site_pilot_method",
+    "main_evidence_cards": "guardian_and_coca_cola",
+    "contrast_case_treatment": "no_visible_first_screen_banner_contrast",
+    "unresolved_review_items": (
+        "carry_as_visible_limitations_unless_stronger_claims_requested"
+    ),
+    "rq2_continuity_gate": (
+        "freeze_current_evidence_unless_specific_rq2_question_is_approved"
+    ),
+}
+DEFAULT_REQUIRED_REVISION_IDS = (
+    "scope_presentation_cover",
+    "scope_presentation_snapshot",
+    "scope_presentation_closeout",
+    "scope_poster_eyebrow",
+    "scope_poster_status",
+    "scope_poster_footer",
+    "scope_evidence_manifest",
+    "cards_presentation_guardian",
+    "cards_presentation_coca",
+    "cards_poster_guardian",
+    "cards_poster_coca",
+    "contrast_presentation",
+    "contrast_poster",
+    "contrast_evidence_tables",
+    "unresolved_presentation",
+    "unresolved_poster",
+    "unresolved_evidence",
+    "rq2_presentation",
+    "rq2_poster",
+    "rq2_evidence",
+)
 DEFAULT_DECISION_SHEETS = (
     DecisionSheetSpec(
         "joint_advisor_review",
-        Path("data/joint_advisor_review_decision_sheet_2026-07-25.csv"),
+        DEFAULT_JOINT_DECISION_CSV,
         "review_status",
         "confirmed_decision",
     ),
@@ -79,12 +149,12 @@ DEFAULT_DELIVERABLE_PATHS = (
         "docs/research/joint_review/"
         "ssrp_joint_advisor_review_2026-07-25.zip"
     ),
-    Path("data/joint_advisor_review_decision_sheet_2026-07-25.csv"),
+    DEFAULT_JOINT_DECISION_CSV,
     Path(
         "docs/research/"
         "july26_advisor_response_and_fallback_protocol_2026-07-26.md"
     ),
-    Path("data/closeout/joint_decision_revision_matrix_2026-07-26.csv"),
+    DEFAULT_REVISION_MATRIX_CSV,
     Path("docs/research/july26_decision_to_revision_matrix_2026-07-26.md"),
 )
 
@@ -262,12 +332,331 @@ def _decision_gate_record(
     }
 
 
+def _has_timezone(value: str) -> bool:
+    try:
+        parsed = datetime.fromisoformat(value.replace("Z", "+00:00"))
+    except ValueError:
+        return False
+    return parsed.tzinfo is not None and parsed.utcoffset() is not None
+
+
+def _revision_matrix_record(
+    repo_root: Path,
+    path: Path,
+    *,
+    generated_at: datetime,
+    joint_decision_csv: Path,
+    required_revision_ids: Sequence[str],
+) -> dict[str, Any]:
+    record = _file_record(repo_root, path)
+    response_source = _file_record(repo_root, joint_decision_csv)
+    if record["status"] != "present":
+        return {
+            **record,
+            "row_count": None,
+            "columns": [],
+            "missing_required_columns": list(REVISION_MATRIX_REQUIRED_COLUMNS),
+            "status_counts": {},
+            "artifact_counts": {},
+            "decision_counts": {},
+            "blank_selected_value_count": None,
+            "blank_response_basis_count": None,
+            "blank_applied_by_count": None,
+            "blank_applied_at_count": None,
+            "not_applied_verified_count": None,
+            "duplicate_revision_ids": [],
+            "missing_required_revision_ids": sorted(required_revision_ids),
+            "unexpected_revision_ids": [],
+            "coverage_valid": False,
+            "inconsistent_revision_ids": [],
+            "schema_valid": False,
+            "row_states_valid": False,
+            "response_basis_claim_count": None,
+            "actual_response_basis_count": None,
+            "project_fallback_basis_count": None,
+            "response_basis_source": response_source,
+            "response_basis_validation_errors": [],
+            "response_basis_claims_valid": False,
+        }
+
+    fields, rows = _read_csv(_resolve_input(repo_root, path))
+    missing_columns = sorted(set(REVISION_MATRIX_REQUIRED_COLUMNS) - set(fields))
+
+    def value(row: dict[str, str], column: str) -> str:
+        return (row.get(column) or "").strip()
+
+    status_counts = Counter(value(row, "execution_status") for row in rows)
+    artifact_counts = Counter(value(row, "artifact") for row in rows)
+    decision_counts = Counter(value(row, "decision_id") for row in rows)
+    revision_id_counts = Counter(
+        value(row, "revision_id") for row in rows if value(row, "revision_id")
+    )
+    duplicate_revision_ids = sorted(
+        revision_id for revision_id, count in revision_id_counts.items() if count > 1
+    )
+    actual_revision_ids = set(revision_id_counts)
+    expected_revision_ids = set(required_revision_ids)
+    missing_required_revision_ids = sorted(
+        expected_revision_ids - actual_revision_ids
+    )
+    unexpected_revision_ids = sorted(actual_revision_ids - expected_revision_ids)
+
+    joint_fields: list[str] = []
+    joint_rows: list[dict[str, str]] = []
+    if response_source["status"] == "present":
+        joint_fields, joint_rows = _read_csv(
+            _resolve_input(repo_root, joint_decision_csv)
+        )
+    joint_required = {
+        "decision_id",
+        "review_status",
+        "confirmed_decision",
+        "reviewer",
+        "review_date",
+    }
+    joint_schema_valid = joint_required.issubset(joint_fields)
+    joint_rows_by_id: dict[str, list[dict[str, str]]] = {}
+    for row in joint_rows:
+        decision_id = (row.get("decision_id") or "").strip()
+        if decision_id:
+            joint_rows_by_id.setdefault(decision_id, []).append(row)
+
+    response_basis_errors: list[dict[str, str]] = []
+
+    def add_basis_error(revision_id: str, code: str) -> None:
+        item = {"revision_id": revision_id, "code": code}
+        if item not in response_basis_errors:
+            response_basis_errors.append(item)
+
+    inconsistent_revision_ids: list[str] = []
+    claimed_rows_by_decision: dict[str, list[tuple[str, str, str]]] = {}
+    for index, row in enumerate(rows, start=1):
+        raw_revision_id = value(row, "revision_id")
+        revision_id = raw_revision_id or f"<row_{index}>"
+        decision_id = value(row, "decision_id")
+        artifact = value(row, "artifact")
+        status = value(row, "execution_status")
+        selected_value = value(row, "selected_value")
+        response_basis = value(row, "response_basis")
+        applied_by = value(row, "applied_by")
+        applied_at = value(row, "applied_at")
+
+        inconsistent = (
+            not all((raw_revision_id, decision_id, artifact))
+            or status not in ALLOWED_REVISION_STATUSES
+            or (response_basis and response_basis not in ALLOWED_RESPONSE_BASES)
+        )
+        if status == "waiting_for_response_branch":
+            inconsistent = inconsistent or any(
+                (selected_value, response_basis, applied_by, applied_at)
+            )
+        elif status == "ready_to_apply":
+            inconsistent = inconsistent or not selected_value or not response_basis
+            inconsistent = inconsistent or bool(applied_by or applied_at)
+        elif status == "applied_verified":
+            inconsistent = inconsistent or not all(
+                (selected_value, response_basis, applied_by, applied_at)
+            )
+            inconsistent = inconsistent or (
+                bool(applied_at) and not _has_timezone(applied_at)
+            )
+        if inconsistent:
+            inconsistent_revision_ids.append(revision_id)
+
+        if response_basis in ALLOWED_RESPONSE_BASES:
+            claimed_rows_by_decision.setdefault(decision_id, []).append(
+                (revision_id, selected_value, response_basis)
+            )
+            if response_source["status"] != "present":
+                add_basis_error(revision_id, "joint_decision_source_missing")
+                continue
+            if not joint_schema_valid:
+                add_basis_error(revision_id, "joint_decision_schema_invalid")
+                continue
+            source_rows = joint_rows_by_id.get(decision_id, [])
+            if len(source_rows) != 1:
+                add_basis_error(revision_id, "joint_decision_id_not_unique")
+                continue
+            source_row = source_rows[0]
+            source_status = value(source_row, "review_status").casefold()
+            source_value = value(source_row, "confirmed_decision")
+            source_reviewer = value(source_row, "reviewer")
+            source_date = value(source_row, "review_date")
+            if response_basis == "actual_advisor_response":
+                if source_status != "confirmed":
+                    add_basis_error(revision_id, "actual_response_not_confirmed")
+                if not source_value or source_value != selected_value:
+                    add_basis_error(revision_id, "actual_response_value_mismatch")
+                if not source_reviewer or not source_date:
+                    add_basis_error(revision_id, "actual_response_provenance_missing")
+            else:
+                if generated_at < PROJECT_FALLBACK_CUTOFF:
+                    add_basis_error(revision_id, "fallback_before_internal_cutoff")
+                if PROJECT_FALLBACK_VALUES.get(decision_id) != selected_value:
+                    add_basis_error(revision_id, "fallback_value_mismatch")
+                if (
+                    source_status != "pending"
+                    or source_value
+                    or source_reviewer
+                    or source_date
+                ):
+                    add_basis_error(
+                        revision_id, "fallback_conflicts_with_recorded_response"
+                    )
+
+    for claimed_rows in claimed_rows_by_decision.values():
+        selected_branches = {
+            (selected_value, response_basis)
+            for _, selected_value, response_basis in claimed_rows
+        }
+        if len(selected_branches) > 1:
+            for revision_id, _, _ in claimed_rows:
+                add_basis_error(revision_id, "decision_rows_disagree")
+
+    return {
+        **record,
+        "row_count": len(rows),
+        "columns": fields,
+        "missing_required_columns": missing_columns,
+        "status_counts": dict(sorted(status_counts.items())),
+        "artifact_counts": dict(sorted(artifact_counts.items())),
+        "decision_counts": dict(sorted(decision_counts.items())),
+        "blank_selected_value_count": sum(
+            not value(row, "selected_value") for row in rows
+        ),
+        "blank_response_basis_count": sum(
+            not value(row, "response_basis") for row in rows
+        ),
+        "blank_applied_by_count": sum(not value(row, "applied_by") for row in rows),
+        "blank_applied_at_count": sum(not value(row, "applied_at") for row in rows),
+        "not_applied_verified_count": sum(
+            value(row, "execution_status") != "applied_verified" for row in rows
+        ),
+        "duplicate_revision_ids": duplicate_revision_ids,
+        "missing_required_revision_ids": missing_required_revision_ids,
+        "unexpected_revision_ids": unexpected_revision_ids,
+        "coverage_valid": not missing_required_revision_ids
+        and not unexpected_revision_ids,
+        "inconsistent_revision_ids": inconsistent_revision_ids,
+        "schema_valid": not missing_columns,
+        "row_states_valid": not duplicate_revision_ids
+        and not inconsistent_revision_ids
+        and bool(rows),
+        "response_basis_claim_count": sum(
+            bool(value(row, "response_basis")) for row in rows
+        ),
+        "actual_response_basis_count": sum(
+            value(row, "response_basis") == "actual_advisor_response"
+            for row in rows
+        ),
+        "project_fallback_basis_count": sum(
+            value(row, "response_basis")
+            == "project_fallback_after_internal_cutoff"
+            for row in rows
+        ),
+        "response_basis_source": {
+            **response_source,
+            "schema_valid": joint_schema_valid,
+        },
+        "response_basis_validation_errors": response_basis_errors,
+        "response_basis_claims_valid": not response_basis_errors,
+    }
+
+
+def _freeze_readiness(
+    *,
+    missing_deliverable_count: int,
+    revision_matrix: dict[str, Any],
+) -> dict[str, Any]:
+    blockers: list[dict[str, Any]] = []
+    if missing_deliverable_count:
+        blockers.append(
+            {
+                "code": "missing_key_deliverables",
+                "count": missing_deliverable_count,
+            }
+        )
+    if revision_matrix["status"] != "present":
+        blockers.append({"code": "revision_matrix_missing", "count": 1})
+    else:
+        missing_columns = revision_matrix["missing_required_columns"]
+        if missing_columns:
+            blockers.append(
+                {
+                    "code": "revision_matrix_missing_required_columns",
+                    "count": len(missing_columns),
+                }
+            )
+        duplicate_ids = revision_matrix["duplicate_revision_ids"]
+        if duplicate_ids:
+            blockers.append(
+                {
+                    "code": "revision_matrix_duplicate_revision_ids",
+                    "count": len(duplicate_ids),
+                }
+            )
+        missing_revision_ids = revision_matrix["missing_required_revision_ids"]
+        if missing_revision_ids:
+            blockers.append(
+                {
+                    "code": "revision_matrix_missing_required_rows",
+                    "count": len(missing_revision_ids),
+                }
+            )
+        unexpected_revision_ids = revision_matrix["unexpected_revision_ids"]
+        if unexpected_revision_ids:
+            blockers.append(
+                {
+                    "code": "revision_matrix_unexpected_rows",
+                    "count": len(unexpected_revision_ids),
+                }
+            )
+        inconsistent_ids = revision_matrix["inconsistent_revision_ids"]
+        if inconsistent_ids:
+            blockers.append(
+                {
+                    "code": "revision_matrix_inconsistent_rows",
+                    "count": len(inconsistent_ids),
+                }
+            )
+        response_basis_errors = revision_matrix[
+            "response_basis_validation_errors"
+        ]
+        if response_basis_errors:
+            affected_revision_ids = {
+                error["revision_id"] for error in response_basis_errors
+            }
+            blockers.append(
+                {
+                    "code": "revision_response_basis_unverified",
+                    "count": len(affected_revision_ids),
+                }
+            )
+        if not revision_matrix["row_count"]:
+            blockers.append({"code": "revision_matrix_empty", "count": 1})
+        elif revision_matrix["not_applied_verified_count"]:
+            blockers.append(
+                {
+                    "code": "revision_rows_not_applied_verified",
+                    "count": revision_matrix["not_applied_verified_count"],
+                }
+            )
+    return {
+        "ready_for_final_freeze": not blockers,
+        "blocker_count": len(blockers),
+        "blockers": blockers,
+    }
+
+
 def build_closeout_prefreeze_manifest(
     repo_root: Path,
     *,
     generated_at: datetime | None = None,
     audit_csv: Path = DEFAULT_AUDIT_CSV,
     longitudinal_csv: Path = DEFAULT_LONGITUDINAL_CSV,
+    revision_matrix_csv: Path = DEFAULT_REVISION_MATRIX_CSV,
+    joint_decision_csv: Path = DEFAULT_JOINT_DECISION_CSV,
+    required_revision_ids: Sequence[str] = DEFAULT_REQUIRED_REVISION_IDS,
     reference_columns: Sequence[str] = DEFAULT_REFERENCE_COLUMNS,
     decision_sheets: Sequence[DecisionSheetSpec] = DEFAULT_DECISION_SHEETS,
     deliverable_paths: Sequence[Path] = DEFAULT_DELIVERABLE_PATHS,
@@ -292,6 +681,13 @@ def build_closeout_prefreeze_manifest(
     decision_gates = {
         spec.name: _decision_gate_record(root, spec) for spec in decision_sheets
     }
+    revision_matrix = _revision_matrix_record(
+        root,
+        revision_matrix_csv,
+        generated_at=timestamp,
+        joint_decision_csv=joint_decision_csv,
+        required_revision_ids=required_revision_ids,
+    )
     deliverables = [_file_record(root, path) for path in deliverable_paths]
 
     present_deliverables = sum(
@@ -300,8 +696,13 @@ def build_closeout_prefreeze_manifest(
     open_decision_rows = sum(
         record["open_row_count"] or 0 for record in decision_gates.values()
     )
+    missing_deliverables = len(deliverables) - present_deliverables
+    freeze_readiness = _freeze_readiness(
+        missing_deliverable_count=missing_deliverables,
+        revision_matrix=revision_matrix,
+    )
     return {
-        "schema_version": 1,
+        "schema_version": 2,
         "manifest_status": "pre_freeze",
         "finalized": False,
         "generated_at": timestamp.astimezone(UTC).isoformat(),
@@ -312,19 +713,44 @@ def build_closeout_prefreeze_manifest(
         },
         "reference_audit": reference_audit,
         "decision_gates": decision_gates,
+        "revision_execution_gate": revision_matrix,
         "key_deliverables": deliverables,
+        "freeze_readiness": freeze_readiness,
         "summary": {
             "key_deliverable_count": len(deliverables),
             "present_key_deliverable_count": present_deliverables,
-            "missing_key_deliverable_count": len(deliverables)
-            - present_deliverables,
+            "missing_key_deliverable_count": missing_deliverables,
             "decision_gate_count": len(decision_gates),
             "open_decision_row_count_across_sheets": open_decision_rows,
+            "revision_matrix_row_count": revision_matrix["row_count"],
+            "revision_rows_applied_verified_count": (
+                revision_matrix["status_counts"].get("applied_verified", 0)
+            ),
+            "revision_rows_not_applied_verified_count": revision_matrix[
+                "not_applied_verified_count"
+            ],
+            "revision_response_basis_claim_count": revision_matrix[
+                "response_basis_claim_count"
+            ],
+            "revision_response_basis_error_count": len(
+                revision_matrix["response_basis_validation_errors"]
+            ),
+            "revision_missing_required_row_count": len(
+                revision_matrix["missing_required_revision_ids"]
+            ),
+            "revision_unexpected_row_count": len(
+                revision_matrix["unexpected_revision_ids"]
+            ),
+            "final_freeze_blocker_count": freeze_readiness["blocker_count"],
+            "ready_for_final_freeze": freeze_readiness[
+                "ready_for_final_freeze"
+            ],
         },
         "limitations": [
             "This is a pre-freeze inventory, not a final or frozen manifest.",
             "A missing reference records checkout availability only; it does not prove the artifact never existed.",
             "Recommendations and fallback labels are not counted as confirmed human decisions.",
+            "Open decision-sheet rows are reported separately from revision execution because the documented no-response branch preserves blank confirmations.",
             "File hashes establish byte identity, not research validity or legal compliance.",
         ],
     }
@@ -418,6 +844,51 @@ def render_closeout_prefreeze_markdown(
                 status=record["status"],
             )
         )
+
+    revision = manifest["revision_execution_gate"]
+    status_counts = revision.get("status_counts") or {}
+    lines.extend(
+        [
+            "",
+            "## Revision Execution Gate",
+            "",
+            "| Matrix | Rows | Waiting | Ready to apply | Applied + verified | Basis claims | Basis errors | Coverage errors | Inconsistent | Status |",
+            "|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|",
+            "| `{path}` | {rows} | {waiting} | {ready} | {applied} | {claims} | {basis_errors} | {coverage_errors} | {inconsistent} | {status} |".format(
+                path=revision["path"],
+                rows=revision.get("row_count")
+                if revision.get("row_count") is not None
+                else "n/a",
+                waiting=status_counts.get("waiting_for_response_branch", 0),
+                ready=status_counts.get("ready_to_apply", 0),
+                applied=status_counts.get("applied_verified", 0),
+                claims=revision.get("response_basis_claim_count") or 0,
+                basis_errors=len(
+                    revision.get("response_basis_validation_errors") or []
+                ),
+                coverage_errors=len(
+                    revision.get("missing_required_revision_ids") or []
+                )
+                + len(revision.get("unexpected_revision_ids") or []),
+                inconsistent=len(revision.get("inconsistent_revision_ids") or []),
+                status=revision["status"],
+            ),
+            "",
+            "**Ready for final freeze: "
+            f"`{str(manifest['freeze_readiness']['ready_for_final_freeze']).lower()}`.**",
+            "",
+            "| Readiness blocker | Count |",
+            "|---|---:|",
+        ]
+    )
+    blockers = manifest["freeze_readiness"]["blockers"]
+    if blockers:
+        lines.extend(
+            f"| `{blocker['code']}` | {blocker['count']} |"
+            for blocker in blockers
+        )
+    else:
+        lines.append("| none | 0 |")
 
     lines.extend(
         [
