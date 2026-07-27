@@ -13,6 +13,7 @@ from pathlib import Path
 from typer.testing import CliRunner
 
 from consent_audit import cli
+from consent_audit.closeout_final import DEFAULT_REQUIRED_QA_IDS
 from consent_audit.closeout_manifest import (
     PROJECT_FALLBACK_CUTOFF,
     PROJECT_FALLBACK_VALUES,
@@ -1698,10 +1699,10 @@ def test_july26_closeout_prefreeze_manifest_matches_current_checkout() -> None:
         "decision_gate_count": 4,
         "final_freeze_blocker_count": 1,
         "joint_decision_contract_error_count": 0,
-        "key_deliverable_count": 15,
+        "key_deliverable_count": 16,
         "missing_key_deliverable_count": 0,
         "open_decision_row_count_across_sheets": 25,
-        "present_key_deliverable_count": 15,
+        "present_key_deliverable_count": 16,
         "ready_for_final_freeze": False,
         "revision_matrix_row_count": 20,
         "revision_missing_required_row_count": 0,
@@ -1740,6 +1741,9 @@ def test_july26_closeout_prefreeze_manifest_matches_current_checkout() -> None:
     assert "docs/research/closeout_low_token_runbook_2026-07-27.md" in (
         deliverable_paths
     )
+    assert "data/closeout/final_qa_checklist_2026-07-27.csv" in (
+        deliverable_paths
+    )
 
     assert "not a final or frozen manifest" in note_text
     assert "Ready for final freeze: `false`" in note_text
@@ -1767,7 +1771,7 @@ def test_july26_closeout_control_index_separates_current_and_history() -> None:
 
     assert "**Status: `pre_freeze`" in control_text
     assert "This is not a final index" in control_text
-    assert "Key deliverables present: 15/15" in control_text
+    assert "Key deliverables present: 16/16" in control_text
     assert "Final-freeze readiness: `false`" in control_text
     assert "`revision_rows_not_applied_verified` for all 20 rows" in control_text
     assert "0 response-basis claims, 0 basis errors, and" in control_text
@@ -1782,6 +1786,8 @@ def test_july26_closeout_control_index_separates_current_and_history() -> None:
     assert "schema-v2 pre-freeze manifest" in control_text
     assert "two recommended defaults are not listed options" in control_text
     assert "closeout_low_token_runbook_2026-07-27.md" in control_text
+    assert "final_qa_checklist_2026-07-27.csv" in control_text
+    assert "`uv run consent-audit closeout-final-index`" in control_text
 
     current_paths = (
         "presentation/ssrp_consent_audit_presentation_draft_2026-07-22.pptx",
@@ -1790,6 +1796,7 @@ def test_july26_closeout_control_index_separates_current_and_history() -> None:
         "../../data/joint_advisor_review_decision_sheet_2026-07-25.csv",
         "../../data/closeout/joint_decision_revision_matrix_2026-07-26.csv",
         "../../data/closeout/closeout_prefreeze_manifest_2026-07-26.json",
+        "../../data/closeout/final_qa_checklist_2026-07-27.csv",
     )
     assert all(path in control_text for path in current_paths)
 
@@ -1826,6 +1833,12 @@ def test_research_status_default_entrypoint_uses_current_closeout_gate() -> None
         in result.output
     )
     assert "Final-freeze readiness: `false`" in result.output
+    assert "Final QA: pending=5; final index=missing" in result.output
+    assert (
+        "Final QA checklist: "
+        "`data/closeout/final_qa_checklist_2026-07-27.csv`"
+        in result.output
+    )
     assert "Historical cycle-report next action:" in result.output
     assert "Current closeout plan: `docs/research/july22" not in result.output
 
@@ -1936,3 +1949,27 @@ def test_july26_decision_revision_matrix_maps_real_surfaces_without_applying() -
     assert "Do not fill `selected_value`" in note_text
     assert "july26_decision_to_revision_matrix_2026-07-26.md" in linked_text
     assert "joint_decision_revision_matrix_2026-07-26.csv" in linked_text
+
+
+def test_july27_final_qa_gate_is_prepared_without_claiming_completion() -> None:
+    qa_path = Path("data/closeout/final_qa_checklist_2026-07-27.csv")
+    runbook_path = Path(
+        "docs/research/closeout_low_token_runbook_2026-07-27.md"
+    )
+    final_index_path = Path("docs/research/final_closeout_index.md")
+    with qa_path.open(newline="", encoding="utf-8") as handle:
+        rows = list(csv.DictReader(handle))
+
+    assert len(rows) == 5
+    assert {row["check_id"] for row in rows} == set(DEFAULT_REQUIRED_QA_IDS)
+    assert all(row["status"] == "pending" for row in rows)
+    for field in ("evidence", "verified_by", "verified_at", "notes"):
+        assert all(not row[field] for row in rows)
+    assert all(row["check_scope"] for row in rows)
+    assert all(row["required_verification"] for row in rows)
+    assert not final_index_path.exists()
+
+    runbook_text = runbook_path.read_text(encoding="utf-8")
+    assert "closeout-final-index" in runbook_text
+    assert "closeout-final-index --write" in runbook_text
+    assert "A verified row requires" in runbook_text

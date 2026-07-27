@@ -1,0 +1,6 @@
+check_id,check_scope,required_verification,status,evidence,verified_by,verified_at,notes
+presentation_final_qa,presentation,"Confirm final wording and counts; run overflow check; render and inspect all 10 slides and montage; complete rehearsal timing",pending,,,,
+poster_final_qa,poster,"Confirm final wording and counts; run overflow check; verify 48 x 36 dimensions; render and inspect PPTX PDF and PNG",pending,,,,
+evidence_package_final_qa,evidence_package,"Refresh tables packages present/missing refs limitations and hashes from revised sources; verify every final claim resolves",pending,,,,
+repository_final_verification,repository,"Run full pytest Ruff Mypy compileall Markdown links JSON ZIP manifest reproducibility git diff scope and git diff --check",pending,,,,
+backup_open_check,backup,"Copy final presentation poster and evidence package to the selected backup location and open each copy successfully",pending,,,,

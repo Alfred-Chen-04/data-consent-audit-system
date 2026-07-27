@@ -16,6 +16,10 @@ from consent_audit.closeout_branch import (
     prepare_closeout_revision_branch,
     render_closeout_branch_result,
 )
+from consent_audit.closeout_final import (
+    prepare_final_closeout_index,
+    render_final_index_result,
+)
 from consent_audit.closeout_manifest import export_closeout_prefreeze_manifest
 from consent_audit.cmp_review import (
     apply_cmp_review_confirmations_to_worksheet,
@@ -159,6 +163,10 @@ def research_status(
     current_closeout_md: Path = Path(
         "docs/research/closeout_control_index_2026-07-26.md"
     ),
+    final_qa_csv: Path = Path(
+        "data/closeout/final_qa_checklist_2026-07-27.csv"
+    ),
+    final_index_md: Path = Path("docs/research/final_closeout_index.md"),
 ) -> None:
     """Print a compact current-state dashboard for the SSRP workflow."""
     typer.echo(
@@ -177,6 +185,8 @@ def research_status(
             claim_register_md=claim_register_md,
             poster_plan_md=poster_plan_md,
             current_closeout_md=current_closeout_md,
+            final_qa_csv=final_qa_csv,
+            final_index_md=final_index_md,
         )
     )
 
@@ -1043,6 +1053,35 @@ def closeout_prepare_revisions(
         typer.echo(str(exc))
         raise typer.Exit(1) from exc
     typer.echo(render_closeout_branch_result(result))
+
+
+@app.command("closeout-final-index")
+def closeout_final_index(
+    repo_root: Path = Path("."),
+    manifest_json: Path = Path(
+        "data/closeout/closeout_prefreeze_manifest_2026-07-26.json"
+    ),
+    final_qa_csv: Path = Path(
+        "data/closeout/final_qa_checklist_2026-07-27.csv"
+    ),
+    out_markdown: Path = Path("docs/research/final_closeout_index.md"),
+    as_of: str | None = None,
+    write: bool = False,
+) -> None:
+    """Generate the final index only after freeze and final-QA gates pass."""
+    try:
+        result = prepare_final_closeout_index(
+            repo_root=repo_root,
+            manifest_json=manifest_json,
+            final_qa_csv=final_qa_csv,
+            out_markdown=out_markdown,
+            generated_at=parse_as_of(as_of),
+            write=write,
+        )
+    except (OSError, ValueError) as exc:
+        typer.echo(str(exc))
+        raise typer.Exit(1) from exc
+    typer.echo(render_final_index_result(result))
 
 
 if __name__ == "__main__":

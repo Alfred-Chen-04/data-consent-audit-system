@@ -169,6 +169,7 @@ audit invariants.
 | 156. July 26 closeout runtime-status alignment | complete | Replaced the stale July 22 dashboard default with the current control index, derived closeout counts/readiness/next action from the schema-v2 manifest, and labeled the older Week 2 cycle action as historical support. |
 | 157. July 27 response-intake contract correction | complete | Corrected two active recommended-default/option mismatches, rebuilt the source-matched joint ZIP, added joint-sheet contract validation to the freeze gate, and explicitly excluded the two preserved historical poster-only mismatches from current intake. |
 | 158. July 27 low-token closeout preparation and full backlog audit | complete | Added a dry-run-first response/fallback matrix preparer, one low-token runbook, stricter response-date validation, full-repo link cleanup, truthful missing-DOM labels, and isolated browser-test output; the 15/15 manifest remains pre-freeze with all 20 revision rows waiting. |
+| 159. July 27 final-QA and final-index gate | complete | Added a five-row pending final-QA record, a dry-run-first final-index generator that requires schema-v2 freeze readiness plus complete QA provenance, and one-screen status reporting; current state correctly remains 16/16 pre-freeze, 5 QA pending, and no final index. |
 
 ## Decisions
 

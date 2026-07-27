@@ -14,7 +14,7 @@ advisor response or project fallback.**
 
 - Core closeout target: August 7, 2026. Twelve calendar days remain from July
   26.
-- Key deliverables present: 15/15 after the low-token runbook is included in the
+- Key deliverables present: 16/16 after the final-QA checklist is included in the
   reproducible manifest.
 - Evidence exports: 42 audit-report rows and 20 longitudinal rows; latest
   longitudinal `week_of` is 2026-06-06.
@@ -27,6 +27,8 @@ advisor response or project fallback.**
   0 active joint-sheet contract errors.
 - Final-freeze readiness: `false`. The current blocker is
   `revision_rows_not_applied_verified` for all 20 rows.
+- Final QA: all five checklist rows are `pending`; the final index is absent,
+  and its generator correctly refuses the current pre-freeze state.
 
 File presence is not completion. The machine-readable source for these counts
 is the current pre-freeze manifest, and the selected response branch must be
@@ -53,6 +55,7 @@ not maintained as a separate status claim.
 | Freeze evidence | [Human-readable pre-freeze manifest](july26_closeout_prefreeze_manifest_2026-07-26.md) and [schema-v2 JSON](../../data/closeout/closeout_prefreeze_manifest_2026-07-26.json) | Reproducible presence, provenance, execution, and readiness gate |
 | Current closeout assessment | [July 25 gap review and joint packet](july25_gap_review_and_joint_packet_2026-07-25.md) | On-track assessment and July 25-August 7 work order |
 | Low-token execution | [July 27 low-token runbook](closeout_low_token_runbook_2026-07-27.md) | Four-step response, revision, verification, and freeze path with short prompts |
+| Final QA and index gate | [Five-row final-QA checklist](../../data/closeout/final_qa_checklist_2026-07-27.csv) | Keep pending until each final render, evidence, repository, and backup check actually passes; `closeout-final-index` refuses incomplete state |
 
 ## Superseded Or Historical Paths
 
@@ -116,6 +119,10 @@ resolved. Their role is provenance, not current control.
   blocker.
 - [ ] A final index and backup open the verified presentation, poster, and
   evidence package.
+
+Record the five final artifact-level checks in the linked final-QA CSV. Run
+`uv run consent-audit closeout-final-index` as a dry-run; only rerun with
+`--write` after both the schema-v2 manifest and every QA row pass validation.
 
 ## Historical Trail
 

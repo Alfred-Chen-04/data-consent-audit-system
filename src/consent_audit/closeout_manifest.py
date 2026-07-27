@@ -168,6 +168,7 @@ DEFAULT_DELIVERABLE_PATHS = (
     Path("docs/research/july26_decision_to_revision_matrix_2026-07-26.md"),
     Path("docs/research/closeout_control_index_2026-07-26.md"),
     Path("docs/research/closeout_low_token_runbook_2026-07-27.md"),
+    Path("data/closeout/final_qa_checklist_2026-07-27.csv"),
 )
 
 

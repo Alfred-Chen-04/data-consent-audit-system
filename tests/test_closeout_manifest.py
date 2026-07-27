@@ -214,7 +214,7 @@ def test_export_writes_json_and_explicit_nonfinal_markdown(tmp_path: Path) -> No
     assert saved["finalized"] is False
     assert saved["freeze_readiness"]["ready_for_final_freeze"] is False
     assert saved["freeze_readiness"]["blockers"] == [
-        {"code": "missing_key_deliverables", "count": 13},
+        {"code": "missing_key_deliverables", "count": 14},
         {"code": "revision_matrix_missing", "count": 1},
     ]
     assert "not a final or frozen manifest" in markdown

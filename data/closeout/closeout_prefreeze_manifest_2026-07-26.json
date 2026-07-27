@@ -135,7 +135,7 @@
     ],
     "ready_for_final_freeze": false
   },
-  "generated_at": "2026-07-26T17:04:15.752310+00:00",
+  "generated_at": "2026-07-27T04:23:53.631828+00:00",
   "key_deliverables": [
     {
       "bytes": 20937,
@@ -216,15 +216,21 @@
       "status": "present"
     },
     {
-      "bytes": 10356,
+      "bytes": 10991,
       "path": "docs/research/closeout_control_index_2026-07-26.md",
-      "sha256": "ced66556d4bddcb3235704f8abe508afab309631ae591dc2f13c443d58b93b8a",
+      "sha256": "c009bbbc0dc62e788e4a71a0aa086dd87805c7d8f9ef7bfab49d936b755691fb",
       "status": "present"
     },
     {
-      "bytes": 6873,
+      "bytes": 7574,
       "path": "docs/research/closeout_low_token_runbook_2026-07-27.md",
-      "sha256": "48626e174a266bfc5382ff99f7d635a7162a0be9c3c735b2638004db2002a088",
+      "sha256": "9479dc18376a2775b5b6fa8c013e7c26a1df2a977b1375c391b9b55fb4aceb82",
+      "status": "present"
+    },
+    {
+      "bytes": 931,
+      "path": "data/closeout/final_qa_checklist_2026-07-27.csv",
+      "sha256": "d981edb5b90cc4a936c1d0548f54dbcdbaeffda3b0dc0774950e1fab049f2df1",
       "status": "present"
     }
   ],
@@ -770,10 +776,10 @@
     "decision_gate_count": 4,
     "final_freeze_blocker_count": 1,
     "joint_decision_contract_error_count": 0,
-    "key_deliverable_count": 15,
+    "key_deliverable_count": 16,
     "missing_key_deliverable_count": 0,
     "open_decision_row_count_across_sheets": 25,
-    "present_key_deliverable_count": 15,
+    "present_key_deliverable_count": 16,
     "ready_for_final_freeze": false,
     "revision_matrix_row_count": 20,
     "revision_missing_required_row_count": 0,

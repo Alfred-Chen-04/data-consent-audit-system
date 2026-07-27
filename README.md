@@ -31,6 +31,7 @@ for the full positioning.
 |---|---|
 | [docs/research/closeout_control_index_2026-07-26.md](docs/research/closeout_control_index_2026-07-26.md) | **Start here for closeout** — current artifacts, response/revision/freeze gates, dated work order, historical map, and final acceptance checklist |
 | [docs/research/closeout_low_token_runbook_2026-07-27.md](docs/research/closeout_low_token_runbook_2026-07-27.md) | Short safe path for response intake, cutoff fallback, mapped revisions, verification, and final freeze |
+| [data/closeout/final_qa_checklist_2026-07-27.csv](data/closeout/final_qa_checklist_2026-07-27.csv) | Pending final presentation, poster, evidence, repository, and backup verification record required before the final index |
 | [SCHEMA.md](SCHEMA.md) | One-page technical master view: research question → ontology → pipeline → modules → status → open decisions |
 | [AGENTS.md](AGENTS.md) | How AI agents (Claude Code, Cursor, etc.) collaborate on this repo |
 | [CONCEPTS.md](CONCEPTS.md) | Precise definitions of every audit dimension — the project's ontology |
@@ -174,6 +175,9 @@ uv run consent-audit closeout-prefreeze-manifest
 
 # Preview the valid actual-response/fallback branch; add --write only after review
 uv run consent-audit closeout-prepare-revisions
+
+# Validate final-freeze and final-QA gates; expected to refuse until both pass
+uv run consent-audit closeout-final-index
 ```
 
 ## Repository layout
@@ -223,8 +227,9 @@ Coca-Cola smoke passes all Layer 1 paths.
   current evidence unless one specific RQ2 continuity question is approved.
 - Current closeout entrypoint is [docs/research/closeout_control_index_2026-07-26.md](docs/research/closeout_control_index_2026-07-26.md); it separates the active working set from dated history.
 - Current canonical project goal is [docs/research/current_project_goal_2026-07-02.md](docs/research/current_project_goal_2026-07-02.md).
-- Current reproducible evidence inventory is [docs/research/july26_closeout_prefreeze_manifest_2026-07-26.md](docs/research/july26_closeout_prefreeze_manifest_2026-07-26.md); 15/15 files are present, but `ready_for_final_freeze=false` because all 20 revision rows still await application and verification.
+- Current reproducible evidence inventory is [docs/research/july26_closeout_prefreeze_manifest_2026-07-26.md](docs/research/july26_closeout_prefreeze_manifest_2026-07-26.md); 16/16 files are present, but `ready_for_final_freeze=false` because all 20 revision rows still await application and verification.
 - Current decision-aware revision map is [docs/research/july26_decision_to_revision_matrix_2026-07-26.md](docs/research/july26_decision_to_revision_matrix_2026-07-26.md).
+- Final artifact-level QA is 0/5 verified; the final index remains absent and gated by `closeout-final-index`.
 - Current response/fallback protocol is [docs/research/july26_advisor_response_and_fallback_protocol_2026-07-26.md](docs/research/july26_advisor_response_and_fallback_protocol_2026-07-26.md).
 - Current review path is the [joint advisor email](docs/research/advisor_email_joint_presentation_poster_review_2026-07-25.md), [joint review ZIP](docs/research/joint_review/ssrp_joint_advisor_review_2026-07-25.zip), and [joint decision sheet](data/joint_advisor_review_decision_sheet_2026-07-25.csv).
 - Full dated evidence/work history remains in the [Week 2 index](docs/research/week2_checkin_index_2026-06-06.md); communication history remains in the [advisor packet index](docs/research/advisor_packet_index_2026-06-05.md).

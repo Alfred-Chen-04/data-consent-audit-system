@@ -1066,3 +1066,35 @@
   discussed, no recorded advisor response, and the July 29 cutoff has not
   passed. Those facts prevent truthful response selection or final artifact
   freeze today.
+
+## 2026-07-27 Final-QA And Final-Index Findings
+
+- The closeout plan previously listed final render, rehearsal, repository, and
+  backup checks, but there was no structured record for their actual result and
+  no executable guard preventing an early final index.
+- `data/closeout/final_qa_checklist_2026-07-27.csv` now has exactly five required
+  checks: presentation, poster, evidence package, repository verification, and
+  backup-open verification. Every row is still `pending`; evidence, verifier,
+  timestamp, and notes fields remain blank.
+- `closeout-final-index` validates the schema-v2 manifest, zero freeze blockers,
+  complete applied-and-verified revision coverage, valid response-basis and
+  joint-decision contracts, exact QA-row coverage, nonblank QA evidence and
+  verifier, timezone-aware verification timestamps, in-repository artifact
+  paths, file presence, and SHA-256 hashes.
+- The command performs no write by default and uses an atomic replacement only
+  with `--write`. Unit coverage proves it refuses an unready manifest, pending
+  QA, invalid timestamps, and outside-repository paths; it also proves a valid
+  state can be dry-run and then written reproducibly.
+- The command currently exits 1 with `Final index blocked: closeout manifest is
+  not ready for final freeze`. This is the expected fact-based result: 20
+  revision rows still wait for a legal response branch, all five final-QA rows
+  remain pending, and no final index exists.
+- `research-status` now reports 16/16 present key deliverables, 20 waiting
+  revision rows, zero response-basis claims/errors, final-freeze readiness
+  false, five pending final-QA checks, and a missing final index in one screen.
+- Full local verification passed 270 tests, Ruff, Mypy on 55 source files,
+  compileall, 117 Markdown files with 257 local links and zero missing, 2/2 JSON
+  parses, 2/2 ZIP integrity checks, and `git diff --check`.
+- This phase adds finalization infrastructure only. It does not record a human
+  response, choose the pre-cutoff project fallback, revise an artifact, attest
+  to an unperformed check, create a final index, or mark the project complete.

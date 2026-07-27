@@ -31,6 +31,7 @@ def test_cli_help_lists_research_export_commands() -> None:
     assert "export-research-package" in result.output
     assert "closeout-prefreeze-manifest" in result.output
     assert "closeout-prepare-revisions" in result.output
+    assert "closeout-final-index" in result.output
     assert "cmp-review-queue" in result.output
     assert "cmp-review-worksheet" in result.output
     assert "cmp-review-packet" in result.output
@@ -296,6 +297,8 @@ def test_cli_research_status_invokes_renderer(
         claim_register_md: Path,
         poster_plan_md: Path,
         current_closeout_md: Path,
+        final_qa_csv: Path,
+        final_index_md: Path,
     ) -> str:
         seen["targets_csv"] = targets_csv
         seen["research_manifest_json"] = research_manifest_json
@@ -311,6 +314,8 @@ def test_cli_research_status_invokes_renderer(
         seen["claim_register_md"] = claim_register_md
         seen["poster_plan_md"] = poster_plan_md
         seen["current_closeout_md"] = current_closeout_md
+        seen["final_qa_csv"] = final_qa_csv
+        seen["final_index_md"] = final_index_md
         return "research status"
 
     monkeypatch.setattr(
@@ -333,6 +338,8 @@ def test_cli_research_status_invokes_renderer(
     claim_register_md = tmp_path / "claim_register.md"
     poster_plan_md = tmp_path / "poster_plan.md"
     current_closeout_md = tmp_path / "current_closeout.md"
+    final_qa_csv = tmp_path / "final_qa.csv"
+    final_index_md = tmp_path / "final_index.md"
 
     result = runner.invoke(
         cli.app,
@@ -366,6 +373,10 @@ def test_cli_research_status_invokes_renderer(
             str(poster_plan_md),
             "--current-closeout-md",
             str(current_closeout_md),
+            "--final-qa-csv",
+            str(final_qa_csv),
+            "--final-index-md",
+            str(final_index_md),
         ],
     )
 
@@ -385,6 +396,8 @@ def test_cli_research_status_invokes_renderer(
         "claim_register_md": claim_register_md,
         "poster_plan_md": poster_plan_md,
         "current_closeout_md": current_closeout_md,
+        "final_qa_csv": final_qa_csv,
+        "final_index_md": final_index_md,
     }
     assert "research status" in result.output
 
@@ -3665,3 +3678,71 @@ def test_cli_closeout_prepare_revisions_invokes_preparer(
         },
     }
     assert "branch preparation report" in result.output
+
+
+def test_cli_closeout_final_index_invokes_preparer(
+    monkeypatch,
+    tmp_path: Path,
+) -> None:
+    seen: dict[str, Any] = {}
+    parsed = object()
+    prepared = object()
+
+    def fake_parse_as_of(value: str | None) -> object:
+        seen["as_of_value"] = value
+        return parsed
+
+    def fake_prepare_final_closeout_index(**kwargs: Any) -> object:
+        seen["prepare_kwargs"] = kwargs
+        return prepared
+
+    def fake_render_final_index_result(result: object) -> str:
+        assert result is prepared
+        return "final index report"
+
+    monkeypatch.setattr(cli, "parse_as_of", fake_parse_as_of)
+    monkeypatch.setattr(
+        cli,
+        "prepare_final_closeout_index",
+        fake_prepare_final_closeout_index,
+    )
+    monkeypatch.setattr(
+        cli,
+        "render_final_index_result",
+        fake_render_final_index_result,
+    )
+    manifest = tmp_path / "manifest.json"
+    qa = tmp_path / "qa.csv"
+    output = tmp_path / "final.md"
+
+    result = runner.invoke(
+        cli.app,
+        [
+            "closeout-final-index",
+            "--repo-root",
+            str(tmp_path),
+            "--manifest-json",
+            str(manifest),
+            "--final-qa-csv",
+            str(qa),
+            "--out-markdown",
+            str(output),
+            "--as-of",
+            "2026-08-06T12:00:00+08:00",
+            "--write",
+        ],
+    )
+
+    assert result.exit_code == 0
+    assert seen == {
+        "as_of_value": "2026-08-06T12:00:00+08:00",
+        "prepare_kwargs": {
+            "repo_root": tmp_path,
+            "manifest_json": manifest,
+            "final_qa_csv": qa,
+            "out_markdown": output,
+            "generated_at": parsed,
+            "write": True,
+        },
+    }
+    assert "final index report" in result.output

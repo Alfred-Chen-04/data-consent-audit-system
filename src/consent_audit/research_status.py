@@ -25,6 +25,8 @@ def render_research_status(
     claim_register_md: Path,
     poster_plan_md: Path,
     current_closeout_md: Path,
+    final_qa_csv: Path,
+    final_index_md: Path,
 ) -> str:
     """Render a concise status view from existing research artifacts."""
 
@@ -42,6 +44,11 @@ def render_research_status(
     confirmation_counts = _count_values(
         confirmation_rows,
         "confirmation_status",
+        default="pending",
+    )
+    final_qa_counts = _count_values(
+        _read_all_rows(final_qa_csv),
+        "status",
         default="pending",
     )
     preflight_status = _extract_bullet_value(preflight_md, "Overall status")
@@ -95,6 +102,8 @@ def render_research_status(
         f"validation errors: {response_basis_errors + decision_contract_errors}\n"
         f"- Final-freeze readiness: `{freeze_ready}`; "
         f"blockers={freeze_blockers or 'none'}\n"
+        f"- Final QA: {_format_counts(final_qa_counts) or 'missing'}; "
+        f"final index={_artifact_status(final_index_md)}\n"
         f"- Current next action: {closeout_next_action}\n"
         f"- Week 2 targets: {len(target_rows)}\n"
         f"- Categories: {_format_counts(categories) or 'none'}\n"
@@ -108,7 +117,9 @@ def render_research_status(
         f"- Historical cycle-report next action: {next_action}\n\n"
         "## Current Closeout Artifacts\n\n"
         f"- Closeout control index: `{current_closeout_md}`\n"
-        f"- Closeout pre-freeze manifest: `{closeout_manifest_json}`\n\n"
+        f"- Closeout pre-freeze manifest: `{closeout_manifest_json}`\n"
+        f"- Final QA checklist: `{final_qa_csv}`\n"
+        f"- Final closeout index: `{final_index_md}`\n\n"
         "## Historical And Supporting Artifacts\n\n"
         f"- Targets: `{targets_csv}`\n"
         f"- Research manifest: `{research_manifest_json}`\n"
@@ -132,6 +143,18 @@ def _read_rows(path: Path) -> list[dict[str, str]]:
                 {str(key): (value or "").strip() for key, value in row.items()}
                 for row in csv.DictReader(csv_file)
                 if (row.get("url") or "").strip()
+            ]
+    except FileNotFoundError:
+        return []
+
+
+def _read_all_rows(path: Path) -> list[dict[str, str]]:
+    try:
+        with path.open(encoding="utf-8") as csv_file:
+            return [
+                {str(key): (value or "").strip() for key, value in row.items()}
+                for row in csv.DictReader(csv_file)
+                if any((value or "").strip() for value in row.values())
             ]
     except FileNotFoundError:
         return []
@@ -192,8 +215,8 @@ def _closeout_next_action(
         return "Regenerate the pre-freeze manifest before making closeout claims."
     if summary.get("ready_for_final_freeze") is True:
         return (
-            "Run final renders, rehearsal, backup, and replace the pre-freeze "
-            "control page with the final index."
+            "Run final renders, rehearsal, repository verification, and backup; "
+            "record only passed final-QA checks, then dry-run closeout-final-index."
         )
     if _integer_value(summary, "revision_response_basis_claim_count") == 0:
         return (

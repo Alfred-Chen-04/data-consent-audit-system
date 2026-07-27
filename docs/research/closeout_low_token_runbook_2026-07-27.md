@@ -33,6 +33,8 @@ Already prepared and rechecked; do not recreate these from old notes:
 - A validated map from five decisions to 20 exact revision surfaces.
 - A schema-v2 manifest that blocks unsupported response provenance and a
   premature final-freeze claim.
+- A five-row final-QA record and a final-index generator that refuses incomplete
+  manifest, revision, QA, provenance, or artifact state.
 - A separate historical trail that preserves older pending sheets without
   using them for current intake.
 
@@ -134,24 +136,39 @@ After all 20 rows are verified:
 2. Check presentation/poster overflow, poster 48 x 36 dimensions, final
    PDF/PNG, presentation montage, and rehearsal timing.
 3. Refresh evidence exports and packages only from revised sources.
-4. Run full pytest, Ruff, Mypy, compileall, local-link, JSON, ZIP, and Git-state
-   checks.
-5. Regenerate the manifest:
+4. Run full pytest, Ruff, Mypy, compileall, local-link, JSON, ZIP, manifest
+   reproducibility, Git diff-scope, and `git diff --check` checks. A final clean
+   Git-state check follows the generated final-index commit.
+5. Copy the final presentation, poster, and evidence package to the selected
+   backup location and open each copied artifact.
+6. Record only checks that actually passed in
+   `data/closeout/final_qa_checklist_2026-07-27.csv`. A verified row requires
+   concrete evidence, verifier, and an ISO 8601 timestamp with timezone.
+7. Regenerate the manifest:
 
 ```bash
 uv run consent-audit closeout-prefreeze-manifest
 uv run consent-audit research-status
 ```
 
-6. Proceed only when the regenerated manifest reports
+8. Proceed only when the regenerated manifest reports
    `ready_for_final_freeze=true` with zero blockers.
-7. Create one final index, make a backup, and open the final presentation,
-   poster, and evidence package from both locations before calling the project
-   complete.
+9. Validate the final-index gate without writing:
+
+```bash
+uv run consent-audit closeout-final-index
+```
+
+10. If the dry-run passes, generate the one final index and open every linked
+    artifact from it:
+
+```bash
+uv run consent-audit closeout-final-index --write
+```
 
 Short Codex prompt:
 
-> 执行 final closeout：完整渲染和仓库验证，重建 manifest；只有 ready_for_final_freeze=true 且备份可打开时才生成 final index 和宣布完成。
+> 执行 final closeout：完整渲染、仓库验证和备份打开检查，按事实填写 final QA；重建 manifest，final-index dry-run 通过后才 --write 和宣布完成。
 
 ## Facts That Must Remain Visible
 
