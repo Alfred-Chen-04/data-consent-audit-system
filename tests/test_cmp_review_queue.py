@@ -204,6 +204,9 @@ def test_export_cmp_review_packet_writes_static_html_and_markdown(tmp_path: Path
         encoding="utf-8",
     )
     out_dir = tmp_path / "data" / "cmp_review_packet"
+    dom_path = tmp_path / "data" / "captures" / "sites" / "www_bbc_com" / "layer1.html"
+    dom_path.parent.mkdir(parents=True)
+    dom_path.write_text("<html></html>", encoding="utf-8")
 
     manifest = export_cmp_review_packet(queue, out_dir, project_root=tmp_path)
 
@@ -224,6 +227,34 @@ def test_export_cmp_review_packet_writes_static_html_and_markdown(tmp_path: Path
     assert 'href="../captures/sites/www_bbc_com/layer1.html"' in html
     assert "![Access probe](../captures/access_probe/www_bbc_com.png)" in markdown
     assert "[Capture DOM](../captures/sites/www_bbc_com/layer1.html)" in markdown
+
+
+def test_export_cmp_review_packet_labels_missing_dom_without_link(
+    tmp_path: Path,
+) -> None:
+    queue = tmp_path / "cmp_review_queue.csv"
+    queue.write_text(
+        "url,name,category,cohort,readiness_status,readiness_notes,"
+        "access_banner_detected,consent_banner_detected,capture_observed,"
+        "capture_date,tier,access_screenshot_path,capture_screenshot_ref,"
+        "capture_dom_snapshot_ref,dom_hash,image_hash,review_reason,"
+        "recommended_action\n"
+        "https://www.bbc.com,BBC,news,smoke,needs_cmp_review,"
+        "no banner observed,false,false,true,2026-05-29,High-Risk,,,"
+        "data/captures/sites/www_bbc_com/layer1.html,domhash,imagehash,"
+        "inspect saved screenshots,manual review\n",
+        encoding="utf-8",
+    )
+    out_dir = tmp_path / "data" / "cmp_review_packet"
+
+    export_cmp_review_packet(queue, out_dir, project_root=tmp_path)
+
+    html = (out_dir / "index.html").read_text(encoding="utf-8")
+    markdown = (out_dir / "index.md").read_text(encoding="utf-8")
+    assert "raw file not present in this checkout" in html
+    assert 'href="../captures/sites/www_bbc_com/layer1.html"' not in html
+    assert "raw file not present in this checkout" in markdown
+    assert "[Capture DOM](" not in markdown
 
 
 def test_build_cmp_review_suggestions_uses_dom_indicators_without_finalizing_decisions(

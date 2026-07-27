@@ -29,6 +29,9 @@ def test_cli_help_lists_research_export_commands() -> None:
     assert "export-audit-reports" in result.output
     assert "export-longitudinal-summary" in result.output
     assert "export-research-package" in result.output
+    assert "closeout-prefreeze-manifest" in result.output
+    assert "closeout-prepare-revisions" in result.output
+    assert "closeout-final-index" in result.output
     assert "cmp-review-queue" in result.output
     assert "cmp-review-worksheet" in result.output
     assert "cmp-review-packet" in result.output
@@ -282,6 +285,7 @@ def test_cli_research_status_invokes_renderer(
         *,
         targets_csv: Path,
         research_manifest_json: Path,
+        closeout_manifest_json: Path,
         cmp_confirmation_csv: Path,
         preflight_md: Path,
         sanity_md: Path,
@@ -292,9 +296,13 @@ def test_cli_research_status_invokes_renderer(
         writing_pack_md: Path,
         claim_register_md: Path,
         poster_plan_md: Path,
+        current_closeout_md: Path,
+        final_qa_csv: Path,
+        final_index_md: Path,
     ) -> str:
         seen["targets_csv"] = targets_csv
         seen["research_manifest_json"] = research_manifest_json
+        seen["closeout_manifest_json"] = closeout_manifest_json
         seen["cmp_confirmation_csv"] = cmp_confirmation_csv
         seen["preflight_md"] = preflight_md
         seen["sanity_md"] = sanity_md
@@ -305,6 +313,9 @@ def test_cli_research_status_invokes_renderer(
         seen["writing_pack_md"] = writing_pack_md
         seen["claim_register_md"] = claim_register_md
         seen["poster_plan_md"] = poster_plan_md
+        seen["current_closeout_md"] = current_closeout_md
+        seen["final_qa_csv"] = final_qa_csv
+        seen["final_index_md"] = final_index_md
         return "research status"
 
     monkeypatch.setattr(
@@ -315,6 +326,7 @@ def test_cli_research_status_invokes_renderer(
     )
     targets_csv = tmp_path / "targets.csv"
     manifest_json = tmp_path / "manifest.json"
+    closeout_manifest_json = tmp_path / "closeout_manifest.json"
     cmp_csv = tmp_path / "cmp.csv"
     preflight_md = tmp_path / "preflight.md"
     sanity_md = tmp_path / "sanity.md"
@@ -325,6 +337,9 @@ def test_cli_research_status_invokes_renderer(
     writing_pack_md = tmp_path / "writing_pack.md"
     claim_register_md = tmp_path / "claim_register.md"
     poster_plan_md = tmp_path / "poster_plan.md"
+    current_closeout_md = tmp_path / "current_closeout.md"
+    final_qa_csv = tmp_path / "final_qa.csv"
+    final_index_md = tmp_path / "final_index.md"
 
     result = runner.invoke(
         cli.app,
@@ -334,6 +349,8 @@ def test_cli_research_status_invokes_renderer(
             str(targets_csv),
             "--research-manifest-json",
             str(manifest_json),
+            "--closeout-manifest-json",
+            str(closeout_manifest_json),
             "--cmp-confirmation-csv",
             str(cmp_csv),
             "--preflight-md",
@@ -354,6 +371,12 @@ def test_cli_research_status_invokes_renderer(
             str(claim_register_md),
             "--poster-plan-md",
             str(poster_plan_md),
+            "--current-closeout-md",
+            str(current_closeout_md),
+            "--final-qa-csv",
+            str(final_qa_csv),
+            "--final-index-md",
+            str(final_index_md),
         ],
     )
 
@@ -361,6 +384,7 @@ def test_cli_research_status_invokes_renderer(
     assert seen == {
         "targets_csv": targets_csv,
         "research_manifest_json": manifest_json,
+        "closeout_manifest_json": closeout_manifest_json,
         "cmp_confirmation_csv": cmp_csv,
         "preflight_md": preflight_md,
         "sanity_md": sanity_md,
@@ -371,6 +395,9 @@ def test_cli_research_status_invokes_renderer(
         "writing_pack_md": writing_pack_md,
         "claim_register_md": claim_register_md,
         "poster_plan_md": poster_plan_md,
+        "current_closeout_md": current_closeout_md,
+        "final_qa_csv": final_qa_csv,
+        "final_index_md": final_index_md,
     }
     assert "research status" in result.output
 
@@ -3530,3 +3557,192 @@ def test_cli_export_research_package_invokes_exporter(
     assert seen == {"out_dir": tmp_path, "limit": 7}
     assert "3 reports" in result.output
     assert "2 weekly summaries" in result.output
+
+
+def test_cli_closeout_prefreeze_manifest_invokes_exporter(
+    monkeypatch,
+    tmp_path: Path,
+) -> None:
+    seen: dict[str, Any] = {}
+
+    def fake_export_closeout_prefreeze_manifest(
+        repo_root: Path,
+        out_json: Path,
+        out_markdown: Path,
+    ) -> dict[str, Any]:
+        seen.update(
+            repo_root=repo_root,
+            out_json=out_json,
+            out_markdown=out_markdown,
+        )
+        return {
+            "summary": {
+                "present_key_deliverable_count": 9,
+                "key_deliverable_count": 11,
+                "open_decision_row_count_across_sheets": 25,
+                "decision_gate_count": 4,
+                "ready_for_final_freeze": False,
+                "final_freeze_blocker_count": 2,
+            }
+        }
+
+    monkeypatch.setattr(
+        cli,
+        "export_closeout_prefreeze_manifest",
+        fake_export_closeout_prefreeze_manifest,
+    )
+    out_json = tmp_path / "manifest.json"
+    out_markdown = tmp_path / "manifest.md"
+
+    result = runner.invoke(
+        cli.app,
+        [
+            "closeout-prefreeze-manifest",
+            "--repo-root",
+            str(tmp_path),
+            "--out-json",
+            str(out_json),
+            "--out-markdown",
+            str(out_markdown),
+        ],
+    )
+
+    assert result.exit_code == 0
+    assert seen == {
+        "repo_root": tmp_path,
+        "out_json": out_json,
+        "out_markdown": out_markdown,
+    }
+    assert "9/11 key deliverables present" in result.output
+    assert "25 open rows across 4 decision sheets" in result.output
+    assert "final freeze ready=false" in result.output
+    assert "2 blocker categories" in result.output
+
+
+def test_cli_closeout_prepare_revisions_invokes_preparer(
+    monkeypatch,
+    tmp_path: Path,
+) -> None:
+    seen: dict[str, Any] = {}
+    parsed = object()
+    prepared = object()
+
+    def fake_parse_as_of(value: str | None) -> object:
+        seen["as_of_value"] = value
+        return parsed
+
+    def fake_prepare_closeout_revision_branch(**kwargs: Any) -> object:
+        seen["prepare_kwargs"] = kwargs
+        return prepared
+
+    def fake_render_closeout_branch_result(result: object) -> str:
+        assert result is prepared
+        return "branch preparation report"
+
+    monkeypatch.setattr(cli, "parse_as_of", fake_parse_as_of)
+    monkeypatch.setattr(
+        cli,
+        "prepare_closeout_revision_branch",
+        fake_prepare_closeout_revision_branch,
+    )
+    monkeypatch.setattr(
+        cli,
+        "render_closeout_branch_result",
+        fake_render_closeout_branch_result,
+    )
+    joint = tmp_path / "joint.csv"
+    matrix = tmp_path / "matrix.csv"
+
+    result = runner.invoke(
+        cli.app,
+        [
+            "closeout-prepare-revisions",
+            "--joint-decision-csv",
+            str(joint),
+            "--revision-matrix-csv",
+            str(matrix),
+            "--as-of",
+            "2026-07-30T00:01:00+08:00",
+            "--write",
+        ],
+    )
+
+    assert result.exit_code == 0
+    assert seen == {
+        "as_of_value": "2026-07-30T00:01:00+08:00",
+        "prepare_kwargs": {
+            "joint_decision_csv": joint,
+            "revision_matrix_csv": matrix,
+            "as_of": parsed,
+            "write": True,
+        },
+    }
+    assert "branch preparation report" in result.output
+
+
+def test_cli_closeout_final_index_invokes_preparer(
+    monkeypatch,
+    tmp_path: Path,
+) -> None:
+    seen: dict[str, Any] = {}
+    parsed = object()
+    prepared = object()
+
+    def fake_parse_as_of(value: str | None) -> object:
+        seen["as_of_value"] = value
+        return parsed
+
+    def fake_prepare_final_closeout_index(**kwargs: Any) -> object:
+        seen["prepare_kwargs"] = kwargs
+        return prepared
+
+    def fake_render_final_index_result(result: object) -> str:
+        assert result is prepared
+        return "final index report"
+
+    monkeypatch.setattr(cli, "parse_as_of", fake_parse_as_of)
+    monkeypatch.setattr(
+        cli,
+        "prepare_final_closeout_index",
+        fake_prepare_final_closeout_index,
+    )
+    monkeypatch.setattr(
+        cli,
+        "render_final_index_result",
+        fake_render_final_index_result,
+    )
+    manifest = tmp_path / "manifest.json"
+    qa = tmp_path / "qa.csv"
+    output = tmp_path / "final.md"
+
+    result = runner.invoke(
+        cli.app,
+        [
+            "closeout-final-index",
+            "--repo-root",
+            str(tmp_path),
+            "--manifest-json",
+            str(manifest),
+            "--final-qa-csv",
+            str(qa),
+            "--out-markdown",
+            str(output),
+            "--as-of",
+            "2026-08-06T12:00:00+08:00",
+            "--write",
+        ],
+    )
+
+    assert result.exit_code == 0
+    assert seen == {
+        "as_of_value": "2026-08-06T12:00:00+08:00",
+        "prepare_kwargs": {
+            "repo_root": tmp_path,
+            "manifest_json": manifest,
+            "final_qa_csv": qa,
+            "out_markdown": output,
+            "generated_at": parsed,
+            "write": True,
+        },
+    }
+    assert "final index report" in result.output

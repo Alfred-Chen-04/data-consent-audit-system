@@ -4,6 +4,12 @@ This audit checks the current repository against the SSRP consent-interface audi
 plan. It is intentionally conservative: an item is marked complete only when a
 current artifact or command output proves it.
 
+2026-07-01 scope update: the current summer deliverables are presentation +
+large poster + traceable evidence package. A formal SSRP paper is no longer a
+required summer deliverable unless Dr. Singh reintroduces it later. Paper
+artifacts below are now treated as optional future-paper support and
+presentation/poster source notes.
+
 ## Current State Snapshot
 
 - Week 2 targets: 5
@@ -14,7 +20,8 @@ current artifact or command output proves it.
 - Audit reports in package: 42
 - Longitudinal summaries in package: 20
 - CMP confirmations: pending=8
-- Paper artifacts present: claim register, figure plan, paper skeleton, poster plan, results tables, writing pack
+- Presentation/poster support artifacts present: claim register, figure plan,
+  optional future-paper skeleton, poster plan, results tables, writing pack
 
 ## Requirement Audit
 
@@ -34,12 +41,12 @@ current artifact or command output proves it.
 | Week 2 single-site/weekly capture cycle | Complete for 5/5 targets | `docs/research/week2_capture_day_checklist_2026-06-06.md`; `docs/research/week2_cycle_report_2026-06-06.md` | Review results before expanding the sample. |
 | Focused deep sample around 20 sites | Incomplete | Frozen Week 2 target list has 5 active sites | Expand toward roughly 20 only after Week 2 evidence gate is stable. |
 | CMP/manual-review loop | Built but unresolved | `data/cmp_review_confirmation_sheet_pilot_2026-05-30.csv`; `docs/research/cmp_confirmation_request_2026-05-30.md`; CMP confirmations pending=8 | Advisor/human review must confirm or reject the 8 pending rows. |
-| Paper results tables | Ready for Week 2 evidence-gate discussion | `docs/research/ssrp_results_tables_2026-06-06.md`; claim register marks result claims ready | Use with sanity/source evidence refs; refresh after future captures. |
-| Paper skeleton/writing pack | Ready as Week 2 drafting scaffold | `docs/research/ssrp_paper_skeleton_2026-06-06.md`; `docs/research/ssrp_writing_pack_2026-06-06.md` | Use as draft scaffold, not final 10-week results. |
+| Evidence summary tables | Ready for Week 2 evidence-gate discussion | `docs/research/ssrp_results_tables_2026-06-06.md`; claim register marks result claims ready | Use with sanity/source evidence refs; refresh after future captures. |
+| Presentation/poster writing support | Ready as Week 2 drafting scaffold | `docs/research/ssrp_paper_skeleton_2026-06-06.md`; `docs/research/ssrp_writing_pack_2026-06-06.md` | Use as source notes, not as a required formal paper draft. |
 | Claim register | Complete as a guardrail | `docs/research/ssrp_claim_register_2026-06-06.md` | Re-run before copying any final results claims. |
-| Poster plan | Complete as a storyboard, evidence now refreshed for Week 2 | `docs/research/ssrp_poster_plan_2026-06-06.md` | Render final visuals after sample expansion and paper story are stable. |
+| Poster plan | Complete as a storyboard, evidence now refreshed for Week 2 | `docs/research/ssrp_poster_plan_2026-06-06.md` | Render final visuals after sample decisions and presentation story are stable. |
 | Demo/evidence browser | Missing | No current generated evidence-browser index for all Week 2 targets | Needs a short design approval before implementation. |
-| SSRP paper/poster final deliverables | Incomplete by date and evidence gate | Current artifacts are scaffold/provisional; final period is Aug. 8-Aug. 31 | Freeze dataset after Week 10, then revise paper/poster. |
+| Presentation/poster final deliverables | Incomplete by date and evidence gate | Current artifacts are scaffold/provisional; final period is Aug. 8-Aug. 31 | Freeze scope and sample story, then build presentation/poster. |
 
 ## Test Plan Audit
 
@@ -58,13 +65,15 @@ The overall goal cannot be marked complete yet because:
 
 - CMP/manual-review confirmations remain pending for 8 rows.
 - The focused deep sample has only 5 frozen Week 2 targets, below the planned roughly 20-site deep sample.
-- Final SSRP paper and poster deliverables are not frozen; current paper/poster artifacts are Week 2 evidence-gate scaffolds.
+- Final presentation and poster deliverables are not frozen; current artifacts
+  are Week 2 evidence-gate scaffolds.
 - A supporting demo/evidence browser has not been designed or implemented.
 
 ## Next Viable Work
 
 1. Review the completed Week 2 sanity check, results tables, and claim register.
-2. Send or discuss the filled June 6 advisor update draft.
+2. Send or discuss the July 1 advisor scope-update email.
 3. Resolve the 8 CMP/manual-review confirmations with human/advisor input.
-4. Expand the deep sample toward roughly 20 sites after the Week 2 evidence gate is stable.
+4. Decide whether the presentation/poster needs expansion beyond the current
+   five-site evidence gate.
 5. Design and implement a small static evidence browser that links targets, latest audit reports, screenshots, DOM refs, longitudinal summaries, claim status, and source artifacts.

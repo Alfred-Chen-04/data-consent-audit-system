@@ -10,6 +10,7 @@
 - Banner-present automated tiers: High-Risk=2
 - Raw automated target tiers: High-Risk=5
 - Latest longitudinal severity: C=3, D=2
+- Evidence refs may include generated DOM paths from CSV/report exports; verify raw HTML file availability separately before claiming synced DOM snapshots.
 
 ## Table 1. RQ1 Consent-Interface Scoring Summary
 

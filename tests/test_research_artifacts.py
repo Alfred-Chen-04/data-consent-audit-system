@@ -1,7 +1,24 @@
 """Tests for paper-facing research scaffolding files."""
 
 import csv
+import hashlib
+import json
+import re
+import xml.etree.ElementTree as ET
+import zipfile
+from collections import Counter
+from datetime import datetime
 from pathlib import Path
+
+from typer.testing import CliRunner
+
+from consent_audit import cli
+from consent_audit.closeout_final import DEFAULT_REQUIRED_QA_IDS
+from consent_audit.closeout_manifest import (
+    PROJECT_FALLBACK_CUTOFF,
+    PROJECT_FALLBACK_VALUES,
+    build_closeout_prefreeze_manifest,
+)
 
 
 def test_smoke_site_list_has_week1_probe_size() -> None:
@@ -480,6 +497,7 @@ def test_week2_sanity_check_exists_and_reports_completed_capture_gate() -> None:
     assert "- Target sites: 5" in text
     assert "- Consent rows captured: 5/5" in text
     assert "- Evidence-complete rows: 5/5" in text
+    assert "verify raw DOM file sync separately" in text
     assert "- Matching audit reports: 5/5" in text
     assert "- Weekly summaries present: 5/5" in text
     assert "- Overall status: ready" in text
@@ -707,3 +725,1251 @@ def test_ssrp_poster_plan_exists_and_marks_week2_gate_ready() -> None:
     assert "## Before Final Poster" in text
     assert "Use the completed Week 2 gate as first evidence, not the final dataset." in text
     assert "## Source Artifacts" in text
+
+
+def test_current_scope_and_advisor_email_reflect_presentation_poster_deliverable() -> None:
+    scope_path = Path("docs/research/current_scope_2026-07-01.md")
+    email_path = Path("docs/research/advisor_email_scope_update_2026-07-01.md")
+    readme_path = Path("README.md")
+    index_path = Path("docs/research/week2_checkin_index_2026-06-06.md")
+
+    scope_text = scope_path.read_text(encoding="utf-8")
+    email_text = email_path.read_text(encoding="utf-8")
+    readme_text = readme_path.read_text(encoding="utf-8")
+    index_text = index_path.read_text(encoding="utf-8")
+
+    assert "presentation;" in scope_text
+    assert "large poster;" in scope_text
+    assert "A formal SSRP paper is not required as a summer deliverable" in scope_text
+    assert "original RQ1/RQ2 spine" in scope_text
+    assert "not as a replacement research question" in scope_text
+    assert "Subject: Current project scope and next consent-audit decisions" in email_text
+    assert "presentation + large poster + traceable" in readme_text
+    assert "advisor_email_scope_update_2026-07-01.md" not in readme_text
+    assert "advisor_email_scope_update_2026-07-01.md" in index_text
+    assert "[Current scope note, 2026-07-01](current_scope_2026-07-01.md)" in index_text
+
+
+def test_july2_work_note_and_poster_work_order_remain_in_history_index() -> None:
+    today_path = Path("docs/research/today_work_note_2026-07-02.md")
+    work_order_path = Path("docs/research/presentation_poster_work_order_2026-07-02.md")
+    readme_path = Path("README.md")
+    index_path = Path("docs/research/week2_checkin_index_2026-06-06.md")
+
+    today_text = today_path.read_text(encoding="utf-8")
+    work_order_text = work_order_path.read_text(encoding="utf-8")
+    readme_text = readme_path.read_text(encoding="utf-8")
+    index_text = index_path.read_text(encoding="utf-8")
+
+    assert "Calendar progress | about 48.6%" in today_text
+    assert "0 tracked or filesystem `layer1.html` raw DOM files" in today_text
+    assert "There is still no evidence-based reason to run a blind live capture." in today_text
+    assert "## Presentation/Poster Story" in work_order_text
+    assert "RQ1 computational" in work_order_text
+    assert "RQ2 automatic" in work_order_text
+    assert "Guardian and Coca-Cola are the current banner-present evidence-card" in work_order_text
+    assert "today_work_note_2026-07-02.md" not in readme_text
+    assert "presentation_poster_work_order_2026-07-02.md" not in readme_text
+    assert "[Today work note, 2026-07-02](today_work_note_2026-07-02.md)" in index_text
+
+
+def test_project_inventory_and_poster_story_remains_in_history_index() -> None:
+    inventory_path = Path("docs/research/project_inventory_and_poster_story_2026-07-02.md")
+    readme_path = Path("README.md")
+    index_path = Path("docs/research/week2_checkin_index_2026-06-06.md")
+
+    inventory_text = inventory_path.read_text(encoding="utf-8")
+    readme_text = readme_path.read_text(encoding="utf-8")
+    index_text = index_path.read_text(encoding="utf-8")
+
+    assert 'The project is not "a screenshot project."' in inventory_text
+    assert "RQ1: develop a computational audit and scoring system" in inventory_text
+    assert "RQ2: automatically capture and version firms' privacy interfaces" in inventory_text
+    assert "Screenshots are evidence inputs." in inventory_text
+    assert "326 tracked site `layer1.png` screenshots" in inventory_text
+    assert "42 audit reports and 20 longitudinal summaries" in inventory_text
+    assert "All 42 referenced screenshot paths exist locally." in inventory_text
+    assert "Do not say:" in inventory_text
+    assert "project_inventory_and_poster_story_2026-07-02.md" not in readme_text
+    assert (
+        "[Project inventory and poster story, 2026-07-02]"
+        "(project_inventory_and_poster_story_2026-07-02.md)"
+    ) in index_text
+
+
+def test_current_project_goal_is_canonical_entrypoint() -> None:
+    goal_path = Path("docs/research/current_project_goal_2026-07-02.md")
+    schema_path = Path("SCHEMA.md")
+    readme_path = Path("README.md")
+    scope_path = Path("docs/research/current_scope_2026-07-01.md")
+    work_order_path = Path("docs/research/presentation_poster_work_order_2026-07-02.md")
+    inventory_path = Path("docs/research/project_inventory_and_poster_story_2026-07-02.md")
+    index_path = Path("docs/research/week2_checkin_index_2026-06-06.md")
+
+    goal_text = goal_path.read_text(encoding="utf-8")
+    schema_text = schema_path.read_text(encoding="utf-8")
+    readme_text = readme_path.read_text(encoding="utf-8")
+    scope_text = scope_path.read_text(encoding="utf-8")
+    work_order_text = work_order_path.read_text(encoding="utf-8")
+    inventory_text = inventory_path.read_text(encoding="utf-8")
+    index_text = index_path.read_text(encoding="utf-8")
+
+    assert "One-Sentence Goal" in goal_text
+    assert "RQ1 scores" in goal_text
+    assert "layered consent interfaces for unbiased choice" in goal_text
+    assert "RQ2 captures and versions" in goal_text
+    assert "Not a screenshot collection project." in goal_text
+    assert "Evidence traceability is a design requirement" in goal_text
+    assert "Presentation." in goal_text
+    assert "Large poster." in goal_text
+    assert "Traceable evidence package" in goal_text
+    assert "current_project_goal_2026-07-02.md" in schema_text
+    assert "current_project_goal_2026-07-02.md" in readme_text
+    assert "original RQ1/RQ2 spine" in scope_text
+    assert "current_project_goal_2026-07-02.md" in work_order_text
+    assert "current_project_goal_2026-07-02.md" in inventory_text
+    assert "[Current project goal, 2026-07-02](current_project_goal_2026-07-02.md)" in index_text
+
+
+def test_july3_scope_fact_review_and_poster_plan_remains_in_history() -> None:
+    review_path = Path("docs/research/july3_scope_fact_review_and_poster_plan_2026-07-03.md")
+    readme_path = Path("README.md")
+    index_path = Path("docs/research/week2_checkin_index_2026-06-06.md")
+    advisor_index_path = Path("docs/research/advisor_packet_index_2026-06-05.md")
+    goal_path = Path("docs/research/current_project_goal_2026-07-02.md")
+
+    review_text = review_path.read_text(encoding="utf-8")
+    readme_text = readme_path.read_text(encoding="utf-8")
+    index_text = index_path.read_text(encoding="utf-8")
+    advisor_index_text = advisor_index_path.read_text(encoding="utf-8")
+    goal_text = goal_path.read_text(encoding="utf-8")
+
+    assert "# July 3 Scope/Fact Review and Poster Plan, 2026-07-03" in review_text
+    assert "35 of 70" in review_text
+    assert "50.0%" in review_text
+    assert "RQ1 scoring" in review_text
+    assert "RQ2 versioning" in review_text
+    assert "326 tracked site `layer1.png`" in review_text
+    assert "0 synced `layer1.html`" in review_text
+    assert "42 audit reports and 20 longitudinal summaries" in review_text
+    assert "7 blank current-five decisions" in review_text
+    assert "8 pending CMP/manual-review" in review_text
+    assert "Poster can be drafted now as a pilot/evidence poster" in review_text
+    assert "not a completed 20-site final dataset" in advisor_index_text
+    assert "july3_scope_fact_review_and_poster_plan_2026-07-03.md" not in readme_text
+    assert (
+        "[July 3 scope/fact review and poster plan, 2026-07-03]"
+        "(july3_scope_fact_review_and_poster_plan_2026-07-03.md)"
+    ) in index_text
+    assert "july3_scope_fact_review_and_poster_plan_2026-07-03.md" in advisor_index_text
+    assert "july3_scope_fact_review_and_poster_plan_2026-07-03.md" in goal_text
+
+
+def test_july5_evidence_sync_audit_remains_in_history() -> None:
+    audit_path = Path("docs/research/july5_evidence_sync_audit_2026-07-05.md")
+    readme_path = Path("README.md")
+    index_path = Path("docs/research/week2_checkin_index_2026-06-06.md")
+    advisor_index_path = Path("docs/research/advisor_packet_index_2026-06-05.md")
+
+    audit_text = audit_path.read_text(encoding="utf-8")
+    readme_text = readme_path.read_text(encoding="utf-8")
+    index_text = index_path.read_text(encoding="utf-8")
+    advisor_index_text = advisor_index_path.read_text(encoding="utf-8")
+
+    assert "# July 5 Evidence Sync Audit, 2026-07-05" in audit_text
+    assert "Local HEAD: `3c202181ca6510e5fd395989b2b62511aa155641`" in audit_text
+    assert "PR #8: open, draft, mergeable, not merged." in audit_text
+    assert "`data/captures` contains 365 PNG files." in audit_text
+    assert "Git tracks 365 capture PNG files." in audit_text
+    assert (
+        "`origin/codex/project-status-plain-language` contains 365 capture PNG files."
+        in audit_text
+    )
+    assert "Missing screenshot refs: 0." in audit_text
+    assert "Missing raw DOM HTML files: 42." in audit_text
+    assert "Missing raw DOM HTML files: 5." in audit_text
+    assert "Missing raw DOM HTML files: 8." in audit_text
+    assert "Blank confirmed decisions: 7." in audit_text
+    assert "Pending confirmations: 8." in audit_text
+    assert "Screenshot evidence is tracked by Git and present on the GitHub PR branch." in audit_text
+    assert "2026-07-05 evidence sync confirmation" in advisor_index_text
+    assert "july5_evidence_sync_audit_2026-07-05.md" not in readme_text
+    assert (
+        "[July 5 evidence sync audit, 2026-07-05]"
+        "(july5_evidence_sync_audit_2026-07-05.md)"
+    ) in index_text
+    assert "july5_evidence_sync_audit_2026-07-05.md" in advisor_index_text
+
+
+def test_july6_poster_section_draft_remains_in_history() -> None:
+    draft_path = Path("docs/research/july6_poster_section_draft_2026-07-06.md")
+    readme_path = Path("README.md")
+    index_path = Path("docs/research/week2_checkin_index_2026-06-06.md")
+    advisor_index_path = Path("docs/research/advisor_packet_index_2026-06-05.md")
+
+    draft_text = draft_path.read_text(encoding="utf-8")
+    readme_text = readme_path.read_text(encoding="utf-8")
+    index_text = index_path.read_text(encoding="utf-8")
+    advisor_index_text = advisor_index_path.read_text(encoding="utf-8")
+
+    assert "# July 6 Poster Section Draft, 2026-07-06" in draft_text
+    assert "38 of 70 core-cycle days" in draft_text
+    assert "54.3%" in draft_text
+    assert "PR #8: open, draft, mergeable, not merged into `main`." in draft_text
+    assert "42 audit reports and 20 longitudinal summaries" in draft_text
+    assert "Banner-detected counts" in draft_text
+    assert "true=9, false=33" in draft_text
+    assert "326 site `layer1.png` files" in draft_text
+    assert "0 synced site" in draft_text
+    assert "Current-five decision sheet: 7 rows, 7 blank decisions." in draft_text
+    assert "CMP/manual-review confirmation sheet: 8 rows, 8 pending confirmations." in draft_text
+    assert "Traceable Consent Interface Audit and Versioning" in draft_text
+    assert "No-visible-banner contrast cases are not banner-path failures." in draft_text
+    assert "The poster can now safely include:" in draft_text
+    assert "july6_poster_section_draft_2026-07-06.md" not in readme_text
+    assert (
+        "[July 6 poster section draft, 2026-07-06]"
+        "(july6_poster_section_draft_2026-07-06.md)"
+    ) in index_text
+    assert "july6_poster_section_draft_2026-07-06.md" in advisor_index_text
+
+
+def test_july6_recent_work_validation_and_gap_audit_remains_in_history() -> None:
+    audit_path = Path("docs/research/july6_recent_work_validation_and_gap_audit_2026-07-06.md")
+    readme_path = Path("README.md")
+    index_path = Path("docs/research/week2_checkin_index_2026-06-06.md")
+    advisor_index_path = Path("docs/research/advisor_packet_index_2026-06-05.md")
+
+    audit_text = audit_path.read_text(encoding="utf-8")
+    readme_text = readme_path.read_text(encoding="utf-8")
+    index_text = index_path.read_text(encoding="utf-8")
+    advisor_index_text = advisor_index_path.read_text(encoding="utf-8")
+
+    assert "# July 6 Recent Work Validation and Gap Audit, 2026-07-06" in audit_text
+    assert "38 of 70 days" in audit_text
+    assert "54.3%" in audit_text
+    assert "PR #8 is open, draft, mergeable, and not merged into `main`." in audit_text
+    assert "Audit reports in package: 42." in audit_text
+    assert "Longitudinal summaries in package: 20." in audit_text
+    assert "Current-five decision sheet: 7 rows, 7 blank decisions." in audit_text
+    assert "CMP/manual-review confirmation sheet: 8 rows, 8 pending confirmations" in audit_text
+    assert "Site screenshot evidence: 326 `layer1.png` files." in audit_text
+    assert "Synced site raw HTML evidence: 0 `layer1.html` files." in audit_text
+    assert "No code/data correction was required by this scan." in audit_text
+    assert "Yes, for the current safe scope:" in audit_text
+    assert "No, if \"OK\" means final experiment complete:" in audit_text
+    assert "Remaining Gaps Before Experiment Endpoint" in audit_text
+    assert "july6_recent_work_validation_and_gap_audit_2026-07-06.md" not in readme_text
+    assert (
+        "[July 6 validation and gap audit, 2026-07-06]"
+        "(july6_recent_work_validation_and_gap_audit_2026-07-06.md)"
+    ) in index_text
+    assert "july6_recent_work_validation_and_gap_audit_2026-07-06.md" in advisor_index_text
+
+
+def test_july7_poster_build_work_order_remains_in_history() -> None:
+    work_order_path = Path("docs/research/july7_poster_build_work_order_2026-07-07.md")
+    readme_path = Path("README.md")
+    index_path = Path("docs/research/week2_checkin_index_2026-06-06.md")
+    advisor_index_path = Path("docs/research/advisor_packet_index_2026-06-05.md")
+
+    work_order_text = work_order_path.read_text(encoding="utf-8")
+    readme_text = readme_path.read_text(encoding="utf-8")
+    index_text = index_path.read_text(encoding="utf-8")
+    advisor_index_text = advisor_index_path.read_text(encoding="utf-8")
+
+    assert "# July 7 Poster Build Work Order, 2026-07-07" in work_order_text
+    assert "39 of 70 core-cycle days" in work_order_text
+    assert "55.7%" in work_order_text
+    assert "Days left before August 7 core deadline: 31." in work_order_text
+    assert "PR #8: open, draft, mergeable, not merged into `main`." in work_order_text
+    assert "Research package: 42 audit reports and 20 longitudinal summaries." in work_order_text
+    assert "Banner-detected counts" in work_order_text
+    assert "true=9, false=33" in work_order_text
+    assert "326 site `layer1.png` files" in work_order_text
+    assert "0 synced site" in work_order_text
+    assert "Current-five decision sheet: 7 rows, 7 blank decisions." in work_order_text
+    assert "CMP/manual-review confirmation sheet: 8 rows, 8 pending confirmations." in work_order_text
+    assert "Build the poster as a pilot/method poster with seven panels:" in work_order_text
+    assert "Guardian" in work_order_text
+    assert "Coca-Cola" in work_order_text
+    assert "CNN" in work_order_text
+    assert "Booking.com" in work_order_text
+    assert "NerdWallet" in work_order_text
+    assert "No-visible-banner contrast cases are not banner-path failures." in work_order_text
+    assert "The final dataset is complete." in work_order_text
+    assert "july7_poster_build_work_order_2026-07-07.md" not in readme_text
+    assert (
+        "[July 7 poster build work order, 2026-07-07]"
+        "(july7_poster_build_work_order_2026-07-07.md)"
+    ) in index_text
+    assert "july7_poster_build_work_order_2026-07-07.md" in advisor_index_text
+
+
+def test_july7_poster_layout_draft_remains_in_history() -> None:
+    layout_path = Path("docs/research/july7_poster_layout_draft_2026-07-07.md")
+    readme_path = Path("README.md")
+    index_path = Path("docs/research/week2_checkin_index_2026-06-06.md")
+    advisor_index_path = Path("docs/research/advisor_packet_index_2026-06-05.md")
+
+    layout_text = layout_path.read_text(encoding="utf-8")
+    readme_text = readme_path.read_text(encoding="utf-8")
+    index_text = index_path.read_text(encoding="utf-8")
+    advisor_index_text = advisor_index_path.read_text(encoding="utf-8")
+
+    assert "# July 7 Poster Layout Draft, 2026-07-07" in layout_text
+    assert "first poster layout" in layout_text
+    assert "This draft adds no new browser capture" in layout_text
+    assert "Build the poster as a pilot/method poster" in layout_text
+    assert "Top band" in layout_text
+    assert "Left column" in layout_text
+    assert "Middle column" in layout_text
+    assert "Right column" in layout_text
+    assert "Traceable Consent Interface Audit and Versioning" in layout_text
+    assert "Week 2 target sites | 5" in layout_text
+    assert "Audit reports | 42" in layout_text
+    assert "Longitudinal summaries | 20" in layout_text
+    assert "Synced raw `layer1.html` files | 0" in layout_text
+    assert "data/captures/sites/www_theguardian_com_20260605_160209/layer1.png" in layout_text
+    assert "data/captures/sites/www_coca_cola_com_20260605_160238/layer1.png" in layout_text
+    assert "data/captures/sites/www_cnn_com_20260605_160221/layer1.png" in layout_text
+    assert "data/captures/sites/www_booking_com_20260605_160226/layer1.png" in layout_text
+    assert "data/captures/sites/www_nerdwallet_com_20260605_160232/layer1.png" in layout_text
+    assert "No-visible-banner contrast cases are not banner-path failures." in layout_text
+    assert "final dataset complete" in layout_text
+    assert "ready for a first visual mockup" in layout_text
+    assert "july7_poster_layout_draft_2026-07-07.md" not in readme_text
+    assert (
+        "[July 7 poster layout draft, 2026-07-07]"
+        "(july7_poster_layout_draft_2026-07-07.md)"
+    ) in index_text
+    assert "july7_poster_layout_draft_2026-07-07.md" in advisor_index_text
+
+
+def test_july9_poster_asset_manifest_remains_in_history() -> None:
+    manifest_path = Path("docs/research/july9_poster_asset_manifest_2026-07-09.md")
+    readme_path = Path("README.md")
+    index_path = Path("docs/research/week2_checkin_index_2026-06-06.md")
+    advisor_index_path = Path("docs/research/advisor_packet_index_2026-06-05.md")
+
+    manifest_text = manifest_path.read_text(encoding="utf-8")
+    readme_text = readme_path.read_text(encoding="utf-8")
+    index_text = index_path.read_text(encoding="utf-8")
+    advisor_index_text = advisor_index_path.read_text(encoding="utf-8")
+
+    assert "# July 9 Poster Asset Manifest, 2026-07-09" in manifest_text
+    assert "41 of 70 core-cycle days" in manifest_text
+    assert "58.6%" in manifest_text
+    assert "Days left before August 7 core deadline: 29." in manifest_text
+    assert "Research package: 42 audit reports and 20 longitudinal summaries." in manifest_text
+    assert "Banner-detected counts" in manifest_text
+    assert "true=9, false=33" in manifest_text
+    assert "326 site `layer1.png` files" in manifest_text
+    assert "0 synced site" in manifest_text
+    assert "Current-five decision sheet: 7 rows, 7 blank decisions." in manifest_text
+    assert "CMP/manual-review confirmation sheet: 8 rows, 8 pending confirmations." in manifest_text
+    assert "The July 8 draft task was carried forward on July 9" in manifest_text
+    assert "data/captures/sites/www_theguardian_com_20260605_160209/layer1.png" in manifest_text
+    assert "data/captures/sites/www_coca_cola_com_20260605_160238/layer1.png" in manifest_text
+    assert "data/captures/sites/www_cnn_com_20260605_160221/layer1.png" in manifest_text
+    assert "data/captures/sites/www_booking_com_20260605_160226/layer1.png" in manifest_text
+    assert "data/captures/sites/www_nerdwallet_com_20260605_160232/layer1.png" in manifest_text
+    assert manifest_text.count("1440x900") == 5
+    assert "144914" in manifest_text
+    assert "338126" in manifest_text
+    assert "439361" in manifest_text
+    assert "97083" in manifest_text
+    assert "608556" in manifest_text
+    assert "Do not treat as a banner-path failure without the separate table rule." in manifest_text
+    assert "This screenshot proves the site still looks the same today." in manifest_text
+    assert "july9_poster_asset_manifest_2026-07-09.md" not in readme_text
+    assert (
+        "[July 9 poster asset manifest, 2026-07-09]"
+        "(july9_poster_asset_manifest_2026-07-09.md)"
+    ) in index_text
+    assert "july9_poster_asset_manifest_2026-07-09.md" in advisor_index_text
+
+
+def test_july12_poster_assembly_packet_remains_in_history() -> None:
+    packet_path = Path("docs/research/july12_poster_assembly_packet_2026-07-12.md")
+    readme_path = Path("README.md")
+    index_path = Path("docs/research/week2_checkin_index_2026-06-06.md")
+    advisor_index_path = Path("docs/research/advisor_packet_index_2026-06-05.md")
+
+    packet_text = packet_path.read_text(encoding="utf-8")
+    readme_text = readme_path.read_text(encoding="utf-8")
+    index_text = index_path.read_text(encoding="utf-8")
+    advisor_index_text = advisor_index_path.read_text(encoding="utf-8")
+
+    assert "# July 12 Poster Assembly Packet, 2026-07-12" in packet_text
+    assert "44 of 70 core-cycle days" in packet_text
+    assert "62.9%" in packet_text
+    assert "Days left before August 7 core deadline: 26." in packet_text
+    assert "Days left before August 31 polish deadline: 50." in packet_text
+    assert "62e98b7f332c8ff958fe85f0dde6904eda41914e" in packet_text
+    assert "GitHub PR #8: open, draft, mergeable, not merged into `main`." in packet_text
+    assert "Research package: 42 audit reports and 20 longitudinal summaries." in packet_text
+    assert "true=9, false=33" in packet_text
+    assert "326 site `layer1.png` files" in packet_text
+    assert "0 synced site" in packet_text
+    assert "Current-five decision sheet: 7 rows, 7 blank decisions." in packet_text
+    assert "CMP/manual-review confirmation sheet: 8 rows, 8 pending confirmations." in packet_text
+    assert "Build a first visual poster mockup from existing verified evidence." in packet_text
+    assert "Traceable Consent Interface Audit and Versioning" in packet_text
+    assert "Week 2 target sites | 5" in packet_text
+    assert "Audit reports | 42" in packet_text
+    assert "Longitudinal summaries | 20" in packet_text
+    assert "data/captures/sites/www_theguardian_com_20260605_160209/layer1.png" in packet_text
+    assert "data/captures/sites/www_coca_cola_com_20260605_160238/layer1.png" in packet_text
+    assert "data/captures/sites/www_cnn_com_20260605_160221/layer1.png" in packet_text
+    assert "data/captures/sites/www_booking_com_20260605_160226/layer1.png" in packet_text
+    assert "data/captures/sites/www_nerdwallet_com_20260605_160232/layer1.png" in packet_text
+    assert "No-visible-banner contrast cases are not banner-path failures." in packet_text
+    assert "Final dataset complete." in packet_text
+    assert "The live website still looks the same today." in packet_text
+    assert "july12_poster_assembly_packet_2026-07-12.md" not in readme_text
+    assert (
+        "[July 12 poster assembly packet, 2026-07-12]"
+        "(july12_poster_assembly_packet_2026-07-12.md)"
+    ) in index_text
+    assert "july12_poster_assembly_packet_2026-07-12.md" in advisor_index_text
+
+
+def test_july14_first_poster_mockup_is_traceable_and_rendered() -> None:
+    mockup_path = Path("docs/research/july14_first_poster_mockup_2026-07-14.md")
+    pptx_path = Path("docs/research/poster/ssrp_poster_mockup_2026-07-14.pptx")
+    preview_path = Path("docs/research/poster/ssrp_poster_mockup_2026-07-14.png")
+    readme_path = Path("README.md")
+    index_path = Path("docs/research/week2_checkin_index_2026-06-06.md")
+    advisor_index_path = Path("docs/research/advisor_packet_index_2026-06-05.md")
+
+    mockup_text = mockup_path.read_text(encoding="utf-8")
+    readme_text = readme_path.read_text(encoding="utf-8")
+    index_text = index_path.read_text(encoding="utf-8")
+    advisor_index_text = advisor_index_path.read_text(encoding="utf-8")
+
+    assert pptx_path.is_file()
+    assert pptx_path.stat().st_size > 1_000_000
+    assert preview_path.is_file()
+    assert preview_path.stat().st_size > 1_000_000
+    assert "# July 14 First Poster Mockup, 2026-07-14" in mockup_text
+    assert "48 x 36 inch landscape poster canvas" in mockup_text
+    assert "46 of 70 core-cycle days" in mockup_text
+    assert "65.7%" in mockup_text
+    assert "Research package: 42 audit reports and 20 longitudinal summaries." in mockup_text
+    assert "326 site `layer1.png` files" in mockup_text
+    assert "0 synced site" in mockup_text
+    assert "7 rows, 7 blank decisions" in mockup_text
+    assert "8 rows, 8 pending confirmations" in mockup_text
+    assert "data/captures/sites/www_theguardian_com_20260605_160209/layer1.png" in mockup_text
+    assert "data/captures/sites/www_coca_cola_com_20260605_160238/layer1.png" in mockup_text
+    assert "data/captures/sites/www_cnn_com_20260605_160221/layer1.png" in mockup_text
+    assert "data/captures/sites/www_booking_com_20260605_160226/layer1.png" in mockup_text
+    assert "data/captures/sites/www_nerdwallet_com_20260605_160232/layer1.png" in mockup_text
+    assert "no-visible-banner contrast case" in mockup_text
+    assert "does not claim legal compliance" in mockup_text
+    assert "Test passed. No overflow detected." in mockup_text
+    assert "july14_first_poster_mockup_2026-07-14.md" not in readme_text
+    assert (
+        "[July 14 first poster mockup, 2026-07-14]"
+        "(july14_first_poster_mockup_2026-07-14.md)"
+    ) in index_text
+    assert "july14_first_poster_mockup_2026-07-14.md" in advisor_index_text
+
+
+def test_july14_poster_mockup_review_email_is_preserved_as_history() -> None:
+    email_path = Path("docs/research/advisor_email_poster_mockup_review_2026-07-14.md")
+    readme_path = Path("README.md")
+    index_path = Path("docs/research/week2_checkin_index_2026-06-06.md")
+    advisor_index_path = Path("docs/research/advisor_packet_index_2026-06-05.md")
+
+    email_text = email_path.read_text(encoding="utf-8")
+    readme_text = readme_path.read_text(encoding="utf-8")
+    index_text = index_path.read_text(encoding="utf-8")
+    advisor_index_text = advisor_index_path.read_text(encoding="utf-8")
+
+    assert "# Advisor Email Poster Mockup Review, 2026-07-14" in email_text
+    assert "First poster mockup for review" in email_text
+    assert "docs/research/poster/ssrp_poster_mockup_2026-07-14.pptx" in email_text
+    assert "docs/research/poster/ssrp_poster_mockup_2026-07-14.png" in email_text
+    assert "docs/research/july14_first_poster_mockup_2026-07-14.md" in email_text
+    assert "42 audit reports" in email_text
+    assert "20 longitudinal summaries" in email_text
+    assert "326 synced site screenshot PNGs" in email_text
+    assert "0 synced raw HTML" in email_text
+    assert "7 blank current-five decisions" in email_text
+    assert "8 pending CMP/manual-review confirmations" in email_text
+    assert "five-site pilot/method poster" in email_text
+    assert "The Guardian and Coca-Cola" in email_text
+    assert "no-visible-first-screen-banner contrast cases" in email_text
+    assert "Do not claim the final dataset is complete." in email_text
+    assert "Do not make legal compliance or non-compliance verdicts." in email_text
+    assert "advisor_email_poster_mockup_review_2026-07-14.md" not in readme_text
+    assert (
+        "[Previous poster-only advisor email, 2026-07-14]"
+        "(advisor_email_poster_mockup_review_2026-07-14.md)"
+    ) in index_text
+    assert "advisor_email_poster_mockup_review_2026-07-14.md" in advisor_index_text
+
+
+def test_july15_poster_pdf_is_verified_and_linked() -> None:
+    qa_path = Path("docs/research/july15_poster_pdf_and_print_qa_2026-07-15.md")
+    pdf_path = Path("docs/research/poster/ssrp_poster_mockup_2026-07-14.pdf")
+    mockup_path = Path("docs/research/july14_first_poster_mockup_2026-07-14.md")
+    email_path = Path("docs/research/advisor_email_poster_mockup_review_2026-07-14.md")
+    readme_path = Path("README.md")
+    index_path = Path("docs/research/week2_checkin_index_2026-06-06.md")
+    advisor_index_path = Path("docs/research/advisor_packet_index_2026-06-05.md")
+
+    qa_text = qa_path.read_text(encoding="utf-8")
+    linked_text = "\n".join(
+        path.read_text(encoding="utf-8")
+        for path in (
+            mockup_path,
+            email_path,
+            readme_path,
+            index_path,
+            advisor_index_path,
+        )
+    )
+
+    assert pdf_path.is_file()
+    assert pdf_path.stat().st_size > 500_000
+    assert pdf_path.read_bytes().startswith(b"%PDF-")
+    assert "# July 15 Poster PDF and Print QA, 2026-07-15" in qa_text
+    assert "PDF pages: 1" in qa_text
+    assert "3456 x 2592 points, exactly 48 x 36 inches" in qa_text
+    assert "Test passed. No overflow detected." in qa_text
+    assert "No clipping, overlap, black boxes, or broken glyphs" in qa_text
+    assert "47 of 70 core-cycle days" in qa_text
+    assert "67.1%" in qa_text
+    assert "23" in qa_text
+    assert "47" in qa_text
+    assert "42 audit reports" in qa_text
+    assert "20 longitudinal summaries" in qa_text
+    assert "326 site `layer1.png`" in qa_text
+    assert "0 synced site `layer1.html`" in qa_text
+    assert "7 blank current-five decisions" in qa_text
+    assert "8 pending CMP/manual" in qa_text
+    assert "ssrp_poster_mockup_2026-07-14.pdf" in linked_text
+    assert "july15_poster_pdf_and_print_qa_2026-07-15.md" in linked_text
+
+
+def test_july16_poster_review_decision_sheet_preserves_pending_decisions() -> None:
+    sheet_path = Path("data/poster_review_decision_sheet_2026-07-16.csv")
+    note_path = Path("docs/research/july16_poster_review_decision_sheet_2026-07-16.md")
+    email_path = Path("docs/research/advisor_email_poster_mockup_review_2026-07-14.md")
+    readme_path = Path("README.md")
+    index_path = Path("docs/research/week2_checkin_index_2026-06-06.md")
+    advisor_index_path = Path("docs/research/advisor_packet_index_2026-06-05.md")
+
+    with sheet_path.open(encoding="utf-8", newline="") as fh:
+        rows = list(csv.DictReader(fh))
+
+    note_text = note_path.read_text(encoding="utf-8")
+    linked_text = "\n".join(
+        path.read_text(encoding="utf-8")
+        for path in (email_path, readme_path, index_path, advisor_index_path)
+    )
+
+    assert len(rows) == 5
+    assert {row["decision_id"] for row in rows} == {
+        "poster_framing",
+        "main_evidence_cards",
+        "contrast_case_treatment",
+        "unresolved_review_items",
+        "final_print_revision",
+    }
+    assert all(row["review_status"] == "pending" for row in rows)
+    assert all(not row["confirmed_decision"] for row in rows)
+    assert all(not row["reviewer"] for row in rows)
+    assert all(not row["review_date"] for row in rows)
+    assert all(row["source_evidence"] for row in rows)
+    assert all(row["decision_options"] for row in rows)
+    assert rows[0]["recommended_default"] == "five_site_pilot_method"
+    assert rows[1]["recommended_default"] == "guardian_and_coca_cola"
+    assert (
+        rows[2]["recommended_default"]
+        == "no_visible_first_screen_banner_contrast"
+    )
+    assert "# July 16 Poster Review Decision Sheet, 2026-07-16" in note_text
+    assert "48 of 70 core-cycle days" in note_text
+    assert "68.6%" in note_text
+    assert "7 blank rows" in note_text
+    assert "8 pending rows" in note_text
+    assert "Do not copy `recommended_default`" in note_text
+    assert "poster_review_decision_sheet_2026-07-16.csv" in linked_text
+    assert "july16_poster_review_decision_sheet_2026-07-16.md" in linked_text
+
+
+def test_july20_publish_note_records_published_payload_and_decision_gate() -> None:
+    note_path = Path("docs/research/today_work_note_2026-07-20.md")
+    readme_path = Path("README.md")
+    index_path = Path("docs/research/week2_checkin_index_2026-06-06.md")
+    advisor_index_path = Path("docs/research/advisor_packet_index_2026-06-05.md")
+
+    note_text = note_path.read_text(encoding="utf-8")
+    linked_text = "\n".join(
+        path.read_text(encoding="utf-8")
+        for path in (readme_path, index_path, advisor_index_path)
+    )
+
+    assert "# Today Work Note, 2026-07-20" in note_text
+    assert "52 of 70 core-cycle days" in note_text
+    assert "74.3%" in note_text
+    assert "Days before August 7: 18" in note_text
+    assert "Days before August 31: 42" in note_text
+    assert "d0134303f5cffd0737d1d13926a2351966660fe7" in note_text
+    assert "draft PR #8" in note_text
+    assert "tests/test_research_artifacts.py` passed 46 tests" in note_text
+    assert "5 pending reviews and 5 blank confirmed" in note_text
+    assert "7 blank confirmed decisions" in note_text
+    assert "8 pending confirmations and 8 blank confirmed" in note_text
+    assert "No poster-review, current-five, or CMP/manual-review decision" in note_text
+    assert "today_work_note_2026-07-20.md" in linked_text
+
+
+def test_july21_poster_review_bundle_is_complete_and_source_matched() -> None:
+    bundle_path = Path("docs/research/poster/ssrp_poster_review_bundle_2026-07-21.zip")
+    note_path = Path("docs/research/july21_poster_review_bundle_2026-07-21.md")
+    readme_path = Path(
+        "docs/research/poster/ssrp_poster_review_bundle_README_2026-07-21.txt"
+    )
+    source_paths = {
+        "ssrp_poster_mockup_2026-07-14.pdf": Path(
+            "docs/research/poster/ssrp_poster_mockup_2026-07-14.pdf"
+        ),
+        "ssrp_poster_mockup_2026-07-14.pptx": Path(
+            "docs/research/poster/ssrp_poster_mockup_2026-07-14.pptx"
+        ),
+        "ssrp_poster_mockup_2026-07-14.png": Path(
+            "docs/research/poster/ssrp_poster_mockup_2026-07-14.png"
+        ),
+        "advisor_email_poster_mockup_review_2026-07-14.md": Path(
+            "docs/research/advisor_email_poster_mockup_review_2026-07-14.md"
+        ),
+        "july15_poster_pdf_and_print_qa_2026-07-15.md": Path(
+            "docs/research/july15_poster_pdf_and_print_qa_2026-07-15.md"
+        ),
+        "july16_poster_review_decision_sheet_2026-07-16.md": Path(
+            "docs/research/july16_poster_review_decision_sheet_2026-07-16.md"
+        ),
+        "poster_review_decision_sheet_2026-07-16.csv": Path(
+            "data/poster_review_decision_sheet_2026-07-16.csv"
+        ),
+        "ssrp_poster_review_bundle_README_2026-07-21.txt": readme_path,
+    }
+
+    note_text = note_path.read_text(encoding="utf-8")
+    readme_text = readme_path.read_text(encoding="utf-8")
+    linked_text = "\n".join(
+        path.read_text(encoding="utf-8")
+        for path in (
+            Path("README.md"),
+            Path("docs/research/week2_checkin_index_2026-06-06.md"),
+            Path("docs/research/advisor_packet_index_2026-06-05.md"),
+            Path("docs/research/advisor_email_poster_mockup_review_2026-07-14.md"),
+        )
+    )
+
+    assert bundle_path.is_file()
+    assert bundle_path.stat().st_size == 3_973_713
+    assert (
+        hashlib.sha256(bundle_path.read_bytes()).hexdigest()
+        == "4f697275580b0a05cf0197c51493147953d6755c6667fdf8cf970c0734e9de1c"
+    )
+    with zipfile.ZipFile(bundle_path) as archive:
+        assert archive.testzip() is None
+        assert set(archive.namelist()) == set(source_paths)
+        for archive_name, source_path in source_paths.items():
+            assert hashlib.sha256(archive.read(archive_name)).digest() == hashlib.sha256(
+                source_path.read_bytes()
+            ).digest()
+
+    assert "5 pending rows and 5 blank confirmed decisions" in readme_text
+    assert "Do not copy a recommended default" in readme_text
+    assert "# July 21 Poster Review Bundle, 2026-07-21" in note_text
+    assert "File count: 8" in note_text
+    assert "53 of 70 core-cycle days" in note_text
+    assert "75.7%" in note_text
+    assert "17 days remain before" in note_text
+    assert "41 days remain before" in note_text
+    assert "ssrp_poster_review_bundle_2026-07-21.zip" in linked_text
+    assert "july21_poster_review_bundle_2026-07-21.md" in linked_text
+
+
+def test_july22_closeout_audit_preserves_current_fact_boundaries() -> None:
+    audit_path = Path("docs/research/july22_closeout_audit_and_plan_2026-07-22.md")
+    content_path = Path(
+        "docs/research/july22_presentation_content_plan_2026-07-22.md"
+    )
+    linked_text = "\n".join(
+        path.read_text(encoding="utf-8")
+        for path in (
+            Path("README.md"),
+            Path("docs/research/week2_checkin_index_2026-06-06.md"),
+            Path("docs/research/advisor_packet_index_2026-06-05.md"),
+        )
+    )
+
+    audit_text = audit_path.read_text(encoding="utf-8")
+    content_text = content_path.read_text(encoding="utf-8")
+    readme_text = Path("README.md").read_text(encoding="utf-8")
+    schema_text = Path("SCHEMA.md").read_text(encoding="utf-8")
+    architecture_text = Path("docs/architecture.md").read_text(encoding="utf-8")
+
+    assert "day 54 of the 70-day core window" in audit_text
+    assert "16 calendar days remain before August 7" in audit_text
+    assert "No independent presentation PPTX existed" in audit_text
+    assert "42 audit-report rows and 20 longitudinal-summary rows" in audit_text
+    assert "0 of 42" in audit_text
+    assert "not safe final findings" in audit_text
+    assert "Latest `week_of` value" in audit_text
+    assert "June 6, 2026" in audit_text
+    assert "not wired into production scoring" in readme_text
+    assert "Current implementation boundary" in schema_text
+    assert "Current Local Runtime" in architecture_text
+    assert "Target Architecture (not implemented)" in architecture_text
+    assert "Do not display the 40 High-Risk / 2 Compliant" in content_text
+    assert "july22_closeout_audit_and_plan_2026-07-22.md" in linked_text
+    assert "july22_presentation_content_plan_2026-07-22.md" in linked_text
+
+
+def test_july22_presentation_draft_is_reviewable_and_source_bounded() -> None:
+    pptx_path = Path(
+        "docs/research/presentation/"
+        "ssrp_consent_audit_presentation_draft_2026-07-22.pptx"
+    )
+    montage_path = Path(
+        "docs/research/presentation/"
+        "ssrp_consent_audit_presentation_draft_2026-07-22_montage.png"
+    )
+    note_path = Path("docs/research/july22_first_presentation_draft_2026-07-22.md")
+    note_text = note_path.read_text(encoding="utf-8")
+    linked_text = "\n".join(
+        path.read_text(encoding="utf-8")
+        for path in (
+            Path("README.md"),
+            Path("docs/research/week2_checkin_index_2026-06-06.md"),
+            Path("docs/research/advisor_packet_index_2026-06-05.md"),
+            Path("docs/research/july22_presentation_content_plan_2026-07-22.md"),
+        )
+    )
+
+    assert pptx_path.is_file()
+    assert pptx_path.stat().st_size == 1_645_523
+    assert montage_path.is_file()
+    assert montage_path.stat().st_size == 360_887
+    assert montage_path.read_bytes().startswith(b"\x89PNG\r\n\x1a\n")
+    with zipfile.ZipFile(pptx_path) as deck:
+        names = set(deck.namelist())
+    assert len(
+        {
+            name
+            for name in names
+            if name.startswith("ppt/slides/slide") and name.endswith(".xml")
+        }
+    ) == 10
+    assert len({name for name in names if name.startswith("ppt/media/")}) == 5
+    assert "No overflow detected" in note_text
+    assert "40 High-Risk / 2" in note_text
+    assert "continuous July tracking" in note_text
+    assert "607ab0791f0062c91ec52090d5b598d936f7de2d033de04af5fe49fb368bcd1a" in note_text
+    assert "july22_first_presentation_draft_2026-07-22.md" in linked_text
+    assert "ssrp_consent_audit_presentation_draft_2026-07-22.pptx" in linked_text
+
+
+def test_july25_joint_review_packet_is_aligned_pending_and_source_matched() -> None:
+    bundle_path = Path(
+        "docs/research/joint_review/ssrp_joint_advisor_review_2026-07-25.zip"
+    )
+    manifest_path = Path(
+        "docs/research/joint_review/"
+        "ssrp_joint_advisor_review_README_2026-07-25.txt"
+    )
+    poster_pptx = Path(
+        "docs/research/poster/ssrp_poster_aligned_review_2026-07-25.pptx"
+    )
+    poster_pdf = Path(
+        "docs/research/poster/ssrp_poster_aligned_review_2026-07-25.pdf"
+    )
+    poster_png = Path(
+        "docs/research/poster/ssrp_poster_aligned_review_2026-07-25.png"
+    )
+    decision_path = Path("data/joint_advisor_review_decision_sheet_2026-07-25.csv")
+    note_path = Path("docs/research/july25_gap_review_and_joint_packet_2026-07-25.md")
+    email_path = Path(
+        "docs/research/advisor_email_joint_presentation_poster_review_2026-07-25.md"
+    )
+    source_paths = {
+        poster_pptx.name: poster_pptx,
+        poster_pdf.name: poster_pdf,
+        poster_png.name: poster_png,
+        "ssrp_consent_audit_presentation_draft_2026-07-22.pptx": Path(
+            "docs/research/presentation/"
+            "ssrp_consent_audit_presentation_draft_2026-07-22.pptx"
+        ),
+        "ssrp_consent_audit_presentation_draft_2026-07-22_montage.png": Path(
+            "docs/research/presentation/"
+            "ssrp_consent_audit_presentation_draft_2026-07-22_montage.png"
+        ),
+        decision_path.name: decision_path,
+        email_path.name: email_path,
+        note_path.name: note_path,
+        manifest_path.name: manifest_path,
+    }
+
+    with decision_path.open(encoding="utf-8", newline="") as fh:
+        rows = list(csv.DictReader(fh))
+    assert len(rows) == 5
+    assert {row["decision_id"] for row in rows} == {
+        "shared_scope_framing",
+        "main_evidence_cards",
+        "contrast_case_treatment",
+        "unresolved_review_items",
+        "rq2_continuity_gate",
+    }
+    assert all(row["review_status"] == "pending" for row in rows)
+    assert all(not row["confirmed_decision"] for row in rows)
+    assert all(not row["reviewer"] for row in rows)
+    assert all(not row["review_date"] for row in rows)
+    for row in rows:
+        decision_options = {
+            option.strip()
+            for option in row["decision_options"].split("|")
+            if option.strip()
+        }
+        assert row["recommended_default"] in decision_options
+        assert "other" in decision_options
+
+    assert poster_pdf.read_bytes().startswith(b"%PDF-")
+    assert poster_png.read_bytes().startswith(b"\x89PNG\r\n\x1a\n")
+    with zipfile.ZipFile(poster_pptx) as deck:
+        slide_names = {
+            name
+            for name in deck.namelist()
+            if name.startswith("ppt/slides/slide") and name.endswith(".xml")
+        }
+        slide_xml = deck.read("ppt/slides/slide1.xml").decode("utf-8")
+    assert len(slide_names) == 1
+    assert "Current pilot scoring uses deterministic DOM and text rules" in slide_xml
+    assert "External models are not wired into scoring" in slide_xml
+    assert "rechecked July 25, 2026" in slide_xml
+    assert "Aligned review draft 2 | 2026-07-25" in slide_xml
+
+    assert bundle_path.stat().st_size > 5_000_000
+    with zipfile.ZipFile(bundle_path) as archive:
+        assert archive.testzip() is None
+        assert set(archive.namelist()) == set(source_paths)
+        for archive_name, source_path in source_paths.items():
+            assert hashlib.sha256(archive.read(archive_name)).digest() == hashlib.sha256(
+                source_path.read_bytes()
+            ).digest()
+
+    note_text = note_path.read_text(encoding="utf-8")
+    email_text = email_path.read_text(encoding="utf-8")
+    manifest_text = manifest_path.read_text(encoding="utf-8")
+    linked_text = "\n".join(
+        path.read_text(encoding="utf-8")
+        for path in (
+            Path("README.md"),
+            Path("docs/research/week2_checkin_index_2026-06-06.md"),
+            Path("docs/research/advisor_packet_index_2026-06-05.md"),
+        )
+    )
+    assert "day 57 of the 70-day" in note_text
+    assert "Thirteen calendar days remain before August 7" in note_text
+    assert "five closeout decisions" in email_text
+    assert "5 pending and 5 blank confirmed" in manifest_text
+    assert "Do not copy a recommended default" in manifest_text
+    assert "july25_gap_review_and_joint_packet_2026-07-25.md" in linked_text
+    assert "advisor_email_joint_presentation_poster_review_2026-07-25.md" in linked_text
+    assert "joint_advisor_review_decision_sheet_2026-07-25.csv" in linked_text
+
+
+def test_july26_response_protocol_keeps_advisor_and_fallback_states_separate() -> None:
+    protocol_path = Path(
+        "docs/research/july26_advisor_response_and_fallback_protocol_2026-07-26.md"
+    )
+    protocol_text = protocol_path.read_text(encoding="utf-8")
+    linked_text = "\n".join(
+        path.read_text(encoding="utf-8")
+        for path in (
+            Path("README.md"),
+            Path("docs/research/week2_checkin_index_2026-06-06.md"),
+            Path("docs/research/advisor_packet_index_2026-06-05.md"),
+        )
+    )
+
+    assert "day 58 of the 70-day" in protocol_text
+    assert "Twelve calendar days remain before August 7" in protocol_text
+    assert "5 pending rows and 5 blank" in protocol_text
+    assert "26 commits ahead of and 0 behind" in protocol_text
+    assert "open, draft," in protocol_text
+    assert "mergeable" in protocol_text
+    assert "0 conversation comments" in protocol_text
+    assert "ready_to_send_or_discuss" in protocol_text
+    assert "July 29, 2026 at 23:59 Asia/Shanghai" in protocol_text
+    assert "Leave `review_status=pending`" in protocol_text
+    assert "project closeout fallback labels" in protocol_text
+    assert "Do not place it in the CSV's advisor-confirmation" in protocol_text
+    assert "five_site_pilot_method" in protocol_text
+    assert "no_visible_first_screen_banner_contrast" in protocol_text
+    assert "freeze_current_evidence_unless_specific_rq2_question_is_approved" in protocol_text
+    assert "## July 27 Intake Contract Check" in protocol_text
+    assert "Every joint-sheet `recommended_default`" in protocol_text
+    assert "two historical default/option" in protocol_text
+    assert "5,963,814-byte packet" in protocol_text
+    assert "0b4374a85cd1c7a27f2b5307abd0d19246cb5110b4335c44b5b657e86393737a" in protocol_text
+    assert "july26_advisor_response_and_fallback_protocol_2026-07-26.md" in linked_text
+
+
+def test_july26_closeout_prefreeze_manifest_matches_current_checkout() -> None:
+    manifest_path = Path(
+        "data/closeout/closeout_prefreeze_manifest_2026-07-26.json"
+    )
+    note_path = Path(
+        "docs/research/july26_closeout_prefreeze_manifest_2026-07-26.md"
+    )
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    note_text = note_path.read_text(encoding="utf-8")
+    linked_text = "\n".join(
+        path.read_text(encoding="utf-8")
+        for path in (
+            Path("README.md"),
+            Path("docs/research/week2_checkin_index_2026-06-06.md"),
+            Path("docs/research/advisor_packet_index_2026-06-05.md"),
+        )
+    )
+
+    assert manifest["manifest_status"] == "pre_freeze"
+    assert manifest["schema_version"] == 2
+    assert manifest["finalized"] is False
+    assert manifest["repository_path"] == "."
+    assert manifest["evidence_tables"]["audit_report_summary"]["row_count"] == 42
+    assert manifest["evidence_tables"]["longitudinal_summary"]["row_count"] == 20
+
+    screenshot_refs = manifest["reference_audit"]["first_screenshot_ref"]
+    dom_refs = manifest["reference_audit"]["first_dom_snapshot_ref"]
+    pdf_refs = manifest["reference_audit"]["report_pdf_ref"]
+    assert screenshot_refs["status_counts_by_row"] == {"present": 42}
+    assert dom_refs["status_counts_by_row"] == {"missing": 42}
+    assert pdf_refs["column_present"] is False
+    assert pdf_refs["blank_rows"] is None
+
+    gates = manifest["decision_gates"]
+    assert gates["joint_advisor_review"]["open_row_count"] == 5
+    assert gates["poster_review"]["open_row_count"] == 5
+    assert gates["current_five"]["open_row_count"] == 7
+    assert gates["cmp_manual_review"]["open_row_count"] == 8
+    revision_gate = manifest["revision_execution_gate"]
+    assert revision_gate["row_count"] == 20
+    assert revision_gate["status_counts"] == {
+        "waiting_for_response_branch": 20
+    }
+    assert revision_gate["artifact_counts"] == {
+        "evidence_package": 4,
+        "poster": 8,
+        "presentation": 8,
+    }
+    assert revision_gate["schema_valid"] is True
+    assert revision_gate["row_states_valid"] is True
+    assert revision_gate["coverage_valid"] is True
+    assert revision_gate["missing_required_revision_ids"] == []
+    assert revision_gate["unexpected_revision_ids"] == []
+    assert revision_gate["not_applied_verified_count"] == 20
+    assert revision_gate["inconsistent_revision_ids"] == []
+    assert revision_gate["response_basis_claim_count"] == 0
+    assert revision_gate["actual_response_basis_count"] == 0
+    assert revision_gate["project_fallback_basis_count"] == 0
+    assert revision_gate["response_basis_claims_valid"] is True
+    assert revision_gate["response_basis_validation_errors"] == []
+    assert revision_gate["joint_decision_contract_valid"] is True
+    assert revision_gate["joint_decision_contract_validation_errors"] == []
+    assert revision_gate["response_basis_source"]["status"] == "present"
+    assert revision_gate["response_basis_source"]["schema_valid"] is True
+    assert manifest["freeze_readiness"] == {
+        "blocker_count": 1,
+        "blockers": [
+            {"code": "revision_rows_not_applied_verified", "count": 20}
+        ],
+        "ready_for_final_freeze": False,
+    }
+    assert manifest["summary"] == {
+        "decision_gate_count": 4,
+        "final_freeze_blocker_count": 1,
+        "joint_decision_contract_error_count": 0,
+        "key_deliverable_count": 16,
+        "missing_key_deliverable_count": 0,
+        "open_decision_row_count_across_sheets": 25,
+        "present_key_deliverable_count": 16,
+        "ready_for_final_freeze": False,
+        "revision_matrix_row_count": 20,
+        "revision_missing_required_row_count": 0,
+        "revision_response_basis_claim_count": 0,
+        "revision_response_basis_error_count": 0,
+        "revision_rows_applied_verified_count": 0,
+        "revision_rows_not_applied_verified_count": 20,
+        "revision_unexpected_row_count": 0,
+    }
+
+    regenerated = build_closeout_prefreeze_manifest(
+        Path("."), generated_at=datetime.fromisoformat(manifest["generated_at"])
+    )
+    assert regenerated == manifest
+
+    for record in manifest["key_deliverables"]:
+        path = Path(record["path"])
+        assert not path.is_absolute()
+        assert record["status"] == "present"
+        assert record["bytes"] == path.stat().st_size
+        assert record["sha256"] == hashlib.sha256(path.read_bytes()).hexdigest()
+
+    deliverable_paths = {
+        record["path"] for record in manifest["key_deliverables"]
+    }
+    assert "data/closeout/joint_decision_revision_matrix_2026-07-26.csv" in (
+        deliverable_paths
+    )
+    assert (
+        "docs/research/july26_decision_to_revision_matrix_2026-07-26.md"
+        in deliverable_paths
+    )
+    assert "docs/research/closeout_control_index_2026-07-26.md" in (
+        deliverable_paths
+    )
+    assert "docs/research/closeout_low_token_runbook_2026-07-27.md" in (
+        deliverable_paths
+    )
+    assert "data/closeout/final_qa_checklist_2026-07-27.csv" in (
+        deliverable_paths
+    )
+
+    assert "not a final or frozen manifest" in note_text
+    assert "Ready for final freeze: `false`" in note_text
+    assert "`revision_rows_not_applied_verified` | 20" in note_text
+    assert "| 20 | 20 | 0 | 0 | 0 | 0 | 0 | 0 | present |" in note_text
+    assert "Joint decision contract errors: 0." in note_text
+    assert "`report_pdf_ref` | false | n/a | n/a" in note_text
+    assert "july26_closeout_prefreeze_manifest_2026-07-26.md" in linked_text
+    assert "closeout_prefreeze_manifest_2026-07-26.json" in linked_text
+    assert "all `report_pdf_ref` fields are blank" not in Path(
+        "docs/research/july22_closeout_audit_and_plan_2026-07-22.md"
+    ).read_text(encoding="utf-8")
+
+
+def test_july26_closeout_control_index_separates_current_and_history() -> None:
+    control_path = Path("docs/research/closeout_control_index_2026-07-26.md")
+    readme_text = Path("README.md").read_text(encoding="utf-8")
+    week2_text = Path(
+        "docs/research/week2_checkin_index_2026-06-06.md"
+    ).read_text(encoding="utf-8")
+    advisor_text = Path(
+        "docs/research/advisor_packet_index_2026-06-05.md"
+    ).read_text(encoding="utf-8")
+    control_text = control_path.read_text(encoding="utf-8")
+
+    assert "**Status: `pre_freeze`" in control_text
+    assert "This is not a final index" in control_text
+    assert "Key deliverables present: 16/16" in control_text
+    assert "Final-freeze readiness: `false`" in control_text
+    assert "`revision_rows_not_applied_verified` for all 20 rows" in control_text
+    assert "0 response-basis claims, 0 basis errors, and" in control_text
+    assert "0 active joint-sheet contract errors" in control_text
+    assert "July 29, 23:59 Asia/Shanghai" in control_text
+    assert "August 7, 2026" in control_text
+    assert control_text.count("- [ ]") == 8
+    assert "## Current Working Set" in control_text
+    assert "## Superseded Or Historical Paths" in control_text
+    assert "## Historical Trail" in control_text
+    assert "`uv run consent-audit research-status`" in control_text
+    assert "schema-v2 pre-freeze manifest" in control_text
+    assert "two recommended defaults are not listed options" in control_text
+    assert "closeout_low_token_runbook_2026-07-27.md" in control_text
+    assert "final_qa_checklist_2026-07-27.csv" in control_text
+    assert "`uv run consent-audit closeout-final-index`" in control_text
+
+    current_paths = (
+        "presentation/ssrp_consent_audit_presentation_draft_2026-07-22.pptx",
+        "poster/ssrp_poster_aligned_review_2026-07-25.pdf",
+        "joint_review/ssrp_joint_advisor_review_2026-07-25.zip",
+        "../../data/joint_advisor_review_decision_sheet_2026-07-25.csv",
+        "../../data/closeout/joint_decision_revision_matrix_2026-07-26.csv",
+        "../../data/closeout/closeout_prefreeze_manifest_2026-07-26.json",
+        "../../data/closeout/final_qa_checklist_2026-07-27.csv",
+    )
+    assert all(path in control_text for path in current_paths)
+
+    local_links = re.findall(r"\]\(([^)]+)\)", control_text)
+    assert local_links
+    for target in local_links:
+        assert not target.startswith(("http://", "https://", "#"))
+        assert (control_path.parent / target).resolve().exists(), target
+
+    control_name = "closeout_control_index_2026-07-26.md"
+    assert "**Start here for closeout**" in readme_text
+    assert readme_text.index(control_name) < readme_text.index("[SCHEMA.md]")
+    assert "july7_poster_layout_draft_2026-07-07.md" not in readme_text
+    assert "today_work_note_2026-07-02.md" not in readme_text
+    assert "complete dated Week 2 evidence and work-history index" in week2_text
+    assert control_name in week2_text
+    assert "complete dated advisor-communication history" in advisor_text
+    assert control_name in advisor_text
+
+
+def test_research_status_default_entrypoint_uses_current_closeout_gate() -> None:
+    result = CliRunner().invoke(cli.app, ["research-status"])
+
+    assert result.exit_code == 0
+    assert "Current phase: `closeout`" in result.output
+    assert (
+        "Closeout control index: "
+        "`docs/research/closeout_control_index_2026-07-26.md` (present)"
+        in result.output
+    )
+    assert (
+        "Closeout pre-freeze manifest: "
+        "`data/closeout/closeout_prefreeze_manifest_2026-07-26.json`"
+        in result.output
+    )
+    assert "Final-freeze readiness: `false`" in result.output
+    assert "Final QA: pending=5; final index=missing" in result.output
+    assert (
+        "Final QA checklist: "
+        "`data/closeout/final_qa_checklist_2026-07-27.csv`"
+        in result.output
+    )
+    assert "Historical cycle-report next action:" in result.output
+    assert "Current closeout plan: `docs/research/july22" not in result.output
+
+
+def test_july26_manifest_fallback_contract_matches_protocol() -> None:
+    protocol_text = Path(
+        "docs/research/july26_advisor_response_and_fallback_protocol_2026-07-26.md"
+    ).read_text(encoding="utf-8")
+
+    assert PROJECT_FALLBACK_CUTOFF.isoformat() == "2026-07-29T23:59:00+08:00"
+    assert "July 29, 2026 at 23:59 Asia/Shanghai" in protocol_text
+    for decision_id, fallback_value in PROJECT_FALLBACK_VALUES.items():
+        assert f"| `{decision_id}` | `{fallback_value}` |" in protocol_text
+
+
+def test_july26_decision_revision_matrix_maps_real_surfaces_without_applying() -> None:
+    matrix_path = Path(
+        "data/closeout/joint_decision_revision_matrix_2026-07-26.csv"
+    )
+    note_path = Path(
+        "docs/research/july26_decision_to_revision_matrix_2026-07-26.md"
+    )
+    presentation_path = Path(
+        "docs/research/presentation/"
+        "ssrp_consent_audit_presentation_draft_2026-07-22.pptx"
+    )
+    poster_path = Path(
+        "docs/research/poster/ssrp_poster_aligned_review_2026-07-25.pptx"
+    )
+
+    with matrix_path.open(newline="", encoding="utf-8") as handle:
+        rows = list(csv.DictReader(handle))
+
+    def extract_slide_text(path: Path) -> str:
+        text_runs: list[str] = []
+        with zipfile.ZipFile(path) as archive:
+            slide_names = sorted(
+                name
+                for name in archive.namelist()
+                if name.startswith("ppt/slides/slide") and name.endswith(".xml")
+            )
+            for name in slide_names:
+                root = ET.fromstring(archive.read(name))
+                text_runs.extend(
+                    node.text or "" for node in root.iter() if node.tag.endswith("}t")
+                )
+        return " ".join(" ".join(text_runs).split())
+
+    presentation_text = extract_slide_text(presentation_path)
+    poster_text = extract_slide_text(poster_path)
+    linked_text = "\n".join(
+        path.read_text(encoding="utf-8")
+        for path in (
+            Path("README.md"),
+            Path("docs/research/week2_checkin_index_2026-06-06.md"),
+            Path("docs/research/advisor_packet_index_2026-06-05.md"),
+            Path(
+                "docs/research/"
+                "july26_advisor_response_and_fallback_protocol_2026-07-26.md"
+            ),
+        )
+    )
+
+    assert len(rows) == 20
+    assert len({row["revision_id"] for row in rows}) == 20
+    assert Counter(row["artifact"] for row in rows) == {
+        "presentation": 8,
+        "poster": 8,
+        "evidence_package": 4,
+    }
+    assert Counter(row["decision_id"] for row in rows) == {
+        "shared_scope_framing": 7,
+        "main_evidence_cards": 4,
+        "contrast_case_treatment": 3,
+        "unresolved_review_items": 3,
+        "rq2_continuity_gate": 3,
+    }
+    assert all(
+        row["execution_status"] == "waiting_for_response_branch" for row in rows
+    )
+    for field in (
+        "selected_value",
+        "response_basis",
+        "applied_by",
+        "applied_at",
+        "notes",
+    ):
+        assert all(not row[field] for row in rows)
+    assert all(row["default_or_fallback_action"] for row in rows)
+    assert all(row["alternate_answer_gate"] for row in rows)
+    assert all(row["required_verification"] for row in rows)
+
+    for row in rows:
+        if row["artifact"] == "presentation":
+            assert row["current_surface"] in presentation_text
+        elif row["artifact"] == "poster":
+            assert row["current_surface"] in poster_text
+        for source in row["source_evidence"].split(";"):
+            assert Path(source).exists(), (row["revision_id"], source)
+
+    note_text = note_path.read_text(encoding="utf-8")
+    assert "This is an execution map, not a decision record." in note_text
+    assert "20 execution rows" in note_text
+    assert "actual_advisor_response" in note_text
+    assert "project_fallback_after_internal_cutoff" in note_text
+    assert "execution_status=applied_verified" in note_text
+    assert "It is not silently promoted into a sixth joint decision" in note_text
+    assert "Do not fill `selected_value`" in note_text
+    assert "july26_decision_to_revision_matrix_2026-07-26.md" in linked_text
+    assert "joint_decision_revision_matrix_2026-07-26.csv" in linked_text
+
+
+def test_july27_final_qa_gate_is_prepared_without_claiming_completion() -> None:
+    qa_path = Path("data/closeout/final_qa_checklist_2026-07-27.csv")
+    runbook_path = Path(
+        "docs/research/closeout_low_token_runbook_2026-07-27.md"
+    )
+    final_index_path = Path("docs/research/final_closeout_index.md")
+    with qa_path.open(newline="", encoding="utf-8") as handle:
+        rows = list(csv.DictReader(handle))
+
+    assert len(rows) == 5
+    assert {row["check_id"] for row in rows} == set(DEFAULT_REQUIRED_QA_IDS)
+    assert all(row["status"] == "pending" for row in rows)
+    for field in ("evidence", "verified_by", "verified_at", "notes"):
+        assert all(not row[field] for row in rows)
+    assert all(row["check_scope"] for row in rows)
+    assert all(row["required_verification"] for row in rows)
+    assert not final_index_path.exists()
+
+    runbook_text = runbook_path.read_text(encoding="utf-8")
+    assert "closeout-final-index" in runbook_text
+    assert "closeout-final-index --write" in runbook_text
+    assert "A verified row requires" in runbook_text

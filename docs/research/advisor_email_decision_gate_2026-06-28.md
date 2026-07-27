@@ -1,5 +1,10 @@
 # Advisor Email Draft, 2026-06-28
 
+Superseded note, 2026-07-01: use
+`docs/research/advisor_email_scope_update_2026-07-01.md` as the current email.
+The July 1 version reflects the updated summer scope: presentation + large
+poster, not a required formal paper.
+
 Subject: Decisions needed before next consent-interface capture or expansion
 
 Dear Professor Singh,
@@ -11,8 +16,9 @@ Current facts:
 
 - The Week 2 evidence gate is complete: 42 audit reports and 20 longitudinal
   summaries.
-- The five current sites have screenshot/DOM evidence and a manual review
-  packet.
+- The five current sites have synced screenshot evidence, DOM hashes/report
+  refs, and a manual review packet. The raw `layer1.html` files are not synced
+  in the current Git checkout.
 - The current-five decision sheet is still blank: 7 `confirmed_decision` cells
   are unfilled.
 - The CMP/manual-review sheet is also unresolved: 8 rows are still `pending`.

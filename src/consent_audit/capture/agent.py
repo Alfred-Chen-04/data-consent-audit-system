@@ -1,10 +1,10 @@
-"""Browser agent: Playwright + VLM loop that walks the four consent pathways.
+"""Browser capture: Playwright + deterministic DOM loop for consent pathways.
 
 Flow (per site):
     1. Launch Chromium with a fresh user-data-dir (no stale cookies).
     2. Navigate to URL, wait for consent banner to render.
     3. Take first-layer screenshot + DOM snapshot.
-    4. Ask VLM to locate candidate elements for each Pathway (Accept/Reject/Customize/Dismiss).
+    4. Collect and classify visible DOM candidates for each consent pathway.
     5. For each Pathway: attempt click → observe outcome → record PathOutcome.
     6. If Customize opens a second-layer panel: capture it too.
     7. Compute fingerprint, assemble CaptureBundle.
@@ -48,7 +48,12 @@ class DomSnapshot:
     warnings: list[str]
 
 
-async def capture_site(url: HttpUrl, *, timeout_seconds: int = 180) -> CaptureBundle:
+async def capture_site(
+    url: HttpUrl,
+    *,
+    timeout_seconds: int = 180,
+    capture_root: Path = Path("data/captures/sites"),
+) -> CaptureBundle:
     """Perform one dynamic capture of a site's consent interface.
 
     Returns a complete CaptureBundle. On unrecoverable errors (CAPTCHA walls,
@@ -62,7 +67,7 @@ async def capture_site(url: HttpUrl, *, timeout_seconds: int = 180) -> CaptureBu
     timeout_ms = timeout_seconds * 1000
     captured_at = datetime.now(UTC)
     timestamp = captured_at.strftime("%Y%m%d_%H%M%S")
-    capture_dir = Path("data") / "captures" / "sites" / f"{_slug(url)}_{timestamp}"
+    capture_dir = capture_root / f"{_slug(url)}_{timestamp}"
     capture_dir.mkdir(parents=True, exist_ok=True)
     screenshot_path = capture_dir / "layer1.png"
     dom_path = capture_dir / "layer1.html"

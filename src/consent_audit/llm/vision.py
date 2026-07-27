@@ -1,6 +1,7 @@
-"""VLM calls — grounding button candidates in screenshots, visual feature extraction.
+"""Deterministic no-network fallback for visual-adapter contracts.
 
-Uses Anthropic Opus 4.7 vision as primary. Output is always schema-validated.
+No external VLM is called. Pathway location returns conservative empty
+candidates, and feature extraction uses supplied DOM-derived bounding boxes.
 """
 
 from pathlib import Path

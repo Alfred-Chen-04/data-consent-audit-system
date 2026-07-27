@@ -76,6 +76,45 @@
   decide the no-banner contrast treatment, and expand carefully toward roughly
   20 deep sites.
 
+## 2026-06-28 Plain-Language Status Check
+
+- GitHub PR #7 is now merged into `main`; the local checkout was fast-forwarded
+  to include its June 26-28 fact-audit and advisor-decision documents.
+- The current checkout has 326 synced `data/captures/sites/**/layer1.png`
+  screenshot files and the five current-five screenshot refs exist.
+- The current checkout has 0 synced `layer1.html` files because `.gitignore`
+  includes `data/captures/**` and only re-includes PNGs. Existing CSV/report
+  DOM refs should therefore be treated as generated/historical refs plus DOM
+  hashes, not as local raw HTML files that are currently available.
+- Direct screenshot inspection confirms The Guardian and Coca-Cola are
+  banner/control evidence cases, while CNN, Booking.com, and NerdWallet show no
+  visible first-screen cookie banner in the Week 2 screenshots.
+
+## 2026-06-29 Status Continuity Check
+
+- GitHub PR #8 is `open`, `draft=true`, `merged=false`, and `mergeable=true`.
+- The local branch `codex/project-status-plain-language` is synced with
+  `origin/codex/project-status-plain-language` at `f61e267`.
+- `research-status` still reports sanity `ready`, cycle `completed`, 42 audit
+  reports, 20 longitudinal summaries, and 8 pending CMP confirmations.
+- Structured CSV reads still show 7 blank current-five decisions and 8 pending
+  CMP/manual-review confirmations.
+- Today's safe work is documentation/status continuity, PR review/merge, and
+  advisor decision capture. A blind live capture would not resolve the current
+  blocker.
+
+## 2026-06-29 Summer Midpoint Progress Audit
+
+- Calendar status: 2026-06-29 is Week 5 of the 10-week core SSRP cycle, about
+  44% through the May 30-August 7 window.
+- Deliverable status is uneven: technical pipeline and Week 2 evidence gate are
+  strong; sample lock, 20-site expansion, final paper prose, poster, and demo
+  remain incomplete.
+- Corrected current-material wording so the advisor email and generated results
+  table no longer imply raw `layer1.html` files are synced in the current repo.
+- Added `docs/research/summer_midpoint_progress_audit_2026-06-29.md` as the
+  current evidence-based answer to "are we halfway?"
+
 ## 2026-05-29 Smoke Probe Findings
 
 - The smoke list now has 6 public canary sites: BBC, The Guardian, NY Times, Reuters, Reddit, and Wikipedia.
@@ -515,3 +554,547 @@
 - The generated RQ1/RQ2 tables are evidence-facing current tables, not final paper decisions. README wording was adjusted from "paper-ready" to "paper-facing current-evidence."
 - The advisor packet index still pointed to older June 8 questions as the current sendable email. Added `docs/research/advisor_email_decision_gate_2026-06-28.md` and updated the advisor packet index.
 - Added `docs/research/recent_task_fact_audit_2026-06-28.md` and `docs/research/today_work_note_2026-06-28.md`; no new browser capture or consent-interface evidence was added.
+
+## 2026-07-01 Midpoint Recheck Findings
+
+- GitHub PR #8 is still open/draft/mergeable and not merged into `main`.
+- `origin/main` remains at `28ee83755bc1eb379b08a8941ebad146d9c8fd45`, while the PR #8 branch is at `e9542343909282cb230d644ed13a6388ca8b4ab6` before today's note.
+- `research-status` still reports Week 2 targets=5, sanity `ready`, cycle `completed`, 42 audit reports, 20 longitudinal summaries, and 8 pending CMP confirmations.
+- Structured CSV reads still show 7 blank current-five decisions and 8 pending CMP/manual-review confirmations.
+- Current checkout still has 326 `layer1.png` screenshots and 0 `layer1.html` raw DOM files under `data/captures/sites`.
+- Calendar math for 2026-07-01 is 33 elapsed days out of the 70-day May 30-August 7 core cycle, about 47.1%; the calendar midpoint is around 2026-07-03 to 2026-07-04.
+- The Week 2 sanity-check generator now includes a caveat that evidence completeness means screenshot ref, DOM snapshot ref, DOM hash, and image hash are present in the consent table; raw DOM file sync must be verified separately.
+- Completion-audit keyword search found remaining `paper-ready` wording in the result-table CLI/module docstrings; those were changed to `paper-facing` so code-facing help matches the non-final evidence status.
+
+## 2026-07-01 Scope Update Findings
+
+- User clarified that the current summer project does not need a formal paper; current summer deliverables are presentation + large poster + traceable evidence package.
+- Existing paper-oriented artifacts remain useful as optional future-paper support and presentation/poster source notes, but they should not drive the July/August work plan unless Dr. Singh reintroduces a paper later.
+- Added `docs/research/advisor_email_scope_update_2026-07-01.md` as the current sendable email to Dr. Singh.
+- Added `docs/research/current_scope_2026-07-01.md` as the current scope entrypoint.
+- Marked `docs/research/advisor_email_decision_gate_2026-06-28.md` as superseded and updated README, the Week 2 check-in index, advisor packet index, plain-language handoff, midpoint audit, July 1 work note, and remaining-work audit to use presentation/poster wording.
+- Updated `research-status` visible wording from `Paper artifacts` to
+  `Support artifacts` so the daily dashboard matches the current
+  presentation/poster scope.
+
+## 2026-07-02 Fact Audit Findings
+
+- GitHub PR #8 is still open/draft/mergeable and not merged into `main`.
+- Local branch `codex/project-status-plain-language` is synced to origin at `467e7bc9fbee260d35eaa3d9a73ba54f872096b0` before today's note.
+- `research-status` still reports Week 2 targets=5, sanity `ready`, cycle `completed`, 42 audit reports, 20 longitudinal summaries, and 8 pending CMP confirmations.
+- Structured CSV reads still show 7 blank current-five decisions and 8 pending CMP/manual-review confirmations.
+- Current checkout has 326 tracked/filesystem `layer1.png` screenshots and 0 tracked/filesystem `layer1.html` raw DOM files under `data/captures/sites`.
+- Calendar math for 2026-07-02 is 34 elapsed days out of the 70-day May 30-August 7 core cycle, about 48.6%; the calendar midpoint is around 2026-07-03 to 2026-07-04.
+- Current entrypoint keyword checks did not find a current claim that raw HTML is synced, the 20-site sample is locked, no-visible-banner rows are confirmed banner-path failures, the final dataset is complete, or a formal paper is required for the current summer scope.
+- Added `docs/research/today_work_note_2026-07-02.md` and `docs/research/presentation_poster_work_order_2026-07-02.md` so the next work block is presentation/poster execution, not more scaffolding or blind capture.
+
+## 2026-07-02 Inventory and Screenshot Verification Findings
+
+- `data/captures/sites` contains 326 `layer1.png` files and 0 synced `layer1.html` raw DOM files.
+- All 326 site `layer1.png` files have valid PNG headers and 1440x900 dimensions; no invalid PNGs were found.
+- The 42 rows in `data/research_package/audit_report_summary.csv` reference 42 unique screenshot paths, and all 42 paths exist locally.
+- The five current manual-review screenshot paths all exist locally and open as images: Guardian, CNN, Booking.com, NerdWallet, and Coca-Cola.
+- Visual recheck confirmed Guardian and Coca-Cola as banner-present evidence-card candidates, while CNN, Booking.com, and NerdWallet show no visible first-screen cookie banner in the stored screenshots.
+- Added `docs/research/project_inventory_and_poster_story_2026-07-02.md` as a plain-language inventory and poster-story handoff for the user.
+
+## 2026-07-02 Proposal-Alignment Correction Findings
+
+- The original proposal's spine is not screenshot collection; it is RQ1 computational audit/scoring of layered consent interfaces and RQ2 automatic capture/versioning of privacy interfaces over time.
+- Proposal text extracted from `Chen_Qianyi_SSRP 2026_Proposal_Final Version.docx.pdf` matches the RQ framing already recorded in `SCHEMA.md`.
+- Screenshots, DOM refs, hashes, visible text, and event logs should be described as evidence inputs for RQ1/RQ2, not as the research objective.
+- Corrected `docs/research/project_inventory_and_poster_story_2026-07-02.md` and `docs/research/presentation_poster_work_order_2026-07-02.md` so the poster story centers RQ1 scoring plus RQ2 longitudinal versioning.
+
+## 2026-07-02 Canonical Project Goal Findings
+
+- Added `docs/research/current_project_goal_2026-07-02.md` as the current user-facing source for the project goal.
+- The canonical goal states: RQ1 scores layered consent interfaces for unbiased choice across the full consent pathway; RQ2 captures and versions those interfaces to document change over time.
+- The canonical goal explicitly says screenshots/DOM/text/hashes/event logs are evidence inputs, while evidence traceability is a design requirement rather than a replacement research question.
+- Linked the canonical goal from README, SCHEMA, current scope, project inventory, poster work order, and the Week 2 check-in index.
+
+## 2026-07-03 Scope/Fact Review and Poster Plan Findings
+
+- GitHub PR #8 remains open, draft, mergeable, and pointed at `main`; local branch `codex/project-status-plain-language` was synced to origin at `42f8b76` before today's edits.
+- `research-status` still reports Week 2 targets=5, preflight `ready_for_capture`, sanity `ready`, cycle capture `completed`, 42 audit reports, 20 longitudinal summaries, and 8 pending CMP confirmations.
+- Calendar math for 2026-07-03 is 35 elapsed days out of the 70-day May 30-August 7 core cycle, or 50.0%.
+- Structured CSV reads still show 7 blank current-five decisions and 8 pending CMP/manual-review confirmations.
+- Current checkout has 326 tracked/filesystem `layer1.png` screenshots and 0 synced `layer1.html` raw DOM files under `data/captures/sites`.
+- Keyword review across README, SCHEMA, CONCEPTS, and the existing research Markdown docs found that the current entrypoints guard against the main overclaims: final dataset complete, 20-site sample locked, raw HTML synced, no-visible-banner rows as banner-path failures, and formal paper required as the current summer deliverable.
+- Added `docs/research/july3_scope_fact_review_and_poster_plan_2026-07-03.md` to answer what the project is, what is done, what is unresolved, whether the final summer plan is realistic, and how far the poster can be written now.
+- Current completion judgment: presentation + large poster + traceable pilot evidence package is realistic; a finished 20-site longitudinal dataset or conference-ready paper is not safe to promise without more advisor/sample decisions.
+
+## 2026-07-05 Evidence Sync Audit Findings
+
+- Local branch `codex/project-status-plain-language` and its upstream are both at `3c202181ca6510e5fd395989b2b62511aa155641`.
+- GitHub PR #8 is open, draft, mergeable, and not merged; its head SHA is the same `3c202181ca6510e5fd395989b2b62511aa155641`.
+- Local filesystem and Git tracking both show 365 capture PNG files, including 326 site `layer1.png` files.
+- The remote PR branch `origin/codex/project-status-plain-language` also contains 365 capture PNG files and 326 site `layer1.png` files.
+- All 365 local PNG files parse as valid PNG images, all are 1440x900, and sizes range from 14,031 bytes to 1,294,565 bytes.
+- Local Git tracking and the remote PR branch both show 0 site `layer1.html` raw DOM files.
+- `data/research_package/audit_report_summary.csv` has 42 rows with 42 screenshot refs; all screenshot refs exist locally. It also has 42 DOM refs, but all 42 raw DOM HTML files are missing in this checkout.
+- `data/week2_manual_evidence_review_2026-06-10.csv` has 5 current-five rows with 0 missing/bad screenshots and 5 missing raw DOM HTML files.
+- `data/cmp_review_queue_pilot_2026-05-30.csv` has 8 rows with 0 missing access screenshots, 0 missing capture screenshots, 0 bad capture screenshots, and 8 missing raw DOM HTML files.
+- The evidence-complete statement is therefore limited: screenshot/CSV/hash/report evidence is synced to the PR branch; raw DOM HTML files and manual/advisor confirmations are not complete.
+
+## 2026-07-06 Poster Section Draft Findings
+
+- Local branch `codex/project-status-plain-language` and upstream both remain at `dfa1d437aa7413fc4072fe50a4f95fd9ed565284` before today's edits.
+- GitHub PR #8 remains open, draft, mergeable, and not merged into `main`.
+- `research-status` still reports preflight `ready_for_capture`, sanity `ready`, cycle capture `completed`, 42 audit reports, 20 longitudinal summaries, and 8 pending CMP confirmations.
+- Calendar math for 2026-07-06 is 38 elapsed days out of the 70-day May 30-August 7 core cycle, or 54.3%; there are 32 days left before August 7 and 56 days before August 31.
+- Structured CSV reads still show 7 blank current-five decisions and 8 pending CMP/manual-review confirmations.
+- Current evidence counts remain 42 audit reports, 20 longitudinal summaries, 326 site `layer1.png` files, and 0 synced site `layer1.html` files.
+- Because the unresolved items are human/advisor decisions and PR review, the fact-based work available today is poster/presentation drafting from existing verified pilot evidence, not blind new browser capture.
+- Added `docs/research/july6_poster_section_draft_2026-07-06.md` with poster-safe RQ, method, evidence snapshot, evidence-card, contrast-case, findings-so-far, limitation, and next-step text.
+
+## 2026-07-06 Recent-Work Validation And Gap Audit Findings
+
+- Risk-keyword scan across README, SCHEMA, CONCEPTS, and `docs/research/*.md` found risky phrases only in safe contexts: `Do not claim`/limitation sections or dated historical audit notes.
+- No current unqualified claim was found that the final dataset is complete, the 20-site sample is locked, raw HTML is synced, CNN/Booking.com/NerdWallet are banner-path failures, PR #8 is merged, a formal paper is required, or the project makes legal compliance verdicts.
+- Targeted validation after the July 6 poster section draft passed: 39 pytest checks, Ruff, Mypy, `research-status`, and `git diff --check`.
+- Current state is OK for the safe scope: pilot evidence package plus presentation/poster support.
+- Current state is not complete for a final experiment endpoint because PR #8 is still not merged, 7 current-five decisions are blank, 8 CMP confirmations are pending, raw HTML files are not synced, the 20-site sample is not locked, and final poster layout/result freeze are not done.
+- Added `docs/research/july6_recent_work_validation_and_gap_audit_2026-07-06.md` as the current fact-based answer to what is OK and what remains.
+
+## 2026-07-07 Poster Build Work Order Findings
+
+- Calendar math for 2026-07-07 is 39 elapsed days out of the 70-day May 30-August 7 core cycle, or 55.7%; 31 days remain before August 7 and 55 days remain before August 31.
+- Local branch `codex/project-status-plain-language` and upstream both started the day at `958d22046c0383493cc0e255433a5867008d6adc`; PR #8 remains open, draft, mergeable, and not merged.
+- `research-status` still reports preflight `ready_for_capture`, sanity `ready`, cycle capture `completed`, 42 audit reports, 20 longitudinal summaries, and 8 pending CMP confirmations.
+- Structured CSV reads still show 7 blank current-five decisions and 8 pending CMP/manual-review confirmations.
+- Current evidence counts remain 326 site `layer1.png` files and 0 synced site `layer1.html` raw DOM files.
+- Because the unresolved work is poster assembly plus human/advisor decisions, the safe July 7 work is an execution-ready poster build order from existing verified evidence, not new live capture.
+- The poster build should use Guardian and Coca-Cola as banner-present evidence cards, CNN/Booking.com/NerdWallet as no-visible-banner contrast cases, and explicit limitations for raw HTML, current-five decisions, CMP confirmations, and PR #8 merge state.
+
+## 2026-07-07 Poster Layout Draft Findings
+
+- After the poster build work order, the next safe work item is a first visual-layout draft rather than more status auditing.
+- The layout draft keeps the poster as a pilot/method poster with one top band, three main columns, and a bottom strip.
+- The left column covers why consent interfaces matter, the audit pipeline, and deterministic scoring guardrails.
+- The middle column carries the current evidence snapshot plus Guardian and Coca-Cola as banner-present evidence cards.
+- The right column carries CNN, Booking.com, and NerdWallet as no-visible-banner contrast cases, plus limitations and next decisions.
+- The layout draft preserves the main limits: no new browser capture, no raw HTML sync claim, no final 20-site claim, no legal-compliance claim, and no unqualified no-visible-banner failure claim.
+
+## 2026-07-09 Poster Asset Manifest Findings
+
+- Calendar math for 2026-07-09 is 41 elapsed days out of the 70-day May 30-August 7 core cycle, or 58.6%; 29 days remain before August 7 and 53 days remain before August 31.
+- Local branch `codex/project-status-plain-language` and upstream both started the work at `850b857ac2a6721c74a480d512c739479734f3cb`; PR #8 remains open, draft, mergeable, and not merged.
+- `research-status` still reports preflight `ready_for_capture`, sanity `ready`, cycle capture `completed`, 42 audit reports, 20 longitudinal summaries, and 8 pending CMP confirmations.
+- Structured CSV reads still show 7 blank current-five decisions and 8 pending CMP/manual-review confirmations.
+- Current evidence counts remain 326 site `layer1.png` files and 0 synced site `layer1.html` raw DOM files.
+- The five poster screenshot assets all exist, parse as PNG, and are 1440x900: Guardian, Coca-Cola, CNN, Booking.com, and NerdWallet.
+- The safest July 9 work is a poster asset manifest from existing screenshots, not new live capture or sample expansion.
+
+## 2026-07-12 Poster Assembly Packet Findings
+
+- Calendar math for 2026-07-12 is 44 elapsed days out of the 70-day May 30-August 7 core cycle, or 62.9%; 26 days remain before August 7 and 50 days remain before August 31.
+- Local branch `codex/project-status-plain-language` and upstream both start from `62e98b7f332c8ff958fe85f0dde6904eda41914e`; GitHub PR #8 is open, draft, mergeable, and not merged.
+- `research-status` still reports preflight `ready_for_capture`, sanity `ready`, cycle capture `completed`, 42 audit reports, 20 longitudinal summaries, and 8 pending CMP confirmations.
+- Current evidence counts remain 326 site `layer1.png` files and 0 synced site `layer1.html` raw DOM files.
+- Structured decision blockers remain unchanged: 7 current-five blank decisions and 8 pending CMP/manual-review confirmations.
+- The safe July 12 task is poster assembly from existing verified evidence, not new capture or final dataset claims.
+
+## 2026-07-14 First Poster Mockup Findings
+
+- The July 12 assembly packet's next concrete deliverable is now complete: an editable 48 x 36 landscape PPTX and a rendered PNG preview exist under `docs/research/poster/`.
+- The mockup uses Guardian and Coca-Cola as stored banner-present evidence cards and CNN, Booking.com, and NerdWallet as stored no-visible-first-screen-banner contrast cases.
+- The mockup preserves the evidence limits in visible copy: pilot/method evidence only; 42 audit reports; 20 longitudinal summaries; 326 screenshots; 0 synced raw HTML files; 7 blank current-five decisions; and 8 pending CMP confirmations.
+- The editable PPTX passed the slide overflow check and its rendered output was visually inspected. No new browser capture or new consent-interface evidence was created.
+
+## 2026-07-14 Poster Review Email Findings
+
+- After the first poster mockup, the safest next action is advisor review of
+  the poster framing and claim limits, not new live capture or sample expansion.
+- Added `docs/research/advisor_email_poster_mockup_review_2026-07-14.md` as the
+  current sendable review request.
+- The email points to the editable PPTX, rendered PNG preview, and July 14
+  traceability note, then asks five concrete decisions about pilot/method
+  framing, evidence-card selection, no-visible-banner labels, unresolved
+  decision sheets, and final-print revisions.
+- The review email preserves the same guardrails as the poster mockup: no final
+  dataset claim, no 20-site lock claim, no raw-HTML sync claim, no
+  no-visible-banner failure claim, and no legal verdict.
+
+## 2026-07-15 Poster PDF and Print QA Findings
+
+- The current research dashboard remains unchanged at 5 Week 2 targets, 42
+  audit reports, 20 longitudinal summaries, and 8 pending CMP confirmations.
+- Structured CSV reads still show 7 blank current-five decisions and 8 pending
+  CMP/manual-review confirmations; the checkout still has 326 site screenshots
+  and 0 synced site raw-HTML files.
+- The safe next internal deliverable was therefore a print/review derivative of
+  the verified poster, not new capture, sample expansion, or stronger claims.
+- Exported `docs/research/poster/ssrp_poster_mockup_2026-07-14.pdf` directly
+  from the July 14 PPTX. It is one page at 3456 x 2592 points, exactly 48 x 36
+  inches.
+- The PPTX overflow test passed, the PDF's key claims were text-extractable,
+  and a 72-dpi full-page render showed no clipping, overlap, black boxes, or
+  broken glyphs.
+- The PDF adds a review and print format only. It does not change evidence,
+  resolve human decisions, establish current live-site conditions, or support
+  final-dataset or legal-compliance claims.
+
+## 2026-07-16 Poster Review Decision Sheet Findings
+
+- The current advisor email asks five poster decisions, but there was no
+  poster-specific structured artifact for recording the answers.
+- Research status remains unchanged at 5 Week 2 targets, 42 audit reports, 20
+  longitudinal summaries, and 8 pending CMP confirmations; structured source
+  sheets still show 7 blank current-five decisions and 8 pending CMP reviews.
+- Added `data/poster_review_decision_sheet_2026-07-16.csv` with exactly five
+  rows matching the email questions: framing, evidence cards, contrast-case
+  treatment, unresolved-review treatment, and final-print priority.
+- Recommendations are stored in `recommended_default`, while all
+  `confirmed_decision` cells remain blank and all `review_status` values remain
+  `pending`. This prevents recommendations from being mistaken for advisor
+  decisions.
+- The decision sheet advances the existing advisor-review plan without adding
+  capture evidence, changing scores, resolving human decisions, or expanding
+  poster claims.
+
+## 2026-07-20 Poster Review Publication Findings
+
+- The local branch began the day one commit ahead of
+  `origin/codex/project-status-plain-language`; the unpublished commit was
+  `d013430`, containing the verified poster-review workflow.
+- GitHub's public PR page showed PR #8 as an open draft from the same branch to
+  `main`, while the branch and PR head still ended at the prior poster commit.
+- Research status remained at 5 Week 2 targets, 42 audit reports, 20
+  longitudinal summaries, and 8 pending CMP confirmations.
+- Structured reads showed no new human input: 5 blank poster-review decisions,
+  7 blank current-five decisions, and 8 pending CMP/manual-review decisions.
+- After 46 research-artifact tests and a clean diff check, pushed `d013430` to
+  the existing remote branch. Local HEAD, remote branch HEAD, and
+  `refs/pull/8/head` then matched at
+  `d0134303f5cffd0737d1d13926a2351966660fe7`.
+- Publication makes the existing evidence package reviewable; it does not
+  authorize stronger claims, new capture, or a final poster revision before
+  confirmed review decisions exist.
+
+## 2026-07-21 Single-File Poster Review Bundle Findings
+
+- Local branch, remote branch, and PR #8 head started the day synchronized at
+  `a689fb9971b54599d725d89e699d9b0eacf447e2`.
+- Research status remained at 5 Week 2 targets, 42 audit reports, 20
+  longitudinal summaries, and 8 pending CMP confirmations.
+- Structured reads showed no new human input: 5 blank poster-review decisions,
+  7 blank current-five decisions, and 8 pending CMP/manual-review decisions.
+- The next safe work item was therefore transport packaging for advisor review,
+  not new capture, sample expansion, or a stronger poster claim.
+- Created `docs/research/poster/ssrp_poster_review_bundle_2026-07-21.zip`
+  with eight files: the PPTX, PDF, PNG, advisor email, two QA/decision notes,
+  blank decision CSV, and internal README/manifest.
+- The 3,973,713-byte ZIP passed `unzip -t`; every extracted file hash matched
+  its source. ZIP SHA-256 is
+  `4f697275580b0a05cf0197c51493147953d6755c6667fdf8cf970c0734e9de1c`.
+- The bundle changes delivery convenience only. It does not resolve decisions,
+  change evidence, establish current live-site conditions, or authorize final
+  empirical/legal claims.
+
+## 2026-07-22 Closeout Audit And Presentation Findings
+
+- The May 30-August 7 core execution window is 70 days; July 22 is day 54,
+  leaving 16 calendar days. The original proposal period continues through
+  August 14, leaving 23 days.
+- The current presentation + poster + evidence-package scope supersedes the
+  original paper deliverable unless the advisor reintroduces it.
+- The poster has a reviewable mockup and verified review ZIP; no independent
+  presentation PPTX existed at the start of the audit.
+- Current evidence consists of 42 report rows, 20 longitudinal-summary rows,
+  326 tracked site screenshots, 42 present screenshot refs, 42 missing raw-DOM
+  refs, and no populated report-PDF refs.
+- The latest exported longitudinal `week_of` is 2026-06-06, so the repository
+  does not support a continuous-through-July tracking claim.
+- The current runtime is Playwright plus deterministic DOM/text/scoring/diff
+  logic with local JSONL/file persistence. External LLM/VLM calls,
+  PostgreSQL/R2, APScheduler, hosted deployment, and per-report PDFs are target
+  architecture only.
+- Built a 10-slide first presentation draft from the five verified stored
+  screenshots. It passed overflow checks and full final-PPTX visual QA after
+  correcting cover overflow, title collisions/clipping, and a Layer 3 text
+  overlap.
+
+## 2026-07-25 Joint Gap Review And Packet Findings
+
+- July 25 is day 57 of the 70-day May 30-August 7 core window, leaving 13
+  calendar days before core closeout and 20 before the original August 14 end
+  date. This is calendar progress, not a research-completion percentage.
+- The presentation, large poster, and traceable pilot evidence package all
+  exist, so the project is on track for the current summer scope. The remaining
+  work is advisor/fallback decisions, final revision, evidence freeze, hashes,
+  rehearsal, and backup rather than broad sample expansion.
+- The evidence state is unchanged at 5 Week 2 targets, 42 audit-report rows, 20
+  longitudinal-summary rows, 326 tracked site screenshots, 0 synced referenced
+  raw HTML files, and a latest exported `week_of` of 2026-06-06.
+- Existing human gates remain unresolved: 5 poster-only rows pending/blank, 7
+  current-five rows blank, and 8 CMP/manual-review rows pending/blank. The new
+  joint sheet also has 5 pending rows and 5 blank confirmations.
+- Joint review found one material wording risk in the poster: the old guardrail
+  could imply model extraction participates in current scoring. The aligned
+  revision now states that current pilot scoring is deterministic and external
+  models are not wired into scoring.
+- The July 25 poster revision preserves the source layout and images and changes
+  only three inherited text boxes. Artifact-tool template fidelity passed with
+  zero issues; PPTX overflow, source render, PDF render, and visual checks also
+  passed.
+- The joint advisor ZIP contains nine source-matched files, is 5,964,170 bytes,
+  and has SHA-256
+  `98b2c7b779a9a4b451c6cde992fee9c582b56ebdc90872c9d09169548de00fdd`.
+- Repository verification passed 246 tests, Ruff, Mypy on 52 source files, 166
+  current local links, and `git diff --check`. No new browser capture, site
+  observation, score, legal judgment, sample expansion, or advisor response was
+  introduced.
+
+## 2026-07-26 Advisor Response And Fallback Findings
+
+- July 26 is day 58 of the 70-day core window, leaving 12 calendar days before
+  August 7 and 19 before the original August 14 proposal end date.
+- The local branch, remote branch, and PR #8 head started synchronized at
+  `20176096327ce8bbbad631383db607c0653eb22c`.
+- GitHub compare state is ahead 24 / behind 0 relative to `main`. A direct REST
+  read reports `mergeable=true` and `mergeable_state=clean`; the earlier
+  connector snapshot's `mergeable=false` was not used as a conflict claim.
+- PR #8 has no conversation comments, submitted reviews, inline review threads,
+  or pull-request workflow runs for the current head. No advisor or code-review
+  input can therefore be inferred from GitHub.
+- The remote PR branch serves the nine-file joint ZIP with the same size and
+  SHA-256 as the local source, proving that the prepared attachment is present
+  remotely rather than only documented locally.
+- All decision gates remain unchanged: joint 5 pending/blank, poster-only 5
+  pending/blank, current-five 7 blank, and CMP 8 pending/blank.
+- Added an explicit actual-response path and no-response path. The July 29
+  23:59 Asia/Shanghai cutoff is labeled as an internal project-management
+  choice, not an advisor deadline or response.
+- Under the no-response path, confirmation fields stay blank and the existing
+  recommendations may only be recorded as project closeout fallback labels.
+  The protocol does not authorize stronger claims, sample expansion, or a new
+  continuity capture.
+
+## 2026-07-26 Closeout Pre-Freeze Manifest Findings
+
+- The historical `data/research_package/research_manifest.json` records only
+  two CSV names and row counts. It does not establish whether row-level
+  screenshot/DOM references or current presentation/poster deliverables are
+  present in the checkout.
+- The current audit CSV has 42 rows, 42 present screenshot references, and 42
+  missing DOM references. It has no `report_pdf_ref` column; the July 22 claim
+  that this column contained 42 blanks was inaccurate and is now corrected.
+- The four current decision sheets contain 25 open rows in total when counted
+  by sheet: 5 joint, 5 historical poster-only, 7 current-five, and 8 CMP/manual
+  review. This is a cross-sheet row count, not 25 unique advisor questions.
+- All 11 selected closeout deliverables are present and now have byte sizes and
+  SHA-256 hashes in the generated manifest. The inventory also hashes each of
+  the 42 locally present screenshot references.
+- The new JSON and Markdown outputs are labeled `pre_freeze` and
+  `finalized=false`. File presence and byte identity do not resolve research
+  validity, legal compliance, advisor decisions, or final artifact status.
+- SCHEMA still said the presentation needed to be drafted even though the July
+  22 deck and montage exist. The remaining gate is now stated as final
+  decision-aware revision and rerendering.
+
+## 2026-07-26 Decision-To-Revision Matrix Findings
+
+- The presentation and poster were structurally inspected rather than inferred
+  from planning prose. The current presentation has 10 slides; the aligned
+  poster has one 48 x 36 inch slide with stable named shapes.
+- The five joint decisions touch 20 mapped execution surfaces: 8 in the
+  presentation, 8 in the poster, and 4 in the evidence package. Scope framing
+  has 7 rows, evidence-card selection 4, and the remaining three decisions 3
+  rows each.
+- Every mapped presentation/poster `current_surface` string resolves in the
+  actual PPTX slide XML after normalizing text-run whitespace. This prevents a
+  plan row from pointing at wording that is not in the current artifact.
+- All matrix rows remain `waiting_for_response_branch`; `selected_value`,
+  `response_basis`, `applied_by`, `applied_at`, and `notes` are blank. The map
+  prepares work but does not represent a response or authorize edits.
+- Actual advisor answers and project fallbacks have separate response-basis
+  labels. A fallback may be selected only after the July 29 internal cutoff,
+  while advisor-confirmation fields remain blank/pending.
+- The historical poster-only `final_print_revision` question is not part of
+  the five-row joint sheet. It remains pending dated history and is not treated
+  as a sixth joint decision; final poster visual/print QA remains mandatory
+  regardless.
+- Adding the matrix and handoff raised the checked pre-freeze deliverable set
+  from 11/11 to 13/13 present files, each with bytes and SHA-256 recorded.
+
+## 2026-07-26 Final-Freeze Readiness Findings
+
+- The pre-freeze manifest previously proved deliverable presence but did not
+  inspect the revision matrix. That left a machine-readable ambiguity where
+  13/13 files could be mistaken for closeout readiness.
+- Manifest schema v2 now records the revision matrix's row, artifact, decision,
+  and execution-status counts; blank selection/provenance counts; duplicate
+  IDs; missing columns; and inconsistent row IDs.
+- The expected 20 `revision_id` values are an explicit coverage contract;
+  missing or unexpected rows block readiness so removing unfinished work cannot
+  make the manifest appear complete.
+- State validation keeps the response paths distinct. Waiting rows must keep
+  selection and application fields blank; ready rows require a selected value
+  and one allowed response basis; applied-and-verified rows additionally
+  require an executor and an ISO 8601 timestamp with timezone.
+- Claimed actual responses must match one confirmed joint-sheet row and its
+  reviewer/date provenance. Claimed project fallbacks are invalid before the
+  July 29 23:59 Asia/Shanghai cutoff, outside the five protocol values, or when
+  they conflict with an already recorded response.
+- The current matrix is structurally valid and internally consistent: 20 rows,
+  20 unique IDs, 8 presentation / 8 poster / 4 evidence-package surfaces, and
+  no inconsistent rows. All 20 remain `waiting_for_response_branch`.
+- Final-freeze readiness is therefore false even though all 13 key deliverables
+  are present. The sole current blocker category is
+  `revision_rows_not_applied_verified`, with a count of 20.
+- The 25 open rows across four human-decision sheets remain visible reporting
+  facts, not 25 unique decisions and not automatic proof of failure. Under the
+  documented no-response branch they remain blank/pending while the project
+  fallback basis is recorded separately in the revision matrix.
+
+## 2026-07-26 Closeout Control Index Findings
+
+- README and the two legacy indexes still mixed the current closeout path with
+  many June and early-July notes labeled as current. The files were valid dated
+  history, but the navigation hierarchy no longer matched the project's final
+  two-week phase.
+- `docs/research/closeout_control_index_2026-07-26.md` is now the one current
+  pre-freeze entrypoint. It opens the active presentation, aligned poster,
+  evidence exports, joint review packet, response sheet, revision matrix,
+  protocol, manifest, and closeout assessment.
+- Superseded poster-only assets, emails, and decision paths are explicitly
+  classified without deletion or state rewriting. The Week 2 and advisor
+  indexes remain complete historical navigation rather than competing current
+  entrypoints.
+- The control page carries the exact current non-final state: 14/14 key files,
+  25 cross-sheet open rows, 20 waiting revision rows, zero response-basis
+  claims/errors, and `ready_for_final_freeze=false`.
+- The May 30-July 26 work trail is condensed into five dated periods, while the
+  July 26-August 7 table and eight acceptance checks define the remaining
+  response, revision, freeze, render, rehearsal, and backup work.
+- Current plus historical entrypoints resolve 160 local links with zero
+  missing. The lower count is intentional removal of duplicate README links,
+  not loss of artifacts or provenance.
+
+## 2026-07-26 Closeout Runtime-Status Findings
+
+- `research-status` still defaulted to the July 22 closeout plan and displayed
+  a June cycle-report next action without identifying it as historical. That
+  conflicted with the July 26 single-entrypoint hierarchy.
+- The dashboard now reads the schema-v2 pre-freeze manifest and reports its
+  checked-in deliverable, revision-execution, response-basis, blocker, and
+  readiness facts instead of maintaining a separate closeout claim.
+- The current output reports 14/14 key deliverables, 20
+  `waiting_for_response_branch` rows, zero response-basis claims, zero basis
+  errors, and `ready_for_final_freeze=false` with the 20-row execution blocker.
+- The current next action is derived from that state: record only actual joint
+  decisions through July 29, then use the documented no-response branch only
+  after the internal cutoff if no response was recorded.
+- A repository-level CLI regression runs the default command and prevents the
+  July 22 plan from being relabeled as the current closeout path. Historical
+  Week 2 metrics remain available, but their old next action is explicitly
+  labeled historical.
+- Full verification passed 256 tests, Ruff, Mypy on 53 source files,
+  compileall, 160 decoded local links with zero missing, both ZIP integrity
+  checks, schema-v2 JSON gate assertions, and `git diff --check`.
+
+## 2026-07-27 Response-Intake Contract Findings
+
+- A structured audit of all 10 rows with `recommended_default` and
+  `decision_options` found four mismatches: two in the active July 25 joint
+  sheet and two in the superseded July 16 poster-only sheet.
+- The active mismatches were `unresolved_review_items` and
+  `rq2_continuity_gate`. Their recommended defaults now use the existing
+  actual-response options `carry_as_visible_limitations` and
+  `freeze_current_evidence`; the longer no-response labels remain separate
+  project fallback provenance.
+- All five active joint rows remain `pending`; every `confirmed_decision`,
+  `reviewer`, and `review_date` field remains blank. The correction does not
+  represent an advisor response or a fallback selection.
+- The two July 16 mismatches remain unchanged as dated provenance because that
+  sheet is superseded. The closeout control page now explicitly says not to use
+  it for current response intake.
+- Schema v2 now blocks final freeze when the active joint sheet has a missing
+  or duplicate decision ID, a recommended default outside its options, no
+  `other` option, pending rows with response fields, confirmed rows without
+  valid option/provenance, or an `other` response without notes.
+- The rebuilt nine-file joint packet is 5,963,814 bytes with SHA-256
+  `0b4374a85cd1c7a27f2b5307abd0d19246cb5110b4335c44b5b657e86393737a`;
+  every archive member matches its repository source and `unzip -t` passes.
+- The regenerated manifest reports 14/14 key deliverables, zero active joint
+  contract errors, zero response-basis claims/errors, 20 waiting revision
+  rows, and `ready_for_final_freeze=false` with the same execution blocker.
+- Full verification passed 257 tests, Ruff, Mypy on 53 source files,
+  compileall, 160 decoded local links with zero missing, both ZIP integrity
+  checks, JSON gate assertions, and `git diff --check`.
+
+## 2026-07-27 Low-Token Closeout Findings
+
+- The project is on track for the checked-in bounded deliverable: a five-site
+  pilot/method presentation, 48 x 36 poster, and traceable evidence package.
+  It is not evidence for a broad completed empirical study.
+- The current plan uses August 7, 2026 as the core closeout target. Framework
+  work is prepared; the remaining response, revision, visual QA, rehearsal,
+  and backup sequence is date- and evidence-dependent.
+- `closeout-prepare-revisions` closes the unsafe manual gap between the joint
+  response sheet and the 20-row revision matrix. It selects only confirmed
+  values with provenance or the five project fallbacks after the internal
+  cutoff, supports a mixed branch, defaults to dry-run, writes atomically, and
+  refuses malformed or conflicting state.
+- The command never changes a row to `applied_verified`. That status still
+  requires the row's actual artifact edit or retain-current check, required
+  verification, executor, and timezone-aware timestamp.
+- A simulated July 30 dry-run selected all five project fallbacks and prepared
+  all 20 rows without writing. The matrix SHA-256 remained
+  `01a14c29a661280cacf742a7ea2ad51e6b4bdf37798f3a77ac19527c0179cc6f`
+  before and after the simulation.
+- The new low-token runbook is the only future execution handoff needed beside
+  the control index. It records the current direction, work already prepared,
+  external dependencies, exact commands, stop conditions, and four short
+  prompts for later Codex turns.
+- The manifest now hashes 15/15 key deliverables. It still reports zero
+  response-basis claims, 20 `waiting_for_response_branch` rows, and
+  `ready_for_final_freeze=false` with the one 20-row execution blocker.
+- A full-repository Markdown scan initially found 13 missing local targets.
+  One was a repairable progress-log path; four were reference notes never
+  checked in; eight were historical raw DOM refs already known to be absent.
+  The generator and artifacts now label absent DOM files without linking them,
+  preserving refs and hashes without implying local availability. The final
+  scan covers 117 Markdown files and 255 local links with zero missing.
+- Browser integration tests previously wrote localhost captures into the real
+  repository tree. `capture_site` now accepts a capture root, and those tests
+  use pytest temporary directories, leaving the worktree clean after a full
+  run.
+- Final local verification passed 264 tests, Ruff, Mypy on 54 source files,
+  compileall, 2/2 JSON parses, 2/2 ZIP integrity checks, the full link scan,
+  and `git diff --check`.
+- There is still no checked-in proof that the joint packet was sent or
+  discussed, no recorded advisor response, and the July 29 cutoff has not
+  passed. Those facts prevent truthful response selection or final artifact
+  freeze today.
+
+## 2026-07-27 Final-QA And Final-Index Findings
+
+- The closeout plan previously listed final render, rehearsal, repository, and
+  backup checks, but there was no structured record for their actual result and
+  no executable guard preventing an early final index.
+- `data/closeout/final_qa_checklist_2026-07-27.csv` now has exactly five required
+  checks: presentation, poster, evidence package, repository verification, and
+  backup-open verification. Every row is still `pending`; evidence, verifier,
+  timestamp, and notes fields remain blank.
+- `closeout-final-index` validates the schema-v2 manifest, zero freeze blockers,
+  complete applied-and-verified revision coverage, valid response-basis and
+  joint-decision contracts, exact QA-row coverage, nonblank QA evidence and
+  verifier, timezone-aware verification timestamps, in-repository artifact
+  paths, file presence, and SHA-256 hashes.
+- The command performs no write by default and uses an atomic replacement only
+  with `--write`. Unit coverage proves it refuses an unready manifest, pending
+  QA, invalid timestamps, and outside-repository paths; it also proves a valid
+  state can be dry-run and then written reproducibly.
+- The command currently exits 1 with `Final index blocked: closeout manifest is
+  not ready for final freeze`. This is the expected fact-based result: 20
+  revision rows still wait for a legal response branch, all five final-QA rows
+  remain pending, and no final index exists.
+- `research-status` now reports 16/16 present key deliverables, 20 waiting
+  revision rows, zero response-basis claims/errors, final-freeze readiness
+  false, five pending final-QA checks, and a missing final index in one screen.
+- Full local verification passed 270 tests, Ruff, Mypy on 55 source files,
+  compileall, 117 Markdown files with 257 local links and zero missing, 2/2 JSON
+  parses, 2/2 ZIP integrity checks, and `git diff --check`.
+- This phase adds finalization infrastructure only. It does not record a human
+  response, choose the pre-cutoff project fallback, revise an artifact, attest
+  to an unperformed check, create a final index, or mark the project complete.

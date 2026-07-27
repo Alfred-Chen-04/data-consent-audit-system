@@ -11,6 +11,12 @@
 
 If any conflict between this doc and a companion: the companion wins for its domain (CONCEPTS for ontology, architecture for runtime, etc.). This doc is a navigator, not an authority.
 
+> **Current implementation boundary (verified 2026-07-22):** the executable
+> pilot uses Playwright, deterministic DOM/text rules, deterministic layer
+> scoring, local JSONL persistence, and local file storage. External LLM/VLM
+> calls, PostgreSQL/Supabase, R2/S3, APScheduler, PDF report generation, and a
+> deployed demo are target architecture, not active runtime capabilities.
+
 ---
 
 ## 1. Research Questions (from proposal, verbatim)
@@ -18,6 +24,8 @@ If any conflict between this doc and a companion: the companion wins for its dom
 > **Source of truth**: Chen, Q. *Privacy Interfaces as Corporate Communication: A Computational Auditing Framework for Tracking the Interface Designs*, SSRP 2026 Proposal, §3, p. 3. Approved by Dr. Jagdip Singh.
 >
 > **Discipline (binding)**: These two RQs are the spine of the project. They are quoted verbatim and NEVER paraphrased without explicit user approval. Any "research question" elsewhere in this repo that differs from the two below is wrong and must be corrected. Methodological additions (AI / NLP / VLM / multimodal) are *means of addressing RQ1 and RQ2 more effectively*; they do NOT modify the RQs themselves.
+>
+> **Current plain-language goal**: see `docs/research/current_project_goal_2026-07-02.md`. That file is the current user-facing explanation: RQ1 scoring + RQ2 versioning are the project spine; screenshots/DOM/hashes/event logs are evidence inputs, not the project objective.
 
 ### 1.1 RQ1 — The audit/scoring system
 
@@ -29,15 +37,21 @@ If any conflict between this doc and a companion: the companion wins for its dom
 
 > **"How can we automatically capture and version firms' privacy interfaces to systematically document interface changes over time?"**
 
-**Addressed by**: the weekly multimodal capture pipeline (text + screenshots + DOM) for the same site set; fingerprint-based diffing; versioned PostgreSQL archive; weekly change log. Runtime details in [docs/architecture.md](docs/architecture.md).
+**Addressed by**: repeated capture of text, screenshots, DOM-derived evidence,
+and fingerprints for the same site set; local versioned records; and
+week-over-week diff summaries. Runtime details in
+[docs/architecture.md](docs/architecture.md).
 
 ### 1.3 Methodological additions (post-proposal, NOT new RQs)
 
-The proposal predates the 2025-2026 wave of multimodal LLMs that can reason visually on screenshots and analyze framing in short text. These tools are added as **methods** to address RQ1 + RQ2 more effectively — they do not become new RQs:
+The proposal predates the 2025-2026 wave of multimodal LLMs that can reason
+visually on screenshots and analyze framing in short text. These tools remain
+**planned methods** for later benchmarking; they do not become new RQs and are
+not active in the current pilot runtime:
 
-- **VLM** (Claude Sonnet 4 / equivalent) — Layer 2 visual sub-features + Layer 3.2 visual asymmetry
-- **LLM** (Claude Opus 4.7 / equivalent) — Layer 3.1a topic coverage + Layer 3.1b framing analysis + evidence-quote extraction
-- **Browser agent** (Playwright + agent loop) — required by RQ1's phrase "across the full consent pathway" (multi-step traversal, not single screenshot)
+- **Future VLM adapter** — possible Layer 2 visual sub-features and Layer 3.2 visual asymmetry.
+- **Future LLM adapter** — possible Layer 3.1 topic coverage, framing analysis, and evidence-quote extraction.
+- **Current browser capture** (Playwright + deterministic DOM candidate/click loop) — supports RQ1's full-pathway requirement.
 
 Any drift these methods cause is recorded as an open decision in §10 with explicit scope-impact note.
 
@@ -78,11 +92,11 @@ Dismiss   — close the banner without explicit choice
 
 | Sub-feature | Weight | Source |
 |---|---|---|
-| `button_size_ratio` | 0.25 | VLM |
+| `button_size_ratio` | 0.25 | DOM candidate bbox when available; future VLM benchmark |
 | `color_contrast` | 0.15 | Pixel arithmetic (WCAG) |
-| `layout_symmetry` | 0.15 | VLM |
+| `layout_symmetry` | 0.15 | deterministic fallback; future VLM benchmark |
 | `click_depth` | 0.20 | Browser-agent event log |
-| `label_clarity` | 0.15 | VLM + LLM joint |
+| `label_clarity` | 0.15 | visible-label rules; future model benchmark |
 | `immediate_feedback` | 0.10 | Browser-agent event log |
 
 ### 2.4 Layer-3 invariants (paper reviewers will check these)
@@ -93,8 +107,8 @@ Dismiss   — close the banner without explicit choice
 
 ### 2.5 Longitudinal primitives
 - Multimodal fingerprint = `(dom_hash, perceptual_image_hash, text_embedding)` → cheap weekly change detection.
-- `ChangeEvent` → atomized week-over-week shifts with magnitude + LLM-authored description.
-- `WeeklySummary` → per-site narrative of the week's changes + severity grade.
+- `ChangeEvent` -> atomized week-over-week shifts with magnitude and deterministic descriptions.
+- `WeeklySummary` -> deterministic per-site summary of the week's changes and severity grade.
 - **Volatility & Trajectory** are first-class outputs alongside the static Compliance Score — this is the project's signature differentiator (see §6.4).
 
 ---
@@ -130,13 +144,13 @@ data/sites.csv ─────► run_audit / run_weekly ────► Capture
                                                          ▼
                                           ┌──────────────────────────────┐
                                           │   report.generator           │
-                                          │   ↳ AuditReport (md+json+pdf)│
+                                          │   ↳ AuditReport (md + JSON)  │
                                           └──────────────┬───────────────┘
                                                          │
                                           ┌──────────────┴───────────────┐
                                           ▼                              ▼
-                                  storage.db (Postgres)        storage.object_store (R2)
-                                  ↳ AuditReport rows           ↳ screenshots + DOM
+                                  storage.db (local JSONL)      storage.object_store (local)
+                                  ↳ versioned records           ↳ sanitized file copies
                                           │
                                           ▼
                                   diff.engine (week-over-week)
@@ -144,11 +158,11 @@ data/sites.csv ─────► run_audit / run_weekly ────► Capture
                                   ↳ WeeklySummary per site
 ```
 
-### 3.1 LLM/VLM contracts (every call obeys these)
-1. Output validates through Pydantic schema, retry once on failure, then conservative default + `confidence_low = True`.
-2. No LLM/VLM call has DB or storage side effects — writes happen only in orchestration.
-3. Budget cap is checked **before each call** (not just at run start).
-4. Outputs cite specific evidence (element ref or screenshot bbox); a value without evidence is a schema violation.
+### 3.1 External-model adapter contract (planned, not active)
+1. Any future model output must validate through Pydantic before use.
+2. Model calls must have no DB or storage side effects.
+3. A budget cap must be checked before each call.
+4. Outputs must cite an element ref or screenshot bbox; unsupported values must not enter final scoring.
 
 ---
 
@@ -198,7 +212,7 @@ AuditReport
 ### 4.5 Longitudinal layer
 ```
 ChangeEvent       — one atomized change between two consecutive captures
-WeeklySummary     — LLM-authored summary of the week, with severity grade
+WeeklySummary     — deterministic summary of the week, with severity grade
 ```
 
 > Every cross-module boundary uses one of these models. If a function takes/returns anything else, it is internal to one module. This is enforced by import discipline.
@@ -212,18 +226,18 @@ WeeklySummary     — LLM-authored summary of the week, with severity grade
 | `capture/agent.py` | Playwright + browser agent loop — find/click/screenshot/record per pathway | Capture |
 | `capture/fingerprint.py` | DOM hash + pHash + text embedding | Capture |
 | `capture/sanitize.py` | Strip PII from captured artifacts before storage | Capture |
-| `llm/vision.py` | VLM client (bounding-box-grounded prompts) | Layer 2 (visual features) + Layer 3 (unbiased-choice asymmetry) |
-| `llm/text.py` | LLM client (text framing + topic-coverage prompts) | Layer 3 (transparency) |
-| `llm/budget.py` | Per-run + per-call $ cap enforcement | All LLM/VLM calls |
+| `llm/vision.py` | Deterministic no-network visual fallback; not called by capture/scoring orchestration | Future model-adapter boundary |
+| `llm/text.py` | Deterministic regex/rule fallback for topics and framing; not called by current layer orchestration | Future model-adapter boundary |
+| `llm/budget.py` | Budget ledger used by the fallback wrapper contract | Future external calls |
 | `layers/layer1_path_availability.py` | Boolean availability + 2-action gate test | Layer 1 |
 | `layers/layer2_path_effort.py` | 6-sub-feature weighted sum | Layer 2 |
 | `layers/layer3_transparency.py` | Transparency + Unbiased Choice (kept separate) | Layer 3 |
 | `models/audit.py` | All Pydantic models | Cross-cutting |
 | `models/dimensions.py` | Enums (Pathway, LetterGrade, BiasLevel, etc.) | Cross-cutting |
 | `diff/engine.py` | Week-over-week change detection | Longitudinal |
-| `report/generator.py` | AuditReport → markdown + json + pdf | Output |
-| `storage/db.py` | Postgres persistence for AuditReports | Output |
-| `storage/object_store.py` | R2/S3 for screenshots + DOM snapshots | Output |
+| `report/generator.py` | Structured `AuditReport` with embedded Markdown; JSON via Pydantic serialization | Output |
+| `storage/db.py` | Local append-only JSONL persistence; future DB adapter boundary | Output |
+| `storage/object_store.py` | Local sanitized file-copy fallback; future object-store boundary | Output |
 | `cli.py` | Entry-point CLI (wraps scripts/) | Operator interface |
 | `config.py` | Env / settings / API keys | Cross-cutting |
 
@@ -238,19 +252,20 @@ Scripts (`scripts/`) are operator entry points:
 
 ### 6.1 Inputs
 - [`data/sites.csv`](data/sites.csv) — URL list, with cohort tags (e.g., `china_overseas_cohort` is an open decision in §10).
-- API keys: Anthropic, OpenAI (set via `.env`, never committed; template in `.env.example`).
-- LLM/VLM model selection: pinned in `config.py` (currently parameterized for benchmarking; see §10 open decision 5).
+- External-model API keys are not required by the current deterministic pilot.
+- Future model selection remains a benchmarking decision; no provider is active in production scoring.
 
 ### 6.2 Outputs (per audit run)
 1. **AuditReport markdown** — human-readable, embedded screenshots.
 2. **AuditReport JSON** — machine-readable, full schema, every evidence ref.
-3. **AuditReport PDF** — for sharing / archival.
-4. **Postgres row** — queryable, indexed by URL + week.
-5. **R2 objects** — screenshots, DOM snapshots, event logs.
+3. **Local JSONL record** — append-only persistence for reports and summaries.
+4. **Local evidence files** — screenshots and generated DOM/event refs where available.
+
+PDF reports, Postgres rows, and R2/S3 objects remain target outputs.
 
 ### 6.3 Aggregate outputs (per longitudinal run, e.g., weekly)
 6. **`ChangeEvent` rows** — one per detected meaningful change.
-7. **`WeeklySummary` per site** — LLM-authored narrative of the week.
+7. **`WeeklySummary` per site** — deterministic summary of the week.
 8. **Compliance Trajectory** — improving / stable / degrading.
 9. **Compliance Volatility** — low / mid / high.
 
@@ -265,12 +280,14 @@ Compliance Volatility   — magnitude × frequency of week-over-week changes
 
 > The headline claim in the paper's abstract: **"A site with stable C-grade compliance may carry less regulatory risk than a site oscillating between A and D."**
 
-### 6.5 Deliverables (Aug 2026 SSRP target)
-- Paper draft (methodology + case study of comparable subset, including the static-vs-dynamic comparison if Qiyao agrees)
-- SSRP poster
-- Public demo website
-- Open-source repo
-- Public dataset (subject to Qiyao's decision on the 80-site list)
+### 6.5 Current summer deliverables (confirmed 2026-07-01)
+- Presentation.
+- Large poster.
+- Traceable evidence package supporting the presentation and poster.
+
+A formal paper, public demo, hosted production stack, and public final dataset
+are not required current-summer deliverables unless the advisor reintroduces
+them.
 
 ### 6.6 Possible additional deliverable (open — see §10 decision 3)
 - **NGO-targeted Evidence Cards** — per finding, a structured evidence package mapping to specific GDPR / ePrivacy article violation + EDPB dark-pattern category + verbatim screenshot/quote/cookie trace. Designed for noyb / The Markup / plaintiffs' lawyers to consume directly.
@@ -291,20 +308,19 @@ Ranked by feasibility of being a first user, per [background_with_citations.md �
 
 ---
 
-## 8. External Dependencies
+## 8. Runtime Dependencies And Deferred Infrastructure
 
-- **APIs**: Anthropic Claude (LLM + VLM), OpenAI (fallback / benchmarking).
-- **Browser**: Playwright + Chromium (one fresh user-data-dir per site to avoid prior consent contamination).
-- **DB**: Postgres / Supabase (free tier sufficient for SSRP scope).
-- **Object store**: Cloudflare R2 (S3-compatible, zero egress cost).
-- **Schedule**: APScheduler (in-process cron for the weekly run).
-- **Budget envelope**: $4,000 SSRP total — ~$120/year for VM, ~$0 for DB+storage on free tiers, **API spend is the main variable** (budget cap enforced per-call in `llm/budget.py`).
+- **Active browser dependency**: Playwright + Chromium.
+- **Active persistence**: local JSONL and local filesystem copies.
+- **Operator scheduling**: CLI/script invocation; `scripts/run_weekly.py` can be called by an OS scheduler, but the repository does not implement APScheduler.
+- **Deferred**: external LLM/VLM APIs, Postgres/Supabase, Cloudflare R2/S3, hosted VM, and deployed demo.
+- **Budget**: a ledger contract exists, but current deterministic runs do not incur external-model API spend.
 
 ---
 
 ## 9. Status — Current Working State
 
-This section reflects the local Week 2 research workspace as of 2026-06-15.
+This section reflects the audited local research workspace as of 2026-07-22.
 For a live one-screen view, run `consent-audit research-status`.
 
 ### 9.1 Current executable workflow
@@ -312,10 +328,12 @@ For a live one-screen view, run `consent-audit research-status`.
 - [x] Core audit ontology exists in `CONCEPTS.md`; module boundaries are documented in `docs/architecture.md`.
 - [x] Package CLI now exposes the core research workflow: `audit`, `weekly`, `access-probe`, `access-probe-summary`, `validate-sites`, `export-research-package`, and Week 2 advisor/capture commands.
 - [x] Browser capture can produce `CaptureBundle` evidence with screenshots, DOM snapshots, event logs, pathway outcomes, and multimodal fingerprints.
-- [x] Layer 1/2/3 scoring paths are executable with deterministic scoring after schema-bounded extraction.
+- [x] Layer 1/2/3 scoring paths are executable with deterministic DOM/text/rule-based logic.
 - [x] Local append-only storage saves `AuditReport` and `WeeklySummary` records; local object-store fallback copies sanitized screenshots and DOM evidence.
-- [x] Paper-facing exports currently contain 42 audit reports and 20 longitudinal summaries in `data/research_package/`.
-- [x] `docs/research/ssrp_results_tables_2026-06-06.md` now renders current RQ1 scoring and RQ2 longitudinal rows as paper-ready Markdown tables.
+- [x] Evidence-facing exports currently contain 42 audit reports and 20 longitudinal summaries in `data/research_package/`.
+- [x] `docs/research/ssrp_results_tables_2026-06-06.md` renders current RQ1 scoring and RQ2 longitudinal rows as provisional evidence tables.
+- [x] A reviewable 48 x 36 poster mockup and verified review ZIP exist.
+- [ ] No independent presentation deck existed at the start of the July 22 audit.
 - [x] `docs/research/ssrp_figure_plan_2026-06-06.md` now tracks paper/poster figures that are ready, provisional, or need follow-up.
 - [x] `docs/research/ssrp_writing_pack_2026-06-06.md` now collects methods, preliminary results, limitations, and discussion notes with the Week 2 evidence gate marked ready after sanity confirmation.
 - [x] `docs/research/ssrp_claim_register_2026-06-06.md` now lists supported, provisional, open-limitation, and blocked claims with source artifacts and next actions.
@@ -338,8 +356,10 @@ For a live one-screen view, run `consent-audit research-status`.
 - [ ] Advisor/human confirmation is still needed for the 8 pending CMP/manual-review rows before changing sample-lock status.
 - [ ] The deep sample is currently 5 frozen Week 2 targets; expand toward ~20 well-documented sites only after the capture/evidence gate stays stable and the no-visible-banner rule is confirmed.
 - [ ] Week 3 continuity capture can now be rerun with the fixed OneTrust/click-replay logic, or replaced by a semi-automated manual-validation protocol if advisor/sample priorities say not to rerun yet; the 2026-06-14 attempt remains a failed capture-context observation, not consent-interface evidence.
-- [ ] The SSRP paper draft still needs final prose and figure rendering from the research package; current RQ1/RQ2 tables, figure plan, writing pack, and claim register are generated from the completed Week 2 evidence gate but are not the final 10-week dataset.
-- [ ] Poster and demo polish remain later deliverables after the evidence chain is stable.
+- [ ] The drafted and rendered presentation still needs the final decision-aware revision and rerender before closeout.
+- [ ] The poster remains a review draft until its five pending review decisions are confirmed or explicitly carried as limitations.
+- [ ] RQ2 evidence stops at `week_of=2026-06-06`; do not describe the package as continuous through July without new validated observations.
+- [ ] Raw DOM paths referenced by all 42 report rows are not present in this checkout; the current audit export has no `report_pdf_ref` column, and per-report PDFs are not an active runtime output.
 
 ### 9.3 Documents that are drafted but not yet sent / published
 - `docs/alignment_memo.md` — drafted, not yet sent to Dr. Singh + Qiyao (Alfred's decision)
@@ -366,16 +386,17 @@ For a live one-screen view, run `consent-audit research-status`.
 
 ## 11. Current Execution Order
 
-The implementation core now exists. The critical path is no longer "make the
-pipeline run"; it is "turn repeatable captures into a defensible SSRP paper."
+The pilot implementation core exists. The closeout path is to turn the verified
+pilot into a defensible presentation, final poster, and evidence package while
+keeping target architecture separate from active capability.
 
 1. **Use Week 2 as the current valid evidence gate**: 42 audit reports, 20 longitudinal summaries, sanity `ready`.
 2. **Send the latest advisor email** and resolve the no-visible-banner table rule, current-five evidence-card order, sample expansion priority, and 8 pending CMP/manual-review rows.
 3. **Use the June 15 OneTrust fix as the rerun gate**: the post-fix Coca-Cola smoke passes all Layer 1 paths, so the current-five continuity rerun is technically defensible if it matches the advisor/sample plan.
-4. **Expand the deep sample carefully** toward ~20 sites only when the evidence-coding rule and capture stability are clear.
-5. **Refresh paper-ready figures and tables** from `data/research_package/` after any successful new capture.
-6. **Write the SSRP paper draft** around RQ1 scoring evidence and RQ2 longitudinal observations.
-7. **Polish poster/demo artifacts** from the generated poster plan after the paper evidence story is coherent.
+4. **Build and QA the presentation** from the existing evidence before adding optional new capture.
+5. **Finalize the poster** after decisions are confirmed or visibly carried as limitations.
+6. **Freeze a traceable evidence package** with a manifest, missing-raw-DOM disclosure, and no-current-July-observation caveat.
+7. **Use new capture only if it answers an approved continuity or sample question**; do not expand by default.
 
 If automation becomes unstable, preserve the paper by switching to a
 semi-automated protocol: traceable screenshots, DOM/text hashes, consent-table

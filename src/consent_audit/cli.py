@@ -11,6 +11,16 @@ from consent_audit.access_probe_summary import render_access_probe_summary
 from consent_audit.advisor_brief import export_weekly_advisor_brief
 from consent_audit.audit_export import export_audit_reports_to_csv
 from consent_audit.checkin_index import export_checkin_index
+from consent_audit.closeout_branch import (
+    parse_as_of,
+    prepare_closeout_revision_branch,
+    render_closeout_branch_result,
+)
+from consent_audit.closeout_final import (
+    prepare_final_closeout_index,
+    render_final_index_result,
+)
+from consent_audit.closeout_manifest import export_closeout_prefreeze_manifest
 from consent_audit.cmp_review import (
     apply_cmp_review_confirmations_to_worksheet,
     build_cmp_review_confirmation_sheet,
@@ -135,6 +145,9 @@ def access_probe_summary(
 def research_status(
     targets_csv: Path = Path("data/week2_deep_sample_targets_2026-06-06.csv"),
     research_manifest_json: Path = Path("data/research_package/research_manifest.json"),
+    closeout_manifest_json: Path = Path(
+        "data/closeout/closeout_prefreeze_manifest_2026-07-26.json"
+    ),
     cmp_confirmation_csv: Path = Path(
         "data/cmp_review_confirmation_sheet_pilot_2026-05-30.csv"
     ),
@@ -147,12 +160,20 @@ def research_status(
     writing_pack_md: Path = Path("docs/research/ssrp_writing_pack_2026-06-06.md"),
     claim_register_md: Path = Path("docs/research/ssrp_claim_register_2026-06-06.md"),
     poster_plan_md: Path = Path("docs/research/ssrp_poster_plan_2026-06-06.md"),
+    current_closeout_md: Path = Path(
+        "docs/research/closeout_control_index_2026-07-26.md"
+    ),
+    final_qa_csv: Path = Path(
+        "data/closeout/final_qa_checklist_2026-07-27.csv"
+    ),
+    final_index_md: Path = Path("docs/research/final_closeout_index.md"),
 ) -> None:
     """Print a compact current-state dashboard for the SSRP workflow."""
     typer.echo(
         render_research_status(
             targets_csv=targets_csv,
             research_manifest_json=research_manifest_json,
+            closeout_manifest_json=closeout_manifest_json,
             cmp_confirmation_csv=cmp_confirmation_csv,
             preflight_md=preflight_md,
             sanity_md=sanity_md,
@@ -163,6 +184,9 @@ def research_status(
             writing_pack_md=writing_pack_md,
             claim_register_md=claim_register_md,
             poster_plan_md=poster_plan_md,
+            current_closeout_md=current_closeout_md,
+            final_qa_csv=final_qa_csv,
+            final_index_md=final_index_md,
         )
     )
 
@@ -199,7 +223,7 @@ def ssrp_results_tables(
     title: str = "SSRP 2026 Results Tables, 2026-06-06",
     week_label: str = "Week 2",
 ) -> None:
-    """Export paper-ready RQ1/RQ2 Markdown results tables."""
+    """Export paper-facing current-evidence RQ1/RQ2 Markdown results tables."""
     export_ssrp_results_tables(
         targets_csv=targets_csv,
         audit_summary_csv=audit_summary_csv,
@@ -974,6 +998,90 @@ def export_research_package(
         f"({manifest['audit_report_count']} reports, "
         f"{manifest['weekly_summary_count']} weekly summaries) to {out_dir}"
     )
+
+
+@app.command("closeout-prefreeze-manifest")
+def closeout_prefreeze_manifest(
+    repo_root: Path = Path("."),
+    out_json: Path = Path(
+        "data/closeout/closeout_prefreeze_manifest_2026-07-26.json"
+    ),
+    out_markdown: Path = Path(
+        "docs/research/july26_closeout_prefreeze_manifest_2026-07-26.md"
+    ),
+) -> None:
+    """Inventory closeout evidence and decisions without claiming a final freeze."""
+    manifest = export_closeout_prefreeze_manifest(
+        repo_root,
+        out_json,
+        out_markdown,
+    )
+    summary = manifest["summary"]
+    blocker_count = summary["final_freeze_blocker_count"]
+    blocker_label = "category" if blocker_count == 1 else "categories"
+    typer.echo(
+        "Wrote pre-freeze closeout manifest "
+        f"({summary['present_key_deliverable_count']}/"
+        f"{summary['key_deliverable_count']} key deliverables present; "
+        f"{summary['open_decision_row_count_across_sheets']} open rows across "
+        f"{summary['decision_gate_count']} decision sheets; final freeze ready="
+        f"{str(summary['ready_for_final_freeze']).lower()}; "
+        f"{blocker_count} blocker {blocker_label})"
+    )
+
+
+@app.command("closeout-prepare-revisions")
+def closeout_prepare_revisions(
+    joint_decision_csv: Path = Path(
+        "data/joint_advisor_review_decision_sheet_2026-07-25.csv"
+    ),
+    revision_matrix_csv: Path = Path(
+        "data/closeout/joint_decision_revision_matrix_2026-07-26.csv"
+    ),
+    as_of: str | None = None,
+    write: bool = False,
+) -> None:
+    """Prepare response-backed revision rows; dry-run unless --write is set."""
+    try:
+        result = prepare_closeout_revision_branch(
+            joint_decision_csv=joint_decision_csv,
+            revision_matrix_csv=revision_matrix_csv,
+            as_of=parse_as_of(as_of),
+            write=write,
+        )
+    except (OSError, ValueError) as exc:
+        typer.echo(str(exc))
+        raise typer.Exit(1) from exc
+    typer.echo(render_closeout_branch_result(result))
+
+
+@app.command("closeout-final-index")
+def closeout_final_index(
+    repo_root: Path = Path("."),
+    manifest_json: Path = Path(
+        "data/closeout/closeout_prefreeze_manifest_2026-07-26.json"
+    ),
+    final_qa_csv: Path = Path(
+        "data/closeout/final_qa_checklist_2026-07-27.csv"
+    ),
+    out_markdown: Path = Path("docs/research/final_closeout_index.md"),
+    as_of: str | None = None,
+    write: bool = False,
+) -> None:
+    """Generate the final index only after freeze and final-QA gates pass."""
+    try:
+        result = prepare_final_closeout_index(
+            repo_root=repo_root,
+            manifest_json=manifest_json,
+            final_qa_csv=final_qa_csv,
+            out_markdown=out_markdown,
+            generated_at=parse_as_of(as_of),
+            write=write,
+        )
+    except (OSError, ValueError) as exc:
+        typer.echo(str(exc))
+        raise typer.Exit(1) from exc
+    typer.echo(render_final_index_result(result))
 
 
 if __name__ == "__main__":

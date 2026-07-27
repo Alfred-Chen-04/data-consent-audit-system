@@ -46,7 +46,11 @@ async def test_capture_site_builds_bundle_from_local_consent_page(tmp_path: Path
             f"http://127.0.0.1:{server.server_port}/index.html"
         )
 
-        bundle = await capture_site(url, timeout_seconds=15)
+        bundle = await capture_site(
+            url,
+            timeout_seconds=15,
+            capture_root=tmp_path / "captures",
+        )
     finally:
         server.shutdown()
         thread.join(timeout=5)
@@ -106,7 +110,11 @@ async def test_capture_site_builds_bundle_from_iframe_consent_page(tmp_path: Pat
             f"http://127.0.0.1:{server.server_port}/index.html"
         )
 
-        bundle = await capture_site(url, timeout_seconds=15)
+        bundle = await capture_site(
+            url,
+            timeout_seconds=15,
+            capture_root=tmp_path / "captures",
+        )
     finally:
         server.shutdown()
         thread.join(timeout=5)
