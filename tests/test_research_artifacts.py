@@ -1990,3 +1990,68 @@ def test_july27_final_qa_gate_records_only_completed_checks() -> None:
     assert "closeout-final-index" in runbook_text
     assert "closeout-final-index --write" in runbook_text
     assert "A verified row requires" in runbook_text
+
+
+def test_july29_retrospective_case_series_is_source_complete() -> None:
+    cases_path = Path("data/retrospective_longitudinal_cases_2026-07-29.csv")
+    sources_path = Path("data/retrospective_source_registry_2026-07-29.csv")
+    rescue_path = Path(
+        "docs/research/"
+        "july29_retrospective_longitudinal_evidence_rescue_2026-07-29.md"
+    )
+    local_path = Path("data/longitudinal_directional_review_2026-07-29.csv")
+
+    with cases_path.open(newline="", encoding="utf-8") as handle:
+        cases = list(csv.DictReader(handle))
+    with sources_path.open(newline="", encoding="utf-8") as handle:
+        sources = list(csv.DictReader(handle))
+    with local_path.open(newline="", encoding="utf-8") as handle:
+        local_rows = list(csv.DictReader(handle))
+
+    source_ids = {row["source_id"] for row in sources}
+    case_source_ids = {
+        source_id
+        for row in cases
+        for source_id in row["source_ids"].split("|")
+    }
+    allowed_causal_levels = {
+        "direct_company_attribution",
+        "regulator_verified_order_response",
+        "change_during_regulatory_investigation",
+        "change_reason_unknown",
+    }
+
+    assert len(cases) == 5
+    assert {row["case_id"] for row in cases} == {
+        "RET-01",
+        "RET-02",
+        "RET-03",
+        "RET-04",
+        "RET-05",
+    }
+    assert Counter(row["directional_label"] for row in cases) == {
+        "improved": 4,
+        "regressed": 1,
+    }
+    assert sum(
+        row["path_availability_delta"] == "improved"
+        and row["path_effort_delta"] == "improved"
+        for row in cases
+    ) == 3
+    assert len(sources) == 11
+    assert len(source_ids) == len(sources)
+    assert case_source_ids <= source_ids
+    assert {row["causal_evidence_level"] for row in cases} <= allowed_causal_levels
+    assert all(row["before_evidence_date"] for row in cases)
+    assert all(row["after_evidence_date"] for row in cases)
+    assert all(row["limitations"] for row in cases)
+    assert all(
+        row["directional_label"] == "insufficient_evidence" for row in local_rows
+    )
+
+    rescue_text = rescue_path.read_text(encoding="utf-8")
+    normalized_rescue_text = " ".join(rescue_text.split())
+    assert "`4/5` improved" in rescue_text
+    assert "`3/3` first-layer button cases" in rescue_text
+    assert "purposively selected, source-complete trajectories" in normalized_rescue_text
+    assert "not a random sample or a causal experiment" in normalized_rescue_text

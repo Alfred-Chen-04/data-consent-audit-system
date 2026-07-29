@@ -4,48 +4,52 @@
 
 | Artifact | Size | SHA-256 |
 |---|---:|---|
-| `presentation/ssrp_consent_longitudinal_presentation_2026-07-29.pptx` | 1,277,329 bytes | `5f772542b007ee02d6f892a11cf97b5b1ab4fef18902de04ea508bada68bc63d` |
-| `presentation/ssrp_consent_longitudinal_presentation_2026-07-29_montage.png` | 313,327 bytes | `5ae1281133e2429d83484fb2aa685295251e1a17dddb9c7951f61cea01a45993` |
-| `poster/ssrp_consent_longitudinal_poster_2026-07-29.pptx` | 979,238 bytes | `c528f9f6f4671a6f32072d2067b2254b486f0fa2d4775c65eeb44995971fac8b` |
-| `poster/ssrp_consent_longitudinal_poster_2026-07-29.pdf` | 736,601 bytes | `617a25560063fc1b8432889b7bccfcbcc99c93b7941069280765b289f6e85975` |
-| `poster/ssrp_consent_longitudinal_poster_2026-07-29.png` | 1,292,276 bytes | `1a6c3ce908687c7119ae3b2c329d3eb5928b23f1c753930b32d6db0dc329704a` |
+| `presentation/ssrp_consent_longitudinal_presentation_2026-07-29.pptx` | 51,271 bytes | `20e861fc3f123956daacfee5d503b9262b7e354aa77bd6b45f2fb6caebfaad57` |
+| `presentation/ssrp_consent_longitudinal_presentation_2026-07-29_montage.png` | 317,644 bytes | `54ffa611b4ba64c5a4d9321250deeda80e9a3845da030ccf8074491af0a790ff` |
+| `poster/ssrp_consent_longitudinal_poster_2026-07-29.pptx` | 979,171 bytes | `f965eae26e21d6b1f83d318896a3704e2ec6fb79d664811d53664a331cd894b5` |
+| `poster/ssrp_consent_longitudinal_poster_2026-07-29.pdf` | 735,484 bytes | `40f3c180d200ddfa0a0e5282c550851077fa53bc91707b339403a2dfc83c0d01` |
+| `poster/ssrp_consent_longitudinal_poster_2026-07-29.png` | 3,230,972 bytes | `4ee669fc2c7976a9f3695bae2d366cff897238499f6df7d80ec74c7fb65bf5cf` |
 
 ## Story Applied
 
-- The title and opening claim now foreground longitudinal evolution.
-- RQ1 is presented as the repeatable measurement and RQ2 as the matched time
-  series.
-- Improvement, regression, mixed change, stability, and insufficient evidence
-  are operationally defined.
-- The analysis denominator is five sites and one matched May 29-June 5
-  interval, not 42 reports or 20 summaries.
-- The Guardian and Coca-Cola appear as paired evidence. Their raw alerts are
-  separated from directional findings.
-- CNN, Booking.com, and NerdWallet remain repeated no-visible-first-screen
-  contexts rather than banner-path failures.
-- The conclusion states that the method is feasible but no sampled site can yet
-  be called improved or regressed.
+- The project now has two evidence lanes. The five-site local pilot validates
+  controlled comparison but keeps all local direction labels insufficient.
+- A separate retrospective case series adds five source-complete company
+  trajectories: Google, Facebook, TikTok, Orange, and Vanity Fair.
+- The computed case result is four improvements and one functional regression;
+  three of three first-layer cases remove acceptance-favoring rejection effort.
+- The external benchmark shows accept-and-reject availability rising from
+  2.94% in 2018 to 30.66% in 2024 across 11,364 websites.
+- Cause is graded separately: direct company attribution, regulator-verified
+  order response, change during an investigation, or cause unknown.
+- The conclusion is intentionally component-specific: visible parity can
+  improve while transparency or backend respect for refusal remains weak.
 
 ## CWRU Alignment
 
-The poster contains an explicit question, method, results, conclusion, future
-research, and source trail, with a left-to-right reading path. The presentation
-uses assertion titles, large figures, sparse slide-level copy, page numbers,
-and source notes. The 48 x 36 poster fits the official 40 x 60 board option.
-The registered board option still needs confirmation before printing.
+The poster contains an explicit question, method, result, conclusion,
+discussion prompts, future research, and source trail, with a left-to-right
+reading path. The presentation uses assertion titles, large figures, sparse
+slide-level copy, page numbers, and source notes. The 48 x 36 poster fits the
+official 40 x 60 board option. The registered board option still needs
+confirmation before printing.
 
 ## Verification
 
 - Presentation: 10/10 slides rendered and visually inspected at full size.
 - Presentation: `slides_test.py` reports no overflow.
+- Presentation and poster: template-fidelity checks pass and no empty
+  structural placeholders remain.
 - Poster: editable PPTX and artifact-tool PNG visually inspected.
 - Poster: `slides_test.py` reports no overflow.
 - PDF: Poppler render visually inspected with no clipping or font substitution.
 - PDF: one page, 3456 x 2592 points = 48 x 36 inches.
 - Source notes: `[Sources]` blocks are present in the deck and poster notes.
+- Repository tests: 273 collected tests pass, including 59 research-artifact
+  tests and the browser-capture integration tests.
 
 The machine-readable QA record is
-`data/longitudinal_revision_qa_2026-07-29.csv`. The dedicated 13-file inventory
+`data/longitudinal_revision_qa_2026-07-29.csv`. The dedicated 17-file inventory
 is `data/longitudinal_artifact_manifest_2026-07-29.json`. A verified backup is
 stored outside the repository at
 `/Users/alfred/Documents/data consent audit system/backup/ssrp_consent_longitudinal_closeout_2026-07-29.zip`,

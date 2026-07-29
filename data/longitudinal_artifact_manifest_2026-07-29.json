@@ -1,53 +1,74 @@
 {
-  "schema_version": 1,
-  "generated_at": "2026-07-29T21:47:32+08:00",
-  "purpose": "Reproducible inventory for the July 29 longitudinal research reframing, presentation, poster, evidence review, and QA record.",
+  "schema_version": 2,
+  "generated_at": "2026-07-29T23:30:36+08:00",
+  "purpose": "Reproducible inventory for the July 29 two-lane longitudinal evidence rescue, presentation, poster, source registry, and QA record.",
   "research_boundary": {
-    "matched_sites": 5,
-    "validated_intervals_per_site": 1,
-    "directional_labels": {
-      "improved": 0,
-      "regressed": 0,
-      "mixed": 0,
-      "stable": 0,
-      "insufficient_evidence": 5
+    "local_controlled_pilot": {
+      "matched_sites": 5,
+      "validated_intervals_per_site": 1,
+      "directional_labels": {
+        "insufficient_evidence": 5
+      }
     },
-    "supported_conclusion": "The pilot supports the measurement and matched-versioning method, but it does not yet support a site-level improvement or regression claim."
+    "retrospective_case_series": {
+      "company_trajectories": 5,
+      "registered_sources": 11,
+      "directional_labels": {
+        "improved": 4,
+        "regressed": 1
+      },
+      "first_layer_parity_cases": {
+        "improved": 3,
+        "total": 3
+      },
+      "sampling_boundary": "Purposively selected source-complete cases; not a prevalence estimate."
+    },
+    "supported_conclusion": "Concrete interactions often improved where regulators could specify and verify them, but improvement was component-specific and reversible."
   },
-  "file_count": 13,
-  "total_bytes": 4681951,
+  "file_count": 17,
+  "total_bytes": 5518855,
   "all_files_present": true,
   "all_hashes_verified": true,
   "files": [
     {
       "path": "CONCEPTS.md",
-      "bytes": 14249,
-      "sha256": "14285ebf40165d1fc0bf8aa3f33e3f4f8c6dd1178abf76529caa9516c5086f10"
+      "bytes": 14918,
+      "sha256": "92ad28a26e3d52c9a2fd00a58c339a80cc80847bc816d5d62746b5c5b2484489"
     },
     {
       "path": "README.md",
-      "bytes": 17044,
-      "sha256": "38ce93c0ad18b4b2df304113d1ef146d82648e08127a3de6f4522e2c36f70c4e"
+      "bytes": 18001,
+      "sha256": "78bf49685f9f7c413597e3a2356e526db4b181a8b10c72d3edd7571ed8dc52e4"
     },
     {
       "path": "SCHEMA.md",
-      "bytes": 29394,
-      "sha256": "d4a64235d3dd806d0120e623900511e7ff29ffcc0c9bf7893b790efa2604204a"
+      "bytes": 30456,
+      "sha256": "49d05bfe88fa0f3085a7cbcfd54531643b3b6f21ceedf8cbf0969022a2debf77"
+    },
+    {
+      "path": "docs/related_work/background_with_citations.md",
+      "bytes": 97624,
+      "sha256": "11d553b0c438ba62cda52d0d0ee0fe55f115552351506eb06c63c7c7267f4114"
     },
     {
       "path": "docs/research/current_project_goal_2026-07-02.md",
-      "bytes": 6925,
-      "sha256": "f598e85c5dd4b68be75e7f9a83bb8625266b8ad7a51359ed3ff60c8b3d08f917"
+      "bytes": 8405,
+      "sha256": "251d8e621191627b1265a3ae4f34e658ffd30c8599301783c50d5d09d6f9c788"
     },
     {
       "path": "docs/research/july29_longitudinal_reframing_and_source_alignment_2026-07-29.md",
-      "bytes": 9448,
-      "sha256": "8d56705fda67b0226ae0971afa33e5130e6b65d0b1d4d7b606b2ab0a4ccaff3c"
+      "bytes": 11865,
+      "sha256": "75ecaac6b1ca4d5c1d2a280e50a77de6503650568d0196cced9fc17588f072e9"
+    },
+    {
+      "path": "docs/research/july29_retrospective_longitudinal_evidence_rescue_2026-07-29.md",
+      "bytes": 8852,
+      "sha256": "297907d182f7d5644f9f849ce3830f11309414619ae6d5aa82a48fc4e6b1fe5e"
     },
     {
       "path": "docs/research/july29_longitudinal_artifact_delivery_2026-07-29.md",
-      "bytes": 2965,
-      "sha256": "91a964ded2494b83b40e99cdbd8c2ef8f0507d1f26e527d1741641281b2f4221"
+      "bytes": 3360,
+      "sha256": "6487125efb8e60d00795fc1fb8b2f5779847fd36d4a9ebed7171249cb084ac61"
     },
     {
       "path": "data/longitudinal_directional_review_2026-07-29.csv",
@@ -55,34 +76,44 @@
       "sha256": "8a36e7427baeff13c1e00e0252a8d49827a878d5ebe08bbc8584eb87dfb829ac"
     },
     {
+      "path": "data/retrospective_longitudinal_cases_2026-07-29.csv",
+      "bytes": 3339,
+      "sha256": "6432f6c109d016f065309583ce704ed03f95454ad06bc1bc52142e9561802988"
+    },
+    {
+      "path": "data/retrospective_source_registry_2026-07-29.csv",
+      "bytes": 4243,
+      "sha256": "4d41e2823d93072b6331904f76c6ba1dff0b61c6031de2021175b8b1086c125c"
+    },
+    {
       "path": "data/longitudinal_revision_qa_2026-07-29.csv",
-      "bytes": 1024,
-      "sha256": "b8907a5320d4492a104a85bb6cde000cd613df4eeb80fa8cbb178ed7afefdf38"
+      "bytes": 1119,
+      "sha256": "6b9ffbecfb4a1cceeb64aa5fb1d97c85ed836d3b836ad48df1ad82dafc809311"
     },
     {
       "path": "docs/research/presentation/ssrp_consent_longitudinal_presentation_2026-07-29.pptx",
-      "bytes": 1277329,
-      "sha256": "5f772542b007ee02d6f892a11cf97b5b1ab4fef18902de04ea508bada68bc63d"
+      "bytes": 51271,
+      "sha256": "20e861fc3f123956daacfee5d503b9262b7e354aa77bd6b45f2fb6caebfaad57"
     },
     {
       "path": "docs/research/presentation/ssrp_consent_longitudinal_presentation_2026-07-29_montage.png",
-      "bytes": 313327,
-      "sha256": "5ae1281133e2429d83484fb2aa685295251e1a17dddb9c7951f61cea01a45993"
+      "bytes": 317644,
+      "sha256": "54ffa611b4ba64c5a4d9321250deeda80e9a3845da030ccf8074491af0a790ff"
     },
     {
       "path": "docs/research/poster/ssrp_consent_longitudinal_poster_2026-07-29.pptx",
-      "bytes": 979238,
-      "sha256": "c528f9f6f4671a6f32072d2067b2254b486f0fa2d4775c65eeb44995971fac8b"
+      "bytes": 979171,
+      "sha256": "f965eae26e21d6b1f83d318896a3704e2ec6fb79d664811d53664a331cd894b5"
     },
     {
       "path": "docs/research/poster/ssrp_consent_longitudinal_poster_2026-07-29.pdf",
-      "bytes": 736601,
-      "sha256": "617a25560063fc1b8432889b7bccfcbcc99c93b7941069280765b289f6e85975"
+      "bytes": 735484,
+      "sha256": "40f3c180d200ddfa0a0e5282c550851077fa53bc91707b339403a2dfc83c0d01"
     },
     {
       "path": "docs/research/poster/ssrp_consent_longitudinal_poster_2026-07-29.png",
-      "bytes": 1292276,
-      "sha256": "1a6c3ce908687c7119ae3b2c329d3eb5928b23f1c753930b32d6db0dc329704a"
+      "bytes": 3230972,
+      "sha256": "4ee669fc2c7976a9f3695bae2d366cff897238499f6df7d80ec74c7fb65bf5cf"
     }
   ]
 }

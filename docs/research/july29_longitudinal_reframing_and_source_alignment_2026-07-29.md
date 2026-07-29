@@ -3,8 +3,9 @@
 ## Decision
 
 The project's main contribution is a longitudinal comparison framework for
-consent interfaces. The two proposal questions are necessary subproblems, not
-the final destination:
+consent interfaces, now evaluated through a controlled local pilot and a
+primary-source retrospective case series. The two proposal questions are
+necessary subproblems, not the final destination:
 
 1. RQ1 defines a repeatable measure of pathway availability, pathway effort,
    transparency, and unbiased choice.
@@ -40,10 +41,30 @@ conservative result:
 | Booking.com | No visible first-screen banner | No banner-quality trajectory can be scored |
 | NerdWallet | No visible first-screen banner | No banner-quality trajectory can be scored |
 
-Therefore the current study does **not** show that a sampled website improved
-or regressed. It shows that the workflow can retain matched evidence and surface
-candidate changes, and that automated deltas must be separated from validated
-substantive change.
+Therefore the controlled local pilot does **not** show that one of its five
+sampled websites improved or regressed. It shows that the workflow can retain
+matched evidence and surface candidate changes, and that automated deltas must
+be separated from validated substantive change.
+
+That local limit is no longer the whole project result. A separate retrospective
+case series adds five source-complete trajectories documented by CNIL,
+Legifrance, and one direct Google announcement:
+
+| Retrospective case | Dated directional result |
+|---|---|
+| Google Search and YouTube | Improved: reject effort fell from at least five actions to one, with equal first-screen accept/reject buttons |
+| Facebook | Improved: CNIL verified that refusal became as simple as acceptance after a formal order |
+| TikTok | Improved but incomplete: at least three reject actions became a first-layer reject button, while information remained deficient |
+| Orange | Improved: post-withdrawal cookie reads/writes on `orange.fr` stopped after an injunction |
+| Vanity Fair France | Regressed: later checks found pre-consent cookies and ineffective reject/withdrawal after an earlier proceeding had closed |
+
+Across these purposively selected cases, `4/5` improved in at least one audited
+component and `1/5` regressed. All `3/3` first-layer button cases moved from an
+acceptance-favoring effort asymmetry to one-click or equivalently simple
+refusal. These are case-series fractions, not population estimates.
+
+The complete evidence and causal audit is in
+`july29_retrospective_longitudinal_evidence_rescue_2026-07-29.md`.
 
 ## Directional Outcome Rule
 
@@ -69,18 +90,19 @@ claim about long-term evolution. The missing pieces are specific:
 
 | Gap | Why it matters | Resolution |
 |---|---|---|
-| Too few validated time points | One interval detects difference; it does not establish an evolution pattern | Collect at least three validated points per case; continue weekly or biweekly if the study continues |
+| Too few validated local time points | One interval detects difference; it does not establish a local evolution pattern | Keep the local pilot as method validation; add source-complete retrospective cases now and collect at least three future controlled points per local case |
 | Context controls not stored as analysis fields | Geography, language, viewport, browser state, and prior consent can change what appears | Freeze and report a capture-context profile for every matched run |
 | Scorer-version confound | The Coca-Cola detector fix can mimic website improvement | Store scorer/rubric version and back-code earlier captures before comparison |
 | Raw technical diff lacks direction | Hash changes say that something changed, not whether user choice improved | Apply the directional component rubric after manual evidence review |
 | Reliability not measured | A single coder may interpret pathways or grades inconsistently | Double-code a subset and report agreement or disagreements |
-| Small, selective pilot | Five sites cannot support population claims | Present cases as method validation; predefine a larger sampling frame for future work |
+| Small, selective evidence sets | Neither five local sites nor five purposive historical cases can support a prevalence estimate | Use the 2026 11,364-site historical study as the external trend benchmark and present this project's five cases as mechanism-focused evidence |
 | Policy scope is ambiguous | Long-form privacy policies require a different unit and rubric | Keep the core unit as first/second-layer consent UI; treat linked notice text as context, not a full policy audit |
 
-The repository now records the current five in
-`data/longitudinal_directional_review_2026-07-29.csv`. No missing historical
-observation can be reconstructed without new evidence, so the honest remedy is
-future controlled capture rather than invented results.
+The repository records the current local five in
+`data/longitudinal_directional_review_2026-07-29.csv` and the source-complete
+historical five in `data/retrospective_longitudinal_cases_2026-07-29.csv`.
+Historical evidence is admitted only when a dated primary source supplies the
+missing observation; it is never inferred from an absent screenshot.
 
 ## CWRU SOURCE / Intersections Requirements Used
 
@@ -128,34 +150,47 @@ Use a left-to-right sequence:
    conditions.
 4. **Interpretation:** validated deltas become improved, regressed, mixed,
    stable, or insufficient.
-5. **Pilot result:** five sites, one matched interval; automated candidates were
-   produced, but no directional evolution claim survives current validation.
-6. **Contribution and next study:** a traceable framework plus a concrete plan
-   for additional controlled time points and same-version rescoring.
+5. **Longitudinal result:** five primary-source historical trajectories yield
+   four component improvements and one functional regression.
+6. **Interpretation:** regulation repeatedly changes visible reject effort, but
+   purpose disclosure and technical respect for refusal can remain deficient or
+   later regress.
+7. **Contribution and next study:** a traceable framework, a supported
+   mechanism-focused result, and a concrete plan for future controlled points.
 
 The two paired Guardian and Coca-Cola examples should replace isolated static
 screenshots. The three no-visible-banner cases belong in one compact context
 band, not three large result cards.
 
-## Revised Ten-Slide Story
+## Revised Twelve-Slide Story
 
 1. Tracking How Consent Interfaces Evolve.
 2. A single snapshot cannot reveal design evolution.
-3. RQ1 is the ruler; RQ2 creates the timeline.
-4. Improvement and regression require component-level rules.
-5. Valid comparison requires matched capture context and scorer version.
-6. The pilot contains five sites and one matched weekly interval.
-7. Guardian shows why raw change alerts need evidence review.
-8. Coca-Cola shows why scorer changes must be back-coded.
-9. Current result: method feasibility, no directional evolution finding yet.
-10. Next study: controlled repeated captures, validation, and trajectory coding.
+3. Two evidence lanes answer feasibility and historical change.
+4. RQ1 is the ruler; RQ2 creates the timeline.
+5. A 2026 study shows the broad reject-button trend from 2018 to 2024.
+6. Five primary-source cases meet the retrospective inclusion rule.
+7. Google reduced reject effort from at least five actions to one.
+8. Facebook and TikTok also moved refusal toward first-layer parity.
+9. Orange improved withdrawal while Vanity Fair later regressed.
+10. Change reasons have different evidentiary strength.
+11. Main finding: visible parity improves first, but autonomy can remain
+    incomplete and reversible.
+12. Discussion and next study: continuous auditing, publisher/CMP
+    responsibility, and controlled future capture.
 
 ## Final Answer To The Project
 
-The project can already answer **how** to build a longitudinal comparison: use
-RQ1's multidimensional audit as a stable ruler, use RQ2 to preserve matched
-versions, validate each technical change against evidence, and classify the
-component deltas. It cannot yet answer **which sampled sites improved over the
-long term**, because the validated timeline has only one interval and contains
-measurement conflicts. That distinction is the central conclusion, not a
-failure of the project.
+The project answers **how** to build a longitudinal comparison: use RQ1's
+multidimensional audit as a stable ruler, use RQ2 to preserve matched versions,
+validate each technical change against evidence, and classify component
+deltas. It now also identifies documented directional cases: Google, Facebook,
+TikTok, and Orange improved at least one user-choice component, while Vanity
+Fair later regressed in functional respect for refusal.
+
+The deeper conclusion is that consent evolution is component-specific and
+reversible. Regulatory pressure repeatedly produces a concrete reject or
+withdrawal improvement, but a balanced button does not guarantee clear
+information or backend respect for the choice. The controlled local pilot still
+needs additional time points; its limitation no longer erases the supported
+historical finding.

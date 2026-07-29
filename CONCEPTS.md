@@ -207,6 +207,7 @@ and the stored evidence is manually checked.
 | Path effort | Effort decreases or category moves toward Easy | Effort increases or category moves toward Poor | A click-count change caused by capture failure |
 | Transparency | Letter grade improves under the same rubric | Letter grade declines under the same rubric | Copy change without recoding |
 | Unbiased choice | Letter grade improves or asymmetry decreases | Letter grade declines or asymmetry increases | Layout/hash change without recoding |
+| Choice effectiveness | A reject or withdrawal action is shown to stop consent-dependent read/write operations | Those operations continue before choice, after reject, or after withdrawal | The visible presence of a `Reject all` label without behavioral evidence |
 
 Assign one trajectory label per validated interval:
 
@@ -222,13 +223,20 @@ The overall tier is derived from the component dimensions and must not be
 double-counted as an independent improvement signal. DOM, copy, and image-hash
 changes can trigger review but cannot establish direction on their own.
 
+Choice effectiveness is a bounded longitudinal extension. The local runtime
+does not claim full tracker-lifecycle coverage; this dimension may be coded from
+an instrumented path trace or a dated primary regulatory finding that directly
+tests whether rejection or withdrawal is respected.
+
 ---
 
 ## 6. Things this ontology deliberately excludes
 
 These are **not** first-class dimensions in this audit:
 
-- **Runtime tracker behavior** — Privado / Feroot cover this; we're about interface design
+- **Broad runtime tracker inventory and lifecycle analysis** — Privado / Feroot
+  cover this; the only behavioral extension here is whether an expressed reject
+  or withdrawal choice is actually respected
 - **Cookie lifecycle analysis** — UMBRA / CookieBlock cover this; we're about the decision moment
 - **Privacy policy full-text audit** — PRISMe covers this; we're about the banner / second-layer interface
 - **Legal compliance determination** — we emit *design-level risk signals*, not legal opinions. The phrase "compliance risk indicator" is intentional; "compliance violation" is forbidden in our output.

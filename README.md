@@ -4,11 +4,11 @@
 
 A longitudinal, evidence-linked study of how the same website consent
 interfaces (cookie banners and preference panels) evolve over time. RQ1 defines
-a repeatable multidimensional audit; RQ2 captures matched versions so changes
-can eventually be classified as improved, regressed, mixed, or stable. The
-current pilot runtime uses Playwright capture plus deterministic DOM, text,
-scoring, and diff logic. The `llm/` modules are schema-shaped, no-network
-fallbacks; external LLM/VLM calls are not wired into production scoring.
+a repeatable multidimensional audit; RQ2 compares matched captures and dated
+primary-source versions so changes can be classified as improved, regressed,
+mixed, or stable. The current pilot runtime uses Playwright capture plus
+deterministic DOM, text, scoring, and diff logic. The `llm/` modules are
+schema-shaped, no-network fallbacks; external LLM/VLM calls are not wired into production scoring.
 
 ## Why this project
 
@@ -16,13 +16,15 @@ Current approaches leave a gap:
 - **PRISMe** (Freiberger, Fleig & Buchmann, ACM CHI 2026) audits privacy *policy text* with LLMs, but ignores the interface.
 - **UMBRA / "When the Abyss Looks Back"** (Singh, Jin & Kim, 2026) audits banner *interfaces* with rule-based heuristics + multi-step interaction tracing + cookie-state monitoring; 14k sites, 19 dark patterns — but no LLM/VLM, and not longitudinal.
 - **ConsentDiff at Scale** (Guo, 2026) is longitudinal (9 months) and pairs DOM signals with screenshot cues — but uses weak-supervision vision rather than VLM-driven action execution.
+- **A history of GDPR cookie banner compliance** (Dimova et al., 2026) evaluates 11,364 websites across 30 countries from 2018 to 2024 and directly establishes broad historical banner trends.
 
-The research design targets the combination of dynamic multi-step traversal,
-evidence-linked scoring, longitudinal comparison, and text/visual framing
-analysis. The current pilot proves the browser-capture, deterministic-scoring,
-export, and change-candidate path; its one validated weekly interval does not
-yet support a directional evolution claim or a production longitudinal
-deployment. The audit ontology is built on the
+The research design targets dynamic multi-step traversal, evidence-linked
+component scoring, controlled capture, and company-level explanation of dated
+change. Its novelty is not the bare existence of longitudinal banner research.
+The local pilot proves the browser-capture, deterministic-scoring, export, and
+change-candidate path; a separate five-company primary-source case series finds
+four component improvements and one later functional regression. The audit
+ontology is built on the
 Notice-and-Choice framework (Path Availability -> Path Effort -> Transparency &
 Unbiased Choice). See
 [`docs/related_work/background_with_citations.md`](docs/related_work/background_with_citations.md)
@@ -42,6 +44,9 @@ for the full positioning.
 | [docs/research/current_project_goal_2026-07-02.md](docs/research/current_project_goal_2026-07-02.md) | Canonical goal: compare the same consent interfaces over time; RQ1 is the ruler and RQ2 creates the timeline |
 | [docs/research/july29_longitudinal_reframing_and_source_alignment_2026-07-29.md](docs/research/july29_longitudinal_reframing_and_source_alignment_2026-07-29.md) | Fact audit, directional outcome rules, research-depth gaps, CWRU SOURCE alignment, and revised display story |
 | [data/longitudinal_directional_review_2026-07-29.csv](data/longitudinal_directional_review_2026-07-29.csv) | Five-site matched-pair review; all current directional labels remain insufficient evidence |
+| [docs/research/july29_retrospective_longitudinal_evidence_rescue_2026-07-29.md](docs/research/july29_retrospective_longitudinal_evidence_rescue_2026-07-29.md) | Current historical result: five primary-source trajectories, causal-strength audit, external benchmark, and discussion questions |
+| [data/retrospective_longitudinal_cases_2026-07-29.csv](data/retrospective_longitudinal_cases_2026-07-29.csv) | Five component-coded historical before/after cases: four improved and one regressed |
+| [data/retrospective_source_registry_2026-07-29.csv](data/retrospective_source_registry_2026-07-29.csv) | Eleven dated sources with exact claim locators and evidence-strength labels |
 | [docs/research/july26_decision_to_revision_matrix_2026-07-26.md](docs/research/july26_decision_to_revision_matrix_2026-07-26.md) | Applied and verified map from five project-owner decisions to 20 presentation, poster, and evidence-package surfaces |
 | [docs/research/july26_closeout_prefreeze_manifest_2026-07-26.md](docs/research/july26_closeout_prefreeze_manifest_2026-07-26.md) | Current reproducible pre-freeze inventory: evidence refs, decision gates, revision execution, deliverable presence, hashes, and final-freeze readiness |
 | [docs/research/july26_advisor_response_and_fallback_protocol_2026-07-26.md](docs/research/july26_advisor_response_and_fallback_protocol_2026-07-26.md) | Current response gate: verified send preflight plus actual-response and no-response closeout paths |

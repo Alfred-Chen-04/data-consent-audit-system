@@ -19,6 +19,9 @@ decision rather than an advisor response.**
   present, but they are not included in those 18 manifest entries.
 - Evidence exports: 42 audit-report rows and 20 longitudinal rows; latest
   longitudinal `week_of` is 2026-06-06.
+- Retrospective evidence: 5 source-complete company trajectories backed by 11
+  registered primary or primary-research sources; 4 improve and 1 regresses
+  under the component rule.
 - Audit CSV references: 42/42 screenshot refs are present locally; 42/42 DOM
   refs are missing locally; the CSV has no `report_pdf_ref` column.
 - Human-decision sheets: 25 open rows across four dated sheets. This is a
@@ -50,12 +53,14 @@ not maintained as a separate status claim.
 |---|---|---|
 | Canonical project goal | [Current project goal](current_project_goal_2026-07-02.md) | Longitudinal objective; RQ1 defines the measure and RQ2 creates the matched timeline |
 | Research reframing | [Longitudinal reframing and SOURCE alignment](july29_longitudinal_reframing_and_source_alignment_2026-07-29.md) | Current facts, outcome taxonomy, research gaps, and display plan |
+| Retrospective finding | [Evidence-rescue analysis](july29_retrospective_longitudinal_evidence_rescue_2026-07-29.md) | Five dated trajectories, causal-strength audit, external benchmark, limitations, and discussion questions |
 | Presentation | [10-slide longitudinal PPTX](presentation/ssrp_consent_longitudinal_presentation_2026-07-29.pptx) and [montage](presentation/ssrp_consent_longitudinal_presentation_2026-07-29_montage.png) | Render and overflow pass; live rehearsal remains |
 | Poster | [Longitudinal poster PPTX](poster/ssrp_consent_longitudinal_poster_2026-07-29.pptx), [PDF](poster/ssrp_consent_longitudinal_poster_2026-07-29.pdf), and [PNG](poster/ssrp_consent_longitudinal_poster_2026-07-29.png) | Visual, overflow, PDF, and 48 x 36 checks pass; registered board size remains |
 | Evidence tables | [Audit summary](../../data/research_package/audit_report_summary.csv), [longitudinal summary](../../data/research_package/longitudinal_summary.csv), and [research manifest](../../data/research_package/research_manifest.json) | Current checked-in evidence exports |
 | Directional review | [Five-site matched-pair CSV](../../data/longitudinal_directional_review_2026-07-29.csv) | All current trajectory labels remain insufficient evidence |
+| Historical directional cases | [Five-company case CSV](../../data/retrospective_longitudinal_cases_2026-07-29.csv) and [source registry](../../data/retrospective_source_registry_2026-07-29.csv) | Four component improvements and one regression; case-series fractions are not prevalence estimates |
 | Longitudinal artifact QA | [QA record](../../data/longitudinal_revision_qa_2026-07-29.csv) | Machine/render checks pass; rehearsal and board confirmation remain |
-| Longitudinal artifact inventory | [13-file SHA-256 manifest](../../data/longitudinal_artifact_manifest_2026-07-29.json) | Reproducible inventory for the reframing, evidence review, presentation, poster, and QA record |
+| Longitudinal artifact inventory | [17-file SHA-256 manifest](../../data/longitudinal_artifact_manifest_2026-07-29.json) | Reproducible inventory for the reframing, evidence review, presentation, poster, and QA record |
 | Joint review attachment | [Nine-file joint review ZIP](joint_review/ssrp_joint_advisor_review_2026-07-25.zip) | Current single-attachment review packet |
 | Review request | [Joint advisor email](advisor_email_joint_presentation_poster_review_2026-07-25.md) | Current send/discussion text |
 | Response record | [Joint decision sheet](../../data/joint_advisor_review_decision_sheet_2026-07-25.csv) | Only actual responses with reviewer/date provenance belong here |
@@ -156,7 +161,7 @@ Record the five final artifact-level checks in the linked final-QA CSV. Run
 | June 18-29 | Current-five evidence, unresolved human decisions, publication, and midpoint fact audits | [Current-five packet](current_five_evidence_packet_2026-06-19.md), [midpoint audit](summer_midpoint_progress_audit_2026-06-29.md) |
 | July 1-16 | Canonical scope, poster story, layouts, assets, first visual draft, and print QA | [Current goal](current_project_goal_2026-07-02.md), [first poster](july14_first_poster_mockup_2026-07-14.md), [print QA](july15_poster_pdf_and_print_qa_2026-07-15.md) |
 | July 20-26 | Joint presentation/poster review, fallback protocol, reproducible inventory, revision map, and freeze gate | [July 25 gap review](july25_gap_review_and_joint_packet_2026-07-25.md), [July 26 pre-freeze manifest](july26_closeout_prefreeze_manifest_2026-07-26.md) |
-| July 29 | Longitudinal objective correction, directional protocol, CWRU SOURCE alignment, and rebuilt presentation/poster | [Longitudinal reframing](july29_longitudinal_reframing_and_source_alignment_2026-07-29.md), [artifact delivery](july29_longitudinal_artifact_delivery_2026-07-29.md) |
+| July 29 | Longitudinal objective correction, retrospective evidence rescue, directional protocol, CWRU SOURCE alignment, and rebuilt presentation/poster | [Evidence rescue](july29_retrospective_longitudinal_evidence_rescue_2026-07-29.md), [longitudinal reframing](july29_longitudinal_reframing_and_source_alignment_2026-07-29.md), [artifact delivery](july29_longitudinal_artifact_delivery_2026-07-29.md) |
 
 ## Claim Guardrails
 

@@ -270,8 +270,24 @@ PDF reports, Postgres rows, and R2/S3 objects remain target outputs.
    insufficient evidence after matched-context validation.
 9. **Compliance Volatility** — low / mid / high.
 
+### 6.3a Retrospective evidence outputs
+
+The presentation/poster evidence package also contains a separate, non-runtime
+historical lane:
+
+1. **Primary-source registry** — dated regulatory decisions, follow-ups,
+   company statements, and research benchmarks with exact claim locators.
+2. **Retrospective case rows** — same-company before/after observations coded
+   on path availability, effort, transparency, and bounded choice
+   effectiveness.
+3. **Causal-strength label** — direct company attribution,
+   regulator-verified order response, change during investigation, or unknown.
+
+These rows are not combined with local captures as one sample.
+
 ### 6.4 The three meta-scores reported per site
-> These are the project's signature outputs — what differentiates this work from UMBRA (no trajectory) and ConsentDiff (no volatility):
+> These remain useful target outputs. They are not a novelty claim: 2026 work
+> now also performs large-scale historical cookie-banner analysis.
 
 ```
 Compliance Score        — traditional, comparable with Nouwens/ConsentDiff/UMBRA
@@ -279,7 +295,9 @@ Interface Trajectory    — improved / regressed / mixed / stable / insufficient
 Compliance Volatility   — magnitude × frequency of week-over-week changes
 ```
 
-> The headline claim in the paper's abstract: **"A site with stable C-grade compliance may carry less regulatory risk than a site oscillating between A and D."**
+> **Unvalidated hypothesis only:** a stable middle-grade interface may present a
+> different monitoring risk than one whose component scores oscillate. The
+> current evidence does not support a regulatory-risk ranking from volatility.
 
 ### 6.5 Current summer deliverables (confirmed 2026-07-01)
 - Presentation.
@@ -321,7 +339,7 @@ Ranked by feasibility of being a first user, per [background_with_citations.md �
 
 ## 9. Status — Current Working State
 
-This section reflects the audited local research workspace as of 2026-07-22.
+This section reflects the audited local research workspace as of 2026-07-29.
 For a live one-screen view, run `consent-audit research-status`.
 
 ### 9.1 Current executable workflow
@@ -332,9 +350,11 @@ For a live one-screen view, run `consent-audit research-status`.
 - [x] Layer 1/2/3 scoring paths are executable with deterministic DOM/text/rule-based logic.
 - [x] Local append-only storage saves `AuditReport` and `WeeklySummary` records; local object-store fallback copies sanitized screenshots and DOM evidence.
 - [x] Evidence-facing exports currently contain 42 audit reports and 20 longitudinal summaries in `data/research_package/`.
+- [x] A separate retrospective case series contains 5 source-complete company trajectories and an 11-source registry; 4 cases improve and 1 regresses under the component rule.
+- [x] The 2026 11,364-site historical study is recorded as an overlapping external benchmark, so project novelty is no longer framed as longitudinal analysis alone.
 - [x] `docs/research/ssrp_results_tables_2026-06-06.md` renders current RQ1 scoring and RQ2 longitudinal rows as provisional evidence tables.
 - [x] A reviewable 48 x 36 poster mockup and verified review ZIP exist.
-- [ ] No independent presentation deck existed at the start of the July 22 audit.
+- [x] An independent longitudinal presentation and 48 x 36 poster exist; the retrospective evidence revision is the current display update.
 - [x] `docs/research/ssrp_figure_plan_2026-06-06.md` now tracks paper/poster figures that are ready, provisional, or need follow-up.
 - [x] `docs/research/ssrp_writing_pack_2026-06-06.md` now collects methods, preliminary results, limitations, and discussion notes with the Week 2 evidence gate marked ready after sanity confirmation.
 - [x] `docs/research/ssrp_claim_register_2026-06-06.md` now lists supported, provisional, open-limitation, and blocked claims with source artifacts and next actions.
@@ -357,8 +377,8 @@ For a live one-screen view, run `consent-audit research-status`.
 - [ ] Advisor/human confirmation is still needed for the 8 pending CMP/manual-review rows before changing sample-lock status.
 - [ ] The deep sample is currently 5 frozen Week 2 targets; expand toward ~20 well-documented sites only after the capture/evidence gate stays stable and the no-visible-banner rule is confirmed.
 - [ ] Week 3 continuity capture can now be rerun with the fixed OneTrust/click-replay logic, or replaced by a semi-automated manual-validation protocol if advisor/sample priorities say not to rerun yet; the 2026-06-14 attempt remains a failed capture-context observation, not consent-interface evidence.
-- [ ] The drafted and rendered presentation still needs the final decision-aware revision and rerender before closeout.
-- [ ] The poster remains a review draft until its five pending review decisions are confirmed or explicitly carried as limitations.
+- [ ] The drafted and rendered presentation needs the retrospective evidence revision and rerender before closeout.
+- [ ] The poster needs the same evidence revision; live rehearsal and registered board-size confirmation remain external checks.
 - [ ] RQ2 evidence stops at `week_of=2026-06-06`; do not describe the package as continuous through July without new validated observations.
 - [ ] Raw DOM paths referenced by all 42 report rows are not present in this checkout; the current audit export has no `report_pdf_ref` column, and per-report PDFs are not an active runtime output.
 
@@ -391,13 +411,12 @@ The pilot implementation core exists. The closeout path is to turn the verified
 pilot into a defensible presentation, final poster, and evidence package while
 keeping target architecture separate from active capability.
 
-1. **Use Week 2 as the current valid evidence gate**: 42 audit reports, 20 longitudinal summaries, sanity `ready`.
-2. **Send the latest advisor email** and resolve the no-visible-banner table rule, current-five evidence-card order, sample expansion priority, and 8 pending CMP/manual-review rows.
-3. **Use the June 15 OneTrust fix as the rerun gate**: the post-fix Coca-Cola smoke passes all Layer 1 paths, so the current-five continuity rerun is technically defensible if it matches the advisor/sample plan.
-4. **Build and QA the presentation** from the existing evidence before adding optional new capture.
-5. **Finalize the poster** after decisions are confirmed or visibly carried as limitations.
-6. **Freeze a traceable evidence package** with a manifest, missing-raw-DOM disclosure, and no-current-July-observation caveat.
-7. **Use new capture only if it answers an approved continuity or sample question**; do not expand by default.
+1. **Keep Week 2 as the controlled local evidence gate**: 42 audit reports, 20 longitudinal summaries, sanity `ready`, but only one validated weekly interval.
+2. **Use the retrospective case series for the supported historical result**: five dated trajectories, four component improvements, one functional regression.
+3. **Present the 11,364-site study as external trend evidence** and this project's five cases as mechanism-focused evidence.
+4. **Revise and QA the presentation and poster** around the two evidence lanes and the component-specific, reversible-change conclusion.
+5. **Freeze a traceable evidence package** with source registry, case table, artifact hashes, missing-raw-DOM disclosure, and local-pilot limitations.
+6. **Collect new local captures only if they answer an approved continuity question**; do not represent future collection as already observed.
 
 If automation becomes unstable, preserve the paper by switching to a
 semi-automated protocol: traceable screenshots, DOM/text hashes, consent-table

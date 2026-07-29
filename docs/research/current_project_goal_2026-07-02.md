@@ -92,10 +92,10 @@ Use this framing:
 
 > This project asks how the same consent interface evolves over time. RQ1
 > defines a repeatable measure of pathway availability, effort, transparency,
-> and unbiased choice. RQ2 applies that measure to matched captures. The pilot
-> proves that the evidence pipeline can surface change candidates, but the
-> current one-interval dataset is not long enough or consistent enough to claim
-> improvement or regression.
+> and unbiased choice. RQ2 applies that measure to matched captures and dated
+> primary-source records. The controlled pilot tests the pipeline; a separate
+> five-company retrospective case series shows four component improvements and
+> one later functional regression.
 
 ## Current Evidence State
 
@@ -109,8 +109,14 @@ Current verified state:
 - Local screenshot evidence: 326 tracked site `layer1.png` files.
 - Current evidence classes: 2 banner-present matched cases and 3 repeated
   no-visible-first-screen-banner contrasts.
-- Current directional result: insufficient evidence for a defensible
+- Local-pilot directional result: insufficient evidence for a defensible
   improvement or regression claim.
+- Retrospective directional result: five source-complete company trajectories;
+  Google, Facebook, TikTok, and Orange improved at least one audited component,
+  while Vanity Fair later regressed in transparency and refusal effectiveness.
+- External historical benchmark: a 2026 study of 11,364 websites reports that
+  banners offering both accept and reject increased from 2.94% in 2018 to
+  30.66% in 2024.
 - Open decisions: 7 blank current-five decisions and 8 pending CMP/manual-review
   rows.
 
@@ -121,6 +127,9 @@ Current verified state:
 | `SCHEMA.md` | Research questions, ontology navigator, pipeline map. |
 | `CONCEPTS.md` | Authoritative scoring ontology. |
 | `docs/research/current_project_goal_2026-07-02.md` | Canonical plain-language goal and presentation framing. |
+| `docs/research/july29_retrospective_longitudinal_evidence_rescue_2026-07-29.md` | Five source-complete historical trajectories, causal-strength audit, computed findings, and claim boundaries. |
+| `data/retrospective_longitudinal_cases_2026-07-29.csv` | Component-coded before/after evidence for Google, Facebook, TikTok, Orange, and Vanity Fair. |
+| `data/retrospective_source_registry_2026-07-29.csv` | Primary-source URLs, dates, locators, supported claims, and evidence-strength labels. |
 | `docs/research/july3_scope_fact_review_and_poster_plan_2026-07-03.md` | Latest scope/fact review, completion-risk check, and poster-safe writing plan. |
 | `docs/research/current_scope_2026-07-01.md` | Current summer deliverable scope. |
 | `docs/research/project_inventory_and_poster_story_2026-07-02.md` | What exists, what evidence is verified, and how to avoid screenshot-only framing. |
@@ -133,10 +142,14 @@ Current verified state:
 The safe current conclusion is:
 
 > RQ1 provides a repeatable multidimensional measure and RQ2 can apply it to
-> matched captures. In the current five-site, one-interval pilot, automated
-> change signals identify cases for review, but they do not establish that any
-> consent interface improved or regressed. A defensible evolution claim
-> requires additional controlled time points and same-version rescoring.
+> matched captures and dated historical evidence. The local five-site pilot
+> remains insufficient for direction, but the source-complete retrospective
+> series finds four improvements and one regression. Across the three
+> first-layer button cases, refusal moved from an acceptance-favoring multi-step
+> path to one-click or equivalent simplicity. These cases suggest that
+> regulatory pressure changes concrete interaction friction first, while
+> transparency and technical respect for a choice can remain incomplete or
+> later regress.
 
 ## Do Not Claim
 
@@ -149,3 +162,8 @@ The safe current conclusion is:
 - Do not translate longitudinal severity letters into improvement or
   regression; they are review-priority signals.
 - Do not treat a scoring-code change as a website-interface change.
+- Do not combine the five local pilot rows with the five retrospective cases as
+  if they shared one sampling or capture protocol.
+- Do not present `4/5` as an internet-wide improvement rate.
+- Do not claim that regulation caused a change unless the source directly
+  attributes it or documents an order-and-follow-up sequence.
