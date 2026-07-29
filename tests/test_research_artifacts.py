@@ -1273,6 +1273,7 @@ def test_july16_poster_review_decision_sheet_preserves_pending_decisions() -> No
     )
 
     assert len(rows) == 5
+    assert all(None not in row for row in rows)
     assert {row["decision_id"] for row in rows} == {
         "poster_framing",
         "main_evidence_cards",
@@ -1664,9 +1665,7 @@ def test_july26_closeout_prefreeze_manifest_matches_current_checkout() -> None:
     assert gates["cmp_manual_review"]["open_row_count"] == 8
     revision_gate = manifest["revision_execution_gate"]
     assert revision_gate["row_count"] == 20
-    assert revision_gate["status_counts"] == {
-        "waiting_for_response_branch": 20
-    }
+    assert revision_gate["status_counts"] == {"applied_verified": 20}
     assert revision_gate["artifact_counts"] == {
         "evidence_package": 4,
         "poster": 8,
@@ -1677,39 +1676,41 @@ def test_july26_closeout_prefreeze_manifest_matches_current_checkout() -> None:
     assert revision_gate["coverage_valid"] is True
     assert revision_gate["missing_required_revision_ids"] == []
     assert revision_gate["unexpected_revision_ids"] == []
-    assert revision_gate["not_applied_verified_count"] == 20
+    assert revision_gate["not_applied_verified_count"] == 0
     assert revision_gate["inconsistent_revision_ids"] == []
-    assert revision_gate["response_basis_claim_count"] == 0
+    assert revision_gate["response_basis_claim_count"] == 20
     assert revision_gate["actual_response_basis_count"] == 0
     assert revision_gate["project_fallback_basis_count"] == 0
+    assert revision_gate["project_owner_basis_count"] == 20
     assert revision_gate["response_basis_claims_valid"] is True
     assert revision_gate["response_basis_validation_errors"] == []
     assert revision_gate["joint_decision_contract_valid"] is True
     assert revision_gate["joint_decision_contract_validation_errors"] == []
     assert revision_gate["response_basis_source"]["status"] == "present"
     assert revision_gate["response_basis_source"]["schema_valid"] is True
+    assert revision_gate["project_decision_source"]["status"] == "present"
+    assert revision_gate["project_decision_source"]["schema_valid"] is True
+    assert revision_gate["project_decision_source"]["contract_valid"] is True
     assert manifest["freeze_readiness"] == {
-        "blocker_count": 1,
-        "blockers": [
-            {"code": "revision_rows_not_applied_verified", "count": 20}
-        ],
-        "ready_for_final_freeze": False,
+        "blocker_count": 0,
+        "blockers": [],
+        "ready_for_final_freeze": True,
     }
     assert manifest["summary"] == {
         "decision_gate_count": 4,
-        "final_freeze_blocker_count": 1,
+        "final_freeze_blocker_count": 0,
         "joint_decision_contract_error_count": 0,
-        "key_deliverable_count": 16,
+        "key_deliverable_count": 18,
         "missing_key_deliverable_count": 0,
         "open_decision_row_count_across_sheets": 25,
-        "present_key_deliverable_count": 16,
-        "ready_for_final_freeze": False,
+        "present_key_deliverable_count": 18,
+        "ready_for_final_freeze": True,
         "revision_matrix_row_count": 20,
         "revision_missing_required_row_count": 0,
-        "revision_response_basis_claim_count": 0,
+        "revision_response_basis_claim_count": 20,
         "revision_response_basis_error_count": 0,
-        "revision_rows_applied_verified_count": 0,
-        "revision_rows_not_applied_verified_count": 20,
+        "revision_rows_applied_verified_count": 20,
+        "revision_rows_not_applied_verified_count": 0,
         "revision_unexpected_row_count": 0,
     }
 
@@ -1746,9 +1747,9 @@ def test_july26_closeout_prefreeze_manifest_matches_current_checkout() -> None:
     )
 
     assert "not a final or frozen manifest" in note_text
-    assert "Ready for final freeze: `false`" in note_text
-    assert "`revision_rows_not_applied_verified` | 20" in note_text
-    assert "| 20 | 20 | 0 | 0 | 0 | 0 | 0 | 0 | present |" in note_text
+    assert "Ready for final freeze: `true`" in note_text
+    assert "| none | 0 |" in note_text
+    assert "| 20 | 0 | 0 | 20 | 20 | 0 | 0 | 0 | present |" in note_text
     assert "Joint decision contract errors: 0." in note_text
     assert "`report_pdf_ref` | false | n/a | n/a" in note_text
     assert "july26_closeout_prefreeze_manifest_2026-07-26.md" in linked_text
@@ -1771,14 +1772,15 @@ def test_july26_closeout_control_index_separates_current_and_history() -> None:
 
     assert "**Status: `pre_freeze`" in control_text
     assert "This is not a final index" in control_text
-    assert "Key deliverables present: 16/16" in control_text
-    assert "Final-freeze readiness: `false`" in control_text
-    assert "`revision_rows_not_applied_verified` for all 20 rows" in control_text
-    assert "0 response-basis claims, 0 basis errors, and" in control_text
+    assert "Key deliverables present: 18/18" in control_text
+    assert "Final-freeze readiness: `true`" in control_text
+    assert "20/20 revision rows are `applied_verified`" in control_text
+    assert "20 project-owner response-basis claims, 0 basis errors, and" in control_text
     assert "0 active joint-sheet contract errors" in control_text
     assert "July 29, 23:59 Asia/Shanghai" in control_text
     assert "August 7, 2026" in control_text
-    assert control_text.count("- [ ]") == 8
+    assert control_text.count("- [ ]") == 2
+    assert control_text.count("- [x]") == 6
     assert "## Current Working Set" in control_text
     assert "## Superseded Or Historical Paths" in control_text
     assert "## Historical Trail" in control_text
@@ -1790,8 +1792,8 @@ def test_july26_closeout_control_index_separates_current_and_history() -> None:
     assert "`uv run consent-audit closeout-final-index`" in control_text
 
     current_paths = (
-        "presentation/ssrp_consent_audit_presentation_draft_2026-07-22.pptx",
-        "poster/ssrp_poster_aligned_review_2026-07-25.pdf",
+        "presentation/ssrp_consent_audit_presentation_closeout_2026-07-29.pptx",
+        "poster/ssrp_poster_closeout_2026-07-29.pdf",
         "joint_review/ssrp_joint_advisor_review_2026-07-25.zip",
         "../../data/joint_advisor_review_decision_sheet_2026-07-25.csv",
         "../../data/closeout/joint_decision_revision_matrix_2026-07-26.csv",
@@ -1832,8 +1834,14 @@ def test_research_status_default_entrypoint_uses_current_closeout_gate() -> None
         "`data/closeout/closeout_prefreeze_manifest_2026-07-26.json`"
         in result.output
     )
-    assert "Final-freeze readiness: `false`" in result.output
-    assert "Final QA: pending=5; final index=missing" in result.output
+    assert "Final-freeze readiness: `true`" in result.output
+    assert "Final QA: pending=1, verified=4; final index=missing" in result.output
+    assert (
+        "Current next action: Complete pending final-QA checks: "
+        "presentation_final_qa; then dry-run "
+        "closeout-final-index."
+        in result.output
+    )
     assert (
         "Final QA checklist: "
         "`data/closeout/final_qa_checklist_2026-07-27.csv`"
@@ -1854,7 +1862,7 @@ def test_july26_manifest_fallback_contract_matches_protocol() -> None:
         assert f"| `{decision_id}` | `{fallback_value}` |" in protocol_text
 
 
-def test_july26_decision_revision_matrix_maps_real_surfaces_without_applying() -> None:
+def test_july26_decision_revision_matrix_maps_applied_closeout_surfaces() -> None:
     matrix_path = Path(
         "data/closeout/joint_decision_revision_matrix_2026-07-26.csv"
     )
@@ -1916,17 +1924,12 @@ def test_july26_decision_revision_matrix_maps_real_surfaces_without_applying() -
         "unresolved_review_items": 3,
         "rq2_continuity_gate": 3,
     }
-    assert all(
-        row["execution_status"] == "waiting_for_response_branch" for row in rows
-    )
-    for field in (
-        "selected_value",
-        "response_basis",
-        "applied_by",
-        "applied_at",
-        "notes",
-    ):
-        assert all(not row[field] for row in rows)
+    assert all(row["execution_status"] == "applied_verified" for row in rows)
+    assert all(row["selected_value"] for row in rows)
+    assert all(row["response_basis"] == "project_owner_decision" for row in rows)
+    assert all(row["applied_by"] == "Codex" for row in rows)
+    assert all(row["applied_at"] for row in rows)
+    assert all(row["notes"] for row in rows)
     assert all(row["default_or_fallback_action"] for row in rows)
     assert all(row["alternate_answer_gate"] for row in rows)
     assert all(row["required_verification"] for row in rows)
@@ -1946,12 +1949,12 @@ def test_july26_decision_revision_matrix_maps_real_surfaces_without_applying() -
     assert "project_fallback_after_internal_cutoff" in note_text
     assert "execution_status=applied_verified" in note_text
     assert "It is not silently promoted into a sixth joint decision" in note_text
-    assert "Do not fill `selected_value`" in note_text
+    assert "All 20 rows are `applied_verified`" in note_text
     assert "july26_decision_to_revision_matrix_2026-07-26.md" in linked_text
     assert "joint_decision_revision_matrix_2026-07-26.csv" in linked_text
 
 
-def test_july27_final_qa_gate_is_prepared_without_claiming_completion() -> None:
+def test_july27_final_qa_gate_records_only_completed_checks() -> None:
     qa_path = Path("data/closeout/final_qa_checklist_2026-07-27.csv")
     runbook_path = Path(
         "docs/research/closeout_low_token_runbook_2026-07-27.md"
@@ -1962,9 +1965,23 @@ def test_july27_final_qa_gate_is_prepared_without_claiming_completion() -> None:
 
     assert len(rows) == 5
     assert {row["check_id"] for row in rows} == set(DEFAULT_REQUIRED_QA_IDS)
-    assert all(row["status"] == "pending" for row in rows)
-    for field in ("evidence", "verified_by", "verified_at", "notes"):
-        assert all(not row[field] for row in rows)
+    by_id = {row["check_id"]: row for row in rows}
+    assert Counter(row["status"] for row in rows) == {
+        "pending": 1,
+        "verified": 4,
+    }
+    assert by_id["presentation_final_qa"]["status"] == "pending"
+    for check_id in (
+        "poster_final_qa",
+        "evidence_package_final_qa",
+        "repository_final_verification",
+        "backup_open_check",
+    ):
+        row = by_id[check_id]
+        assert row["evidence"]
+        assert row["verified_by"] == "Codex"
+        assert row["verified_at"].endswith("+08:00")
+        assert row["notes"]
     assert all(row["check_scope"] for row in rows)
     assert all(row["required_verification"] for row in rows)
     assert not final_index_path.exists()

@@ -22,6 +22,7 @@ from consent_audit.closeout_manifest import (
     PROJECT_FALLBACK_VALUES,
     REVISION_MATRIX_REQUIRED_COLUMNS,
     validate_joint_decision_contract,
+    validate_project_decision_contract,
 )
 
 
@@ -43,6 +44,7 @@ class CloseoutBranchResult:
     write_performed: bool
     actual_decision_count: int
     fallback_decision_count: int
+    project_owner_decision_count: int
     waiting_decision_ids: tuple[str, ...]
     rows_prepared_count: int
     rows_already_ready_count: int
@@ -89,6 +91,13 @@ def _format_contract_errors(errors: Sequence[dict[str, str]]) -> str:
         f"{error['decision_id']}:{error['code']}" for error in errors
     )
     return f"Joint decision sheet contract is invalid: {details}"
+
+
+def _format_project_contract_errors(errors: Sequence[dict[str, str]]) -> str:
+    details = ", ".join(
+        f"{error['decision_id']}:{error['code']}" for error in errors
+    )
+    return f"Project decision sheet contract is invalid: {details}"
 
 
 def _matrix_errors(
@@ -160,8 +169,12 @@ def _select_decision_branches(
     rows: Sequence[dict[str, str]],
     required_decision_ids: set[str],
     as_of: datetime,
+    project_rows: Sequence[dict[str, str]],
 ) -> tuple[dict[str, BranchSelection], tuple[str, ...]]:
     rows_by_id = {_value(row, "decision_id"): row for row in rows}
+    project_rows_by_id = {
+        _value(row, "decision_id"): row for row in project_rows
+    }
     selections: dict[str, BranchSelection] = {}
     waiting: list[str] = []
     for decision_id in sorted(required_decision_ids):
@@ -170,6 +183,13 @@ def _select_decision_branches(
             selections[decision_id] = BranchSelection(
                 selected_value=_value(row, "confirmed_decision"),
                 response_basis="actual_advisor_response",
+            )
+        elif decision_id in project_rows_by_id:
+            selections[decision_id] = BranchSelection(
+                selected_value=_value(
+                    project_rows_by_id[decision_id], "selected_value"
+                ),
+                response_basis="project_owner_decision",
             )
         elif as_of >= PROJECT_FALLBACK_CUTOFF:
             fallback = PROJECT_FALLBACK_VALUES.get(decision_id)
@@ -216,6 +236,7 @@ def _write_csv_atomic(
 def prepare_closeout_revision_branch(
     *,
     joint_decision_csv: Path = DEFAULT_JOINT_DECISION_CSV,
+    project_decision_csv: Path | None = None,
     revision_matrix_csv: Path = DEFAULT_REVISION_MATRIX_CSV,
     as_of: datetime | None = None,
     write: bool = False,
@@ -246,10 +267,25 @@ def prepare_closeout_revision_branch(
     if not set(JOINT_DECISION_REQUIRED_COLUMNS).issubset(joint_fields):
         raise ValueError("Joint decision sheet schema is invalid")
 
+    project_fields: list[str] = []
+    project_rows: list[dict[str, str]] = []
+    if project_decision_csv is not None and project_decision_csv.is_file():
+        project_fields, project_rows = _read_csv(project_decision_csv)
+        project_errors = validate_project_decision_contract(
+            source_present=True,
+            fields=project_fields,
+            rows=project_rows,
+            required_decision_ids=required_decision_ids,
+            joint_rows=joint_rows,
+        )
+        if project_errors:
+            raise ValueError(_format_project_contract_errors(project_errors))
+
     selections, waiting_decision_ids = _select_decision_branches(
         joint_rows,
         required_decision_ids,
         timestamp,
+        project_rows,
     )
     rows_prepared = 0
     rows_already_ready = 0
@@ -314,6 +350,10 @@ def prepare_closeout_revision_branch(
             == "project_fallback_after_internal_cutoff"
             for selection in selections.values()
         ),
+        project_owner_decision_count=sum(
+            selection.response_basis == "project_owner_decision"
+            for selection in selections.values()
+        ),
         waiting_decision_ids=waiting_decision_ids,
         rows_prepared_count=rows_prepared,
         rows_already_ready_count=rows_already_ready,
@@ -333,6 +373,7 @@ def render_closeout_branch_result(result: CloseoutBranchResult) -> str:
         (
             "- decisions: "
             f"actual={result.actual_decision_count}; "
+            f"project_owner={result.project_owner_decision_count}; "
             f"fallback={result.fallback_decision_count}; "
             f"waiting={len(result.waiting_decision_ids)}"
         ),

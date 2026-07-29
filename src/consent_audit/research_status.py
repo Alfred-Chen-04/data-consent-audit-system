@@ -46,8 +46,9 @@ def render_research_status(
         "confirmation_status",
         default="pending",
     )
+    final_qa_rows = _read_all_rows(final_qa_csv)
     final_qa_counts = _count_values(
-        _read_all_rows(final_qa_csv),
+        final_qa_rows,
         "status",
         default="pending",
     )
@@ -86,6 +87,8 @@ def render_research_status(
         closeout_manifest,
         closeout_summary,
         freeze_readiness,
+        final_qa_rows,
+        final_index_md,
     )
 
     return (
@@ -210,13 +213,29 @@ def _closeout_next_action(
     closeout_manifest: Mapping[str, Any],
     summary: Mapping[str, Any],
     freeze_readiness: Mapping[str, Any],
+    final_qa_rows: list[dict[str, str]],
+    final_index_md: Path,
 ) -> str:
     if not closeout_manifest:
         return "Regenerate the pre-freeze manifest before making closeout claims."
     if summary.get("ready_for_final_freeze") is True:
+        pending_ids = [
+            row.get("check_id", "unknown")
+            for row in final_qa_rows
+            if row.get("status") != "verified"
+        ]
+        if pending_ids:
+            return (
+                "Complete pending final-QA checks: "
+                f"{', '.join(pending_ids)}; then dry-run closeout-final-index."
+            )
+        if not final_index_md.is_file():
+            return (
+                "All final-QA checks are verified; dry-run closeout-final-index, "
+                "then write and open the final index."
+            )
         return (
-            "Run final renders, rehearsal, repository verification, and backup; "
-            "record only passed final-QA checks, then dry-run closeout-final-index."
+            "Open the final index and its linked artifacts for the final handoff."
         )
     if _integer_value(summary, "revision_response_basis_claim_count") == 0:
         return (

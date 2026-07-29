@@ -40,6 +40,7 @@ def _write_manifest(path: Path, *, ready: bool) -> None:
                     "joint_decision_contract_validation_errors": [],
                     "actual_response_basis_count": 1,
                     "project_fallback_basis_count": 0,
+                    "project_owner_basis_count": 0,
                 },
             }
         ),

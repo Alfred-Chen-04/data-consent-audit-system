@@ -264,3 +264,21 @@ audit invariants.
 | June 28 ad-hoc CSV parsing risk | A quick `awk -F,` check can misread CSV files with quoted commas, as shown when checking the CMP confirmation sheet | Rechecked current-five and CMP decision counts with Python `csv.DictReader` and recorded the structured counts in the June 28 fact audit. |
 | June 28 stale advisor entrypoint | Advisor packet index still pointed at June 8 questions as the current sendable email | Added `docs/research/advisor_email_decision_gate_2026-06-28.md` and updated README/index/advisor packet links to make the current decision gate explicit. |
 | July 1 local `python` command unavailable | Structured CSV/calendar checks initially used `python - <<'PY'` | Reran the same checks with `/Users/alfred/Desktop/data-consent-audit-system/.venv/bin/python`. |
+
+## Phase 160: Project-Owner Closeout Execution (2026-07-29)
+
+- [x] Record five conservative project-owner decisions in a separate validated
+  source without changing advisor-response fields.
+- [x] Apply and verify all 20 mapped presentation, poster, and evidence-package
+  revisions with `response_basis=project_owner_decision`.
+- [x] Build and inspect the 10-slide closeout presentation and 48 x 36 poster
+  PPTX/PDF/PNG outputs.
+- [x] Regenerate the 18/18 manifest with zero blockers and
+  `ready_for_final_freeze=true`.
+- [x] Complete poster, evidence-package, repository, and external backup/open
+  QA with concrete evidence and timestamps.
+- [ ] Complete one human rehearsal timing pass, then verify
+  `presentation_final_qa` and generate the final index.
+
+Current stop condition: do not write `docs/research/final_closeout_index.md`
+until the rehearsal timing is actually completed and recorded.

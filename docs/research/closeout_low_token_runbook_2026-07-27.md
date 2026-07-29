@@ -6,10 +6,14 @@ This is the shortest safe path from the current pre-freeze state to project
 closeout. Use the control index for artifact navigation and this file for the
 next action. Do not reconstruct the plan from older daily notes.
 
-**Current state on July 27:** all current closeout deliverables are present;
-the active joint sheet has five `pending` rows with blank response provenance;
-the revision matrix has 20 `waiting_for_response_branch` rows; no actual
-response or project fallback is recorded; final-freeze readiness is `false`.
+**Current state on July 29:** the project owner authorized five conservative
+closeout decisions from the checked-in context. They are recorded separately
+with `response_basis=project_owner_decision`; the advisor sheet remains five
+`pending` rows with blank advisor provenance. Closeout presentation and poster
+copies exist; final repository verification, rehearsal, and backup checks
+were evaluated separately. Poster, evidence-package, and repository-external
+backup/open and final repository checks are complete; only rehearsal timing
+remains.
 
 The internal fallback cutoff is July 29, 2026 at 23:59 Asia/Shanghai. It is a
 project-management cutoff, not an advisor deadline.
@@ -28,7 +32,7 @@ is not the current deliverable.
 Already prepared and rechecked; do not recreate these from old notes:
 
 - Week 2 evidence exports, current counts, limitations, and claim guardrails.
-- A 10-slide presentation draft and aligned poster PPTX/PDF/PNG.
+- A 10-slide closeout presentation and aligned closeout poster PPTX/PDF/PNG.
 - One nine-file joint review packet and one active five-row response sheet.
 - A validated map from five decisions to 20 exact revision surfaces.
 - A schema-v2 manifest that blocks unsupported response provenance and a
@@ -41,10 +45,11 @@ Already prepared and rechecked; do not recreate these from old notes:
 The remaining dependencies are not missing framework work:
 
 - There is no checked-in proof that the joint packet was sent or discussed.
-- Actual advisor answers can only be recorded when they are received.
-- Project fallback values cannot be selected before the internal cutoff.
-- Final visual inspection, rehearsal, and backup checks must follow the final
-  artifact revisions; they cannot be truthfully completed in advance.
+- Actual advisor answers can only be recorded when they are received; the
+  current project-owner branch is not an advisor answer.
+- Final visual inspection, repository-external backup/open checks, and the
+  repository verification are complete. Human rehearsal timing cannot be
+  truthfully completed by an automated agent.
 
 ## One Status Command
 
@@ -68,9 +73,17 @@ uv run consent-audit closeout-prepare-revisions
 ```
 
 This command is dry-run by default. It validates the five-row joint sheet, the
-20-row matrix, response provenance, allowed values, and the cutoff. It can
-combine recorded actual answers with post-cutoff fallback values for the rows
-that remain pending. It never marks an artifact revision as verified.
+separate project-owner decision source, the 20-row matrix, response provenance,
+allowed values, and the cutoff. It never marks an artifact revision as
+verified.
+
+### Current project-owner branch
+
+The selected values are stored in
+`data/closeout/project_owner_decision_sheet_2026-07-29.csv`. They retain the
+five-site pilot, Guardian/Coca-Cola cards, separate contrast treatment, visible
+unresolved counts, and frozen current RQ2 evidence. Do not copy these values
+into advisor-confirmation fields.
 
 ### Actual reply received
 

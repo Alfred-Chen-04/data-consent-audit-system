@@ -2,7 +2,7 @@
 
 **Status: `pre_freeze` - this is not a final or frozen manifest.**
 
-Generated at: `2026-07-27T04:23:53.631828+00:00`
+Generated at: `2026-07-29T04:06:33.480271+00:00`
 
 Machine-readable source: [`../../data/closeout/closeout_prefreeze_manifest_2026-07-26.json`](../../data/closeout/closeout_prefreeze_manifest_2026-07-26.json)
 
@@ -36,15 +36,15 @@ Regenerate from the repository root with `uv run consent-audit closeout-prefreez
 
 | Matrix | Rows | Waiting | Ready to apply | Applied + verified | Basis claims | Basis errors | Coverage errors | Inconsistent | Status |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
-| `data/closeout/joint_decision_revision_matrix_2026-07-26.csv` | 20 | 20 | 0 | 0 | 0 | 0 | 0 | 0 | present |
+| `data/closeout/joint_decision_revision_matrix_2026-07-26.csv` | 20 | 0 | 0 | 20 | 20 | 0 | 0 | 0 | present |
 
 Joint decision contract errors: 0.
 
-**Ready for final freeze: `false`.**
+**Ready for final freeze: `true`.**
 
 | Readiness blocker | Count |
 |---|---:|
-| `revision_rows_not_applied_verified` | 20 |
+| none | 0 |
 
 ## Key Deliverables
 
@@ -53,19 +53,21 @@ Joint decision contract errors: 0.
 | `data/research_package/audit_report_summary.csv` | present | 20937 | `c4fd673a115f14c6969dcaa58e50c7e1c52a23d98bb590411497cce8a078bc49` |
 | `data/research_package/longitudinal_summary.csv` | present | 9141 | `f1069383db8bd2ac9b777eaefbff26d4134490c55d397198275db0f5602258c0` |
 | `data/research_package/research_manifest.json` | present | 244 | `628236fe5b418dde276f9f212153fc784bd98ed34b76cd3bc57be914514bfc7f` |
-| `docs/research/presentation/ssrp_consent_audit_presentation_draft_2026-07-22.pptx` | present | 1645523 | `607ab0791f0062c91ec52090d5b598d936f7de2d033de04af5fe49fb368bcd1a` |
-| `docs/research/presentation/ssrp_consent_audit_presentation_draft_2026-07-22_montage.png` | present | 360887 | `ae25bd0bde2d68f5aace2a5d5d58a5be16c61b8ef2fdef376065ab74af99ebb6` |
-| `docs/research/poster/ssrp_poster_aligned_review_2026-07-25.pptx` | present | 1619551 | `c2dd51ea3c7711785ecccb8850c5d6648ae65a7711fba645c13d87ce49655220` |
-| `docs/research/poster/ssrp_poster_aligned_review_2026-07-25.pdf` | present | 840621 | `1cf0121ca68d8d6c1693cf623e6eb7c7e236af65bfff6d6bf8e533540661819f` |
-| `docs/research/poster/ssrp_poster_aligned_review_2026-07-25.png` | present | 1694393 | `73427915c149d0fe75d74cccf838670eda109e81d4b104a3e5e39ed4a8c50f71` |
+| `docs/research/presentation/ssrp_consent_audit_presentation_closeout_2026-07-29.pptx` | present | 1645273 | `590ff39f334141da4122c2831df98b43ba5c4c4f54c5a2526c4f7e6a6f6afe9e` |
+| `docs/research/presentation/ssrp_consent_audit_presentation_closeout_2026-07-29_montage.png` | present | 361121 | `f82ed08fd38eedb87ccfa239960dfdc28dd1f163cba998c0b1b80c3d277c3c49` |
+| `docs/research/poster/ssrp_poster_closeout_2026-07-29.pptx` | present | 1619230 | `97ee28d64bb20f2b1d1b2712a29c5159a4c1dcbf75e6bd85f2add8ccb4c4b398` |
+| `docs/research/poster/ssrp_poster_closeout_2026-07-29.pdf` | present | 840603 | `6bd9dbdef0afff18cfefc0888838fb0035c6879b1dceaa89478036b2969255c3` |
+| `docs/research/poster/ssrp_poster_closeout_2026-07-29.png` | present | 1677500 | `747a41452e05059eb0658f0441806ba2c2d43274e9ca8d8fb3c089995a232845` |
 | `docs/research/joint_review/ssrp_joint_advisor_review_2026-07-25.zip` | present | 5963814 | `0b4374a85cd1c7a27f2b5307abd0d19246cb5110b4335c44b5b657e86393737a` |
 | `data/joint_advisor_review_decision_sheet_2026-07-25.csv` | present | 2419 | `0789672311fde4907c93744cd0d3d27b58d3c216ef9c375bd590687d44de059d` |
-| `docs/research/july26_advisor_response_and_fallback_protocol_2026-07-26.md` | present | 7170 | `99b7d03ffb15c276a678f8fabee2a50a468b0911aa385e1db82b5ca970165a9b` |
-| `data/closeout/joint_decision_revision_matrix_2026-07-26.csv` | present | 13778 | `01a14c29a661280cacf742a7ea2ad51e6b4bdf37798f3a77ac19527c0179cc6f` |
-| `docs/research/july26_decision_to_revision_matrix_2026-07-26.md` | present | 5453 | `a4d712da03aa4b5b80ac2410cf51bacc763ae6465f6ea1cff284eae85503e522` |
-| `docs/research/closeout_control_index_2026-07-26.md` | present | 10991 | `c009bbbc0dc62e788e4a71a0aa086dd87805c7d8f9ef7bfab49d936b755691fb` |
-| `docs/research/closeout_low_token_runbook_2026-07-27.md` | present | 7574 | `9479dc18376a2775b5b6fa8c013e7c26a1df2a977b1375c391b9b55fb4aceb82` |
-| `data/closeout/final_qa_checklist_2026-07-27.csv` | present | 931 | `d981edb5b90cc4a936c1d0548f54dbcdbaeffda3b0dc0774950e1fab049f2df1` |
+| `data/closeout/project_owner_decision_sheet_2026-07-29.csv` | present | 1825 | `dc47a8e55df8cd645faf88c995b519a6de15ce25f1dd5c55ba0a87d6a31dae0b` |
+| `docs/research/july29_project_owner_closeout_decisions_2026-07-29.md` | present | 2123 | `6bb9eb375b03a19811acc3c5e6c8680506e1ed15235feb79d2eb6f443e892317` |
+| `docs/research/july26_advisor_response_and_fallback_protocol_2026-07-26.md` | present | 7696 | `c215674d2752b99141ff8db112d0ddac1ab33d9cfaad9d5c25a9518b8417775b` |
+| `data/closeout/joint_decision_revision_matrix_2026-07-26.csv` | present | 15752 | `d8466173126bc85bddfb8dcc5fcd8d1ef82d42ee278346f0e6344cfadbeed8a1` |
+| `docs/research/july26_decision_to_revision_matrix_2026-07-26.md` | present | 6019 | `9148a643f6f88794083a27029277d47607b2da09c20ba930e4a4ab6459666dce` |
+| `docs/research/closeout_control_index_2026-07-26.md` | present | 11737 | `b946e72626fdd2381a7a1b332e12b979c3acee38176a6fb9860f9801996725fb` |
+| `docs/research/closeout_low_token_runbook_2026-07-27.md` | present | 8135 | `ce607257b512695bc5ecb26042a9388ec81ee844206d7c88f67cec6a364c2dad` |
+| `data/closeout/final_qa_checklist_2026-07-27.csv` | present | 2191 | `38effa1d1db42bfabe088876267bfcee0bed52b3f8af7663e0fd88a3ad30c16c` |
 
 ## Limitations
 

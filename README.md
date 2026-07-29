@@ -31,18 +31,19 @@ for the full positioning.
 |---|---|
 | [docs/research/closeout_control_index_2026-07-26.md](docs/research/closeout_control_index_2026-07-26.md) | **Start here for closeout** — current artifacts, response/revision/freeze gates, dated work order, historical map, and final acceptance checklist |
 | [docs/research/closeout_low_token_runbook_2026-07-27.md](docs/research/closeout_low_token_runbook_2026-07-27.md) | Short safe path for response intake, cutoff fallback, mapped revisions, verification, and final freeze |
-| [data/closeout/final_qa_checklist_2026-07-27.csv](data/closeout/final_qa_checklist_2026-07-27.csv) | Pending final presentation, poster, evidence, repository, and backup verification record required before the final index |
+| [data/closeout/project_owner_decision_sheet_2026-07-29.csv](data/closeout/project_owner_decision_sheet_2026-07-29.csv) | Five explicit project-owner closeout decisions, kept separate from advisor-response provenance |
+| [data/closeout/final_qa_checklist_2026-07-27.csv](data/closeout/final_qa_checklist_2026-07-27.csv) | Fact-based final presentation, poster, evidence, repository, and backup verification record required before the final index |
 | [SCHEMA.md](SCHEMA.md) | One-page technical master view: research question → ontology → pipeline → modules → status → open decisions |
 | [AGENTS.md](AGENTS.md) | How AI agents (Claude Code, Cursor, etc.) collaborate on this repo |
 | [CONCEPTS.md](CONCEPTS.md) | Precise definitions of every audit dimension — the project's ontology |
 | [docs/research/current_project_goal_2026-07-02.md](docs/research/current_project_goal_2026-07-02.md) | Current canonical plain-language goal: RQ1 scoring + RQ2 versioning, not screenshot-only framing |
-| [docs/research/july26_decision_to_revision_matrix_2026-07-26.md](docs/research/july26_decision_to_revision_matrix_2026-07-26.md) | Current non-final execution map from five joint decisions to exact presentation, poster, and evidence-package surfaces |
+| [docs/research/july26_decision_to_revision_matrix_2026-07-26.md](docs/research/july26_decision_to_revision_matrix_2026-07-26.md) | Applied and verified map from five project-owner decisions to 20 presentation, poster, and evidence-package surfaces |
 | [docs/research/july26_closeout_prefreeze_manifest_2026-07-26.md](docs/research/july26_closeout_prefreeze_manifest_2026-07-26.md) | Current reproducible pre-freeze inventory: evidence refs, decision gates, revision execution, deliverable presence, hashes, and final-freeze readiness |
 | [docs/research/july26_advisor_response_and_fallback_protocol_2026-07-26.md](docs/research/july26_advisor_response_and_fallback_protocol_2026-07-26.md) | Current response gate: verified send preflight plus actual-response and no-response closeout paths |
 | [docs/research/july25_gap_review_and_joint_packet_2026-07-25.md](docs/research/july25_gap_review_and_joint_packet_2026-07-25.md) | Current gap review: on-track assessment, remaining evidence/decision gaps, July 25-August 7 plan, and joint review packet |
 | [docs/research/advisor_email_joint_presentation_poster_review_2026-07-25.md](docs/research/advisor_email_joint_presentation_poster_review_2026-07-25.md) | Current sendable advisor email for five shared presentation/poster closeout decisions |
-| [docs/research/presentation/ssrp_consent_audit_presentation_draft_2026-07-22.pptx](docs/research/presentation/ssrp_consent_audit_presentation_draft_2026-07-22.pptx) | Current 10-slide presentation draft pending decision-aware final revision |
-| [docs/research/poster/ssrp_poster_aligned_review_2026-07-25.pdf](docs/research/poster/ssrp_poster_aligned_review_2026-07-25.pdf) | Current aligned 48 x 36 poster review PDF; not final |
+| [docs/research/presentation/ssrp_consent_audit_presentation_closeout_2026-07-29.pptx](docs/research/presentation/ssrp_consent_audit_presentation_closeout_2026-07-29.pptx) | Current 10-slide closeout presentation; content and render checks complete, rehearsal timing pending |
+| [docs/research/poster/ssrp_poster_closeout_2026-07-29.pdf](docs/research/poster/ssrp_poster_closeout_2026-07-29.pdf) | Current aligned 48 x 36 closeout poster PDF |
 | [docs/research/joint_review/ssrp_joint_advisor_review_2026-07-25.zip](docs/research/joint_review/ssrp_joint_advisor_review_2026-07-25.zip) | Current source-matched single-attachment joint review packet |
 | [docs/research/week2_checkin_index_2026-06-06.md](docs/research/week2_checkin_index_2026-06-06.md) | Full dated evidence and work-history navigation; no longer the current closeout entrypoint |
 | [docs/research/advisor_packet_index_2026-06-05.md](docs/research/advisor_packet_index_2026-06-05.md) | Full dated advisor-communication history; no longer the current closeout entrypoint |
@@ -173,7 +174,7 @@ uv run consent-audit export-research-package
 # Inventory closeout evidence, decisions, revision execution, deliverables, and freeze readiness
 uv run consent-audit closeout-prefreeze-manifest
 
-# Preview the valid actual-response/fallback branch; add --write only after review
+# Preview a validated advisor, project-owner, or post-cutoff fallback branch
 uv run consent-audit closeout-prepare-revisions
 
 # Validate final-freeze and final-QA gates; expected to refuse until both pass
@@ -218,16 +219,19 @@ Coca-Cola smoke passes all Layer 1 paths.
 - Current summer deliverables are presentation + large poster + traceable
   evidence package. A formal paper is not required for the current summer
   scope unless Dr. Singh reintroduces it later.
-- As of 2026-07-25, the independent presentation draft and a fact-aligned poster
-  revision both exist. They remain review drafts while five joint decisions,
-  seven current-five decisions, and eight CMP confirmations are unresolved.
+- As of 2026-07-29, closeout copies of the presentation and poster exist. Five
+  conservative project-owner decisions are recorded separately from the still-
+  pending advisor sheet; seven current-five decisions and eight CMP
+  confirmations remain visible limitations.
 - Week 2 default capture list is `data/week2_deep_sample_targets_2026-06-06.csv`.
 - The Week 2 live cycle completed 5/5 captures; sanity is `ready`.
-- Next operational step is the joint presentation/poster review gate; freeze
-  current evidence unless one specific RQ2 continuity question is approved.
+- The selected closeout branch keeps the five-site pilot framing, retains the
+  two main evidence cards, treats three sites as separate contrasts, carries
+  unresolved counts visibly, and freezes current RQ2 evidence.
 - Current closeout entrypoint is [docs/research/closeout_control_index_2026-07-26.md](docs/research/closeout_control_index_2026-07-26.md); it separates the active working set from dated history.
 - Current canonical project goal is [docs/research/current_project_goal_2026-07-02.md](docs/research/current_project_goal_2026-07-02.md).
-- Current reproducible evidence inventory is [docs/research/july26_closeout_prefreeze_manifest_2026-07-26.md](docs/research/july26_closeout_prefreeze_manifest_2026-07-26.md); 16/16 files are present, but `ready_for_final_freeze=false` because all 20 revision rows still await application and verification.
+- Current reproducible evidence inventory is [docs/research/july26_closeout_prefreeze_manifest_2026-07-26.md](docs/research/july26_closeout_prefreeze_manifest_2026-07-26.md); regenerate it after closeout verification before making a final-freeze claim.
+- Project-owner selections and their evidence basis are recorded in [docs/research/july29_project_owner_closeout_decisions_2026-07-29.md](docs/research/july29_project_owner_closeout_decisions_2026-07-29.md) and [data/closeout/project_owner_decision_sheet_2026-07-29.csv](data/closeout/project_owner_decision_sheet_2026-07-29.csv); they are not advisor approval.
 - Current decision-aware revision map is [docs/research/july26_decision_to_revision_matrix_2026-07-26.md](docs/research/july26_decision_to_revision_matrix_2026-07-26.md).
 - Final artifact-level QA is 0/5 verified; the final index remains absent and gated by `closeout-final-index`.
 - Current response/fallback protocol is [docs/research/july26_advisor_response_and_fallback_protocol_2026-07-26.md](docs/research/july26_advisor_response_and_fallback_protocol_2026-07-26.md).
