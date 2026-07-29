@@ -25,7 +25,7 @@ If any conflict between this doc and a companion: the companion wins for its dom
 >
 > **Discipline (binding)**: These two RQs are the spine of the project. They are quoted verbatim and NEVER paraphrased without explicit user approval. Any "research question" elsewhere in this repo that differs from the two below is wrong and must be corrected. Methodological additions (AI / NLP / VLM / multimodal) are *means of addressing RQ1 and RQ2 more effectively*; they do NOT modify the RQs themselves.
 >
-> **Current plain-language goal**: see `docs/research/current_project_goal_2026-07-02.md`. That file is the current user-facing explanation: RQ1 scoring + RQ2 versioning are the project spine; screenshots/DOM/hashes/event logs are evidence inputs, not the project objective.
+> **Current plain-language goal**: see `docs/research/current_project_goal_2026-07-02.md`. The overarching objective is longitudinal comparison of the same consent interfaces. RQ1 defines the repeatable measure; RQ2 creates the matched time series. Screenshots/DOM/hashes/event logs are evidence inputs, not the project objective.
 
 ### 1.1 RQ1 — The audit/scoring system
 
@@ -266,7 +266,8 @@ PDF reports, Postgres rows, and R2/S3 objects remain target outputs.
 ### 6.3 Aggregate outputs (per longitudinal run, e.g., weekly)
 6. **`ChangeEvent` rows** — one per detected meaningful change.
 7. **`WeeklySummary` per site** — deterministic summary of the week.
-8. **Compliance Trajectory** — improving / stable / degrading.
+8. **Consent-interface trajectory** — improved / regressed / mixed / stable /
+   insufficient evidence after matched-context validation.
 9. **Compliance Volatility** — low / mid / high.
 
 ### 6.4 The three meta-scores reported per site
@@ -274,7 +275,7 @@ PDF reports, Postgres rows, and R2/S3 objects remain target outputs.
 
 ```
 Compliance Score        — traditional, comparable with Nouwens/ConsentDiff/UMBRA
-Compliance Trajectory   — improving / stable / degrading over the audit window
+Interface Trajectory    — improved / regressed / mixed / stable / insufficient evidence
 Compliance Volatility   — magnitude × frequency of week-over-week changes
 ```
 

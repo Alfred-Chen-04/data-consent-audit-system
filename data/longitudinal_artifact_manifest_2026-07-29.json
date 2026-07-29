@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-07-29T21:47:32+08:00",
+  "purpose": "Reproducible inventory for the July 29 longitudinal research reframing, presentation, poster, evidence review, and QA record.",
+  "research_boundary": {
+    "matched_sites": 5,
+    "validated_intervals_per_site": 1,
+    "directional_labels": {
+      "improved": 0,
+      "regressed": 0,
+      "mixed": 0,
+      "stable": 0,
+      "insufficient_evidence": 5
+    },
+    "supported_conclusion": "The pilot supports the measurement and matched-versioning method, but it does not yet support a site-level improvement or regression claim."
+  },
+  "file_count": 13,
+  "total_bytes": 4681951,
+  "all_files_present": true,
+  "all_hashes_verified": true,
+  "files": [
+    {
+      "path": "CONCEPTS.md",
+      "bytes": 14249,
+      "sha256": "14285ebf40165d1fc0bf8aa3f33e3f4f8c6dd1178abf76529caa9516c5086f10"
+    },
+    {
+      "path": "README.md",
+      "bytes": 17044,
+      "sha256": "38ce93c0ad18b4b2df304113d1ef146d82648e08127a3de6f4522e2c36f70c4e"
+    },
+    {
+      "path": "SCHEMA.md",
+      "bytes": 29394,
+      "sha256": "d4a64235d3dd806d0120e623900511e7ff29ffcc0c9bf7893b790efa2604204a"
+    },
+    {
+      "path": "docs/research/current_project_goal_2026-07-02.md",
+      "bytes": 6925,
+      "sha256": "f598e85c5dd4b68be75e7f9a83bb8625266b8ad7a51359ed3ff60c8b3d08f917"
+    },
+    {
+      "path": "docs/research/july29_longitudinal_reframing_and_source_alignment_2026-07-29.md",
+      "bytes": 9448,
+      "sha256": "8d56705fda67b0226ae0971afa33e5130e6b65d0b1d4d7b606b2ab0a4ccaff3c"
+    },
+    {
+      "path": "docs/research/july29_longitudinal_artifact_delivery_2026-07-29.md",
+      "bytes": 2965,
+      "sha256": "91a964ded2494b83b40e99cdbd8c2ef8f0507d1f26e527d1741641281b2f4221"
+    },
+    {
+      "path": "data/longitudinal_directional_review_2026-07-29.csv",
+      "bytes": 2131,
+      "sha256": "8a36e7427baeff13c1e00e0252a8d49827a878d5ebe08bbc8584eb87dfb829ac"
+    },
+    {
+      "path": "data/longitudinal_revision_qa_2026-07-29.csv",
+      "bytes": 1024,
+      "sha256": "b8907a5320d4492a104a85bb6cde000cd613df4eeb80fa8cbb178ed7afefdf38"
+    },
+    {
+      "path": "docs/research/presentation/ssrp_consent_longitudinal_presentation_2026-07-29.pptx",
+      "bytes": 1277329,
+      "sha256": "5f772542b007ee02d6f892a11cf97b5b1ab4fef18902de04ea508bada68bc63d"
+    },
+    {
+      "path": "docs/research/presentation/ssrp_consent_longitudinal_presentation_2026-07-29_montage.png",
+      "bytes": 313327,
+      "sha256": "5ae1281133e2429d83484fb2aa685295251e1a17dddb9c7951f61cea01a45993"
+    },
+    {
+      "path": "docs/research/poster/ssrp_consent_longitudinal_poster_2026-07-29.pptx",
+      "bytes": 979238,
+      "sha256": "c528f9f6f4671a6f32072d2067b2254b486f0fa2d4775c65eeb44995971fac8b"
+    },
+    {
+      "path": "docs/research/poster/ssrp_consent_longitudinal_poster_2026-07-29.pdf",
+      "bytes": 736601,
+      "sha256": "617a25560063fc1b8432889b7bccfcbcc99c93b7941069280765b289f6e85975"
+    },
+    {
+      "path": "docs/research/poster/ssrp_consent_longitudinal_poster_2026-07-29.png",
+      "bytes": 1292276,
+      "sha256": "1a6c3ce908687c7119ae3b2c329d3eb5928b23f1c753930b32d6db0dc329704a"
+    }
+  ]
+}

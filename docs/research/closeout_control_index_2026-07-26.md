@@ -7,14 +7,16 @@ closeout window. It separates current working artifacts from dated history and
 links the response decision, revision execution, evidence freeze, and final QA
 steps in one place.
 
-**Status: `pre_freeze`. This is not a final index. The selected branch is a
-project-owner decision, not an advisor response or post-cutoff fallback.**
+**Status: `pre_freeze`. This is not a final index. The July 29 longitudinal
+revision supersedes the earlier display story, but it is still a project-owner
+decision rather than an advisor response.**
 
 ## Current Snapshot
 
 - Core closeout target: August 7, 2026. Nine calendar days remain from July 29.
-- Key deliverables present: 18/18, including the July 29 closeout artifacts and
-  project-owner decision provenance in the reproducible manifest.
+- Key deliverables present: 18/18 in the existing pre-freeze manifest
+  inventory. A new July 29 longitudinal presentation and poster are also
+  present, but they are not included in those 18 manifest entries.
 - Evidence exports: 42 audit-report rows and 20 longitudinal rows; latest
   longitudinal `week_of` is 2026-06-06.
 - Audit CSV references: 42/42 screenshot refs are present locally; 42/42 DOM
@@ -24,13 +26,14 @@ project-owner decision, not an advisor response or post-cutoff fallback.**
 - Joint revision matrix: exactly 20 expected rows. The selected value for every
   row is backed by `response_basis=project_owner_decision`; the advisor sheet
   remains pending and blank.
-- Final-freeze readiness: `true`; 20/20 revision rows are `applied_verified`,
-  with 20 project-owner response-basis claims, 0 basis errors, and
-  0 active joint-sheet contract errors.
-- Final QA: poster, evidence-package, repository, and repository-external
-  backup checks are verified. Only presentation rehearsal timing remains
-  `pending`; the final index is absent and its generator refuses this
-  incomplete QA state.
+- Final-freeze readiness: `true` for the existing 18-file manifest inventory;
+  20/20 revision rows are `applied_verified`, with 20 project-owner response-basis claims, 0 basis errors, and
+  0 active joint-sheet contract errors. This is not a freeze claim for the new
+  longitudinal artifacts.
+- New-artifact QA: presentation and poster rendering and overflow pass; poster
+  PDF rendering and 48 x 36 dimensions pass. A dedicated manifest and
+  repository-external backup are verified. Rehearsal timing and registered
+  board size remain pending.
 
 File presence is not completion. The machine-readable source for these counts
 is the current pre-freeze manifest. Final QA, rehearsal, and backup checks still
@@ -45,10 +48,14 @@ not maintained as a separate status claim.
 
 | Role | Current file | Current use |
 |---|---|---|
-| Canonical project goal | [Current project goal](current_project_goal_2026-07-02.md) | Keep RQ1 scoring and RQ2 versioning as the project spine |
-| Presentation | [10-slide closeout PPTX](presentation/ssrp_consent_audit_presentation_closeout_2026-07-29.pptx) and [montage](presentation/ssrp_consent_audit_presentation_closeout_2026-07-29_montage.png) | Selected conservative branch applied; final rehearsal remains |
-| Poster | [Closeout poster PPTX](poster/ssrp_poster_closeout_2026-07-29.pptx), [PDF](poster/ssrp_poster_closeout_2026-07-29.pdf), and [PNG](poster/ssrp_poster_closeout_2026-07-29.png) | Selected conservative branch, visual/print QA, and repository-external backup/open check complete |
+| Canonical project goal | [Current project goal](current_project_goal_2026-07-02.md) | Longitudinal objective; RQ1 defines the measure and RQ2 creates the matched timeline |
+| Research reframing | [Longitudinal reframing and SOURCE alignment](july29_longitudinal_reframing_and_source_alignment_2026-07-29.md) | Current facts, outcome taxonomy, research gaps, and display plan |
+| Presentation | [10-slide longitudinal PPTX](presentation/ssrp_consent_longitudinal_presentation_2026-07-29.pptx) and [montage](presentation/ssrp_consent_longitudinal_presentation_2026-07-29_montage.png) | Render and overflow pass; live rehearsal remains |
+| Poster | [Longitudinal poster PPTX](poster/ssrp_consent_longitudinal_poster_2026-07-29.pptx), [PDF](poster/ssrp_consent_longitudinal_poster_2026-07-29.pdf), and [PNG](poster/ssrp_consent_longitudinal_poster_2026-07-29.png) | Visual, overflow, PDF, and 48 x 36 checks pass; registered board size remains |
 | Evidence tables | [Audit summary](../../data/research_package/audit_report_summary.csv), [longitudinal summary](../../data/research_package/longitudinal_summary.csv), and [research manifest](../../data/research_package/research_manifest.json) | Current checked-in evidence exports |
+| Directional review | [Five-site matched-pair CSV](../../data/longitudinal_directional_review_2026-07-29.csv) | All current trajectory labels remain insufficient evidence |
+| Longitudinal artifact QA | [QA record](../../data/longitudinal_revision_qa_2026-07-29.csv) | Machine/render checks pass; rehearsal and board confirmation remain |
+| Longitudinal artifact inventory | [13-file SHA-256 manifest](../../data/longitudinal_artifact_manifest_2026-07-29.json) | Reproducible inventory for the reframing, evidence review, presentation, poster, and QA record |
 | Joint review attachment | [Nine-file joint review ZIP](joint_review/ssrp_joint_advisor_review_2026-07-25.zip) | Current single-attachment review packet |
 | Review request | [Joint advisor email](advisor_email_joint_presentation_poster_review_2026-07-25.md) | Current send/discussion text |
 | Response record | [Joint decision sheet](../../data/joint_advisor_review_decision_sheet_2026-07-25.csv) | Only actual responses with reviewer/date provenance belong here |
@@ -75,6 +82,7 @@ current closeout response path.
 | [Week 2 check-in index](week2_checkin_index_2026-06-06.md) | Full evidence/history navigation | This closeout control index |
 | [Advisor packet index](advisor_packet_index_2026-06-05.md) | Full communication history | This closeout control index |
 | [Paper skeleton](ssrp_paper_skeleton_2026-06-06.md) and [writing pack](ssrp_writing_pack_2026-06-06.md) | Supporting research material, not the current summer deliverable | Presentation, poster, and traceable evidence package |
+| [July 29 audit/versioning presentation](presentation/ssrp_consent_audit_presentation_closeout_2026-07-29.pptx) and [poster PDF](poster/ssrp_poster_closeout_2026-07-29.pdf) | Superseded display story; preserved as a closeout baseline | Current longitudinal presentation and poster in the working set above |
 
 Do not delete or rewrite the historical files to make old pending states look
 resolved. Their role is provenance, not current control.
@@ -119,17 +127,21 @@ resolved. Their role is provenance, not current control.
 
 - [x] One response basis is valid for every revision row.
 - [x] All 20 expected revision IDs are present and `applied_verified`.
-- [ ] Presentation wording, overflow, render, montage, and rehearsal checks pass.
+- [ ] Presentation wording, overflow, render, montage, and rehearsal checks
+  pass. Everything except live rehearsal is complete.
 - [x] Poster wording, overflow, 48 x 36 print dimensions, PDF/PNG render, and
-  visual inspection pass.
+  visual inspection pass. Board registration is tracked separately in the new
+  QA CSV.
 - [x] Evidence tables, current/missing refs, limitations, packages, and hashes
-  are refreshed from the revised sources.
+  are refreshed for the existing 18-file manifest scope. New artifact hashes
+  are recorded in the longitudinal delivery note.
 - [x] Full tests, Ruff, Mypy, compileall, links, JSON, ZIP, and Git-state checks
-  pass.
+  pass for the existing closeout scope; this revision reruns the applicable
+  checks before commit.
 - [x] The regenerated manifest reports `ready_for_final_freeze=true` and no
-  blocker.
-- [ ] A final index and backup open the verified presentation, poster, and
-  evidence package.
+  blocker for its existing 18-file inventory.
+- [ ] A final index opens the verified presentation, poster, and evidence
+  package. The repository-external backup is already verified.
 
 Record the five final artifact-level checks in the linked final-QA CSV. Run
 `uv run consent-audit closeout-final-index` as a dry-run; only rerun with
@@ -144,6 +156,7 @@ Record the five final artifact-level checks in the linked final-QA CSV. Run
 | June 18-29 | Current-five evidence, unresolved human decisions, publication, and midpoint fact audits | [Current-five packet](current_five_evidence_packet_2026-06-19.md), [midpoint audit](summer_midpoint_progress_audit_2026-06-29.md) |
 | July 1-16 | Canonical scope, poster story, layouts, assets, first visual draft, and print QA | [Current goal](current_project_goal_2026-07-02.md), [first poster](july14_first_poster_mockup_2026-07-14.md), [print QA](july15_poster_pdf_and_print_qa_2026-07-15.md) |
 | July 20-26 | Joint presentation/poster review, fallback protocol, reproducible inventory, revision map, and freeze gate | [July 25 gap review](july25_gap_review_and_joint_packet_2026-07-25.md), [July 26 pre-freeze manifest](july26_closeout_prefreeze_manifest_2026-07-26.md) |
+| July 29 | Longitudinal objective correction, directional protocol, CWRU SOURCE alignment, and rebuilt presentation/poster | [Longitudinal reframing](july29_longitudinal_reframing_and_source_alignment_2026-07-29.md), [artifact delivery](july29_longitudinal_artifact_delivery_2026-07-29.md) |
 
 ## Claim Guardrails
 
@@ -156,3 +169,5 @@ Record the five final artifact-level checks in the linked final-QA CSV. Run
   tracking, active external-model scoring, hosted infrastructure, or legal
   compliance verdicts.
 - Do not run a continuity capture without a specific approved RQ2 question.
+- Do not translate raw `C/D` change priority into improvement or regression.
+- Do not treat scorer-version changes as website-interface evolution.
