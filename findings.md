@@ -1098,3 +1098,31 @@
 - This phase adds finalization infrastructure only. It does not record a human
   response, choose the pre-cutoff project fallback, revise an artifact, attest
   to an unperformed check, create a final index, or mark the project complete.
+
+## 2026-07-29 Project-Owner Closeout Findings
+
+- The user's instruction supplies project-owner authorization, not advisor
+  approval. The five selected values are stored separately with authorization,
+  rationale, evidence, and timezone-aware provenance; the joint advisor sheet
+  remains five pending rows with blank confirmation, reviewer, and date fields.
+- The conservative branch keeps the five-site pilot/method framing, Guardian
+  and Coca-Cola evidence cards, CNN/Booking.com/NerdWallet as separate
+  no-visible-first-screen-banner contrasts, unresolved review counts as visible
+  limitations, and the current RQ2 evidence without a new continuity capture.
+- All 20 revision rows are `applied_verified` with
+  `response_basis=project_owner_decision`. The manifest reports 18/18 key
+  deliverables, 20 valid basis claims, zero validation errors, zero blockers,
+  and `ready_for_final_freeze=true`.
+- The closeout presentation and poster passed structural, overflow, template,
+  render, and visual checks. The poster PDF is one 48 x 36 inch page and the PNG
+  is 4608 x 3456 pixels.
+- A repository-external backup contains the presentation, poster PPTX/PDF/PNG,
+  and a ZIP of the three evidence-package files. Each copied format opened with
+  its relevant parser and source hashes matched.
+- Four of five final-QA rows are verified. The only pending row is
+  `presentation_final_qa`, because a human rehearsal timing pass has not been
+  performed. `closeout-final-index` must continue to refuse generation until
+  that fact changes.
+- Full verification passed 272 tests, Ruff, Mypy on 55 source files,
+  compileall, 262 local Markdown links, 2 JSON files, 7 ZIP/PPTX containers,
+  manifest reproducibility, and `git diff --check`.

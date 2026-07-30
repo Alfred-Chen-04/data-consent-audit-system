@@ -32,6 +32,15 @@ JOINT_FIELDS = [
     "review_date",
     "notes",
 ]
+PROJECT_FIELDS = [
+    "decision_id",
+    "selected_value",
+    "decision_maker",
+    "decided_at",
+    "authorization_source",
+    "rationale",
+    "source_evidence",
+]
 
 
 def _write_csv(path: Path, fields: list[str], rows: list[dict[str, str]]) -> None:
@@ -148,6 +157,58 @@ def test_actual_response_prepares_only_its_rows(tmp_path: Path) -> None:
     assert rows[0]["response_basis"] == "actual_advisor_response"
     assert rows[1]["execution_status"] == "waiting_for_response_branch"
     assert rows[1]["selected_value"] == ""
+
+
+def test_project_owner_decision_prepares_rows_before_cutoff(tmp_path: Path) -> None:
+    matrix = tmp_path / "matrix.csv"
+    joint = tmp_path / "joint.csv"
+    project = tmp_path / "project.csv"
+    _write_csv(matrix, MATRIX_FIELDS, [_matrix_row("rev_1", "shared_scope_framing")])
+    _write_csv(
+        joint,
+        JOINT_FIELDS,
+        [_joint_row("shared_scope_framing", "five_site_pilot_method")],
+    )
+    _write_csv(
+        project,
+        PROJECT_FIELDS,
+        [
+            {
+                "decision_id": "shared_scope_framing",
+                "selected_value": "five_site_pilot_method",
+                "decision_maker": "project_owner",
+                "decided_at": "2026-07-29T10:41:49+08:00",
+                "authorization_source": "project owner instruction",
+                "rationale": "bounded evidence",
+                "source_evidence": "audit.md",
+            }
+        ],
+    )
+
+    dry_run = prepare_closeout_revision_branch(
+        joint_decision_csv=joint,
+        project_decision_csv=project,
+        revision_matrix_csv=matrix,
+        as_of=datetime.fromisoformat("2026-07-29T11:00:00+08:00"),
+        required_revision_ids=("rev_1",),
+    )
+    assert dry_run.project_owner_decision_count == 1
+    assert dry_run.fallback_decision_count == 0
+    assert dry_run.rows_prepared_count == 1
+
+    written = prepare_closeout_revision_branch(
+        joint_decision_csv=joint,
+        project_decision_csv=project,
+        revision_matrix_csv=matrix,
+        as_of=datetime.fromisoformat("2026-07-29T11:00:00+08:00"),
+        write=True,
+        required_revision_ids=("rev_1",),
+    )
+    row = _read_rows(matrix)[0]
+    assert written.write_performed is True
+    assert row["execution_status"] == "ready_to_apply"
+    assert row["selected_value"] == "five_site_pilot_method"
+    assert row["response_basis"] == "project_owner_decision"
 
 
 def test_after_cutoff_uses_actual_and_fallback_branches_together(

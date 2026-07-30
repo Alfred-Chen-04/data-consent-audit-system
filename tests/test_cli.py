@@ -3652,6 +3652,7 @@ def test_cli_closeout_prepare_revisions_invokes_preparer(
     )
     joint = tmp_path / "joint.csv"
     matrix = tmp_path / "matrix.csv"
+    project = Path("data/closeout/project_owner_decision_sheet_2026-07-29.csv")
 
     result = runner.invoke(
         cli.app,
@@ -3673,6 +3674,7 @@ def test_cli_closeout_prepare_revisions_invokes_preparer(
         "prepare_kwargs": {
             "joint_decision_csv": joint,
             "revision_matrix_csv": matrix,
+            "project_decision_csv": project,
             "as_of": parsed,
             "write": True,
         },

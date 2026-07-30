@@ -41,27 +41,27 @@ DEFAULT_FINAL_ARTIFACTS = (
         "Presentation PPTX",
         Path(
             "docs/research/presentation/"
-            "ssrp_consent_audit_presentation_draft_2026-07-22.pptx"
+            "ssrp_consent_longitudinal_presentation_2026-07-30.pptx"
         ),
     ),
     (
         "Presentation montage",
         Path(
             "docs/research/presentation/"
-            "ssrp_consent_audit_presentation_draft_2026-07-22_montage.png"
+            "ssrp_consent_longitudinal_presentation_2026-07-30_montage.png"
         ),
     ),
     (
         "Poster PPTX",
-        Path("docs/research/poster/ssrp_poster_aligned_review_2026-07-25.pptx"),
+        Path("docs/research/poster/ssrp_consent_longitudinal_poster_2026-07-30.pptx"),
     ),
     (
         "Poster PDF",
-        Path("docs/research/poster/ssrp_poster_aligned_review_2026-07-25.pdf"),
+        Path("docs/research/poster/ssrp_consent_longitudinal_poster_2026-07-30.pdf"),
     ),
     (
         "Poster PNG",
-        Path("docs/research/poster/ssrp_poster_aligned_review_2026-07-25.png"),
+        Path("docs/research/poster/ssrp_consent_longitudinal_poster_2026-07-30.png"),
     ),
     (
         "Audit summary",
@@ -72,8 +72,39 @@ DEFAULT_FINAL_ARTIFACTS = (
         Path("data/research_package/longitudinal_summary.csv"),
     ),
     (
+        "Local directional review",
+        Path("data/longitudinal_directional_review_2026-07-29.csv"),
+    ),
+    (
+        "Retrospective cases",
+        Path("data/retrospective_longitudinal_cases_2026-07-29.csv"),
+    ),
+    (
+        "Retrospective source registry",
+        Path("data/retrospective_source_registry_2026-07-29.csv"),
+    ),
+    (
+        "Evidence-rescue analysis",
+        Path(
+            "docs/research/"
+            "july29_retrospective_longitudinal_evidence_rescue_2026-07-29.md"
+        ),
+    ),
+    (
         "Research manifest",
         Path("data/research_package/research_manifest.json"),
+    ),
+    (
+        "Longitudinal artifact manifest",
+        Path("data/longitudinal_artifact_manifest_2026-07-30.json"),
+    ),
+    (
+        "Project-owner decisions",
+        Path("data/closeout/project_owner_decision_sheet_2026-07-29.csv"),
+    ),
+    (
+        "Project-owner decision note",
+        Path("docs/research/july29_project_owner_closeout_decisions_2026-07-29.md"),
     ),
 )
 
@@ -110,6 +141,7 @@ class FinalIndexResult:
     revision_row_count: int
     actual_response_basis_count: int
     fallback_response_basis_count: int
+    project_owner_basis_count: int
     required_qa_count: int
     artifacts: tuple[FinalArtifactRecord, ...]
     qa_records: tuple[FinalQaRecord, ...]
@@ -168,12 +200,15 @@ def _validate_manifest(manifest: dict[str, Any]) -> dict[str, Any]:
         raise ValueError("Final index blocked: not every revision row has a response basis")
     actual_count = revision.get("actual_response_basis_count")
     fallback_count = revision.get("project_fallback_basis_count")
+    project_owner_count = revision.get("project_owner_basis_count")
     if (
         not isinstance(actual_count, int)
         or isinstance(actual_count, bool)
         or not isinstance(fallback_count, int)
         or isinstance(fallback_count, bool)
-        or actual_count + fallback_count != row_count
+        or not isinstance(project_owner_count, int)
+        or isinstance(project_owner_count, bool)
+        or actual_count + fallback_count + project_owner_count != row_count
     ):
         raise ValueError("Final index blocked: response-basis counts do not cover all rows")
     if revision.get("response_basis_validation_errors") != []:
@@ -338,6 +373,7 @@ def _render_markdown(
         f"- Final QA checklist: [`{qa_path}`]({qa_link})",
         f"- Revision rows applied and verified: {revision['row_count']}/{revision['row_count']}",
         f"- Actual-response rows: {revision.get('actual_response_basis_count', 0)}",
+        f"- Project-owner decision rows: {revision.get('project_owner_basis_count', 0)}",
         f"- Project-fallback rows: {revision.get('project_fallback_basis_count', 0)}",
         f"- Final QA checks verified: {len(qa_records)}/{len(qa_records)}",
         "",
@@ -377,7 +413,7 @@ def _render_markdown(
             "",
             "- Response-basis counts distinguish recorded responses from project fallbacks; neither is silently relabeled.",
             "- File hashes establish byte identity, not legal compliance or broad research validity.",
-            "- The deliverable remains a bounded five-site pilot/method package unless separately reviewed evidence supports a broader claim.",
+            "- The deliverable remains a bounded five-site pilot plus six-case observational series; neither is a population estimate or experiment.",
             "",
         ]
     )
@@ -453,6 +489,9 @@ def prepare_final_closeout_index(
         ),
         fallback_response_basis_count=int(
             revision.get("project_fallback_basis_count", 0)
+        ),
+        project_owner_basis_count=int(
+            revision.get("project_owner_basis_count", 0)
         ),
         required_qa_count=len(required_qa_ids),
         artifacts=artifacts,

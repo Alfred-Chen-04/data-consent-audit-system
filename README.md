@@ -2,11 +2,13 @@
 
 **SSRP 2026** · Qianyi (Alfred) Chen · Mentor: Dr. Jagdip Singh
 
-A browser-assisted, evidence-linked audit and versioning framework for website
-consent interfaces (cookie banners and preference panels). The current pilot
-runtime uses Playwright capture plus deterministic DOM, text, scoring, and diff
-logic. The `llm/` modules are schema-shaped, no-network fallbacks; external
-LLM/VLM calls are not wired into production scoring.
+A longitudinal, evidence-linked study of how the same website consent
+interfaces (cookie banners and preference panels) evolve over time. RQ1 defines
+a repeatable multidimensional audit; RQ2 compares matched captures and dated
+primary-source versions so changes can be classified as improved, regressed,
+mixed, or stable. The current pilot runtime uses Playwright capture plus
+deterministic DOM, text, scoring, and diff logic. The `llm/` modules are
+schema-shaped, no-network fallbacks; external LLM/VLM calls are not wired into production scoring.
 
 ## Why this project
 
@@ -14,12 +16,15 @@ Current approaches leave a gap:
 - **PRISMe** (Freiberger, Fleig & Buchmann, ACM CHI 2026) audits privacy *policy text* with LLMs, but ignores the interface.
 - **UMBRA / "When the Abyss Looks Back"** (Singh, Jin & Kim, 2026) audits banner *interfaces* with rule-based heuristics + multi-step interaction tracing + cookie-state monitoring; 14k sites, 19 dark patterns — but no LLM/VLM, and not longitudinal.
 - **ConsentDiff at Scale** (Guo, 2026) is longitudinal (9 months) and pairs DOM signals with screenshot cues — but uses weak-supervision vision rather than VLM-driven action execution.
+- **A history of GDPR cookie banner compliance** (Dimova et al., 2026) evaluates 11,364 websites across 30 countries from 2018 to 2024 and directly establishes broad historical banner trends.
 
-The research design targets the combination of dynamic multi-step traversal,
-evidence-linked scoring, longitudinal comparison, and text/visual framing
-analysis. The current pilot proves the browser-capture, deterministic-scoring,
-export, and versioning path; it does not yet prove live external-model execution
-or a production longitudinal deployment. The audit ontology is built on the
+The research design targets dynamic multi-step traversal, evidence-linked
+component scoring, controlled capture, and company-level explanation of dated
+change. Its novelty is not the bare existence of longitudinal banner research.
+The local pilot proves the browser-capture, deterministic-scoring, export, and
+change-candidate path; a separate six-company primary-source case series finds
+five component improvements and one later functional regression. The audit
+ontology is built on the
 Notice-and-Choice framework (Path Availability -> Path Effort -> Transparency &
 Unbiased Choice). See
 [`docs/related_work/background_with_citations.md`](docs/related_work/background_with_citations.md)
@@ -29,20 +34,29 @@ for the full positioning.
 
 | File | Purpose |
 |---|---|
-| [docs/research/closeout_control_index_2026-07-26.md](docs/research/closeout_control_index_2026-07-26.md) | **Start here for closeout** — current artifacts, response/revision/freeze gates, dated work order, historical map, and final acceptance checklist |
-| [docs/research/closeout_low_token_runbook_2026-07-27.md](docs/research/closeout_low_token_runbook_2026-07-27.md) | Short safe path for response intake, cutoff fallback, mapped revisions, verification, and final freeze |
-| [data/closeout/final_qa_checklist_2026-07-27.csv](data/closeout/final_qa_checklist_2026-07-27.csv) | Pending final presentation, poster, evidence, repository, and backup verification record required before the final index |
+| [docs/research/closeout_control_index_2026-07-26.md](docs/research/closeout_control_index_2026-07-26.md) | **Start here for closeout** - current longitudinal artifacts, remaining gates, dated work order, and historical map |
+| [docs/research/closeout_low_token_runbook_2026-07-27.md](docs/research/closeout_low_token_runbook_2026-07-27.md) | Two-line human-status intake, final-index path, and low-token paper prompts |
+| [docs/research/july30_final_closeout_execution_plan_2026-07-30.md](docs/research/july30_final_closeout_execution_plan_2026-07-30.md) | Official July 30-August 31 timeline, closed decisions, acceptance state, and remaining human gates |
+| [data/closeout/project_owner_decision_sheet_2026-07-29.csv](data/closeout/project_owner_decision_sheet_2026-07-29.csv) | Five explicit project-owner closeout decisions, kept separate from advisor-response provenance |
+| [data/closeout/final_qa_checklist_2026-07-27.csv](data/closeout/final_qa_checklist_2026-07-27.csv) | Fact-based final presentation, poster, evidence, repository, and backup verification record required before the final index |
 | [SCHEMA.md](SCHEMA.md) | One-page technical master view: research question → ontology → pipeline → modules → status → open decisions |
 | [AGENTS.md](AGENTS.md) | How AI agents (Claude Code, Cursor, etc.) collaborate on this repo |
 | [CONCEPTS.md](CONCEPTS.md) | Precise definitions of every audit dimension — the project's ontology |
-| [docs/research/current_project_goal_2026-07-02.md](docs/research/current_project_goal_2026-07-02.md) | Current canonical plain-language goal: RQ1 scoring + RQ2 versioning, not screenshot-only framing |
-| [docs/research/july26_decision_to_revision_matrix_2026-07-26.md](docs/research/july26_decision_to_revision_matrix_2026-07-26.md) | Current non-final execution map from five joint decisions to exact presentation, poster, and evidence-package surfaces |
+| [docs/research/current_project_goal_2026-07-02.md](docs/research/current_project_goal_2026-07-02.md) | Canonical goal: compare the same consent interfaces over time; RQ1 is the ruler and RQ2 creates the timeline |
+| [docs/research/july29_longitudinal_reframing_and_source_alignment_2026-07-29.md](docs/research/july29_longitudinal_reframing_and_source_alignment_2026-07-29.md) | Fact audit, directional outcome rules, research-depth gaps, CWRU SOURCE alignment, and revised display story |
+| [data/longitudinal_directional_review_2026-07-29.csv](data/longitudinal_directional_review_2026-07-29.csv) | Five-site matched-pair review; all current directional labels remain insufficient evidence |
+| [docs/research/july29_retrospective_longitudinal_evidence_rescue_2026-07-29.md](docs/research/july29_retrospective_longitudinal_evidence_rescue_2026-07-29.md) | Current historical result: six primary-source trajectories, direction/causal-strength audit, external benchmark, and discussion questions |
+| [data/retrospective_longitudinal_cases_2026-07-29.csv](data/retrospective_longitudinal_cases_2026-07-29.csv) | Six component-coded historical before/after cases: five improved and one regressed |
+| [data/retrospective_source_registry_2026-07-29.csv](data/retrospective_source_registry_2026-07-29.csv) | Twelve dated sources with exact claim locators and evidence-strength labels |
+| [docs/research/july30_evidence_complete_artifact_delivery_2026-07-30.md](docs/research/july30_evidence_complete_artifact_delivery_2026-07-30.md) | Current artifact paths, verification results, external backup, and remaining human gates |
+| [docs/research/july26_decision_to_revision_matrix_2026-07-26.md](docs/research/july26_decision_to_revision_matrix_2026-07-26.md) | Applied and verified map from five project-owner decisions to 20 presentation, poster, and evidence-package surfaces |
 | [docs/research/july26_closeout_prefreeze_manifest_2026-07-26.md](docs/research/july26_closeout_prefreeze_manifest_2026-07-26.md) | Current reproducible pre-freeze inventory: evidence refs, decision gates, revision execution, deliverable presence, hashes, and final-freeze readiness |
 | [docs/research/july26_advisor_response_and_fallback_protocol_2026-07-26.md](docs/research/july26_advisor_response_and_fallback_protocol_2026-07-26.md) | Current response gate: verified send preflight plus actual-response and no-response closeout paths |
 | [docs/research/july25_gap_review_and_joint_packet_2026-07-25.md](docs/research/july25_gap_review_and_joint_packet_2026-07-25.md) | Current gap review: on-track assessment, remaining evidence/decision gaps, July 25-August 7 plan, and joint review packet |
 | [docs/research/advisor_email_joint_presentation_poster_review_2026-07-25.md](docs/research/advisor_email_joint_presentation_poster_review_2026-07-25.md) | Current sendable advisor email for five shared presentation/poster closeout decisions |
-| [docs/research/presentation/ssrp_consent_audit_presentation_draft_2026-07-22.pptx](docs/research/presentation/ssrp_consent_audit_presentation_draft_2026-07-22.pptx) | Current 10-slide presentation draft pending decision-aware final revision |
-| [docs/research/poster/ssrp_poster_aligned_review_2026-07-25.pdf](docs/research/poster/ssrp_poster_aligned_review_2026-07-25.pdf) | Current aligned 48 x 36 poster review PDF; not final |
+| [docs/research/presentation/ssrp_consent_longitudinal_presentation_2026-07-30.pptx](docs/research/presentation/ssrp_consent_longitudinal_presentation_2026-07-30.pptx) | Current 10-slide six-case presentation; render and overflow checks pass, rehearsal timing pending |
+| [docs/research/poster/ssrp_consent_longitudinal_poster_2026-07-30.pdf](docs/research/poster/ssrp_consent_longitudinal_poster_2026-07-30.pdf) | Current six-case 48 x 36 poster PDF; print render passes, registered board option still needs confirmation |
+| [docs/research/ssrp_final_paper_completion_plan_2026-07-30.md](docs/research/ssrp_final_paper_completion_plan_2026-07-30.md) | Final-paper claim boundary, draft abstract, section/source map, figures, and August 31 schedule |
 | [docs/research/joint_review/ssrp_joint_advisor_review_2026-07-25.zip](docs/research/joint_review/ssrp_joint_advisor_review_2026-07-25.zip) | Current source-matched single-attachment joint review packet |
 | [docs/research/week2_checkin_index_2026-06-06.md](docs/research/week2_checkin_index_2026-06-06.md) | Full dated evidence and work-history navigation; no longer the current closeout entrypoint |
 | [docs/research/advisor_packet_index_2026-06-05.md](docs/research/advisor_packet_index_2026-06-05.md) | Full dated advisor-communication history; no longer the current closeout entrypoint |
@@ -173,7 +187,7 @@ uv run consent-audit export-research-package
 # Inventory closeout evidence, decisions, revision execution, deliverables, and freeze readiness
 uv run consent-audit closeout-prefreeze-manifest
 
-# Preview the valid actual-response/fallback branch; add --write only after review
+# Preview a validated advisor, project-owner, or post-cutoff fallback branch
 uv run consent-audit closeout-prepare-revisions
 
 # Validate final-freeze and final-QA gates; expected to refuse until both pass
@@ -215,21 +229,31 @@ Coca-Cola smoke passes all Layer 1 paths.
 - Current persistence is local append-only JSONL plus a local object-store
   fallback. PostgreSQL, R2/S3, APScheduler, and PDF report generation remain
   target architecture, not active runtime capabilities.
-- Current summer deliverables are presentation + large poster + traceable
-  evidence package. A formal paper is not required for the current summer
-  scope unless Dr. Singh reintroduces it later.
-- As of 2026-07-25, the independent presentation draft and a fact-aligned poster
-  revision both exist. They remain review drafts while five joint decisions,
-  seven current-five decisions, and eight CMP confirmations are unresolved.
+- Current SSRP deliverables are presentation + large poster + traceable
+  evidence package + final paper. The official SSRP page sets the paper
+  deadline at August 31, 2026.
+- As of 2026-07-30, six-case closeout copies of the presentation and poster
+  exist. Five conservative project-owner decisions are recorded separately
+  from the still-pending advisor sheet; seven current-five decisions and eight
+  CMP confirmations remain visible limitations.
 - Week 2 default capture list is `data/week2_deep_sample_targets_2026-06-06.csv`.
 - The Week 2 live cycle completed 5/5 captures; sanity is `ready`.
-- Next operational step is the joint presentation/poster review gate; freeze
-  current evidence unless one specific RQ2 continuity question is approved.
+- The current longitudinal revision uses five sites and one May 29-June 5
+  matched interval as the analysis denominator. The Guardian and Coca-Cola are
+  shown as paired cases; CNN, Booking.com, and NerdWallet remain repeated
+  no-visible-first-screen-banner contexts.
+- All five current directional labels are `insufficient_evidence`; the project
+  does not claim that a sampled site improved or regressed.
 - Current closeout entrypoint is [docs/research/closeout_control_index_2026-07-26.md](docs/research/closeout_control_index_2026-07-26.md); it separates the active working set from dated history.
 - Current canonical project goal is [docs/research/current_project_goal_2026-07-02.md](docs/research/current_project_goal_2026-07-02.md).
-- Current reproducible evidence inventory is [docs/research/july26_closeout_prefreeze_manifest_2026-07-26.md](docs/research/july26_closeout_prefreeze_manifest_2026-07-26.md); 16/16 files are present, but `ready_for_final_freeze=false` because all 20 revision rows still await application and verification.
+- The decision-execution gate remains the [schema-v2 pre-freeze manifest](docs/research/july26_closeout_prefreeze_manifest_2026-07-26.md); the current artifact inventory is [data/longitudinal_artifact_manifest_2026-07-30.json](data/longitudinal_artifact_manifest_2026-07-30.json).
+- Project-owner selections and their evidence basis are recorded in [docs/research/july29_project_owner_closeout_decisions_2026-07-29.md](docs/research/july29_project_owner_closeout_decisions_2026-07-29.md) and [data/closeout/project_owner_decision_sheet_2026-07-29.csv](data/closeout/project_owner_decision_sheet_2026-07-29.csv); they are not advisor approval.
 - Current decision-aware revision map is [docs/research/july26_decision_to_revision_matrix_2026-07-26.md](docs/research/july26_decision_to_revision_matrix_2026-07-26.md).
-- Final artifact-level QA is 0/5 verified; the final index remains absent and gated by `closeout-final-index`.
+- Longitudinal presentation/poster rendering, overflow, PDF, and 48 x 36 size
+  checks pass. Live rehearsal timing, actual Intersections status, and
+  registered board-size confirmation remain human facts. The July 30 artifact
+  manifest inventories the new files; the final index remains gated on human
+  rehearsal.
 - Current response/fallback protocol is [docs/research/july26_advisor_response_and_fallback_protocol_2026-07-26.md](docs/research/july26_advisor_response_and_fallback_protocol_2026-07-26.md).
 - Current review path is the [joint advisor email](docs/research/advisor_email_joint_presentation_poster_review_2026-07-25.md), [joint review ZIP](docs/research/joint_review/ssrp_joint_advisor_review_2026-07-25.zip), and [joint decision sheet](data/joint_advisor_review_decision_sheet_2026-07-25.csv).
 - Full dated evidence/work history remains in the [Week 2 index](docs/research/week2_checkin_index_2026-06-06.md); communication history remains in the [advisor packet index](docs/research/advisor_packet_index_2026-06-05.md).

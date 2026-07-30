@@ -6,14 +6,28 @@ paper prose, a legal verdict, or SOC 2, use this file to correct it.
 
 ## One-Sentence Goal
 
-The project develops a computational audit and versioning framework for
-privacy/consent interfaces as corporate communication objects: RQ1 scores
-layered consent interfaces for unbiased choice across the full consent pathway,
-and RQ2 captures and versions those interfaces to document change over time.
+The project is a longitudinal study of how the same firms' consent interfaces
+change over time and whether those changes improve, regress, mix, or preserve
+user choice. RQ1 defines the repeatable measurement; RQ2 creates the comparable
+time series needed to interpret change.
+
+In the proposal's original division of labor, RQ1 scores layered consent interfaces for unbiased choice across the full pathway, and RQ2 captures and versions repeated observations. The longitudinal objective is the synthesis of those two operations.
+
+## Overarching Longitudinal Objective
+
+The proposal did not state this as a separate research question, but it is the
+reason the two proposal questions belong together:
+
+> Across repeated, controlled observations of the same website, how does its
+> consent interface evolve, and what do changes in pathway availability,
+> pathway effort, transparency, and unbiased choice imply for users?
+
+This is an overarching objective, not a replacement or a newly invented RQ3.
+The proposal questions below remain verbatim.
 
 ## The Two Proposal RQs
 
-These two questions are the spine of the project:
+These two questions operationalize the longitudinal objective:
 
 1. RQ1: How can we develop a computational audit and scoring system to quantify
    layered consent interfaces in terms of unbiased choice across the full
@@ -21,15 +35,20 @@ These two questions are the spine of the project:
 2. RQ2: How can we automatically capture and version firms' privacy interfaces
    to systematically document interface changes over time?
 
-Everything else is a method, evidence source, deliverable, or limitation.
+RQ1 supplies a stable ruler. RQ2 applies that ruler repeatedly. A longitudinal
+conclusion is possible only after matched captures are validated under the same
+browser context and scoring version.
 
 ## What The Project Is
 
-- A consent-interface audit framework.
+- A longitudinal consent-interface study.
+- A repeatable consent-interface audit framework.
 - A scoring system for choice architecture, path availability, path effort,
   transparency, and unbiased choice.
-- A longitudinal capture/versioning system for repeated observations of the
-  same interfaces.
+- A longitudinal capture/versioning system for repeated, matched observations
+  of the same interfaces.
+- A directional interpretation protocol: improvement, regression, mixed
+  change, stable, or insufficient evidence.
 - A research workflow that keeps every score and change claim tied to evidence.
 
 ## What The Project Is Not
@@ -39,7 +58,9 @@ Everything else is a method, evidence source, deliverable, or limitation.
 - Not a legal compliance verdict.
 - Not a SOC 2 audit system.
 - Not a long-form privacy-policy text audit.
-- Not a final 20-site dataset yet.
+- Not a final long-term evolution result yet.
+- Not a claim that every technical hash or severity change is a substantive
+  interface improvement or regression.
 
 ## Role Of Screenshots And Evidence
 
@@ -48,43 +69,59 @@ evidence inputs. They exist to support RQ1 and RQ2:
 
 - For RQ1, they support scoring: what paths exist, how hard they are to use,
   how text is framed, and whether choices are visually/structurally balanced.
-- For RQ2, they support versioning: what changed across captures and whether
-  the interface stayed stable or shifted.
+- For RQ2, they support versioning: what changed across matched captures and
+  whether the same RQ1 dimensions improved, regressed, moved in both
+  directions, or stayed stable.
 
 Evidence traceability is a design requirement, not the research question.
 
 ## Current Summer Deliverables
 
-The current summer deliverables are:
+The current SSRP deliverables are:
 
 1. Presentation.
 2. Large poster.
 3. Traceable evidence package supporting the presentation/poster.
+4. Final paper due August 31, 2026.
 
-A formal paper is not required as the current summer deliverable unless
-Dr. Singh reintroduces it. Existing paper artifacts remain useful source notes.
+The official 2026 SSRP page requires participants to present at an upcoming
+Intersections in Summer 2026, Fall 2026, or Spring 2027 and to submit a final
+paper by August 31, 2026. This supersedes the earlier internal assumption that
+the paper was optional. The Summer 2026 Intersections event is July 30, 2026;
+the repository cannot establish whether this project was registered for it.
 
 ## What To Say In Presentation
 
 Use this framing:
 
-> Firms use privacy and consent interfaces as communication tools. My project
-> builds a computational audit and versioning framework for those interfaces.
-> RQ1 asks how to score whether layered consent pathways support unbiased
-> choice. RQ2 asks how to repeatedly capture and version those interfaces so
-> changes over time can be documented. The current pilot shows the pipeline,
-> evidence cards, longitudinal summaries, and the limits that still need
-> advisor confirmation.
+> This project asks how the same consent interface evolves over time. RQ1
+> defines a repeatable measure of pathway availability, effort, transparency,
+> and unbiased choice. RQ2 applies that measure to matched captures and dated
+> primary-source records. The controlled pilot tests the pipeline; a separate
+> six-company retrospective case series shows five component improvements and
+> one later functional regression.
 
 ## Current Evidence State
 
 Current verified state:
 
 - Week 2 evidence gate: 5 target sites.
-- Research package: 42 audit reports and 20 longitudinal summaries.
+- Current matched comparison: May 29 to June 5 for the five target sites.
+- Research package: 42 audit reports and 20 longitudinal summaries, including
+  same-day repeats and non-target sites; these counts are not 42 and 20
+  independent long-term observations.
 - Local screenshot evidence: 326 tracked site `layer1.png` files.
-- Current evidence classes: 2 banner-present evidence-card candidates and 3
-  no-visible-banner contrast candidates.
+- Current evidence classes: 2 banner-present matched cases and 3 repeated
+  no-visible-first-screen-banner contrasts.
+- Local-pilot directional result: insufficient evidence for a defensible
+  improvement or regression claim.
+- Retrospective directional result: six source-complete company trajectories;
+  Google, Facebook, TikTok, Orange, and SHEIN improved at least one audited
+  component, while Vanity Fair later regressed in transparency and refusal
+  effectiveness.
+- External historical benchmark: a 2026 study of 11,364 websites reports that
+  banners offering both accept and reject increased from 2.94% in 2018 to
+  30.66% in 2024.
 - Open decisions: 7 blank current-five decisions and 8 pending CMP/manual-review
   rows.
 
@@ -95,6 +132,9 @@ Current verified state:
 | `SCHEMA.md` | Research questions, ontology navigator, pipeline map. |
 | `CONCEPTS.md` | Authoritative scoring ontology. |
 | `docs/research/current_project_goal_2026-07-02.md` | Canonical plain-language goal and presentation framing. |
+| `docs/research/july29_retrospective_longitudinal_evidence_rescue_2026-07-29.md` | Six source-complete historical trajectories, direction/causal-strength audit, computed findings, and claim boundaries. |
+| `data/retrospective_longitudinal_cases_2026-07-29.csv` | Component-coded before/after evidence for Google, Facebook, TikTok, Orange, Vanity Fair, and SHEIN. |
+| `data/retrospective_source_registry_2026-07-29.csv` | Primary-source URLs, dates, locators, supported claims, and evidence-strength labels. |
 | `docs/research/july3_scope_fact_review_and_poster_plan_2026-07-03.md` | Latest scope/fact review, completion-risk check, and poster-safe writing plan. |
 | `docs/research/current_scope_2026-07-01.md` | Current summer deliverable scope. |
 | `docs/research/project_inventory_and_poster_story_2026-07-02.md` | What exists, what evidence is verified, and how to avoid screenshot-only framing. |
@@ -106,11 +146,16 @@ Current verified state:
 
 The safe current conclusion is:
 
-> The proposal's two-part system is feasible at pilot scale. The current work
-> can produce evidence-linked audit reports for RQ1 and longitudinal summaries
-> for RQ2, but final claims require advisor decisions about current-five
-> treatment, CMP/manual-review rows, and whether to expand beyond the five-site
-> evidence gate.
+> RQ1 provides a repeatable multidimensional measure and RQ2 can apply it to
+> matched captures and dated historical evidence. The local five-site pilot
+> remains insufficient for direction, but the source-complete retrospective
+> series finds five improvements and one regression. Across the three
+> first-layer button cases, refusal moved from an acceptance-favoring multi-step
+> path to one-click or equivalent simplicity. These cases suggest that
+> regulatory pressure changes concrete interaction friction first, while
+> transparency and technical respect for a choice can remain incomplete or
+> later regress. This is an observational case-series result, not an experiment
+> or a population estimate.
 
 ## Do Not Claim
 
@@ -120,3 +165,11 @@ The safe current conclusion is:
 - Do not say all current sites failed consent compliance.
 - Do not say no-visible-banner contrast cases are banner-path failures.
 - Do not say raw HTML snapshots are synced locally.
+- Do not translate longitudinal severity letters into improvement or
+  regression; they are review-priority signals.
+- Do not treat a scoring-code change as a website-interface change.
+- Do not combine the five local pilot rows with the six retrospective cases as
+  if they shared one sampling or capture protocol.
+- Do not present `5/6` as an internet-wide improvement rate.
+- Do not claim that regulation caused a change unless the source directly
+  attributes it or documents an order-and-follow-up sequence.

@@ -1,0 +1,9 @@
+check,status,evidence,remaining_action
+presentation_render_and_overflow,passed,10 slides rendered individually plus montage; slides_test reports no overflow,none
+presentation_source_notes,passed,Each slide contains a Sources block with repository or official source references,none
+poster_render_and_overflow,passed,Artifact-tool PNG inspected and slides_test reports no overflow,none
+poster_pdf_and_size,passed,PDF rendered through Poppler; pdfinfo reports one page at 3456 x 2592 points which equals 48 x 36 inches,none
+claim_boundary,passed,The five local pilot labels remain insufficient_evidence; the separate purposive retrospective series supports four improved and one regressed case without a prevalence or randomized causal claim,none
+live_rehearsal,pending,No human-timed rehearsal has been recorded,Run and record one full rehearsal
+registered_board_size,pending,48 x 36 fits the official 40 x 60 option but not the 32 x 40 option,Confirm the board option in registration before printing
+manifest_and_backup,passed,Dedicated 17-file SHA-256 manifest created and repository-external ZIP backup verified,none

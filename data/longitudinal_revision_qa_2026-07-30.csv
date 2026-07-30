@@ -1,0 +1,10 @@
+check,status,evidence,remaining_action
+presentation_render_and_overflow,passed,All 10 slides and the montage were visually inspected; slides_test reports no overflow,none
+presentation_source_notes,passed,Every slide retains a Sources block; slides 6 and 9 include the SHEIN source and six-case evidence paths,none
+presentation_template_fidelity,passed,Automated template-fidelity check reports zero issues against the inherited July 29 starter deck,none
+poster_render_and_overflow,passed,Artifact-tool PNG and Poppler PDF render were visually inspected; slides_test reports no overflow,none
+poster_pdf_and_size,passed,pdfinfo reports one page at 3456 x 2592 points which equals 48 x 36 inches,none
+claim_boundary,passed,Five local labels remain insufficient_evidence; six purposive retrospective cases support five component improvements and one regression without an experimental causal or prevalence claim,none
+live_rehearsal,pending,No human-timed rehearsal has been recorded,Run and record one full rehearsal
+event_and_board_status,pending,Official event and board options are documented but actual registration presentation and board facts are not in the repository,Record actual status only
+manifest_and_backup,passed,July 30 manifest inventories 29 files; external ZIP contains those files plus the manifest; archive integrity and all 29 embedded file hashes pass,none

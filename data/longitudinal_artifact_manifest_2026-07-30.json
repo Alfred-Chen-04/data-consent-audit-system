@@ -1,0 +1,179 @@
+{
+  "schema_version": 2,
+  "generated_at": "2026-07-30T13:12:27+08:00",
+  "purpose": "Reproducible inventory for the July 30 six-case evidence rescue, current presentation/poster, closeout plan, and final-paper handoff.",
+  "research_boundary": {
+    "local_controlled_pilot": {
+      "matched_sites": 5,
+      "validated_intervals_per_site": 1,
+      "directional_labels": {
+        "insufficient_evidence": 5
+      }
+    },
+    "retrospective_case_series": {
+      "company_trajectories": 6,
+      "registered_sources": 12,
+      "directional_labels": {
+        "improved": 5,
+        "regressed": 1
+      },
+      "first_layer_parity_cases": {
+        "improved": 3,
+        "total": 3
+      },
+      "sampling_boundary": "Purposively selected source-complete cases; not an experiment or prevalence estimate."
+    },
+    "supported_conclusion": "Concrete consent interactions improved most clearly where regulators could specify and verify them, but improvement remained component-specific and reversible."
+  },
+  "file_count": 29,
+  "total_bytes": 3481323,
+  "all_files_present": true,
+  "all_hashes_verified": true,
+  "files": [
+    {
+      "path": "CONCEPTS.md",
+      "bytes": 14918,
+      "sha256": "92ad28a26e3d52c9a2fd00a58c339a80cc80847bc816d5d62746b5c5b2484489"
+    },
+    {
+      "path": "README.md",
+      "bytes": 18708,
+      "sha256": "9f6c92c877f66e1a0a6097fecc6ce60da601d95d083591f097dbc3f8d4cead8b"
+    },
+    {
+      "path": "SCHEMA.md",
+      "bytes": 30456,
+      "sha256": "49d05bfe88fa0f3085a7cbcfd54531643b3b6f21ceedf8cbf0969022a2debf77"
+    },
+    {
+      "path": "docs/related_work/background_with_citations.md",
+      "bytes": 97624,
+      "sha256": "11d553b0c438ba62cda52d0d0ee0fe55f115552351506eb06c63c7c7267f4114"
+    },
+    {
+      "path": "docs/research/closeout_control_index_2026-07-26.md",
+      "bytes": 16202,
+      "sha256": "9276b14a6e3a7f67025123572adbbc3a502e8260b2679f7f47f10c8d50a5ff09"
+    },
+    {
+      "path": "docs/research/closeout_low_token_runbook_2026-07-27.md",
+      "bytes": 3957,
+      "sha256": "93fb46a6e102e102108ee326b783be07f3f13907f77ffd3ac741f30e9607c883"
+    },
+    {
+      "path": "docs/research/current_project_goal_2026-07-02.md",
+      "bytes": 8787,
+      "sha256": "b3c493dc68e0459777ba2e1e85c02d532a530855bc65b2e2bee45cfeeca9cf25"
+    },
+    {
+      "path": "docs/research/july29_longitudinal_reframing_and_source_alignment_2026-07-29.md",
+      "bytes": 12495,
+      "sha256": "56ea56b866193533e110cc374ceb7b9e98fb25ef5b0887a721febb5d03661be8"
+    },
+    {
+      "path": "docs/research/july29_retrospective_longitudinal_evidence_rescue_2026-07-29.md",
+      "bytes": 11030,
+      "sha256": "77db30d59d6b174ab213a79374d6bffa73c264881b7374297c7a906d06b33483"
+    },
+    {
+      "path": "docs/research/july30_final_closeout_execution_plan_2026-07-30.md",
+      "bytes": 4009,
+      "sha256": "9e0944a6d8d01dcc8740573196f3d6042d0321fe5e877bad787b4751bc9415e0"
+    },
+    {
+      "path": "docs/research/ssrp_final_paper_completion_plan_2026-07-30.md",
+      "bytes": 4692,
+      "sha256": "73eeace235afa55d5a29268f26d7087c7b501ee24d5f9059ada5e267db040475"
+    },
+    {
+      "path": "docs/research/presentation/ssrp_consent_rehearsal_script_2026-07-30.md",
+      "bytes": 3792,
+      "sha256": "78b60a7641add1240cca9b02ff40e4b5e5952a90437652b6b7559d3e21aa1ec6"
+    },
+    {
+      "path": "data/longitudinal_directional_review_2026-07-29.csv",
+      "bytes": 2131,
+      "sha256": "8a36e7427baeff13c1e00e0252a8d49827a878d5ebe08bbc8584eb87dfb829ac"
+    },
+    {
+      "path": "data/retrospective_longitudinal_cases_2026-07-29.csv",
+      "bytes": 4354,
+      "sha256": "6a48855a1f0e4057c202ffb04966be52cf34cdd8c60955b4673a89933f1c08c4"
+    },
+    {
+      "path": "data/retrospective_source_registry_2026-07-29.csv",
+      "bytes": 4651,
+      "sha256": "9b989d057c1d900a5b87f58b5c7bfe24dc637bf8a46a185b2ae5788e100e9968"
+    },
+    {
+      "path": "data/longitudinal_revision_qa_2026-07-30.csv",
+      "bytes": 1376,
+      "sha256": "32e1c76531b15eb2183db8aa7444e1733b0b93347ae84e70670c771e94403222"
+    },
+    {
+      "path": "data/closeout/human_closeout_confirmation_2026-07-30.csv",
+      "bytes": 409,
+      "sha256": "e77bce2e8aece4b43cff03d11a0e19a6a8c2e2682d7574389d1ff5174cd0edd2"
+    },
+    {
+      "path": "data/research_package/audit_report_summary.csv",
+      "bytes": 20937,
+      "sha256": "c4fd673a115f14c6969dcaa58e50c7e1c52a23d98bb590411497cce8a078bc49"
+    },
+    {
+      "path": "data/research_package/longitudinal_summary.csv",
+      "bytes": 9141,
+      "sha256": "f1069383db8bd2ac9b777eaefbff26d4134490c55d397198275db0f5602258c0"
+    },
+    {
+      "path": "data/research_package/research_manifest.json",
+      "bytes": 244,
+      "sha256": "628236fe5b418dde276f9f212153fc784bd98ed34b76cd3bc57be914514bfc7f"
+    },
+    {
+      "path": "data/closeout/closeout_prefreeze_manifest_2026-07-26.json",
+      "bytes": 28731,
+      "sha256": "51a8ba1d730b93c37ae9d7fc0fa8436387aee871cc06b790b5d274120d60f49a"
+    },
+    {
+      "path": "data/closeout/project_owner_decision_sheet_2026-07-29.csv",
+      "bytes": 1825,
+      "sha256": "dc47a8e55df8cd645faf88c995b519a6de15ce25f1dd5c55ba0a87d6a31dae0b"
+    },
+    {
+      "path": "docs/research/july29_project_owner_closeout_decisions_2026-07-29.md",
+      "bytes": 2123,
+      "sha256": "6bb9eb375b03a19811acc3c5e6c8680506e1ed15235feb79d2eb6f443e892317"
+    },
+    {
+      "path": "src/consent_audit/closeout_final.py",
+      "bytes": 18488,
+      "sha256": "dc1fd0e61dc6dab517589012bd007a557b1a30c528544a959517304b2611ebcf"
+    },
+    {
+      "path": "docs/research/presentation/ssrp_consent_longitudinal_presentation_2026-07-30.pptx",
+      "bytes": 51352,
+      "sha256": "e97bbfeba013496a6a9e73ba691429deb725fdfa2399c30494d7b56a0471ef84"
+    },
+    {
+      "path": "docs/research/presentation/ssrp_consent_longitudinal_presentation_2026-07-30_montage.png",
+      "bytes": 65284,
+      "sha256": "b7032eee5662e62f82cce907b6d0f9696a008b01ee43ba3c6d794c191d4300c7"
+    },
+    {
+      "path": "docs/research/poster/ssrp_consent_longitudinal_poster_2026-07-30.pptx",
+      "bytes": 979220,
+      "sha256": "a156f4058fb434c3c8681acfefd8b074d78af60748852607932cf2f1a6c6a4b8"
+    },
+    {
+      "path": "docs/research/poster/ssrp_consent_longitudinal_poster_2026-07-30.pdf",
+      "bytes": 736571,
+      "sha256": "c1bf4e845cf04ed1a5c21f78293e88f42364503d4a14ac12540ac584a132b913"
+    },
+    {
+      "path": "docs/research/poster/ssrp_consent_longitudinal_poster_2026-07-30.png",
+      "bytes": 1327816,
+      "sha256": "aef4b06f1d871dd57536b185f755d33f115f310069584e54997ecc44ccdb02c1"
+    }
+  ]
+}

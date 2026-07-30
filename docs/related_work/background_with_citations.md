@@ -55,13 +55,22 @@ This document **does not** make decisions for Alfred. It separates fact from inf
 `[FACT]` Method: text analysis + visual heuristics + interaction tracing + cookie-state monitoring; rule-based, no LLM/VLM [3].
 `[FACT]` Sample 14,000 websites; 99% accuracy on hand-annotated ground truth; on sites with revocation barriers, cookies increase by 25% on average [3].
 
-> [SUMMARY] UMBRA is more capable than the README suggested. It does multi-step interactive flows + cookie-state monitoring, just without LLM/VLM. The defensible differentiators for Alfred are now: (1) AI-grounding, (2) longitudinal depth, (3) Layer 3 framing, (4) volatility/trajectory as primary metric. See §1.3 cube and §5 inferences.
+> [SUMMARY] UMBRA is more capable than the README suggested. It does multi-step interactive flows + cookie-state monitoring, just without LLM/VLM. After the June 2026 historical-compliance paper in §1.1.4, longitudinal depth alone is also no longer a differentiator. The defensible contribution is evidence-linked component attribution across controlled captures and source-complete historical cases, with explicit causal-strength labels and Layer 3 framing.
 
 #### 1.1.3 ConsentDiff at Scale — VERIFIED ✅
 
 `[FACT]` Full title: **"ConsentDiff at Scale: Longitudinal Audits of Web Privacy Policy Changes and UI Frictions"** [2].
 `[FACT]` Single author: **Haoze Guo** [2]. arxiv ID **2512.04316**. First submission 2025-12-03. Latest revision v7 2026-04-13.
 `[FACT]` Method: monthly snapshots + DOM signals + screenshot cues + semantic alignment of policy clauses; weighted claim-UI alignment score [2]. Sample (per existing rubric landscape doc [4]): 2,400 domains × 9 months = 21,600 snapshots; geo: EU 900, US-CA 1000, Other 500.
+
+#### 1.1.4 A history of GDPR cookie banner compliance — VERIFIED ✅, DIRECT OVERLAP
+
+`[FACT]` Dimova, Toubiana, Van Goethem, Desmet, and Joosen released the preprint **"A history of GDPR cookie banner compliance: the roles of publishers, regulators and CMPs"** on 2026-06-30 [36].
+`[FACT]` The study replays archived cookie banners from the Wayback Machine and HTTP Archive for 11,364 websites across 30 countries from 2018 to 2024 [36].
+`[FACT]` Banners offering both accept and reject increased from 73 sites (2.94%) in September 2018 to 760 (30.66%) in September 2024 [36].
+`[FACT]` The authors report a strong correlation between higher compliance and stronger DPA activity, while warning that web archives miss some banners and that the trend is a lower-bound estimate [36].
+
+> [CORRECTED] This paper directly closes the earlier claim that long-term cookie-banner evolution was itself an open contribution. Alfred's current defensible contribution is narrower: apply an explicit component rubric to auditable company-level change points, grade causal evidence, connect visible controls to whether refusal is respected, and validate the same ontology in a controlled capture pipeline.
 
 ### Section 1.2 — Additional Verified Papers (22 papers, with cube positioning)
 
@@ -189,7 +198,7 @@ These are papers BEYOND the 7 already in [`consent_audit_rubrics_landscape.md`](
 **P30. Kampanos & Shahandashti, IFIP SEC 2021 — Accept All: The Landscape of Cookie Banners in Greece and the UK** [34].
 - Two-country focused study; DOM heuristic + manual coding.
 
-> [INFERENCE] **The single most important finding from this lit review for Alfred** is the existence of **WebSP-Eval (P25)** + **AgentDAM (P24)** + **CookieEnforcer (P3)**. Combined, they prove (a) VLM browser agents on privacy tasks are now an active subfield, (b) reusable open infrastructure exists, (c) interactive multi-step on banners has been done with classical ML, but no paper has combined VLM-agent-action-execution × multi-step × banner × longitudinal end-to-end. UMBRA covers 3/4 (rule-based + interactive + 14k-cross-section); ConsentDiff covers 3/4 (DOM+screenshot longitudinal); WebSP-Eval covers 3/4 (VLM-agent + interactive + privacy-task — but no longitudinal audit). The four-way intersection is open, but Alfred should be careful to position against UMBRA + ConsentDiff explicitly in the paper's Related Work.
+> [INFERENCE] **The single most important finding from this updated review** is that interface traversal, automated enforcement, and large-scale longitudinal banner history all have strong prior work. Alfred should avoid a combinatorial "first" claim. The strongest summer contribution is a transparent measurement bridge: controlled path capture plus component-coded historical cases where each direction and causal statement can be audited back to dated evidence.
 
 ### Section 1.3 — 3D Positioning Cube
 
@@ -692,7 +701,7 @@ Article 3(1) covers establishment in EU regardless of processing location; Art. 
 
 ### 5.2 The "what's my real differentiator from UMBRA + ConsentDiff" question (refined)
 
-UMBRA = rule-based interactive 14k-cross-section. ConsentDiff = DOM+screenshot longitudinal 9-month. The **four-way intersection** still empty: longitudinal × VLM-agent × multi-step interactive × banner+policy multimodal. **But Alfred should not claim "first dynamic audit" — UMBRA already did interactive.** The honest claim is "first **AI-grounded × multi-step × longitudinal × framing-aware** audit."
+UMBRA = rule-based interactive 14k-cross-section. ConsentDiff = DOM+screenshot longitudinal 9-month. Dimova et al. = 11,364-site historical banner analysis from 2018 to 2024. The earlier **four-way intersection** framing is no longer a safe novelty claim without a systematic 2026 search. The honest summer claim is a traceable, component-level longitudinal case method, not "first dynamic" or "first longitudinal" audit.
 
 ### 5.3 The "how do I get adopted" question (newly informed)
 
@@ -798,6 +807,7 @@ URL access dates: 2026-04-26.
 33. Bui et al. CCS 2021 (PurPliance). <https://dl.acm.org/doi/10.1145/3460120.3484536>
 34. Kampanos & Shahandashti. IFIP SEC 2021. <https://www-users.york.ac.uk/~sfs521/papers/KS21-Cookie-Banner-UK-Greece-IFIP-SEC-2021.pdf>
 35. Princeton-Leuven Longitudinal Privacy Policy Corpus. <https://privacypolicies.cs.princeton.edu/>
+36. Dimova Y., Toubiana V., Van Goethem T., Desmet L., Joosen W. **"A history of GDPR cookie banner compliance: the roles of publishers, regulators and CMPs."** arXiv:2606.31485, 2026. <https://arxiv.org/abs/2606.31485>
 
 ### Regulatory primary sources
 

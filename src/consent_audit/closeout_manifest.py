@@ -35,6 +35,9 @@ DEFAULT_REVISION_MATRIX_CSV = Path(
 DEFAULT_JOINT_DECISION_CSV = Path(
     "data/joint_advisor_review_decision_sheet_2026-07-25.csv"
 )
+DEFAULT_PROJECT_DECISION_CSV = Path(
+    "data/closeout/project_owner_decision_sheet_2026-07-29.csv"
+)
 DEFAULT_REFERENCE_COLUMNS = (
     "first_screenshot_ref",
     "first_dom_snapshot_ref",
@@ -60,6 +63,15 @@ JOINT_DECISION_REQUIRED_COLUMNS = (
     "review_date",
     "notes",
 )
+PROJECT_DECISION_REQUIRED_COLUMNS = (
+    "decision_id",
+    "selected_value",
+    "decision_maker",
+    "decided_at",
+    "authorization_source",
+    "rationale",
+    "source_evidence",
+)
 ALLOWED_REVISION_STATUSES = frozenset(
     {
         "waiting_for_response_branch",
@@ -70,6 +82,7 @@ ALLOWED_REVISION_STATUSES = frozenset(
 ALLOWED_RESPONSE_BASES = frozenset(
     {
         "actual_advisor_response",
+        "project_owner_decision",
         "project_fallback_after_internal_cutoff",
     }
 )
@@ -146,20 +159,22 @@ DEFAULT_DELIVERABLE_PATHS = (
     Path("data/research_package/research_manifest.json"),
     Path(
         "docs/research/presentation/"
-        "ssrp_consent_audit_presentation_draft_2026-07-22.pptx"
+        "ssrp_consent_audit_presentation_closeout_2026-07-29.pptx"
     ),
     Path(
         "docs/research/presentation/"
-        "ssrp_consent_audit_presentation_draft_2026-07-22_montage.png"
+        "ssrp_consent_audit_presentation_closeout_2026-07-29_montage.png"
     ),
-    Path("docs/research/poster/ssrp_poster_aligned_review_2026-07-25.pptx"),
-    Path("docs/research/poster/ssrp_poster_aligned_review_2026-07-25.pdf"),
-    Path("docs/research/poster/ssrp_poster_aligned_review_2026-07-25.png"),
+    Path("docs/research/poster/ssrp_poster_closeout_2026-07-29.pptx"),
+    Path("docs/research/poster/ssrp_poster_closeout_2026-07-29.pdf"),
+    Path("docs/research/poster/ssrp_poster_closeout_2026-07-29.png"),
     Path(
         "docs/research/joint_review/"
         "ssrp_joint_advisor_review_2026-07-25.zip"
     ),
     DEFAULT_JOINT_DECISION_CSV,
+    DEFAULT_PROJECT_DECISION_CSV,
+    Path("docs/research/july29_project_owner_closeout_decisions_2026-07-29.md"),
     Path(
         "docs/research/"
         "july26_advisor_response_and_fallback_protocol_2026-07-26.md"
@@ -455,16 +470,97 @@ def validate_joint_decision_contract(
     )
 
 
+def validate_project_decision_contract(
+    *,
+    source_present: bool,
+    fields: Sequence[str],
+    rows: Sequence[dict[str, str]],
+    required_decision_ids: set[str],
+    joint_rows: Sequence[dict[str, str]],
+) -> list[dict[str, str]]:
+    """Validate project-owner decisions without treating them as advisor replies."""
+
+    errors: list[dict[str, str]] = []
+
+    def add(decision_id: str, code: str) -> None:
+        item = {"decision_id": decision_id, "code": code}
+        if item not in errors:
+            errors.append(item)
+
+    if not source_present:
+        return errors
+    missing_columns = sorted(set(PROJECT_DECISION_REQUIRED_COLUMNS) - set(fields))
+    if missing_columns:
+        add("<sheet>", "project_decision_missing_required_columns")
+        return errors
+
+    rows_by_id: dict[str, list[dict[str, str]]] = {}
+    for row in rows:
+        decision_id = (row.get("decision_id") or "").strip()
+        if not decision_id:
+            add("<blank>", "project_decision_id_blank")
+            continue
+        rows_by_id.setdefault(decision_id, []).append(row)
+
+    for decision_id in sorted(required_decision_ids):
+        source_rows = rows_by_id.get(decision_id, [])
+        if not source_rows:
+            add(decision_id, "project_decision_missing")
+        elif len(source_rows) > 1:
+            add(decision_id, "project_decision_duplicate")
+    for decision_id in sorted(set(rows_by_id) - required_decision_ids):
+        add(decision_id, "project_decision_unexpected")
+
+    joint_by_id = {
+        (row.get("decision_id") or "").strip(): row
+        for row in joint_rows
+        if (row.get("decision_id") or "").strip()
+    }
+    for decision_id, source_rows in rows_by_id.items():
+        if len(source_rows) != 1:
+            continue
+        row = source_rows[0]
+        selected_value = (row.get("selected_value") or "").strip()
+        decision_maker = (row.get("decision_maker") or "").strip()
+        decided_at = (row.get("decided_at") or "").strip()
+        authorization_source = (row.get("authorization_source") or "").strip()
+        rationale = (row.get("rationale") or "").strip()
+        source_evidence = (row.get("source_evidence") or "").strip()
+        joint_row = joint_by_id.get(decision_id)
+        options = {
+            option.strip()
+            for option in ((joint_row or {}).get("decision_options") or "").split("|")
+            if option.strip()
+        }
+        if not selected_value:
+            add(decision_id, "project_decision_value_blank")
+        elif selected_value not in options:
+            add(decision_id, "project_decision_value_not_in_options")
+        if not decision_maker:
+            add(decision_id, "project_decision_maker_missing")
+        if not decided_at or not _has_timezone(decided_at):
+            add(decision_id, "project_decision_timestamp_invalid")
+        if not authorization_source:
+            add(decision_id, "project_decision_authorization_missing")
+        if not rationale:
+            add(decision_id, "project_decision_rationale_missing")
+        if not source_evidence:
+            add(decision_id, "project_decision_evidence_missing")
+    return errors
+
+
 def _revision_matrix_record(
     repo_root: Path,
     path: Path,
     *,
     generated_at: datetime,
     joint_decision_csv: Path,
+    project_decision_csv: Path,
     required_revision_ids: Sequence[str],
 ) -> dict[str, Any]:
     record = _file_record(repo_root, path)
     response_source = _file_record(repo_root, joint_decision_csv)
+    project_source = _file_record(repo_root, project_decision_csv)
     if record["status"] != "present":
         return {
             **record,
@@ -489,7 +585,9 @@ def _revision_matrix_record(
             "response_basis_claim_count": None,
             "actual_response_basis_count": None,
             "project_fallback_basis_count": None,
+            "project_owner_basis_count": None,
             "response_basis_source": response_source,
+            "project_decision_source": project_source,
             "response_basis_validation_errors": [],
             "response_basis_claims_valid": False,
             "joint_decision_contract_validation_errors": [],
@@ -541,6 +639,26 @@ def _revision_matrix_record(
             decision_id for decision_id in decision_counts if decision_id
         },
     )
+    project_fields: list[str] = []
+    project_rows: list[dict[str, str]] = []
+    if project_source["status"] == "present":
+        project_fields, project_rows = _read_csv(
+            _resolve_input(repo_root, project_decision_csv)
+        )
+    project_rows_by_id: dict[str, list[dict[str, str]]] = {}
+    for row in project_rows:
+        decision_id = (row.get("decision_id") or "").strip()
+        if decision_id:
+            project_rows_by_id.setdefault(decision_id, []).append(row)
+    project_contract_errors = validate_project_decision_contract(
+        source_present=project_source["status"] == "present",
+        fields=project_fields,
+        rows=project_rows,
+        required_decision_ids={
+            decision_id for decision_id in decision_counts if decision_id
+        },
+        joint_rows=joint_rows,
+    )
 
     response_basis_errors: list[dict[str, str]] = []
 
@@ -588,6 +706,20 @@ def _revision_matrix_record(
             claimed_rows_by_decision.setdefault(decision_id, []).append(
                 (revision_id, selected_value, response_basis)
             )
+            if response_basis == "project_owner_decision":
+                if project_source["status"] != "present":
+                    add_basis_error(revision_id, "project_decision_source_missing")
+                    continue
+                if project_contract_errors:
+                    add_basis_error(revision_id, "project_decision_contract_invalid")
+                    continue
+                source_rows = project_rows_by_id.get(decision_id, [])
+                if len(source_rows) != 1:
+                    add_basis_error(revision_id, "project_decision_id_not_unique")
+                    continue
+                if value(source_rows[0], "selected_value") != selected_value:
+                    add_basis_error(revision_id, "project_decision_value_mismatch")
+                continue
             if response_source["status"] != "present":
                 add_basis_error(revision_id, "joint_decision_source_missing")
                 continue
@@ -610,7 +742,7 @@ def _revision_matrix_record(
                     add_basis_error(revision_id, "actual_response_value_mismatch")
                 if not source_reviewer or not source_date:
                     add_basis_error(revision_id, "actual_response_provenance_missing")
-            else:
+            elif response_basis == "project_fallback_after_internal_cutoff":
                 if generated_at < PROJECT_FALLBACK_CUTOFF:
                     add_basis_error(revision_id, "fallback_before_internal_cutoff")
                 if PROJECT_FALLBACK_VALUES.get(decision_id) != selected_value:
@@ -675,9 +807,21 @@ def _revision_matrix_record(
             == "project_fallback_after_internal_cutoff"
             for row in rows
         ),
+        "project_owner_basis_count": sum(
+            value(row, "response_basis") == "project_owner_decision"
+            for row in rows
+        ),
         "response_basis_source": {
             **response_source,
             "schema_valid": joint_schema_valid,
+        },
+        "project_decision_source": {
+            **project_source,
+            "schema_valid": set(PROJECT_DECISION_REQUIRED_COLUMNS).issubset(
+                project_fields
+            ),
+            "contract_validation_errors": project_contract_errors,
+            "contract_valid": not project_contract_errors,
         },
         "response_basis_validation_errors": response_basis_errors,
         "response_basis_claims_valid": not response_basis_errors,
@@ -792,6 +936,7 @@ def build_closeout_prefreeze_manifest(
     longitudinal_csv: Path = DEFAULT_LONGITUDINAL_CSV,
     revision_matrix_csv: Path = DEFAULT_REVISION_MATRIX_CSV,
     joint_decision_csv: Path = DEFAULT_JOINT_DECISION_CSV,
+    project_decision_csv: Path = DEFAULT_PROJECT_DECISION_CSV,
     required_revision_ids: Sequence[str] = DEFAULT_REQUIRED_REVISION_IDS,
     reference_columns: Sequence[str] = DEFAULT_REFERENCE_COLUMNS,
     decision_sheets: Sequence[DecisionSheetSpec] = DEFAULT_DECISION_SHEETS,
@@ -822,6 +967,7 @@ def build_closeout_prefreeze_manifest(
         revision_matrix_csv,
         generated_at=timestamp,
         joint_decision_csv=joint_decision_csv,
+        project_decision_csv=project_decision_csv,
         required_revision_ids=required_revision_ids,
     )
     deliverables = [_file_record(root, path) for path in deliverable_paths]

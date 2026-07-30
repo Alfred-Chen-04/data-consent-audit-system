@@ -126,16 +126,11 @@
   },
   "finalized": false,
   "freeze_readiness": {
-    "blocker_count": 1,
-    "blockers": [
-      {
-        "code": "revision_rows_not_applied_verified",
-        "count": 20
-      }
-    ],
-    "ready_for_final_freeze": false
+    "blocker_count": 0,
+    "blockers": [],
+    "ready_for_final_freeze": true
   },
-  "generated_at": "2026-07-27T04:23:53.631828+00:00",
+  "generated_at": "2026-07-30T05:02:51.271207+00:00",
   "key_deliverables": [
     {
       "bytes": 20937,
@@ -156,33 +151,33 @@
       "status": "present"
     },
     {
-      "bytes": 1645523,
-      "path": "docs/research/presentation/ssrp_consent_audit_presentation_draft_2026-07-22.pptx",
-      "sha256": "607ab0791f0062c91ec52090d5b598d936f7de2d033de04af5fe49fb368bcd1a",
+      "bytes": 1645273,
+      "path": "docs/research/presentation/ssrp_consent_audit_presentation_closeout_2026-07-29.pptx",
+      "sha256": "590ff39f334141da4122c2831df98b43ba5c4c4f54c5a2526c4f7e6a6f6afe9e",
       "status": "present"
     },
     {
-      "bytes": 360887,
-      "path": "docs/research/presentation/ssrp_consent_audit_presentation_draft_2026-07-22_montage.png",
-      "sha256": "ae25bd0bde2d68f5aace2a5d5d58a5be16c61b8ef2fdef376065ab74af99ebb6",
+      "bytes": 361121,
+      "path": "docs/research/presentation/ssrp_consent_audit_presentation_closeout_2026-07-29_montage.png",
+      "sha256": "f82ed08fd38eedb87ccfa239960dfdc28dd1f163cba998c0b1b80c3d277c3c49",
       "status": "present"
     },
     {
-      "bytes": 1619551,
-      "path": "docs/research/poster/ssrp_poster_aligned_review_2026-07-25.pptx",
-      "sha256": "c2dd51ea3c7711785ecccb8850c5d6648ae65a7711fba645c13d87ce49655220",
+      "bytes": 1619230,
+      "path": "docs/research/poster/ssrp_poster_closeout_2026-07-29.pptx",
+      "sha256": "97ee28d64bb20f2b1d1b2712a29c5159a4c1dcbf75e6bd85f2add8ccb4c4b398",
       "status": "present"
     },
     {
-      "bytes": 840621,
-      "path": "docs/research/poster/ssrp_poster_aligned_review_2026-07-25.pdf",
-      "sha256": "1cf0121ca68d8d6c1693cf623e6eb7c7e236af65bfff6d6bf8e533540661819f",
+      "bytes": 840603,
+      "path": "docs/research/poster/ssrp_poster_closeout_2026-07-29.pdf",
+      "sha256": "6bd9dbdef0afff18cfefc0888838fb0035c6879b1dceaa89478036b2969255c3",
       "status": "present"
     },
     {
-      "bytes": 1694393,
-      "path": "docs/research/poster/ssrp_poster_aligned_review_2026-07-25.png",
-      "sha256": "73427915c149d0fe75d74cccf838670eda109e81d4b104a3e5e39ed4a8c50f71",
+      "bytes": 1677500,
+      "path": "docs/research/poster/ssrp_poster_closeout_2026-07-29.png",
+      "sha256": "747a41452e05059eb0658f0441806ba2c2d43274e9ca8d8fb3c089995a232845",
       "status": "present"
     },
     {
@@ -198,39 +193,51 @@
       "status": "present"
     },
     {
-      "bytes": 7170,
+      "bytes": 1825,
+      "path": "data/closeout/project_owner_decision_sheet_2026-07-29.csv",
+      "sha256": "dc47a8e55df8cd645faf88c995b519a6de15ce25f1dd5c55ba0a87d6a31dae0b",
+      "status": "present"
+    },
+    {
+      "bytes": 2123,
+      "path": "docs/research/july29_project_owner_closeout_decisions_2026-07-29.md",
+      "sha256": "6bb9eb375b03a19811acc3c5e6c8680506e1ed15235feb79d2eb6f443e892317",
+      "status": "present"
+    },
+    {
+      "bytes": 7696,
       "path": "docs/research/july26_advisor_response_and_fallback_protocol_2026-07-26.md",
-      "sha256": "99b7d03ffb15c276a678f8fabee2a50a468b0911aa385e1db82b5ca970165a9b",
+      "sha256": "c215674d2752b99141ff8db112d0ddac1ab33d9cfaad9d5c25a9518b8417775b",
       "status": "present"
     },
     {
-      "bytes": 13778,
+      "bytes": 15752,
       "path": "data/closeout/joint_decision_revision_matrix_2026-07-26.csv",
-      "sha256": "01a14c29a661280cacf742a7ea2ad51e6b4bdf37798f3a77ac19527c0179cc6f",
+      "sha256": "d8466173126bc85bddfb8dcc5fcd8d1ef82d42ee278346f0e6344cfadbeed8a1",
       "status": "present"
     },
     {
-      "bytes": 5453,
+      "bytes": 6019,
       "path": "docs/research/july26_decision_to_revision_matrix_2026-07-26.md",
-      "sha256": "a4d712da03aa4b5b80ac2410cf51bacc763ae6465f6ea1cff284eae85503e522",
+      "sha256": "9148a643f6f88794083a27029277d47607b2da09c20ba930e4a4ab6459666dce",
       "status": "present"
     },
     {
-      "bytes": 10991,
+      "bytes": 16202,
       "path": "docs/research/closeout_control_index_2026-07-26.md",
-      "sha256": "c009bbbc0dc62e788e4a71a0aa086dd87805c7d8f9ef7bfab49d936b755691fb",
+      "sha256": "9276b14a6e3a7f67025123572adbbc3a502e8260b2679f7f47f10c8d50a5ff09",
       "status": "present"
     },
     {
-      "bytes": 7574,
+      "bytes": 3957,
       "path": "docs/research/closeout_low_token_runbook_2026-07-27.md",
-      "sha256": "9479dc18376a2775b5b6fa8c013e7c26a1df2a977b1375c391b9b55fb4aceb82",
+      "sha256": "93fb46a6e102e102108ee326b783be07f3f13907f77ffd3ac741f30e9607c883",
       "status": "present"
     },
     {
-      "bytes": 931,
+      "bytes": 2523,
       "path": "data/closeout/final_qa_checklist_2026-07-27.csv",
-      "sha256": "d981edb5b90cc4a936c1d0548f54dbcdbaeffda3b0dc0774950e1fab049f2df1",
+      "sha256": "232df33d3685d59a2abc40994f31853a287e43d0d1c872a1de6e2d38eb0b7390",
       "status": "present"
     }
   ],
@@ -712,11 +719,11 @@
       "poster": 8,
       "presentation": 8
     },
-    "blank_applied_at_count": 20,
-    "blank_applied_by_count": 20,
-    "blank_response_basis_count": 20,
-    "blank_selected_value_count": 20,
-    "bytes": 13778,
+    "blank_applied_at_count": 0,
+    "blank_applied_by_count": 0,
+    "blank_response_basis_count": 0,
+    "blank_selected_value_count": 0,
+    "bytes": 15752,
     "columns": [
       "revision_id",
       "decision_id",
@@ -748,10 +755,20 @@
     "joint_decision_contract_validation_errors": [],
     "missing_required_columns": [],
     "missing_required_revision_ids": [],
-    "not_applied_verified_count": 20,
+    "not_applied_verified_count": 0,
     "path": "data/closeout/joint_decision_revision_matrix_2026-07-26.csv",
+    "project_decision_source": {
+      "bytes": 1825,
+      "contract_valid": true,
+      "contract_validation_errors": [],
+      "path": "data/closeout/project_owner_decision_sheet_2026-07-29.csv",
+      "schema_valid": true,
+      "sha256": "dc47a8e55df8cd645faf88c995b519a6de15ce25f1dd5c55ba0a87d6a31dae0b",
+      "status": "present"
+    },
     "project_fallback_basis_count": 0,
-    "response_basis_claim_count": 0,
+    "project_owner_basis_count": 20,
+    "response_basis_claim_count": 20,
     "response_basis_claims_valid": true,
     "response_basis_source": {
       "bytes": 2419,
@@ -764,29 +781,29 @@
     "row_count": 20,
     "row_states_valid": true,
     "schema_valid": true,
-    "sha256": "01a14c29a661280cacf742a7ea2ad51e6b4bdf37798f3a77ac19527c0179cc6f",
+    "sha256": "d8466173126bc85bddfb8dcc5fcd8d1ef82d42ee278346f0e6344cfadbeed8a1",
     "status": "present",
     "status_counts": {
-      "waiting_for_response_branch": 20
+      "applied_verified": 20
     },
     "unexpected_revision_ids": []
   },
   "schema_version": 2,
   "summary": {
     "decision_gate_count": 4,
-    "final_freeze_blocker_count": 1,
+    "final_freeze_blocker_count": 0,
     "joint_decision_contract_error_count": 0,
-    "key_deliverable_count": 16,
+    "key_deliverable_count": 18,
     "missing_key_deliverable_count": 0,
     "open_decision_row_count_across_sheets": 25,
-    "present_key_deliverable_count": 16,
-    "ready_for_final_freeze": false,
+    "present_key_deliverable_count": 18,
+    "ready_for_final_freeze": true,
     "revision_matrix_row_count": 20,
     "revision_missing_required_row_count": 0,
-    "revision_response_basis_claim_count": 0,
+    "revision_response_basis_claim_count": 20,
     "revision_response_basis_error_count": 0,
-    "revision_rows_applied_verified_count": 0,
-    "revision_rows_not_applied_verified_count": 20,
+    "revision_rows_applied_verified_count": 20,
+    "revision_rows_not_applied_verified_count": 0,
     "revision_unexpected_row_count": 0
   }
 }

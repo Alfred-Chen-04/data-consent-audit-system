@@ -1038,6 +1038,9 @@ def closeout_prepare_revisions(
     revision_matrix_csv: Path = Path(
         "data/closeout/joint_decision_revision_matrix_2026-07-26.csv"
     ),
+    project_decision_csv: Path = Path(
+        "data/closeout/project_owner_decision_sheet_2026-07-29.csv"
+    ),
     as_of: str | None = None,
     write: bool = False,
 ) -> None:
@@ -1046,6 +1049,7 @@ def closeout_prepare_revisions(
         result = prepare_closeout_revision_branch(
             joint_decision_csv=joint_decision_csv,
             revision_matrix_csv=revision_matrix_csv,
+            project_decision_csv=project_decision_csv,
             as_of=parse_as_of(as_of),
             write=write,
         )

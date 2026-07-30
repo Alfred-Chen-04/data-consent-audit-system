@@ -37,11 +37,20 @@ The CSV has 20 execution rows:
 | Poster | 8 | Pilot labels, status/footer claims, both main cards, contrast block, 7/8 limitation block, and RQ2 framing |
 | Evidence package | 4 | Manifest status, contrast-table rule, human-decision state, and longitudinal freeze/refresh path |
 
-Every row is `waiting_for_response_branch`. The following fields are blank by
-design: `selected_value`, `response_basis`, `applied_by`, `applied_at`, and
-`notes`.
+All 20 rows are `applied_verified`. Every selected value is backed by
+`response_basis=project_owner_decision`, an executor, a timezone-aware
+timestamp, and a verification note. The separate project-owner source records
+the five decisions; the advisor sheet remains pending and blank.
+
+The selected values retain the five-site pilot/method framing, Guardian and
+Coca-Cola evidence cards, the three no-visible-first-screen-banner sites as a
+separate contrast, unresolved review counts as visible limitations, and the
+current 20-row RQ2 export without a new continuity capture.
 
 ## How To Use It
+
+The current project-owner branch is complete. The following paths remain for a
+later actual advisor response or for reconstructing the provenance rules.
 
 ### Actual response
 

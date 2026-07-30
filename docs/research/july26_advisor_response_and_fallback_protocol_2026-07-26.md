@@ -29,6 +29,16 @@ Verified on July 26:
 The absence of review input is evidence only that no response is recorded. It
 does not imply approval, disagreement, or silence from any specific person.
 
+## July 29 Project-Owner Decision
+
+At 2026-07-29T10:41:49+08:00, the project owner explicitly authorized Codex to
+select the five closeout decisions from the checked-in context. The five
+conservative listed defaults were selected and recorded in
+`data/closeout/project_owner_decision_sheet_2026-07-29.csv` with rationale and
+evidence. This is `response_basis=project_owner_decision`: it is neither an
+advisor response nor the post-cutoff fallback. The active advisor sheet remains
+pending with blank confirmation provenance.
+
 ## July 27 Intake Contract Check
 
 - The joint sheet still has 5 pending rows; every `confirmed_decision`,

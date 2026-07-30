@@ -1273,6 +1273,7 @@ def test_july16_poster_review_decision_sheet_preserves_pending_decisions() -> No
     )
 
     assert len(rows) == 5
+    assert all(None not in row for row in rows)
     assert {row["decision_id"] for row in rows} == {
         "poster_framing",
         "main_evidence_cards",
@@ -1664,9 +1665,7 @@ def test_july26_closeout_prefreeze_manifest_matches_current_checkout() -> None:
     assert gates["cmp_manual_review"]["open_row_count"] == 8
     revision_gate = manifest["revision_execution_gate"]
     assert revision_gate["row_count"] == 20
-    assert revision_gate["status_counts"] == {
-        "waiting_for_response_branch": 20
-    }
+    assert revision_gate["status_counts"] == {"applied_verified": 20}
     assert revision_gate["artifact_counts"] == {
         "evidence_package": 4,
         "poster": 8,
@@ -1677,39 +1676,41 @@ def test_july26_closeout_prefreeze_manifest_matches_current_checkout() -> None:
     assert revision_gate["coverage_valid"] is True
     assert revision_gate["missing_required_revision_ids"] == []
     assert revision_gate["unexpected_revision_ids"] == []
-    assert revision_gate["not_applied_verified_count"] == 20
+    assert revision_gate["not_applied_verified_count"] == 0
     assert revision_gate["inconsistent_revision_ids"] == []
-    assert revision_gate["response_basis_claim_count"] == 0
+    assert revision_gate["response_basis_claim_count"] == 20
     assert revision_gate["actual_response_basis_count"] == 0
     assert revision_gate["project_fallback_basis_count"] == 0
+    assert revision_gate["project_owner_basis_count"] == 20
     assert revision_gate["response_basis_claims_valid"] is True
     assert revision_gate["response_basis_validation_errors"] == []
     assert revision_gate["joint_decision_contract_valid"] is True
     assert revision_gate["joint_decision_contract_validation_errors"] == []
     assert revision_gate["response_basis_source"]["status"] == "present"
     assert revision_gate["response_basis_source"]["schema_valid"] is True
+    assert revision_gate["project_decision_source"]["status"] == "present"
+    assert revision_gate["project_decision_source"]["schema_valid"] is True
+    assert revision_gate["project_decision_source"]["contract_valid"] is True
     assert manifest["freeze_readiness"] == {
-        "blocker_count": 1,
-        "blockers": [
-            {"code": "revision_rows_not_applied_verified", "count": 20}
-        ],
-        "ready_for_final_freeze": False,
+        "blocker_count": 0,
+        "blockers": [],
+        "ready_for_final_freeze": True,
     }
     assert manifest["summary"] == {
         "decision_gate_count": 4,
-        "final_freeze_blocker_count": 1,
+        "final_freeze_blocker_count": 0,
         "joint_decision_contract_error_count": 0,
-        "key_deliverable_count": 16,
+        "key_deliverable_count": 18,
         "missing_key_deliverable_count": 0,
         "open_decision_row_count_across_sheets": 25,
-        "present_key_deliverable_count": 16,
-        "ready_for_final_freeze": False,
+        "present_key_deliverable_count": 18,
+        "ready_for_final_freeze": True,
         "revision_matrix_row_count": 20,
         "revision_missing_required_row_count": 0,
-        "revision_response_basis_claim_count": 0,
+        "revision_response_basis_claim_count": 20,
         "revision_response_basis_error_count": 0,
-        "revision_rows_applied_verified_count": 0,
-        "revision_rows_not_applied_verified_count": 20,
+        "revision_rows_applied_verified_count": 20,
+        "revision_rows_not_applied_verified_count": 0,
         "revision_unexpected_row_count": 0,
     }
 
@@ -1746,9 +1747,9 @@ def test_july26_closeout_prefreeze_manifest_matches_current_checkout() -> None:
     )
 
     assert "not a final or frozen manifest" in note_text
-    assert "Ready for final freeze: `false`" in note_text
-    assert "`revision_rows_not_applied_verified` | 20" in note_text
-    assert "| 20 | 20 | 0 | 0 | 0 | 0 | 0 | 0 | present |" in note_text
+    assert "Ready for final freeze: `true`" in note_text
+    assert "| none | 0 |" in note_text
+    assert "| 20 | 0 | 0 | 20 | 20 | 0 | 0 | 0 | present |" in note_text
     assert "Joint decision contract errors: 0." in note_text
     assert "`report_pdf_ref` | false | n/a | n/a" in note_text
     assert "july26_closeout_prefreeze_manifest_2026-07-26.md" in linked_text
@@ -1768,17 +1769,23 @@ def test_july26_closeout_control_index_separates_current_and_history() -> None:
         "docs/research/advisor_packet_index_2026-06-05.md"
     ).read_text(encoding="utf-8")
     control_text = control_path.read_text(encoding="utf-8")
+    normalized_control_text = " ".join(control_text.split())
 
     assert "**Status: `pre_freeze`" in control_text
     assert "This is not a final index" in control_text
-    assert "Key deliverables present: 16/16" in control_text
-    assert "Final-freeze readiness: `false`" in control_text
-    assert "`revision_rows_not_applied_verified` for all 20 rows" in control_text
-    assert "0 response-basis claims, 0 basis errors, and" in control_text
-    assert "0 active joint-sheet contract errors" in control_text
+    assert "six source-complete company trajectories" in control_text
+    assert "12 dated primary or primary-research sources" in control_text
+    assert "five improve and one regresses" in control_text
+    assert "20/20 revision rows are `applied_verified`" in normalized_control_text
+    assert (
+        "20 project-owner response-basis claims, 0 basis errors, and"
+        in normalized_control_text
+    )
+    assert "0 active joint-sheet contract errors" in normalized_control_text
     assert "July 29, 23:59 Asia/Shanghai" in control_text
-    assert "August 7, 2026" in control_text
-    assert control_text.count("- [ ]") == 8
+    assert "August 31, 2026" in control_text
+    assert control_text.count("- [ ]") == 3
+    assert control_text.count("- [x]") == 7
     assert "## Current Working Set" in control_text
     assert "## Superseded Or Historical Paths" in control_text
     assert "## Historical Trail" in control_text
@@ -1790,8 +1797,10 @@ def test_july26_closeout_control_index_separates_current_and_history() -> None:
     assert "`uv run consent-audit closeout-final-index`" in control_text
 
     current_paths = (
-        "presentation/ssrp_consent_audit_presentation_draft_2026-07-22.pptx",
-        "poster/ssrp_poster_aligned_review_2026-07-25.pdf",
+        "presentation/ssrp_consent_longitudinal_presentation_2026-07-30.pptx",
+        "poster/ssrp_consent_longitudinal_poster_2026-07-30.pdf",
+        "../../data/longitudinal_artifact_manifest_2026-07-30.json",
+        "../../data/longitudinal_revision_qa_2026-07-30.csv",
         "joint_review/ssrp_joint_advisor_review_2026-07-25.zip",
         "../../data/joint_advisor_review_decision_sheet_2026-07-25.csv",
         "../../data/closeout/joint_decision_revision_matrix_2026-07-26.csv",
@@ -1832,8 +1841,14 @@ def test_research_status_default_entrypoint_uses_current_closeout_gate() -> None
         "`data/closeout/closeout_prefreeze_manifest_2026-07-26.json`"
         in result.output
     )
-    assert "Final-freeze readiness: `false`" in result.output
-    assert "Final QA: pending=5; final index=missing" in result.output
+    assert "Final-freeze readiness: `true`" in result.output
+    assert "Final QA: pending=1, verified=4; final index=missing" in result.output
+    assert (
+        "Current next action: Complete pending final-QA checks: "
+        "presentation_final_qa; then dry-run "
+        "closeout-final-index."
+        in result.output
+    )
     assert (
         "Final QA checklist: "
         "`data/closeout/final_qa_checklist_2026-07-27.csv`"
@@ -1854,7 +1869,7 @@ def test_july26_manifest_fallback_contract_matches_protocol() -> None:
         assert f"| `{decision_id}` | `{fallback_value}` |" in protocol_text
 
 
-def test_july26_decision_revision_matrix_maps_real_surfaces_without_applying() -> None:
+def test_july26_decision_revision_matrix_maps_applied_closeout_surfaces() -> None:
     matrix_path = Path(
         "data/closeout/joint_decision_revision_matrix_2026-07-26.csv"
     )
@@ -1916,17 +1931,12 @@ def test_july26_decision_revision_matrix_maps_real_surfaces_without_applying() -
         "unresolved_review_items": 3,
         "rq2_continuity_gate": 3,
     }
-    assert all(
-        row["execution_status"] == "waiting_for_response_branch" for row in rows
-    )
-    for field in (
-        "selected_value",
-        "response_basis",
-        "applied_by",
-        "applied_at",
-        "notes",
-    ):
-        assert all(not row[field] for row in rows)
+    assert all(row["execution_status"] == "applied_verified" for row in rows)
+    assert all(row["selected_value"] for row in rows)
+    assert all(row["response_basis"] == "project_owner_decision" for row in rows)
+    assert all(row["applied_by"] == "Codex" for row in rows)
+    assert all(row["applied_at"] for row in rows)
+    assert all(row["notes"] for row in rows)
     assert all(row["default_or_fallback_action"] for row in rows)
     assert all(row["alternate_answer_gate"] for row in rows)
     assert all(row["required_verification"] for row in rows)
@@ -1946,12 +1956,12 @@ def test_july26_decision_revision_matrix_maps_real_surfaces_without_applying() -
     assert "project_fallback_after_internal_cutoff" in note_text
     assert "execution_status=applied_verified" in note_text
     assert "It is not silently promoted into a sixth joint decision" in note_text
-    assert "Do not fill `selected_value`" in note_text
+    assert "All 20 rows are `applied_verified`" in note_text
     assert "july26_decision_to_revision_matrix_2026-07-26.md" in linked_text
     assert "joint_decision_revision_matrix_2026-07-26.csv" in linked_text
 
 
-def test_july27_final_qa_gate_is_prepared_without_claiming_completion() -> None:
+def test_july27_final_qa_gate_records_only_completed_checks() -> None:
     qa_path = Path("data/closeout/final_qa_checklist_2026-07-27.csv")
     runbook_path = Path(
         "docs/research/closeout_low_token_runbook_2026-07-27.md"
@@ -1962,14 +1972,160 @@ def test_july27_final_qa_gate_is_prepared_without_claiming_completion() -> None:
 
     assert len(rows) == 5
     assert {row["check_id"] for row in rows} == set(DEFAULT_REQUIRED_QA_IDS)
-    assert all(row["status"] == "pending" for row in rows)
-    for field in ("evidence", "verified_by", "verified_at", "notes"):
-        assert all(not row[field] for row in rows)
+    by_id = {row["check_id"]: row for row in rows}
+    assert Counter(row["status"] for row in rows) == {
+        "pending": 1,
+        "verified": 4,
+    }
+    assert by_id["presentation_final_qa"]["status"] == "pending"
+    for check_id in (
+        "poster_final_qa",
+        "evidence_package_final_qa",
+        "repository_final_verification",
+        "backup_open_check",
+    ):
+        row = by_id[check_id]
+        assert row["evidence"]
+        assert row["verified_by"] == "Codex"
+        assert row["verified_at"].endswith("+08:00")
+        assert row["notes"]
     assert all(row["check_scope"] for row in rows)
     assert all(row["required_verification"] for row in rows)
     assert not final_index_path.exists()
 
     runbook_text = runbook_path.read_text(encoding="utf-8")
+    normalized_runbook_text = " ".join(runbook_text.split())
     assert "closeout-final-index" in runbook_text
     assert "closeout-final-index --write" in runbook_text
-    assert "A verified row requires" in runbook_text
+    assert "A verified row requires" in normalized_runbook_text
+
+
+def test_july29_retrospective_case_series_is_source_complete() -> None:
+    cases_path = Path("data/retrospective_longitudinal_cases_2026-07-29.csv")
+    sources_path = Path("data/retrospective_source_registry_2026-07-29.csv")
+    rescue_path = Path(
+        "docs/research/"
+        "july29_retrospective_longitudinal_evidence_rescue_2026-07-29.md"
+    )
+    local_path = Path("data/longitudinal_directional_review_2026-07-29.csv")
+
+    with cases_path.open(newline="", encoding="utf-8") as handle:
+        cases = list(csv.DictReader(handle))
+    with sources_path.open(newline="", encoding="utf-8") as handle:
+        sources = list(csv.DictReader(handle))
+    with local_path.open(newline="", encoding="utf-8") as handle:
+        local_rows = list(csv.DictReader(handle))
+
+    source_ids = {row["source_id"] for row in sources}
+    case_source_ids = {
+        source_id
+        for row in cases
+        for source_id in row["source_ids"].split("|")
+    }
+    allowed_causal_levels = {
+        "direct_company_attribution",
+        "regulator_verified_order_response",
+        "change_during_regulatory_investigation",
+        "change_during_regulatory_proceedings",
+        "change_reason_unknown",
+    }
+    allowed_direction_levels = {
+        "strong_regulator_before_after",
+        "moderate_primary_split_sources",
+        "moderate_regulator_state_transition",
+    }
+
+    assert len(cases) == 6
+    assert {row["case_id"] for row in cases} == {
+        "RET-01",
+        "RET-02",
+        "RET-03",
+        "RET-04",
+        "RET-05",
+        "RET-06",
+    }
+    assert Counter(row["directional_label"] for row in cases) == {
+        "improved": 5,
+        "regressed": 1,
+    }
+    assert sum(
+        row["path_availability_delta"] == "improved"
+        and row["path_effort_delta"] == "improved"
+        for row in cases
+    ) == 3
+    assert len(sources) == 12
+    assert len(source_ids) == len(sources)
+    assert case_source_ids <= source_ids
+    assert {row["causal_evidence_level"] for row in cases} <= allowed_causal_levels
+    assert {row["direction_evidence_level"] for row in cases} <= (
+        allowed_direction_levels
+    )
+    assert all(row["before_evidence_date"] for row in cases)
+    assert all(row["after_evidence_date"] for row in cases)
+    assert all(row["limitations"] for row in cases)
+    assert all(
+        row["directional_label"] == "insufficient_evidence" for row in local_rows
+    )
+
+    rescue_text = rescue_path.read_text(encoding="utf-8")
+    normalized_rescue_text = " ".join(rescue_text.split())
+    assert "`5/6` improved" in rescue_text
+    assert "`3/3` first-layer button cases" in rescue_text
+    assert "purposively selected, source-complete trajectories" in normalized_rescue_text
+    assert "not a random sample or a causal experiment" in normalized_rescue_text
+    assert "All six direction claims meet" in normalized_rescue_text
+
+
+def test_july30_longitudinal_manifest_matches_current_checkout() -> None:
+    manifest_path = Path("data/longitudinal_artifact_manifest_2026-07-30.json")
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+
+    assert manifest["schema_version"] == 2
+    assert manifest["all_files_present"] is True
+    assert manifest["all_hashes_verified"] is True
+    assert manifest["file_count"] == len(manifest["files"])
+    assert manifest["research_boundary"]["local_controlled_pilot"] == {
+        "matched_sites": 5,
+        "validated_intervals_per_site": 1,
+        "directional_labels": {"insufficient_evidence": 5},
+    }
+    case_series = manifest["research_boundary"]["retrospective_case_series"]
+    assert case_series["company_trajectories"] == 6
+    assert case_series["registered_sources"] == 12
+    assert case_series["directional_labels"] == {
+        "improved": 5,
+        "regressed": 1,
+    }
+    assert case_series["first_layer_parity_cases"] == {"improved": 3, "total": 3}
+
+    paths = {record["path"] for record in manifest["files"]}
+    required_paths = {
+        "data/retrospective_longitudinal_cases_2026-07-29.csv",
+        "data/retrospective_source_registry_2026-07-29.csv",
+        "data/longitudinal_revision_qa_2026-07-30.csv",
+        "docs/research/presentation/ssrp_consent_longitudinal_presentation_2026-07-30.pptx",
+        "docs/research/poster/ssrp_consent_longitudinal_poster_2026-07-30.pdf",
+        "docs/research/ssrp_final_paper_completion_plan_2026-07-30.md",
+    }
+    assert required_paths <= paths
+
+    total_bytes = 0
+    for record in manifest["files"]:
+        path = Path(record["path"])
+        payload = path.read_bytes()
+        assert record["bytes"] == len(payload)
+        assert record["sha256"] == hashlib.sha256(payload).hexdigest()
+        total_bytes += len(payload)
+    assert manifest["total_bytes"] == total_bytes
+
+    with Path("data/longitudinal_revision_qa_2026-07-30.csv").open(
+        newline="", encoding="utf-8"
+    ) as handle:
+        qa_rows = list(csv.DictReader(handle))
+    assert Counter(row["status"] for row in qa_rows) == {
+        "passed": 7,
+        "pending": 2,
+    }
+    assert {
+        row["check"] for row in qa_rows if row["status"] == "pending"
+    } == {"live_rehearsal", "event_and_board_status"}

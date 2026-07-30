@@ -214,7 +214,7 @@ def test_export_writes_json_and_explicit_nonfinal_markdown(tmp_path: Path) -> No
     assert saved["finalized"] is False
     assert saved["freeze_readiness"]["ready_for_final_freeze"] is False
     assert saved["freeze_readiness"]["blockers"] == [
-        {"code": "missing_key_deliverables", "count": 14},
+        {"code": "missing_key_deliverables", "count": 16},
         {"code": "revision_matrix_missing", "count": 1},
     ]
     assert "not a final or frozen manifest" in markdown
@@ -447,3 +447,109 @@ def test_manifest_blocks_invalid_joint_decision_contract(tmp_path: Path) -> None
     assert manifest["freeze_readiness"]["blockers"] == [
         {"code": "joint_decision_contract_invalid", "count": 1}
     ]
+
+
+def test_manifest_accepts_verified_project_owner_decision_basis(tmp_path: Path) -> None:
+    audit_csv = tmp_path / "audit.csv"
+    longitudinal_csv = tmp_path / "longitudinal.csv"
+    deliverable = tmp_path / "deliverable.txt"
+    matrix = tmp_path / "matrix.csv"
+    joint = tmp_path / "joint.csv"
+    project = tmp_path / "project.csv"
+    _write_csv(audit_csv, ["report_id"], [{"report_id": "1"}])
+    _write_csv(longitudinal_csv, ["week_of"], [{"week_of": "2026-06-06"}])
+    deliverable.write_text("ready", encoding="utf-8")
+    _write_csv(
+        matrix,
+        [
+            "revision_id",
+            "decision_id",
+            "artifact",
+            "execution_status",
+            "selected_value",
+            "response_basis",
+            "applied_by",
+            "applied_at",
+        ],
+        [
+            {
+                "revision_id": "rev_1",
+                "decision_id": "scope",
+                "artifact": "presentation",
+                "execution_status": "applied_verified",
+                "selected_value": "pilot",
+                "response_basis": "project_owner_decision",
+                "applied_by": "researcher",
+                "applied_at": "2026-07-29T11:00:00+08:00",
+            }
+        ],
+    )
+    _write_csv(
+        joint,
+        [
+            "decision_id",
+            "recommended_default",
+            "decision_options",
+            "review_status",
+            "confirmed_decision",
+            "reviewer",
+            "review_date",
+            "notes",
+        ],
+        [
+            {
+                "decision_id": "scope",
+                "recommended_default": "pilot",
+                "decision_options": "pilot|other",
+                "review_status": "pending",
+                "confirmed_decision": "",
+                "reviewer": "",
+                "review_date": "",
+                "notes": "",
+            }
+        ],
+    )
+    _write_csv(
+        project,
+        [
+            "decision_id",
+            "selected_value",
+            "decision_maker",
+            "decided_at",
+            "authorization_source",
+            "rationale",
+            "source_evidence",
+        ],
+        [
+            {
+                "decision_id": "scope",
+                "selected_value": "pilot",
+                "decision_maker": "project_owner",
+                "decided_at": "2026-07-29T10:41:49+08:00",
+                "authorization_source": "project owner instruction",
+                "rationale": "bounded evidence",
+                "source_evidence": "audit.md",
+            }
+        ],
+    )
+
+    manifest = build_closeout_prefreeze_manifest(
+        tmp_path,
+        generated_at=datetime(2026, 7, 29, 3, tzinfo=UTC),
+        audit_csv=audit_csv,
+        longitudinal_csv=longitudinal_csv,
+        revision_matrix_csv=matrix,
+        joint_decision_csv=joint,
+        project_decision_csv=project,
+        required_revision_ids=("rev_1",),
+        decision_sheets=(),
+        deliverable_paths=(deliverable,),
+    )
+
+    gate = manifest["revision_execution_gate"]
+    assert gate["project_owner_basis_count"] == 1
+    assert gate["actual_response_basis_count"] == 0
+    assert gate["project_fallback_basis_count"] == 0
+    assert gate["response_basis_validation_errors"] == []
+    assert gate["project_decision_source"]["contract_valid"] is True
+    assert manifest["freeze_readiness"]["ready_for_final_freeze"] is True
