@@ -1769,18 +1769,23 @@ def test_july26_closeout_control_index_separates_current_and_history() -> None:
         "docs/research/advisor_packet_index_2026-06-05.md"
     ).read_text(encoding="utf-8")
     control_text = control_path.read_text(encoding="utf-8")
+    normalized_control_text = " ".join(control_text.split())
 
     assert "**Status: `pre_freeze`" in control_text
     assert "This is not a final index" in control_text
-    assert "Key deliverables present: 18/18" in control_text
-    assert "Final-freeze readiness: `true`" in control_text
-    assert "20/20 revision rows are `applied_verified`" in control_text
-    assert "20 project-owner response-basis claims, 0 basis errors, and" in control_text
-    assert "0 active joint-sheet contract errors" in control_text
+    assert "six source-complete company trajectories" in control_text
+    assert "12 dated primary or primary-research sources" in control_text
+    assert "five improve and one regresses" in control_text
+    assert "20/20 revision rows are `applied_verified`" in normalized_control_text
+    assert (
+        "20 project-owner response-basis claims, 0 basis errors, and"
+        in normalized_control_text
+    )
+    assert "0 active joint-sheet contract errors" in normalized_control_text
     assert "July 29, 23:59 Asia/Shanghai" in control_text
-    assert "August 7, 2026" in control_text
-    assert control_text.count("- [ ]") == 2
-    assert control_text.count("- [x]") == 6
+    assert "August 31, 2026" in control_text
+    assert control_text.count("- [ ]") == 3
+    assert control_text.count("- [x]") == 7
     assert "## Current Working Set" in control_text
     assert "## Superseded Or Historical Paths" in control_text
     assert "## Historical Trail" in control_text
@@ -1792,8 +1797,10 @@ def test_july26_closeout_control_index_separates_current_and_history() -> None:
     assert "`uv run consent-audit closeout-final-index`" in control_text
 
     current_paths = (
-        "presentation/ssrp_consent_audit_presentation_closeout_2026-07-29.pptx",
-        "poster/ssrp_poster_closeout_2026-07-29.pdf",
+        "presentation/ssrp_consent_longitudinal_presentation_2026-07-30.pptx",
+        "poster/ssrp_consent_longitudinal_poster_2026-07-30.pdf",
+        "../../data/longitudinal_artifact_manifest_2026-07-30.json",
+        "../../data/longitudinal_revision_qa_2026-07-30.csv",
         "joint_review/ssrp_joint_advisor_review_2026-07-25.zip",
         "../../data/joint_advisor_review_decision_sheet_2026-07-25.csv",
         "../../data/closeout/joint_decision_revision_matrix_2026-07-26.csv",
@@ -1987,9 +1994,10 @@ def test_july27_final_qa_gate_records_only_completed_checks() -> None:
     assert not final_index_path.exists()
 
     runbook_text = runbook_path.read_text(encoding="utf-8")
+    normalized_runbook_text = " ".join(runbook_text.split())
     assert "closeout-final-index" in runbook_text
     assert "closeout-final-index --write" in runbook_text
-    assert "A verified row requires" in runbook_text
+    assert "A verified row requires" in normalized_runbook_text
 
 
 def test_july29_retrospective_case_series_is_source_complete() -> None:
@@ -2018,19 +2026,26 @@ def test_july29_retrospective_case_series_is_source_complete() -> None:
         "direct_company_attribution",
         "regulator_verified_order_response",
         "change_during_regulatory_investigation",
+        "change_during_regulatory_proceedings",
         "change_reason_unknown",
     }
+    allowed_direction_levels = {
+        "strong_regulator_before_after",
+        "moderate_primary_split_sources",
+        "moderate_regulator_state_transition",
+    }
 
-    assert len(cases) == 5
+    assert len(cases) == 6
     assert {row["case_id"] for row in cases} == {
         "RET-01",
         "RET-02",
         "RET-03",
         "RET-04",
         "RET-05",
+        "RET-06",
     }
     assert Counter(row["directional_label"] for row in cases) == {
-        "improved": 4,
+        "improved": 5,
         "regressed": 1,
     }
     assert sum(
@@ -2038,10 +2053,13 @@ def test_july29_retrospective_case_series_is_source_complete() -> None:
         and row["path_effort_delta"] == "improved"
         for row in cases
     ) == 3
-    assert len(sources) == 11
+    assert len(sources) == 12
     assert len(source_ids) == len(sources)
     assert case_source_ids <= source_ids
     assert {row["causal_evidence_level"] for row in cases} <= allowed_causal_levels
+    assert {row["direction_evidence_level"] for row in cases} <= (
+        allowed_direction_levels
+    )
     assert all(row["before_evidence_date"] for row in cases)
     assert all(row["after_evidence_date"] for row in cases)
     assert all(row["limitations"] for row in cases)
@@ -2051,7 +2069,63 @@ def test_july29_retrospective_case_series_is_source_complete() -> None:
 
     rescue_text = rescue_path.read_text(encoding="utf-8")
     normalized_rescue_text = " ".join(rescue_text.split())
-    assert "`4/5` improved" in rescue_text
+    assert "`5/6` improved" in rescue_text
     assert "`3/3` first-layer button cases" in rescue_text
     assert "purposively selected, source-complete trajectories" in normalized_rescue_text
     assert "not a random sample or a causal experiment" in normalized_rescue_text
+    assert "All six direction claims meet" in normalized_rescue_text
+
+
+def test_july30_longitudinal_manifest_matches_current_checkout() -> None:
+    manifest_path = Path("data/longitudinal_artifact_manifest_2026-07-30.json")
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+
+    assert manifest["schema_version"] == 2
+    assert manifest["all_files_present"] is True
+    assert manifest["all_hashes_verified"] is True
+    assert manifest["file_count"] == len(manifest["files"])
+    assert manifest["research_boundary"]["local_controlled_pilot"] == {
+        "matched_sites": 5,
+        "validated_intervals_per_site": 1,
+        "directional_labels": {"insufficient_evidence": 5},
+    }
+    case_series = manifest["research_boundary"]["retrospective_case_series"]
+    assert case_series["company_trajectories"] == 6
+    assert case_series["registered_sources"] == 12
+    assert case_series["directional_labels"] == {
+        "improved": 5,
+        "regressed": 1,
+    }
+    assert case_series["first_layer_parity_cases"] == {"improved": 3, "total": 3}
+
+    paths = {record["path"] for record in manifest["files"]}
+    required_paths = {
+        "data/retrospective_longitudinal_cases_2026-07-29.csv",
+        "data/retrospective_source_registry_2026-07-29.csv",
+        "data/longitudinal_revision_qa_2026-07-30.csv",
+        "docs/research/presentation/ssrp_consent_longitudinal_presentation_2026-07-30.pptx",
+        "docs/research/poster/ssrp_consent_longitudinal_poster_2026-07-30.pdf",
+        "docs/research/ssrp_final_paper_completion_plan_2026-07-30.md",
+    }
+    assert required_paths <= paths
+
+    total_bytes = 0
+    for record in manifest["files"]:
+        path = Path(record["path"])
+        payload = path.read_bytes()
+        assert record["bytes"] == len(payload)
+        assert record["sha256"] == hashlib.sha256(payload).hexdigest()
+        total_bytes += len(payload)
+    assert manifest["total_bytes"] == total_bytes
+
+    with Path("data/longitudinal_revision_qa_2026-07-30.csv").open(
+        newline="", encoding="utf-8"
+    ) as handle:
+        qa_rows = list(csv.DictReader(handle))
+    assert Counter(row["status"] for row in qa_rows) == {
+        "passed": 7,
+        "pending": 2,
+    }
+    assert {
+        row["check"] for row in qa_rows if row["status"] == "pending"
+    } == {"live_rehearsal", "event_and_board_status"}

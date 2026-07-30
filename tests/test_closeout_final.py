@@ -8,10 +8,28 @@ from pathlib import Path
 import pytest
 
 from consent_audit.closeout_final import (
+    DEFAULT_FINAL_ARTIFACTS,
     FINAL_QA_REQUIRED_COLUMNS,
     prepare_final_closeout_index,
     render_final_index_result,
 )
+
+
+def test_default_final_artifacts_point_to_current_longitudinal_outputs() -> None:
+    paths = {role: path.as_posix() for role, path in DEFAULT_FINAL_ARTIFACTS}
+
+    assert paths["Presentation PPTX"].endswith(
+        "ssrp_consent_longitudinal_presentation_2026-07-30.pptx"
+    )
+    assert paths["Poster PDF"].endswith(
+        "ssrp_consent_longitudinal_poster_2026-07-30.pdf"
+    )
+    assert paths["Retrospective cases"] == (
+        "data/retrospective_longitudinal_cases_2026-07-29.csv"
+    )
+    assert paths["Longitudinal artifact manifest"] == (
+        "data/longitudinal_artifact_manifest_2026-07-30.json"
+    )
 
 
 def _write_manifest(path: Path, *, ready: bool) -> None:

@@ -1,196 +1,106 @@
-# SSRP Closeout Low-Token Runbook, 2026-07-27
+# SSRP Closeout Low-Token Runbook, Current as of 2026-07-30
 
-## Use
+## Current Truth
 
-This is the shortest safe path from the current pre-freeze state to project
-closeout. Use the control index for artifact navigation and this file for the
-next action. Do not reconstruct the plan from older daily notes.
+- Summer 2026 Intersections is today, July 30, 10:00 a.m.-12:00 p.m. in the
+  Tinkham Veale Grand Ballroom.
+- Registration closed July 12 and PI approval was due July 15. The repository
+  cannot prove registration, attendance, poster number, or board selection.
+- The official SSRP program period ends July 31.
+- SSRP requires an Intersections presentation in Summer 2026, Fall 2026, or
+  Spring 2027 and a final paper by August 31, 2026.
+- The current research result is an observational six-company case series:
+  five component improvements and one functional regression. It is not an
+  experiment or a prevalence estimate.
+- The current local five-site pilot still has insufficient evidence for a
+  directional claim.
 
-**Current state on July 29:** the project owner authorized five conservative
-closeout decisions from the checked-in context. They are recorded separately
-with `response_basis=project_owner_decision`; the advisor sheet remains five
-`pending` rows with blank advisor provenance. Closeout presentation and poster
-copies exist; final repository verification, rehearsal, and backup checks
-were evaluated separately. Poster, evidence-package, and repository-external
-backup/open and final repository checks are complete; only rehearsal timing
-remains.
+## What Is Already Prepared
 
-The internal fallback cutoff is July 29, 2026 at 23:59 Asia/Shanghai. It is a
-project-management cutoff, not an advisor deadline.
+- Six source-complete historical trajectories and a 12-source registry.
+- A 10-slide July 30 presentation with source notes.
+- A 48 x 36 July 30 poster in PPTX, PDF, and PNG form.
+- Direction and causal-strength fields kept separate.
+- Final-index code points to the latest longitudinal artifacts.
+- Machine QA, manifest, and backup can be regenerated without new research
+  decisions.
 
-The checked-in plan uses August 7, 2026 as the core closeout target.
+Do not recreate these from older daily notes.
 
-## Direction Check
+## The Only Two Human Inputs
 
-**Assessment:** the project is on track for the current bounded deliverable: a
-five-site pilot/method presentation, a 48 x 36 poster, and a traceable evidence
-package. That assessment depends on selecting the response branch, completing
-the mapped revisions, and finishing final QA by August 7. The repository does
-not support relabeling the work as a broad completed empirical study, and that
-is not the current deliverable.
+Send these as two short lines. Unknown is an acceptable factual answer.
 
-Already prepared and rechecked; do not recreate these from old notes:
+```text
+展示状态=已注册/未注册/未知; 实际展示=是/否/未知; board=40x60/32x40/未知; poster号=值/未知
+彩排=总时长X:XX; Q&A=X:XX; 修改1=...; 修改2=...
+```
 
-- Week 2 evidence exports, current counts, limitations, and claim guardrails.
-- A 10-slide closeout presentation and aligned closeout poster PPTX/PDF/PNG.
-- One nine-file joint review packet and one active five-row response sheet.
-- A validated map from five decisions to 20 exact revision surfaces.
-- A schema-v2 manifest that blocks unsupported response provenance and a
-  premature final-freeze claim.
-- A five-row final-QA record and a final-index generator that refuses incomplete
-  manifest, revision, QA, provenance, or artifact state.
-- A separate historical trail that preserves older pending sheets without
-  using them for current intake.
+These inputs update
+`data/closeout/human_closeout_confirmation_2026-07-30.csv`. Do not infer them
+from file presence.
 
-The remaining dependencies are not missing framework work:
+## Today Branch
 
-- There is no checked-in proof that the joint packet was sent or discussed.
-- Actual advisor answers can only be recorded when they are received; the
-  current project-owner branch is not an advisor answer.
-- Final visual inspection, repository-external backup/open checks, and the
-  repository verification are complete. Human rehearsal timing cannot be
-  truthfully completed by an automated agent.
+### Registered for Summer Intersections
 
-## One Status Command
+1. Check the URO location/number email or CampusGroups record.
+2. Use the 48 x 36 poster only if the selected board is 40 x 60.
+3. Bring the printed poster; URO provides the board, easel, and clips.
+4. Deliver the 90-second poster pitch in the rehearsal script and record the
+   actual presentation status afterward.
+
+### Not Registered or Status Unknown
+
+1. Do not claim that Summer Intersections was completed.
+2. Ask URO/advisor which Fall 2026 or Spring 2027 Intersections will satisfy the
+   SSRP presentation requirement.
+3. Keep the current poster as the submission-ready artifact.
+
+Minimal message:
+
+```text
+I am completing my 2026 SSRP project and need to confirm which upcoming
+Intersections session should satisfy my presentation requirement. My poster and
+evidence package are ready. Could you confirm the next registration window?
+```
+
+## Machine Closeout
+
+After the two human inputs are recorded:
 
 ```bash
 uv run consent-audit research-status
-```
-
-Short Codex prompt:
-
-> 检查 closeout 当前状态，只报告仓库和真实回复里的事实，然后执行当前允许的下一步；不要猜。
-
-Stop if the manifest, joint sheet, or matrix is structurally invalid. Do not
-use a historical decision sheet for current intake.
-
-## Select The Response Branch
-
-Always preview first:
-
-```bash
-uv run consent-audit closeout-prepare-revisions
-```
-
-This command is dry-run by default. It validates the five-row joint sheet, the
-separate project-owner decision source, the 20-row matrix, response provenance,
-allowed values, and the cutoff. It never marks an artifact revision as
-verified.
-
-### Current project-owner branch
-
-The selected values are stored in
-`data/closeout/project_owner_decision_sheet_2026-07-29.csv`. They retain the
-five-site pilot, Guardian/Coca-Cola cards, separate contrast treatment, visible
-unresolved counts, and frozen current RQ2 evidence. Do not copy these values
-into advisor-confirmation fields.
-
-### Actual reply received
-
-1. Put only the exact received answer in the matching joint-sheet row.
-2. Set `review_status=confirmed`, and record reviewer plus review date.
-3. For an unlisted answer, use `other` and preserve the exact wording in
-   `notes`.
-4. Run the dry-run command. If it reports no error and only the intended
-   decisions, write the matrix branch:
-
-```bash
-uv run consent-audit closeout-prepare-revisions --write
-```
-
-Short Codex prompt:
-
-> 按我提供的真实回复更新 joint sheet，保留 reviewer/date；先 dry-run，通过后再写 revision matrix，不要补写我没提供的内容。
-
-### No reply after the cutoff
-
-For each decision that remains unanswered, leave its advisor confirmation,
-reviewer, and date fields blank and pending. Preserve any actual responses
-already recorded. After the cutoff, run the same dry-run and inspect that only
-the still-pending decisions use
-`project_fallback_after_internal_cutoff`. Then rerun with `--write`.
-
-For a reproducible check, an explicit timestamp may be supplied:
-
-```bash
-uv run consent-audit closeout-prepare-revisions --as-of 2026-07-30T00:01:00+08:00
-```
-
-Short Codex prompt:
-
-> 先确认已过 2026-07-29 23:59 +08:00 且 joint sheet 仍无相应回复；运行 fallback dry-run，零错误后再 --write，不要改 advisor confirmation 字段。
-
-## Apply And Verify The 20 Rows
-
-Use
-`data/closeout/joint_decision_revision_matrix_2026-07-26.csv` as the execution
-list. Work only on `ready_to_apply` rows. For each row:
-
-1. Apply its selected branch to the named presentation, poster, or evidence
-   surface. A retain-current action still requires a source-text check.
-2. Run the row's `required_verification` checks.
-3. Only after those checks pass, set `execution_status=applied_verified` and
-   add `applied_by` plus a timezone-aware ISO 8601 `applied_at` value.
-4. Keep failed or unperformed checks out of `applied_verified`.
-
-Short Codex prompt:
-
-> 按 revision matrix 的 ready_to_apply 行逐项修改并验证；只把实际通过 required_verification 的行标成 applied_verified，记录执行人和带时区时间。
-
-Do not start a new continuity capture unless a specific RQ2 question was
-actually approved. Do not broaden the five-site pilot claim without reviewed
-evidence.
-
-## Final Freeze
-
-After all 20 rows are verified:
-
-1. Rerender and visually inspect all 10 presentation slides and the poster.
-2. Check presentation/poster overflow, poster 48 x 36 dimensions, final
-   PDF/PNG, presentation montage, and rehearsal timing.
-3. Refresh evidence exports and packages only from revised sources.
-4. Run full pytest, Ruff, Mypy, compileall, local-link, JSON, ZIP, manifest
-   reproducibility, Git diff-scope, and `git diff --check` checks. A final clean
-   Git-state check follows the generated final-index commit.
-5. Copy the final presentation, poster, and evidence package to the selected
-   backup location and open each copied artifact.
-6. Record only checks that actually passed in
-   `data/closeout/final_qa_checklist_2026-07-27.csv`. A verified row requires
-   concrete evidence, verifier, and an ISO 8601 timestamp with timezone.
-7. Regenerate the manifest:
-
-```bash
 uv run consent-audit closeout-prefreeze-manifest
-uv run consent-audit research-status
-```
-
-8. Proceed only when the regenerated manifest reports
-   `ready_for_final_freeze=true` with zero blockers.
-9. Validate the final-index gate without writing:
-
-```bash
 uv run consent-audit closeout-final-index
 ```
 
-10. If the dry-run passes, generate the one final index and open every linked
-    artifact from it:
+`closeout-final-index` must refuse while rehearsal evidence is pending. A
+verified row requires concrete evidence, verifier, and a timezone-aware ISO
+8601 timestamp. Only after every gate passes:
 
 ```bash
 uv run consent-audit closeout-final-index --write
 ```
 
-Short Codex prompt:
+## Final Paper Path
 
-> 执行 final closeout：完整渲染、仓库验证和备份打开检查，按事实填写 final QA；重建 manifest，final-index dry-run 通过后才 --write 和宣布完成。
+Use `docs/research/ssrp_final_paper_completion_plan_2026-07-30.md`. The low-token
+prompts are:
+
+```text
+按 final paper plan 写第1-2节，只用登记来源。
+按 final paper plan 写第3-4节，保留 observational case-series 边界。
+对 final paper 做一次 claim/source audit，不添加新事实。
+```
 
 ## Facts That Must Remain Visible
 
-- The evidence package contains 42 audit rows and 20 longitudinal rows; the
-  latest longitudinal `week_of` is 2026-06-06.
-- The current audit CSV has 42 locally present screenshot references and 42
-  locally missing DOM references; it has no `report_pdf_ref` column.
-- The five joint decisions are separate from 25 open rows counted across four
-  current and historical sheets.
-- Passing tests and file hashes prove software/inventory properties, not legal
-  compliance, research validity, advisor approval, or a current live-site
-  observation.
+- `5/6` describes a purposively selected case series, not the internet.
+- The local five and historical six use different evidence protocols.
+- Google has direct company attribution; Facebook and Orange have formal
+  order-response evidence; TikTok and SHEIN have proceedings-period evidence;
+  Vanity Fair's regression cause is unknown.
+- A visible reject button is not proof that refusal stops tracking.
+- Tests and hashes prove software and file properties, not legal compliance,
+  causal validity, advisor approval, or event attendance.

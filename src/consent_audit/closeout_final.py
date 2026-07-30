@@ -41,27 +41,27 @@ DEFAULT_FINAL_ARTIFACTS = (
         "Presentation PPTX",
         Path(
             "docs/research/presentation/"
-            "ssrp_consent_audit_presentation_closeout_2026-07-29.pptx"
+            "ssrp_consent_longitudinal_presentation_2026-07-30.pptx"
         ),
     ),
     (
         "Presentation montage",
         Path(
             "docs/research/presentation/"
-            "ssrp_consent_audit_presentation_closeout_2026-07-29_montage.png"
+            "ssrp_consent_longitudinal_presentation_2026-07-30_montage.png"
         ),
     ),
     (
         "Poster PPTX",
-        Path("docs/research/poster/ssrp_poster_closeout_2026-07-29.pptx"),
+        Path("docs/research/poster/ssrp_consent_longitudinal_poster_2026-07-30.pptx"),
     ),
     (
         "Poster PDF",
-        Path("docs/research/poster/ssrp_poster_closeout_2026-07-29.pdf"),
+        Path("docs/research/poster/ssrp_consent_longitudinal_poster_2026-07-30.pdf"),
     ),
     (
         "Poster PNG",
-        Path("docs/research/poster/ssrp_poster_closeout_2026-07-29.png"),
+        Path("docs/research/poster/ssrp_consent_longitudinal_poster_2026-07-30.png"),
     ),
     (
         "Audit summary",
@@ -72,8 +72,31 @@ DEFAULT_FINAL_ARTIFACTS = (
         Path("data/research_package/longitudinal_summary.csv"),
     ),
     (
+        "Local directional review",
+        Path("data/longitudinal_directional_review_2026-07-29.csv"),
+    ),
+    (
+        "Retrospective cases",
+        Path("data/retrospective_longitudinal_cases_2026-07-29.csv"),
+    ),
+    (
+        "Retrospective source registry",
+        Path("data/retrospective_source_registry_2026-07-29.csv"),
+    ),
+    (
+        "Evidence-rescue analysis",
+        Path(
+            "docs/research/"
+            "july29_retrospective_longitudinal_evidence_rescue_2026-07-29.md"
+        ),
+    ),
+    (
         "Research manifest",
         Path("data/research_package/research_manifest.json"),
+    ),
+    (
+        "Longitudinal artifact manifest",
+        Path("data/longitudinal_artifact_manifest_2026-07-30.json"),
     ),
     (
         "Project-owner decisions",
@@ -390,7 +413,7 @@ def _render_markdown(
             "",
             "- Response-basis counts distinguish recorded responses from project fallbacks; neither is silently relabeled.",
             "- File hashes establish byte identity, not legal compliance or broad research validity.",
-            "- The deliverable remains a bounded five-site pilot/method package unless separately reviewed evidence supports a broader claim.",
+            "- The deliverable remains a bounded five-site pilot plus six-case observational series; neither is a population estimate or experiment.",
             "",
         ]
     )

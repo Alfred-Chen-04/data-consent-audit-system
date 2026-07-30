@@ -77,14 +77,18 @@ Evidence traceability is a design requirement, not the research question.
 
 ## Current Summer Deliverables
 
-The current summer deliverables are:
+The current SSRP deliverables are:
 
 1. Presentation.
 2. Large poster.
 3. Traceable evidence package supporting the presentation/poster.
+4. Final paper due August 31, 2026.
 
-A formal paper is not required as the current summer deliverable unless
-Dr. Singh reintroduces it. Existing paper artifacts remain useful source notes.
+The official 2026 SSRP page requires participants to present at an upcoming
+Intersections in Summer 2026, Fall 2026, or Spring 2027 and to submit a final
+paper by August 31, 2026. This supersedes the earlier internal assumption that
+the paper was optional. The Summer 2026 Intersections event is July 30, 2026;
+the repository cannot establish whether this project was registered for it.
 
 ## What To Say In Presentation
 
@@ -94,7 +98,7 @@ Use this framing:
 > defines a repeatable measure of pathway availability, effort, transparency,
 > and unbiased choice. RQ2 applies that measure to matched captures and dated
 > primary-source records. The controlled pilot tests the pipeline; a separate
-> five-company retrospective case series shows four component improvements and
+> six-company retrospective case series shows five component improvements and
 > one later functional regression.
 
 ## Current Evidence State
@@ -111,9 +115,10 @@ Current verified state:
   no-visible-first-screen-banner contrasts.
 - Local-pilot directional result: insufficient evidence for a defensible
   improvement or regression claim.
-- Retrospective directional result: five source-complete company trajectories;
-  Google, Facebook, TikTok, and Orange improved at least one audited component,
-  while Vanity Fair later regressed in transparency and refusal effectiveness.
+- Retrospective directional result: six source-complete company trajectories;
+  Google, Facebook, TikTok, Orange, and SHEIN improved at least one audited
+  component, while Vanity Fair later regressed in transparency and refusal
+  effectiveness.
 - External historical benchmark: a 2026 study of 11,364 websites reports that
   banners offering both accept and reject increased from 2.94% in 2018 to
   30.66% in 2024.
@@ -127,8 +132,8 @@ Current verified state:
 | `SCHEMA.md` | Research questions, ontology navigator, pipeline map. |
 | `CONCEPTS.md` | Authoritative scoring ontology. |
 | `docs/research/current_project_goal_2026-07-02.md` | Canonical plain-language goal and presentation framing. |
-| `docs/research/july29_retrospective_longitudinal_evidence_rescue_2026-07-29.md` | Five source-complete historical trajectories, causal-strength audit, computed findings, and claim boundaries. |
-| `data/retrospective_longitudinal_cases_2026-07-29.csv` | Component-coded before/after evidence for Google, Facebook, TikTok, Orange, and Vanity Fair. |
+| `docs/research/july29_retrospective_longitudinal_evidence_rescue_2026-07-29.md` | Six source-complete historical trajectories, direction/causal-strength audit, computed findings, and claim boundaries. |
+| `data/retrospective_longitudinal_cases_2026-07-29.csv` | Component-coded before/after evidence for Google, Facebook, TikTok, Orange, Vanity Fair, and SHEIN. |
 | `data/retrospective_source_registry_2026-07-29.csv` | Primary-source URLs, dates, locators, supported claims, and evidence-strength labels. |
 | `docs/research/july3_scope_fact_review_and_poster_plan_2026-07-03.md` | Latest scope/fact review, completion-risk check, and poster-safe writing plan. |
 | `docs/research/current_scope_2026-07-01.md` | Current summer deliverable scope. |
@@ -144,12 +149,13 @@ The safe current conclusion is:
 > RQ1 provides a repeatable multidimensional measure and RQ2 can apply it to
 > matched captures and dated historical evidence. The local five-site pilot
 > remains insufficient for direction, but the source-complete retrospective
-> series finds four improvements and one regression. Across the three
+> series finds five improvements and one regression. Across the three
 > first-layer button cases, refusal moved from an acceptance-favoring multi-step
 > path to one-click or equivalent simplicity. These cases suggest that
 > regulatory pressure changes concrete interaction friction first, while
 > transparency and technical respect for a choice can remain incomplete or
-> later regress.
+> later regress. This is an observational case-series result, not an experiment
+> or a population estimate.
 
 ## Do Not Claim
 
@@ -162,8 +168,8 @@ The safe current conclusion is:
 - Do not translate longitudinal severity letters into improvement or
   regression; they are review-priority signals.
 - Do not treat a scoring-code change as a website-interface change.
-- Do not combine the five local pilot rows with the five retrospective cases as
+- Do not combine the five local pilot rows with the six retrospective cases as
   if they shared one sampling or capture protocol.
-- Do not present `4/5` as an internet-wide improvement rate.
+- Do not present `5/6` as an internet-wide improvement rate.
 - Do not claim that regulation caused a change unless the source directly
   attributes it or documents an order-and-follow-up sequence.

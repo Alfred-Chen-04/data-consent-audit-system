@@ -47,7 +47,7 @@ matched evidence and surface candidate changes, and that automated deltas must
 be separated from validated substantive change.
 
 That local limit is no longer the whole project result. A separate retrospective
-case series adds five source-complete trajectories documented by CNIL,
+case series adds six source-complete trajectories documented by CNIL,
 Legifrance, and one direct Google announcement:
 
 | Retrospective case | Dated directional result |
@@ -57,9 +57,10 @@ Legifrance, and one direct Google announcement:
 | TikTok | Improved but incomplete: at least three reject actions became a first-layer reject button, while information remained deficient |
 | Orange | Improved: post-withdrawal cookie reads/writes on `orange.fr` stopped after an injunction |
 | Vanity Fair France | Regressed: later checks found pre-consent cookies and ineffective reject/withdrawal after an earlier proceeding had closed |
+| SHEIN | Improved: CNIL recorded ineffective refusal and withdrawal in August 2023 and later recorded remediation during the proceedings |
 
-Across these purposively selected cases, `4/5` improved in at least one audited
-component and `1/5` regressed. All `3/3` first-layer button cases moved from an
+Across these purposively selected cases, `5/6` improved in at least one audited
+component and `1/6` regressed. All `3/3` first-layer button cases moved from an
 acceptance-favoring effort asymmetry to one-click or equivalently simple
 refusal. These are case-series fractions, not population estimates.
 
@@ -95,12 +96,12 @@ claim about long-term evolution. The missing pieces are specific:
 | Scorer-version confound | The Coca-Cola detector fix can mimic website improvement | Store scorer/rubric version and back-code earlier captures before comparison |
 | Raw technical diff lacks direction | Hash changes say that something changed, not whether user choice improved | Apply the directional component rubric after manual evidence review |
 | Reliability not measured | A single coder may interpret pathways or grades inconsistently | Double-code a subset and report agreement or disagreements |
-| Small, selective evidence sets | Neither five local sites nor five purposive historical cases can support a prevalence estimate | Use the 2026 11,364-site historical study as the external trend benchmark and present this project's five cases as mechanism-focused evidence |
+| Small, selective evidence sets | Neither five local sites nor six purposive historical cases can support a prevalence estimate | Use the 2026 11,364-site historical study as the external trend benchmark and present this project's six cases as mechanism-focused evidence |
 | Policy scope is ambiguous | Long-form privacy policies require a different unit and rubric | Keep the core unit as first/second-layer consent UI; treat linked notice text as context, not a full policy audit |
 
 The repository records the current local five in
 `data/longitudinal_directional_review_2026-07-29.csv` and the source-complete
-historical five in `data/retrospective_longitudinal_cases_2026-07-29.csv`.
+historical six in `data/retrospective_longitudinal_cases_2026-07-29.csv`.
 Historical evidence is admitted only when a dated primary source supplies the
 missing observation; it is never inferred from an absent screenshot.
 
@@ -125,6 +126,12 @@ for a clear poster path rather than a software inventory:
 - Official board options are 32 x 40 inches or 40 x 60 inches. The current
   48 x 36 landscape poster fits a 40 x 60 board but not a 32 x 40 board; the
   registered board size must be confirmed before printing.
+- Summer 2026 Intersections is Thursday, July 30, 2026 from 10:00 a.m. to
+  12:00 p.m. Registration closed July 12 and PI approval was due July 15. The
+  repository does not establish whether this project registered or received a
+  poster number.
+- The official SSRP page requires presentation at Summer 2026, Fall 2026, or
+  Spring 2027 Intersections and a final paper by August 31, 2026.
 
 Official sources:
 
@@ -133,6 +140,7 @@ Official sources:
 - https://case.edu/studentlife/ugresearch/share-your-work/intersections-poster-symposium/poster-judging-intersections
 - https://case.edu/studentlife/ugresearch/share-your-work/intersections-poster-symposium/registration-and-information
 - https://case.edu/studentlife/ugresearch/share-your-work/intersections-poster-symposium/registration-and-information/intersections-faqs
+- https://case.edu/studentlife/ugresearch/programs-and-funding/ssrp
 - https://case.edu/studentlife/ugresearch/sites/default/files/2022-12/SOURCE_%20Improving%20Presentation%20Skills.pptx%20%281%29.pdf
 
 The Fall 2024 winning posters linked from CWRU were used as organization
@@ -150,8 +158,8 @@ Use a left-to-right sequence:
    conditions.
 4. **Interpretation:** validated deltas become improved, regressed, mixed,
    stable, or insufficient.
-5. **Longitudinal result:** five primary-source historical trajectories yield
-   four component improvements and one functional regression.
+5. **Longitudinal result:** six primary-source historical trajectories yield
+   five component improvements and one functional regression.
 6. **Interpretation:** regulation repeatedly changes visible reject effort, but
    purpose disclosure and technical respect for refusal can remain deficient or
    later regress.
@@ -169,10 +177,11 @@ band, not three large result cards.
 3. Two evidence lanes answer feasibility and historical change.
 4. RQ1 is the ruler; RQ2 creates the timeline.
 5. A 2026 study shows the broad reject-button trend from 2018 to 2024.
-6. Five primary-source cases meet the retrospective inclusion rule.
+6. Six primary-source cases meet the retrospective inclusion rule.
 7. Google reduced reject effort from at least five actions to one.
 8. Facebook and TikTok also moved refusal toward first-layer parity.
-9. Orange improved withdrawal while Vanity Fair later regressed.
+9. Orange and SHEIN improved technical refusal/withdrawal while Vanity Fair
+   later regressed.
 10. Change reasons have different evidentiary strength.
 11. Main finding: visible parity improves first, but autonomy can remain
     incomplete and reversible.
@@ -185,8 +194,8 @@ The project answers **how** to build a longitudinal comparison: use RQ1's
 multidimensional audit as a stable ruler, use RQ2 to preserve matched versions,
 validate each technical change against evidence, and classify component
 deltas. It now also identifies documented directional cases: Google, Facebook,
-TikTok, and Orange improved at least one user-choice component, while Vanity
-Fair later regressed in functional respect for refusal.
+TikTok, Orange, and SHEIN improved at least one user-choice component, while
+Vanity Fair later regressed in functional respect for refusal.
 
 The deeper conclusion is that consent evolution is component-specific and
 reversible. Regulatory pressure repeatedly produces a concrete reject or
