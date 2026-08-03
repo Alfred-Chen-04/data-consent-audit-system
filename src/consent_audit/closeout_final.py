@@ -99,6 +99,14 @@ DEFAULT_FINAL_ARTIFACTS = (
         Path("data/longitudinal_artifact_manifest_2026-07-30.json"),
     ),
     (
+        "Closeout reconciliation",
+        Path("docs/research/aug03_closeout_reconciliation_2026-08-03.md"),
+    ),
+    (
+        "Final paper working draft",
+        Path("docs/research/ssrp_final_paper_working_draft_2026-08-03.md"),
+    ),
+    (
         "Project-owner decisions",
         Path("data/closeout/project_owner_decision_sheet_2026-07-29.csv"),
     ),

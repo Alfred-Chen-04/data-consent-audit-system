@@ -1,4 +1,4 @@
-# July 30 Final Closeout Execution Plan
+# August 3 Closeout Recovery And Final Paper Execution Plan
 
 ## Objective
 
@@ -10,9 +10,9 @@ the official presentation and final-paper obligations.
 
 | Date | Official or internal fact | Required response |
 |---|---|---|
-| July 30 | Summer Intersections, 10:00 a.m.-12:00 p.m. | Present only if actually registered; otherwise preserve status as unknown/not completed |
-| July 31 | Official 2026 SSRP program period ends | Finish machine-verifiable research and artifact closeout |
-| August 7 | Existing internal core-freeze target | Record rehearsal, human status, final QA, and final index |
+| July 30 | Summer Intersections, 10:00 a.m.-12:00 p.m. | Event has passed; preserve participation as unknown until an email or CampusGroups record confirms it |
+| July 31 | Official 2026 SSRP program period ends | Completed; machine-verifiable research and artifact closeout were completed and recorded |
+| August 3-7 | Internal closeout-recovery window | Confirm Summer status or request Fall/Spring path; rehearse; write the repository final index after its QA gate passes |
 | August 14 | Original proposal end used in project records | Contingency only; no hidden expansion of the research claim |
 | August 31 | Official final-paper deadline | Submit the observational pilot/case-series paper |
 
@@ -43,24 +43,27 @@ Official sources:
 |---|---|---|
 | Research evidence | Six cases, 12 sources, explicit direction and causal strength | Source/link/hash QA passes |
 | Presentation | July 30 PPTX and montage | One timed human rehearsal is recorded |
-| Poster | July 30 PPTX/PDF/PNG, 48 x 36 | Confirm 40 x 60 board before printing/use |
-| Event obligation | Official dates and branches documented | Record actual registration/presentation status |
-| Repository handoff | Final-index defaults migrated to current artifacts | Updated manifest, backup, full checks, then gated final index |
-| Final paper | Complete section/source plan exists | Draft, claim audit, advisor review if available, submit by August 31 |
+| Poster | July 30 PPTX/PDF/PNG, 48 x 36 | Keep ready for the confirmed Fall/Spring board if Summer attendance is not evidenced |
+| Event obligation | Summer event is historical; official Fall/Spring alternatives are verified | Record actual Summer status or URO's next-session confirmation |
+| Repository handoff | Final-index defaults, manifest, backup, and machine QA are complete | Write final index after timed rehearsal; do not treat it as event-attendance evidence |
+| Final paper | Source map and August 3 working draft exist | Claim audit, mentor review if available, submit by August 31 |
 
 ## Work Order
 
-### July 30-31
+### Completed July 30-31
 
 - Finish all machine-verifiable QA, hashes, manifest, backup, and documentation.
 - If registered, use the event branch in the low-token runbook.
 - Record only actual attendance, poster number, board, and rehearsal facts.
 
-### August 1-7
+### August 3-7
 
+- Confirm actual Summer participation from email or CampusGroups. If unknown or
+  not presented, send the prepared URO message and retain the reply.
 - Run one complete presentation rehearsal and one 90-second poster pitch.
 - Apply only corrections exposed by rehearsal; do not reopen the research scope.
 - Pass the final-index dry run, write the index, and open every linked artifact.
+- Start from the August 3 paper working draft; fill only source-backed detail.
 
 ### August 8-14
 

@@ -30,6 +30,12 @@ def test_default_final_artifacts_point_to_current_longitudinal_outputs() -> None
     assert paths["Longitudinal artifact manifest"] == (
         "data/longitudinal_artifact_manifest_2026-07-30.json"
     )
+    assert paths["Closeout reconciliation"] == (
+        "docs/research/aug03_closeout_reconciliation_2026-08-03.md"
+    )
+    assert paths["Final paper working draft"] == (
+        "docs/research/ssrp_final_paper_working_draft_2026-08-03.md"
+    )
 
 
 def _write_manifest(path: Path, *, ready: bool) -> None:

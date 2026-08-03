@@ -22,7 +22,7 @@
 | Poster PPTX | 979,220 | `a156f4058fb434c3c8681acfefd8b074d78af60748852607932cf2f1a6c6a4b8` |
 | Poster PDF | 736,571 | `c1bf4e845cf04ed1a5c21f78293e88f42364503d4a14ac12540ac584a132b913` |
 | Poster PNG | 1,327,816 | `aef4b06f1d871dd57536b185f755d33f115f310069584e54997ecc44ccdb02c1` |
-| 29-file manifest | 6,625 | `0279f69cfb277c63631393693669f089fef6a33e536cc50c78e4b68ccc44ced8` |
+| 32-file manifest | 7,198 | `9f4721bc9610a753d89727380346d48a89d51d5d3e399ada00f3e87ae8911b11` |
 
 Paths:
 
@@ -42,16 +42,16 @@ Paths:
   inches.
 - Evidence: all six cases resolve to registered source IDs; direction and
   causal evidence strength are separate fields.
-- Backup: 30 ZIP entries pass archive testing; all 29 manifest-record hashes
+- Backup: 33 ZIP entries pass archive testing; all 32 manifest-record hashes
   match the bytes inside the archive; ZIP sidecar hash passes.
-- Repository: 275 tests pass; Ruff passes; Mypy passes on 55 source files;
-  compileall passes; the pre-freeze and July 30 manifest contracts reproduce.
+- Repository: 276 tests pass; Ruff passes; Mypy passes on 55 source files;
+  compileall passes; the pre-freeze and August 3 manifest contracts reproduce.
 
 ## External Backup
 
 - ZIP: `/Users/alfred/Documents/data consent audit system/backup/ssrp_consent_longitudinal_closeout_2026-07-30.zip`
-- Bytes: 3,083,291
-- SHA-256: `2e34feedca2216300a7f410e8dddbd5471fc19a9d7ed6444efbae97ff45c55d4`
+- Bytes: 3,092,394
+- SHA-256: `c0c6e4802db323514a6b119a167f24a453c5e4100d0802dcf3da7e529619a373`
 - Sidecar: `/Users/alfred/Documents/data consent audit system/backup/ssrp_consent_longitudinal_closeout_2026-07-30.zip.sha256`
 
 ## Remaining Human Gates

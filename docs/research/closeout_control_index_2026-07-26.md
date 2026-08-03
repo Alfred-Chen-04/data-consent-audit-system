@@ -7,15 +7,17 @@ closeout window. It separates current working artifacts from dated history and
 links the response decision, revision execution, evidence freeze, and final QA
 steps in one place.
 
-**Status: `pre_freeze`, updated July 30. This is not a final index. The
-machine-verifiable evidence and artifacts are current; actual event status and
-one timed rehearsal remain human facts.**
+**Status: `pre_freeze`, reconciled August 3. This is not a final index. The
+machine-verifiable evidence and artifacts are current; Summer Intersections has
+passed without checked-in participation evidence, and one timed rehearsal
+remains a human fact.**
 
 ## Current Snapshot
 
-- Summer 2026 Intersections is scheduled for July 30, 2026, 10:00 a.m.-12:00
-  p.m. The repository does not establish whether the project is registered or
-  presented; that status must be recorded from the actual event.
+- Summer 2026 Intersections occurred on July 30, 2026, 10:00 a.m.-12:00 p.m.
+  The repository does not establish whether the project was registered or
+  presented. Do not infer the answer from prepared files; obtain an email or
+  CampusGroups record, or request the Fall 2026/Spring 2027 path from URO.
 - The official SSRP program period is May 26-July 31, 2026. The official final
   paper deadline is August 31, 2026.
 - Current display artifacts are the July 30 ten-slide presentation and the
@@ -75,7 +77,8 @@ not maintained as a separate status claim.
 | Longitudinal artifact QA | [July 30 QA record](../../data/longitudinal_revision_qa_2026-07-30.csv) | Machine/render checks pass; rehearsal and actual event/board status remain |
 | Longitudinal artifact inventory | [July 30 SHA-256 manifest](../../data/longitudinal_artifact_manifest_2026-07-30.json) | Reproducible current research, evidence, presentation, poster, plan, and QA inventory |
 | Artifact delivery | [July 30 delivery note](july30_evidence_complete_artifact_delivery_2026-07-30.md) | Final paths, verification results, backup location, and remaining human gates |
-| Today-to-submission plan | [Final closeout execution plan](july30_final_closeout_execution_plan_2026-07-30.md) and [paper completion plan](ssrp_final_paper_completion_plan_2026-07-30.md) | July 30-August 31 work order with claim boundary and low-token prompts |
+| Today-to-submission plan | [August 3 closeout plan](july30_final_closeout_execution_plan_2026-07-30.md), [paper working draft](ssrp_final_paper_working_draft_2026-08-03.md), and [paper completion plan](ssrp_final_paper_completion_plan_2026-07-30.md) | Current recovery, writing, claim-audit, and submission path |
+| August 3 reconciliation | [Closeout reconciliation](aug03_closeout_reconciliation_2026-08-03.md) | Separates the passed Summer event from remaining evidence-backed obligations |
 | Joint review attachment | [Nine-file joint review ZIP](joint_review/ssrp_joint_advisor_review_2026-07-25.zip) | Current single-attachment review packet |
 | Review request | [Joint advisor email](advisor_email_joint_presentation_poster_review_2026-07-25.md) | Current send/discussion text |
 | Response record | [Joint decision sheet](../../data/joint_advisor_review_decision_sheet_2026-07-25.csv) | Only actual responses with reviewer/date provenance belong here |
@@ -111,9 +114,9 @@ resolved. Their role is provenance, not current control.
 
 | Date | Required action | Evidence of completion |
 |---|---|---|
-| July 30-31 | Finish machine QA, current hashes, manifest, backup, and documentation | July 30 delivery note and manifests match the checkout |
-| July 30-August 7 | Record actual event/board status and perform one timed rehearsal | Human confirmation CSV contains dated evidence, not assumptions |
-| August 1-7 | Apply only rehearsal-exposed corrections and rerun final QA | All five final-QA rows become verified |
+| July 30-31 | Machine QA, current hashes, manifest, backup, and documentation | Completed; July 30 delivery note and manifests match the checkout |
+| August 3-7 | Obtain evidence of Summer participation or request Fall/Spring path; perform one timed rehearsal | Human confirmation CSV or URO reply contains dated evidence, not assumptions |
+| August 3-7 | Apply only rehearsal-exposed corrections, begin the paper draft, and rerun final QA | All five final-QA rows become verified; working draft retains source IDs |
 | August 8-14 | Use only for mentor corrections or event contingency | No unsupported scope expansion or relabeling |
 | August 15-31 | Draft, audit, format, and submit the final paper | Submission evidence retained; claim boundary remains observational |
 
@@ -178,6 +181,7 @@ Record the five final artifact-level checks in the linked final-QA CSV. Run
 | July 20-26 | Joint presentation/poster review, fallback protocol, reproducible inventory, revision map, and freeze gate | [July 25 gap review](july25_gap_review_and_joint_packet_2026-07-25.md), [July 26 pre-freeze manifest](july26_closeout_prefreeze_manifest_2026-07-26.md) |
 | July 29 | Longitudinal objective correction, retrospective evidence rescue, directional protocol, CWRU SOURCE alignment, and rebuilt presentation/poster | [Evidence rescue](july29_retrospective_longitudinal_evidence_rescue_2026-07-29.md), [longitudinal reframing](july29_longitudinal_reframing_and_source_alignment_2026-07-29.md), [artifact delivery](july29_longitudinal_artifact_delivery_2026-07-29.md) |
 | July 30 | Sixth trajectory, explicit causal-strength grading, current artifacts, official deadline audit, and low-token closeout plan | [Execution plan](july30_final_closeout_execution_plan_2026-07-30.md), [paper plan](ssrp_final_paper_completion_plan_2026-07-30.md) |
+| August 3 | Post-event status reconciliation, Fall/Spring presentation branch, and source-linked final-paper working draft | [Reconciliation](aug03_closeout_reconciliation_2026-08-03.md), [paper working draft](ssrp_final_paper_working_draft_2026-08-03.md) |
 
 ## Claim Guardrails
 

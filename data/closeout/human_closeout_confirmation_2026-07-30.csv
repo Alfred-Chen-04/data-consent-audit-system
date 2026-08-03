@@ -1,3 +1,3 @@
 confirmation_id,status,required_input,evidence,confirmed_by,confirmed_at,notes
-summer_intersections_status,pending,"registration status, actual presentation status, board size, and poster number",,,,Do not infer event participation from prepared artifacts
+summer_intersections_status,pending,"registration status, actual presentation status, board size, and poster number",,,,Summer event has passed; do not infer participation from prepared artifacts. Record an email/CampusGroups fact or a URO follow-up reply.
 presentation_rehearsal,pending,"one timed full run, Q&A duration, and two observed corrections",,,,Required before presentation_final_qa can be verified

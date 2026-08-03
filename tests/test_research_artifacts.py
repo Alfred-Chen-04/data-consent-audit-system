@@ -2105,6 +2105,9 @@ def test_july30_longitudinal_manifest_matches_current_checkout() -> None:
         "data/longitudinal_revision_qa_2026-07-30.csv",
         "docs/research/presentation/ssrp_consent_longitudinal_presentation_2026-07-30.pptx",
         "docs/research/poster/ssrp_consent_longitudinal_poster_2026-07-30.pdf",
+        "docs/research/aug03_closeout_reconciliation_2026-08-03.md",
+        "docs/research/ssrp_final_paper_working_draft_2026-08-03.md",
+        "scripts/build_longitudinal_artifact_manifest.py",
         "docs/research/ssrp_final_paper_completion_plan_2026-07-30.md",
     }
     assert required_paths <= paths
@@ -2129,3 +2132,42 @@ def test_july30_longitudinal_manifest_matches_current_checkout() -> None:
     assert {
         row["check"] for row in qa_rows if row["status"] == "pending"
     } == {"live_rehearsal", "event_and_board_status"}
+
+
+def test_august3_closeout_reconciliation_preserves_unknown_event_status() -> None:
+    reconciliation_path = Path(
+        "docs/research/aug03_closeout_reconciliation_2026-08-03.md"
+    )
+    runbook_path = Path(
+        "docs/research/closeout_low_token_runbook_2026-07-27.md"
+    )
+    working_draft_path = Path(
+        "docs/research/ssrp_final_paper_working_draft_2026-08-03.md"
+    )
+    confirmations_path = Path(
+        "data/closeout/human_closeout_confirmation_2026-07-30.csv"
+    )
+
+    reconciliation_text = reconciliation_path.read_text(encoding="utf-8")
+    normalized_reconciliation_text = " ".join(reconciliation_text.split())
+    runbook_text = runbook_path.read_text(encoding="utf-8")
+    draft_text = working_draft_path.read_text(encoding="utf-8")
+    with confirmations_path.open(newline="", encoding="utf-8") as handle:
+        confirmations = {
+            row["confirmation_id"]: row for row in csv.DictReader(handle)
+        }
+
+    assert "Summer 2026 Intersections occurred on July 30" in reconciliation_text
+    assert "Fall 2026, or Spring 2027" in normalized_reconciliation_text
+    assert (
+        "no email, CampusGroups record, poster location, or attendee record"
+        in normalized_reconciliation_text
+    )
+    assert "Current as of 2026-08-03" in runbook_text
+    assert "occurred on July 30" in runbook_text
+    assert "Subject: SSRP 2026 presentation requirement" in runbook_text
+    assert "not a submission-ready manuscript" in draft_text
+    assert "`5/6` improved" in draft_text
+    assert "`insufficient_evidence`" in draft_text
+    assert confirmations["summer_intersections_status"]["status"] == "pending"
+    assert "has passed" in confirmations["summer_intersections_status"]["notes"]

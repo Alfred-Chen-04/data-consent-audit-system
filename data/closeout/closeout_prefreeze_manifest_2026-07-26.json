@@ -130,7 +130,7 @@
     "blockers": [],
     "ready_for_final_freeze": true
   },
-  "generated_at": "2026-07-30T05:02:51.271207+00:00",
+  "generated_at": "2026-08-03T02:05:33.839417+00:00",
   "key_deliverables": [
     {
       "bytes": 20937,
@@ -223,21 +223,21 @@
       "status": "present"
     },
     {
-      "bytes": 16202,
+      "bytes": 16938,
       "path": "docs/research/closeout_control_index_2026-07-26.md",
-      "sha256": "9276b14a6e3a7f67025123572adbbc3a502e8260b2679f7f47f10c8d50a5ff09",
+      "sha256": "394256c32372a93099ea09218264e033bfeb47cca40dbbb52a67cad2a852b195",
       "status": "present"
     },
     {
-      "bytes": 3957,
+      "bytes": 4793,
       "path": "docs/research/closeout_low_token_runbook_2026-07-27.md",
-      "sha256": "93fb46a6e102e102108ee326b783be07f3f13907f77ffd3ac741f30e9607c883",
+      "sha256": "1d0a4983aae6d3e7da4418ab4f6339c18b5add6fabd709287e97da021604037c",
       "status": "present"
     },
     {
-      "bytes": 2523,
+      "bytes": 2561,
       "path": "data/closeout/final_qa_checklist_2026-07-27.csv",
-      "sha256": "232df33d3685d59a2abc40994f31853a287e43d0d1c872a1de6e2d38eb0b7390",
+      "sha256": "1deaf1139a9425c8f9bc43bdbf53595d5d9bdef0e583b9b62b56d13e93718a29",
       "status": "present"
     }
   ],

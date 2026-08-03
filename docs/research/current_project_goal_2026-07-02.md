@@ -87,8 +87,10 @@ The current SSRP deliverables are:
 The official 2026 SSRP page requires participants to present at an upcoming
 Intersections in Summer 2026, Fall 2026, or Spring 2027 and to submit a final
 paper by August 31, 2026. This supersedes the earlier internal assumption that
-the paper was optional. The Summer 2026 Intersections event is July 30, 2026;
-the repository cannot establish whether this project was registered for it.
+the paper was optional. Summer 2026 Intersections occurred on July 30, 2026;
+the repository cannot establish whether this project was registered for or
+presented at it. The official SSRP requirement also permits a Fall 2026 or
+Spring 2027 Intersections presentation.
 
 ## What To Say In Presentation
 

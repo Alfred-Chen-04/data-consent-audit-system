@@ -37,6 +37,8 @@ for the full positioning.
 | [docs/research/closeout_control_index_2026-07-26.md](docs/research/closeout_control_index_2026-07-26.md) | **Start here for closeout** - current longitudinal artifacts, remaining gates, dated work order, and historical map |
 | [docs/research/closeout_low_token_runbook_2026-07-27.md](docs/research/closeout_low_token_runbook_2026-07-27.md) | Two-line human-status intake, final-index path, and low-token paper prompts |
 | [docs/research/july30_final_closeout_execution_plan_2026-07-30.md](docs/research/july30_final_closeout_execution_plan_2026-07-30.md) | Official July 30-August 31 timeline, closed decisions, acceptance state, and remaining human gates |
+| [docs/research/aug03_closeout_reconciliation_2026-08-03.md](docs/research/aug03_closeout_reconciliation_2026-08-03.md) | Post-Summer-Intersections factual status, Fall/Spring presentation branch, and August 3-31 closeout actions |
+| [docs/research/ssrp_final_paper_working_draft_2026-08-03.md](docs/research/ssrp_final_paper_working_draft_2026-08-03.md) | Source-linked paper starter with the bounded observational case-series claim |
 | [data/closeout/project_owner_decision_sheet_2026-07-29.csv](data/closeout/project_owner_decision_sheet_2026-07-29.csv) | Five explicit project-owner closeout decisions, kept separate from advisor-response provenance |
 | [data/closeout/final_qa_checklist_2026-07-27.csv](data/closeout/final_qa_checklist_2026-07-27.csv) | Fact-based final presentation, poster, evidence, repository, and backup verification record required before the final index |
 | [SCHEMA.md](SCHEMA.md) | One-page technical master view: research question → ontology → pipeline → modules → status → open decisions |
