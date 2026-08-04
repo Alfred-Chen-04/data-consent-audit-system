@@ -1797,7 +1797,7 @@ def test_july26_closeout_control_index_separates_current_and_history() -> None:
     assert "`uv run consent-audit closeout-final-index`" in control_text
 
     current_paths = (
-        "presentation/ssrp_consent_longitudinal_presentation_2026-07-30.pptx",
+        "presentation/ssrp_consent_longitudinal_presentation_rehearsal_ready_2026-08-04.pptx",
         "poster/ssrp_consent_longitudinal_poster_2026-07-30.pdf",
         "../../data/longitudinal_artifact_manifest_2026-07-30.json",
         "../../data/longitudinal_revision_qa_2026-07-30.csv",
@@ -2103,7 +2103,8 @@ def test_july30_longitudinal_manifest_matches_current_checkout() -> None:
         "data/retrospective_longitudinal_cases_2026-07-29.csv",
         "data/retrospective_source_registry_2026-07-29.csv",
         "data/longitudinal_revision_qa_2026-07-30.csv",
-        "docs/research/presentation/ssrp_consent_longitudinal_presentation_2026-07-30.pptx",
+        "docs/research/presentation/ssrp_consent_longitudinal_presentation_rehearsal_ready_2026-08-04.pptx",
+        "docs/research/presentation/ssrp_consent_presentation_readiness_2026-08-04.md",
         "docs/research/poster/ssrp_consent_longitudinal_poster_2026-07-30.pdf",
         "docs/research/aug03_closeout_reconciliation_2026-08-03.md",
         "docs/research/ssrp_final_paper_working_draft_2026-08-03.md",

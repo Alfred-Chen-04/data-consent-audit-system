@@ -41,14 +41,14 @@ DEFAULT_FINAL_ARTIFACTS = (
         "Presentation PPTX",
         Path(
             "docs/research/presentation/"
-            "ssrp_consent_longitudinal_presentation_2026-07-30.pptx"
+            "ssrp_consent_longitudinal_presentation_rehearsal_ready_2026-08-04.pptx"
         ),
     ),
     (
         "Presentation montage",
         Path(
             "docs/research/presentation/"
-            "ssrp_consent_longitudinal_presentation_2026-07-30_montage.png"
+            "ssrp_consent_longitudinal_presentation_rehearsal_ready_2026-08-04_montage.png"
         ),
     ),
     (
@@ -105,6 +105,13 @@ DEFAULT_FINAL_ARTIFACTS = (
     (
         "Final paper working draft",
         Path("docs/research/ssrp_final_paper_working_draft_2026-08-03.md"),
+    ),
+    (
+        "Presentation readiness guide",
+        Path(
+            "docs/research/presentation/"
+            "ssrp_consent_presentation_readiness_2026-08-04.md"
+        ),
     ),
     (
         "Project-owner decisions",

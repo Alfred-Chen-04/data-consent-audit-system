@@ -25,6 +25,7 @@ MANIFEST_FILES = (
     "docs/research/ssrp_final_paper_completion_plan_2026-07-30.md",
     "docs/research/ssrp_final_paper_working_draft_2026-08-03.md",
     "docs/research/presentation/ssrp_consent_rehearsal_script_2026-07-30.md",
+    "docs/research/presentation/ssrp_consent_presentation_readiness_2026-08-04.md",
     "data/longitudinal_directional_review_2026-07-29.csv",
     "data/retrospective_longitudinal_cases_2026-07-29.csv",
     "data/retrospective_source_registry_2026-07-29.csv",
@@ -38,8 +39,8 @@ MANIFEST_FILES = (
     "docs/research/july29_project_owner_closeout_decisions_2026-07-29.md",
     "src/consent_audit/closeout_final.py",
     "scripts/build_longitudinal_artifact_manifest.py",
-    "docs/research/presentation/ssrp_consent_longitudinal_presentation_2026-07-30.pptx",
-    "docs/research/presentation/ssrp_consent_longitudinal_presentation_2026-07-30_montage.png",
+    "docs/research/presentation/ssrp_consent_longitudinal_presentation_rehearsal_ready_2026-08-04.pptx",
+    "docs/research/presentation/ssrp_consent_longitudinal_presentation_rehearsal_ready_2026-08-04_montage.png",
     "docs/research/poster/ssrp_consent_longitudinal_poster_2026-07-30.pptx",
     "docs/research/poster/ssrp_consent_longitudinal_poster_2026-07-30.pdf",
     "docs/research/poster/ssrp_consent_longitudinal_poster_2026-07-30.png",
@@ -68,8 +69,8 @@ def build_manifest(repo_root: Path, *, generated_at: datetime | None = None) -> 
         "schema_version": 2,
         "generated_at": timestamp.isoformat(timespec="seconds"),
         "purpose": (
-            "Reproducible inventory for the August 3 six-case evidence rescue, "
-            "current presentation/poster, closeout recovery, and final-paper handoff."
+            "Reproducible inventory for the August 4 six-case evidence rescue, "
+            "rehearsal-ready presentation/poster, closeout recovery, and final-paper handoff."
         ),
         "research_boundary": {
             "local_controlled_pilot": {

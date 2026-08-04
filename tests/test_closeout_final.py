@@ -19,7 +19,7 @@ def test_default_final_artifacts_point_to_current_longitudinal_outputs() -> None
     paths = {role: path.as_posix() for role, path in DEFAULT_FINAL_ARTIFACTS}
 
     assert paths["Presentation PPTX"].endswith(
-        "ssrp_consent_longitudinal_presentation_2026-07-30.pptx"
+        "ssrp_consent_longitudinal_presentation_rehearsal_ready_2026-08-04.pptx"
     )
     assert paths["Poster PDF"].endswith(
         "ssrp_consent_longitudinal_poster_2026-07-30.pdf"
@@ -35,6 +35,10 @@ def test_default_final_artifacts_point_to_current_longitudinal_outputs() -> None
     )
     assert paths["Final paper working draft"] == (
         "docs/research/ssrp_final_paper_working_draft_2026-08-03.md"
+    )
+    assert paths["Presentation readiness guide"] == (
+        "docs/research/presentation/"
+        "ssrp_consent_presentation_readiness_2026-08-04.md"
     )
 
 

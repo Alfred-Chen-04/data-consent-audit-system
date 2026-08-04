@@ -25,7 +25,7 @@ Official sources:
 | Research result | Complete and bounded | Six cases, 12-source registry, current artifacts | Repository |
 | Repository QA and backup | Complete | Existing QA record, manifest, external ZIP | Repository |
 | Summer Intersections | Unknown after the event | Email, CampusGroups record, or URO reply | Project owner / URO |
-| Presentation readiness | One machine-verified deck and poster; human rehearsal pending | Timed run, Q&A time, two corrections | Project owner |
+| Presentation readiness | August 4 machine-verified rehearsal-ready deck, poster, speaker notes, and question bank; human rehearsal pending | Timed run, Q&A time, two corrections | Project owner |
 | SSRP presentation requirement | Not yet claimable as complete | Summer evidence or Fall/Spring URO confirmation | Project owner / URO |
 | Final paper | Drafting phase | Claim/source audit, final formatting, submission evidence | Project owner |
 
