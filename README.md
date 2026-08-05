@@ -35,7 +35,7 @@ for the full positioning.
 | File | Purpose |
 |---|---|
 | [docs/research/closeout_control_index_2026-07-26.md](docs/research/closeout_control_index_2026-07-26.md) | **Start here for closeout** - current longitudinal artifacts, remaining gates, dated work order, and historical map |
-| [docs/research/closeout_low_token_runbook_2026-07-27.md](docs/research/closeout_low_token_runbook_2026-07-27.md) | Two-line human-status intake, final-index path, and low-token paper prompts |
+| [docs/research/closeout_low_token_runbook_2026-07-27.md](docs/research/closeout_low_token_runbook_2026-07-27.md) | Three-line human-status intake, final-index path, and low-token paper prompts |
 | [docs/research/july30_final_closeout_execution_plan_2026-07-30.md](docs/research/july30_final_closeout_execution_plan_2026-07-30.md) | Official July 30-August 31 timeline, closed decisions, acceptance state, and remaining human gates |
 | [docs/research/aug03_closeout_reconciliation_2026-08-03.md](docs/research/aug03_closeout_reconciliation_2026-08-03.md) | Post-Summer-Intersections factual status, Fall/Spring presentation branch, and August 3-31 closeout actions |
 | [docs/research/ssrp_final_paper_working_draft_2026-08-03.md](docs/research/ssrp_final_paper_working_draft_2026-08-03.md) | Source-linked paper starter with the bounded observational case-series claim |

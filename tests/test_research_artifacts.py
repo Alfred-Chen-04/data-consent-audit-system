@@ -1784,7 +1784,7 @@ def test_july26_closeout_control_index_separates_current_and_history() -> None:
     assert "0 active joint-sheet contract errors" in normalized_control_text
     assert "July 29, 23:59 Asia/Shanghai" in control_text
     assert "August 31, 2026" in control_text
-    assert control_text.count("- [ ]") == 3
+    assert control_text.count("- [ ]") == 4
     assert control_text.count("- [x]") == 7
     assert "## Current Working Set" in control_text
     assert "## Superseded Or Historical Paths" in control_text
@@ -2166,11 +2166,14 @@ def test_august3_closeout_reconciliation_preserves_unknown_event_status() -> Non
         "no email, CampusGroups record, poster location, or attendee record"
         in normalized_reconciliation_text
     )
-    assert "Current as of 2026-08-03" in runbook_text
+    assert "Current as of 2026-08-06" in runbook_text
     assert "occurred on July 30" in runbook_text
     assert "Subject: SSRP 2026 presentation requirement" in runbook_text
+    assert "The Only Three Human Inputs" in runbook_text
     assert "not a submission-ready manuscript" in draft_text
     assert "`5/6` improved" in draft_text
     assert "`insufficient_evidence`" in draft_text
     assert confirmations["summer_intersections_status"]["status"] == "pending"
     assert "has passed" in confirmations["summer_intersections_status"]["notes"]
+    assert confirmations["final_paper_submission"]["status"] == "pending"
+    assert "do not infer submission" in confirmations["final_paper_submission"]["notes"]

@@ -1,4 +1,4 @@
-# SSRP Closeout Low-Token Runbook, Current as of 2026-08-03
+# SSRP Closeout Low-Token Runbook, Current as of 2026-08-06
 
 ## Current Truth
 
@@ -19,23 +19,27 @@
 ## What Is Already Prepared
 
 - Six source-complete historical trajectories and a 12-source registry.
-- A 10-slide July 30 presentation with source notes.
+- A 10-slide August 4 rehearsal-ready presentation with source notes and a
+  short question bank.
 - A 48 x 36 July 30 poster in PPTX, PDF, and PNG form.
 - Direction and causal-strength fields kept separate.
 - Final-index code points to the latest longitudinal artifacts.
 - Machine QA, manifest, backup, and final-index dry run are reproducible
   without new research decisions.
+- A seven-page, source-audited final-paper submission candidate with numbered
+  references is ready for an owner formatting check.
 
 Do not recreate these from older daily notes.
 
-## The Only Two Human Inputs
+## The Only Three Human Inputs
 
-Send these as two short lines. Unknown is an acceptable factual answer, but it
+Send these as three short lines. Unknown is an acceptable factual answer, but it
 triggers the URO follow-up below.
 
 ```text
 夏季展示=已参加/已注册未参加/未注册/未知; 证据=邮件或CampusGroups记录/无; board=40x60/32x40/未知; poster号=值/未知
 彩排=总时长X:XX; Q&A=X:XX; 修改1=...; 修改2=...
+论文提交=已提交/未提交; 渠道=实际渠道/未知; 回执=确认号或截图位置/无; 时间=YYYY-MM-DDThh:mm:ss+08:00/未知
 ```
 
 These inputs update
@@ -102,8 +106,13 @@ uv run consent-audit closeout-final-index --write
 
 ## Final Paper Path
 
-Use `docs/research/ssrp_final_paper_completion_plan_2026-07-30.md`. The low-token
-prompts are:
+Use the August 5 submission candidate as the starting point, not the older
+working draft. Check only actual mentor/URO formatting direction before upload;
+the repository does not contain a public SSRP paper template or page-count
+requirement. After a real upload, record its channel, receipt, and timestamp in
+the human-confirmation CSV.
+
+The low-token prompts are:
 
 ```text
 按 final paper plan 写第1-2节，只用登记来源。

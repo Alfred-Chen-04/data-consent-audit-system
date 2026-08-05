@@ -7,10 +7,10 @@ closeout window. It separates current working artifacts from dated history and
 links the response decision, revision execution, evidence freeze, and final QA
 steps in one place.
 
-**Status: `pre_freeze`, reconciled August 3. This is not a final index. The
+**Status: `pre_freeze`, reconciled August 6. This is not a final index. The
 machine-verifiable evidence and artifacts are current; Summer Intersections has
-passed without checked-in participation evidence, and one timed rehearsal
-remains a human fact.**
+passed without checked-in participation evidence, and a timed rehearsal plus
+actual final-paper submission remain human facts.**
 
 ## Current Snapshot
 
@@ -49,9 +49,9 @@ remains a human fact.**
   errors, and 0 active joint-sheet contract errors.
 - Artifact QA: presentation/poster rendering, visual inspection, overflow,
   template fidelity, poster PDF rendering, and 48 x 36 dimensions pass.
-- Remaining human facts: actual Intersections/board status and one timed
-  rehearsal. The final index must continue to refuse completion until the
-  required QA rows are verified.
+- Remaining human facts: actual Intersections/board status, one timed
+  rehearsal, and actual final-paper submission. The final index must continue
+  to refuse completion until the required QA rows are verified.
 
 File presence is not completion. The July 30 SHA-256 manifest is the current
 artifact inventory; the schema-v2 pre-freeze manifest still supplies the
@@ -87,7 +87,7 @@ not maintained as a separate status claim.
 | Response branch | [Advisor response and fallback protocol](july26_advisor_response_and_fallback_protocol_2026-07-26.md) | Separates actual answers from the post-cutoff project fallback |
 | Freeze evidence | [Human-readable pre-freeze manifest](july26_closeout_prefreeze_manifest_2026-07-26.md) and [schema-v2 JSON](../../data/closeout/closeout_prefreeze_manifest_2026-07-26.json) | Reproducible presence, provenance, execution, and readiness gate |
 | Current closeout assessment | [July 25 gap review and joint packet](july25_gap_review_and_joint_packet_2026-07-25.md) | On-track assessment and July 25-August 7 work order |
-| Low-token execution | [July 27 low-token runbook](closeout_low_token_runbook_2026-07-27.md) | Two-line human status intake, final-index path, and short final-paper prompts |
+| Low-token execution | [August 6 low-token runbook](closeout_low_token_runbook_2026-07-27.md) | Three-line human status intake, final-index path, and short final-paper prompts |
 | Final QA and index gate | [Five-row final-QA checklist](../../data/closeout/final_qa_checklist_2026-07-27.csv) | Machine rows verified; rehearsal remains pending; `closeout-final-index` refuses incomplete state |
 
 ## Superseded Or Historical Paths
@@ -116,9 +116,9 @@ resolved. Their role is provenance, not current control.
 |---|---|---|
 | July 30-31 | Machine QA, current hashes, manifest, backup, and documentation | Completed; July 30 delivery note and manifests match the checkout |
 | August 3-7 | Obtain evidence of Summer participation or request Fall/Spring path; perform one timed rehearsal | Human confirmation CSV or URO reply contains dated evidence, not assumptions |
-| August 3-7 | Apply only rehearsal-exposed corrections, begin the paper draft, and rerun final QA | All five final-QA rows become verified; working draft retains source IDs |
+| August 3-7 | Apply only rehearsal-exposed corrections, format-check the completed paper candidate, and rerun final QA | All five final-QA rows become verified; submission candidate retains source-linked claims |
 | August 8-14 | Use only for mentor corrections or event contingency | No unsupported scope expansion or relabeling |
-| August 15-31 | Draft, audit, format, and submit the final paper | Submission evidence retained; claim boundary remains observational |
+| August 15-31 | Apply only mentor-format corrections, claim-audit any revision, and submit the final-paper candidate | Submission evidence retained; claim boundary remains observational |
 
 ## Branch Rules
 
@@ -159,6 +159,7 @@ resolved. Their role is provenance, not current control.
   12-source registry; local insufficient-evidence labels remain unchanged.
 - [x] Current presentation/poster machine checks and visual inspection pass.
 - [ ] Actual Intersections/board status is recorded with human provenance.
+- [ ] Actual final-paper submission channel, receipt, and timestamp are recorded with human provenance.
 - [x] Full repository verification, July 30 manifest, and external backup are
   refreshed for the current checkout.
 - [x] The regenerated manifest reports `ready_for_final_freeze=true` and no

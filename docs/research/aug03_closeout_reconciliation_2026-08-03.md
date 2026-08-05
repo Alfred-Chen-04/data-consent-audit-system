@@ -27,7 +27,7 @@ Official sources:
 | Summer Intersections | Unknown after the event | Email, CampusGroups record, or URO reply | Project owner / URO |
 | Presentation readiness | August 4 machine-verified rehearsal-ready deck, poster, speaker notes, and question bank; human rehearsal pending | Timed run, Q&A time, two corrections | Project owner |
 | SSRP presentation requirement | Not yet claimable as complete | Summer evidence or Fall/Spring URO confirmation | Project owner / URO |
-| Final paper | August 5 source-audited seven-page submission candidate exists; not submitted | Owner formatting review and submission evidence | Project owner |
+| Final paper | August 5 source-audited seven-page submission candidate exists; not submitted | Owner formatting review, actual submission channel, receipt, and timestamp | Project owner |
 
 ## Actions For August 3-7
 
