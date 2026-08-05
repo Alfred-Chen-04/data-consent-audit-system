@@ -27,7 +27,7 @@ Official sources:
 | Summer Intersections | Unknown after the event | Email, CampusGroups record, or URO reply | Project owner / URO |
 | Presentation readiness | August 4 machine-verified rehearsal-ready deck, poster, speaker notes, and question bank; human rehearsal pending | Timed run, Q&A time, two corrections | Project owner |
 | SSRP presentation requirement | Not yet claimable as complete | Summer evidence or Fall/Spring URO confirmation | Project owner / URO |
-| Final paper | Drafting phase | Claim/source audit, final formatting, submission evidence | Project owner |
+| Final paper | August 5 source-audited seven-page submission candidate exists; not submitted | Owner formatting review and submission evidence | Project owner |
 
 ## Actions For August 3-7
 
@@ -41,8 +41,11 @@ Official sources:
 3. Run the presentation once end to end and record duration, Q&A duration, and
    at most two corrections. Then update the presentation QA record and run the
    final-index gate.
-4. Continue the final paper from the August 3 working draft. Add only claims
-   that resolve to the registered source IDs or listed background sources.
+4. Review the August 5 final-paper candidate against any mentor or URO-specific
+   format direction, then submit it only through the actual required channel.
+   Retain only a real submission confirmation. The paper's claim/source audit
+   must remain limited to the registered source IDs and listed background
+   sources.
 
 ## Completion Boundary
 

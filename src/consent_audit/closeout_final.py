@@ -107,6 +107,10 @@ DEFAULT_FINAL_ARTIFACTS = (
         Path("docs/research/ssrp_final_paper_working_draft_2026-08-03.md"),
     ),
     (
+        "Final paper submission candidate",
+        Path("docs/research/ssrp_final_paper_submission_candidate_2026-08-05.docx"),
+    ),
+    (
         "Presentation readiness guide",
         Path(
             "docs/research/presentation/"

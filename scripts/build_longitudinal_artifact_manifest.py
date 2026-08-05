@@ -24,6 +24,8 @@ MANIFEST_FILES = (
     "docs/research/aug03_closeout_reconciliation_2026-08-03.md",
     "docs/research/ssrp_final_paper_completion_plan_2026-07-30.md",
     "docs/research/ssrp_final_paper_working_draft_2026-08-03.md",
+    "docs/research/ssrp_final_paper_submission_candidate_2026-08-05.md",
+    "docs/research/ssrp_final_paper_submission_candidate_2026-08-05.docx",
     "docs/research/presentation/ssrp_consent_rehearsal_script_2026-07-30.md",
     "docs/research/presentation/ssrp_consent_presentation_readiness_2026-08-04.md",
     "data/longitudinal_directional_review_2026-07-29.csv",
@@ -69,8 +71,9 @@ def build_manifest(repo_root: Path, *, generated_at: datetime | None = None) -> 
         "schema_version": 2,
         "generated_at": timestamp.isoformat(timespec="seconds"),
         "purpose": (
-            "Reproducible inventory for the August 4 six-case evidence rescue, "
-            "rehearsal-ready presentation/poster, closeout recovery, and final-paper handoff."
+            "Reproducible inventory for the August 5 six-case evidence rescue, "
+            "rehearsal-ready presentation/poster, source-audited final-paper candidate, "
+            "and closeout recovery."
         ),
         "research_boundary": {
             "local_controlled_pilot": {

@@ -36,6 +36,9 @@ def test_default_final_artifacts_point_to_current_longitudinal_outputs() -> None
     assert paths["Final paper working draft"] == (
         "docs/research/ssrp_final_paper_working_draft_2026-08-03.md"
     )
+    assert paths["Final paper submission candidate"] == (
+        "docs/research/ssrp_final_paper_submission_candidate_2026-08-05.docx"
+    )
     assert paths["Presentation readiness guide"] == (
         "docs/research/presentation/"
         "ssrp_consent_presentation_readiness_2026-08-04.md"

@@ -130,7 +130,7 @@
     "blockers": [],
     "ready_for_final_freeze": true
   },
-  "generated_at": "2026-08-04T03:01:34.301465+00:00",
+  "generated_at": "2026-08-05T04:05:27.554133+00:00",
   "key_deliverables": [
     {
       "bytes": 20937,
@@ -223,9 +223,9 @@
       "status": "present"
     },
     {
-      "bytes": 17037,
+      "bytes": 17175,
       "path": "docs/research/closeout_control_index_2026-07-26.md",
-      "sha256": "62341476b085fef3f65468670554280b8db41a83a482a9932200acc751b1ec91",
+      "sha256": "94fea0a02a11f4835e66a50ae7cecb70160daf2acab8c7653d4bc92b3e7235bd",
       "status": "present"
     },
     {
@@ -235,9 +235,9 @@
       "status": "present"
     },
     {
-      "bytes": 2665,
+      "bytes": 2714,
       "path": "data/closeout/final_qa_checklist_2026-07-27.csv",
-      "sha256": "eab76a8ab390cf3ad1f41591a31da8a7aba0bb425cdc5da30c8050e628915cda",
+      "sha256": "f38538932f56254eecf33d01256bd1923c2877fa27d50d0b682b044df707189a",
       "status": "present"
     }
   ],

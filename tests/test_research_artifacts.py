@@ -2108,6 +2108,8 @@ def test_july30_longitudinal_manifest_matches_current_checkout() -> None:
         "docs/research/poster/ssrp_consent_longitudinal_poster_2026-07-30.pdf",
         "docs/research/aug03_closeout_reconciliation_2026-08-03.md",
         "docs/research/ssrp_final_paper_working_draft_2026-08-03.md",
+        "docs/research/ssrp_final_paper_submission_candidate_2026-08-05.md",
+        "docs/research/ssrp_final_paper_submission_candidate_2026-08-05.docx",
         "scripts/build_longitudinal_artifact_manifest.py",
         "docs/research/ssrp_final_paper_completion_plan_2026-07-30.md",
     }
@@ -2127,7 +2129,7 @@ def test_july30_longitudinal_manifest_matches_current_checkout() -> None:
     ) as handle:
         qa_rows = list(csv.DictReader(handle))
     assert Counter(row["status"] for row in qa_rows) == {
-        "passed": 7,
+        "passed": 8,
         "pending": 2,
     }
     assert {
