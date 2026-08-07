@@ -104,6 +104,10 @@ passes:
 uv run consent-audit closeout-final-index --write
 ```
 
+`uv run consent-audit research-status` also lists the exact pending external
+confirmation IDs, including final-paper submission; use it as the one-command
+status check before changing any row.
+
 ## Final Paper Path
 
 Use the August 5 submission candidate as the starting point, not the older

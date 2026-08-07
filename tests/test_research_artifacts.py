@@ -2110,7 +2110,8 @@ def test_july30_longitudinal_manifest_matches_current_checkout() -> None:
         "docs/research/ssrp_final_paper_working_draft_2026-08-03.md",
         "docs/research/ssrp_final_paper_submission_candidate_2026-08-05.md",
         "docs/research/ssrp_final_paper_submission_candidate_2026-08-05.docx",
-        "scripts/build_longitudinal_artifact_manifest.py",
+            "scripts/build_longitudinal_artifact_manifest.py",
+            "src/consent_audit/research_status.py",
         "docs/research/ssrp_final_paper_completion_plan_2026-07-30.md",
     }
     assert required_paths <= paths

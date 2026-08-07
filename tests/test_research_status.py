@@ -101,6 +101,14 @@ def test_render_research_status_summarizes_week2_state(tmp_path: Path) -> None:
         + "".join(f"qa_{index},pending\n" for index in range(5)),
         encoding="utf-8",
     )
+    human_closeout_confirmation_csv = tmp_path / "human_closeout.csv"
+    human_closeout_confirmation_csv.write_text(
+        "confirmation_id,status\n"
+        "summer_intersections_status,pending\n"
+        "presentation_rehearsal,pending\n"
+        "final_paper_submission,pending\n",
+        encoding="utf-8",
+    )
     final_index_md = tmp_path / "final_index.md"
 
     text = render_research_status(
@@ -119,6 +127,7 @@ def test_render_research_status_summarizes_week2_state(tmp_path: Path) -> None:
         poster_plan_md=poster_plan_md,
         current_closeout_md=current_closeout_md,
         final_qa_csv=final_qa_csv,
+        human_closeout_confirmation_csv=human_closeout_confirmation_csv,
         final_index_md=final_index_md,
     )
 
@@ -133,6 +142,11 @@ def test_render_research_status_summarizes_week2_state(tmp_path: Path) -> None:
         "blockers=revision_rows_not_applied_verified=20" in text
     )
     assert "- Final QA: pending=5; final index=missing" in text
+    assert (
+        "- External confirmations: pending=3; "
+        "pending=final_paper_submission, presentation_rehearsal, "
+        "summer_intersections_status" in text
+    )
     assert (
         "- Current next action: Record actual joint decisions through July 29; "
         "if none are recorded, wait until the internal cutoff before selecting "
@@ -160,6 +174,10 @@ def test_render_research_status_summarizes_week2_state(tmp_path: Path) -> None:
     assert f"- Closeout control index: `{current_closeout_md}`" in text
     assert f"- Closeout pre-freeze manifest: `{closeout_manifest_json}`" in text
     assert f"- Final QA checklist: `{final_qa_csv}`" in text
+    assert (
+        "- Human closeout confirmations: "
+        f"`{human_closeout_confirmation_csv}`" in text
+    )
     assert f"- Final closeout index: `{final_index_md}`" in text
     assert "## Historical And Supporting Artifacts" in text
     assert f"- SSRP results tables: `{results_tables_md}`" in text

@@ -26,6 +26,7 @@ def render_research_status(
     poster_plan_md: Path,
     current_closeout_md: Path,
     final_qa_csv: Path,
+    human_closeout_confirmation_csv: Path,
     final_index_md: Path,
 ) -> str:
     """Render a concise status view from existing research artifacts."""
@@ -51,6 +52,17 @@ def render_research_status(
         final_qa_rows,
         "status",
         default="pending",
+    )
+    human_closeout_rows = _read_all_rows(human_closeout_confirmation_csv)
+    human_closeout_counts = _count_values(
+        human_closeout_rows,
+        "status",
+        default="pending",
+    )
+    pending_human_confirmations = sorted(
+        row.get("confirmation_id", "unknown")
+        for row in human_closeout_rows
+        if row.get("status") != "verified"
     )
     preflight_status = _extract_bullet_value(preflight_md, "Overall status")
     sanity_status = _extract_bullet_value(sanity_md, "Overall status")
@@ -107,6 +119,9 @@ def render_research_status(
         f"blockers={freeze_blockers or 'none'}\n"
         f"- Final QA: {_format_counts(final_qa_counts) or 'missing'}; "
         f"final index={_artifact_status(final_index_md)}\n"
+        f"- External confirmations: "
+        f"{_format_counts(human_closeout_counts) or 'missing'}; "
+        f"pending={', '.join(pending_human_confirmations) or 'none'}\n"
         f"- Current next action: {closeout_next_action}\n"
         f"- Week 2 targets: {len(target_rows)}\n"
         f"- Categories: {_format_counts(categories) or 'none'}\n"
@@ -122,6 +137,7 @@ def render_research_status(
         f"- Closeout control index: `{current_closeout_md}`\n"
         f"- Closeout pre-freeze manifest: `{closeout_manifest_json}`\n"
         f"- Final QA checklist: `{final_qa_csv}`\n"
+        f"- Human closeout confirmations: `{human_closeout_confirmation_csv}`\n"
         f"- Final closeout index: `{final_index_md}`\n\n"
         "## Historical And Supporting Artifacts\n\n"
         f"- Targets: `{targets_csv}`\n"

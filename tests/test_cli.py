@@ -298,6 +298,7 @@ def test_cli_research_status_invokes_renderer(
         poster_plan_md: Path,
         current_closeout_md: Path,
         final_qa_csv: Path,
+        human_closeout_confirmation_csv: Path,
         final_index_md: Path,
     ) -> str:
         seen["targets_csv"] = targets_csv
@@ -315,6 +316,7 @@ def test_cli_research_status_invokes_renderer(
         seen["poster_plan_md"] = poster_plan_md
         seen["current_closeout_md"] = current_closeout_md
         seen["final_qa_csv"] = final_qa_csv
+        seen["human_closeout_confirmation_csv"] = human_closeout_confirmation_csv
         seen["final_index_md"] = final_index_md
         return "research status"
 
@@ -339,6 +341,7 @@ def test_cli_research_status_invokes_renderer(
     poster_plan_md = tmp_path / "poster_plan.md"
     current_closeout_md = tmp_path / "current_closeout.md"
     final_qa_csv = tmp_path / "final_qa.csv"
+    human_closeout_confirmation_csv = tmp_path / "human_closeout.csv"
     final_index_md = tmp_path / "final_index.md"
 
     result = runner.invoke(
@@ -375,6 +378,8 @@ def test_cli_research_status_invokes_renderer(
             str(current_closeout_md),
             "--final-qa-csv",
             str(final_qa_csv),
+            "--human-closeout-confirmation-csv",
+            str(human_closeout_confirmation_csv),
             "--final-index-md",
             str(final_index_md),
         ],
@@ -397,6 +402,7 @@ def test_cli_research_status_invokes_renderer(
         "poster_plan_md": poster_plan_md,
         "current_closeout_md": current_closeout_md,
         "final_qa_csv": final_qa_csv,
+        "human_closeout_confirmation_csv": human_closeout_confirmation_csv,
         "final_index_md": final_index_md,
     }
     assert "research status" in result.output

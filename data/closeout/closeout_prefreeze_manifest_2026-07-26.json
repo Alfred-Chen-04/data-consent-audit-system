@@ -130,7 +130,7 @@
     "blockers": [],
     "ready_for_final_freeze": true
   },
-  "generated_at": "2026-08-05T23:17:57.437463+00:00",
+  "generated_at": "2026-08-07T01:55:44.510132+00:00",
   "key_deliverables": [
     {
       "bytes": 20937,
@@ -229,15 +229,15 @@
       "status": "present"
     },
     {
-      "bytes": 5383,
+      "bytes": 5577,
       "path": "docs/research/closeout_low_token_runbook_2026-07-27.md",
-      "sha256": "b015be1917b9921e6ed8592e93e1792bc34d3a42acd19c71eb85463943c5bc3f",
+      "sha256": "adf82466dd738569c1d555eff15ab22417eeebc476006105200aef87afa53c8c",
       "status": "present"
     },
     {
-      "bytes": 2714,
+      "bytes": 2699,
       "path": "data/closeout/final_qa_checklist_2026-07-27.csv",
-      "sha256": "63025ee6fbff967197f0befe72299c1722b8c82676a274f98d8c750b0bd09db9",
+      "sha256": "98455eaa40805015297a27234602cb1610c446a2c7454d059e00c39a3d0d2eda",
       "status": "present"
     }
   ],

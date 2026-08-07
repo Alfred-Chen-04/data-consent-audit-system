@@ -40,6 +40,7 @@ MANIFEST_FILES = (
     "data/closeout/project_owner_decision_sheet_2026-07-29.csv",
     "docs/research/july29_project_owner_closeout_decisions_2026-07-29.md",
     "src/consent_audit/closeout_final.py",
+    "src/consent_audit/research_status.py",
     "scripts/build_longitudinal_artifact_manifest.py",
     "docs/research/presentation/ssrp_consent_longitudinal_presentation_rehearsal_ready_2026-08-04.pptx",
     "docs/research/presentation/ssrp_consent_longitudinal_presentation_rehearsal_ready_2026-08-04_montage.png",

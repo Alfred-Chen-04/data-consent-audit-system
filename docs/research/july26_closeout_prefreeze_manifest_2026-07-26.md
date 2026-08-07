@@ -2,7 +2,7 @@
 
 **Status: `pre_freeze` - this is not a final or frozen manifest.**
 
-Generated at: `2026-08-05T23:17:57.437463+00:00`
+Generated at: `2026-08-07T01:55:44.510132+00:00`
 
 Machine-readable source: [`../../data/closeout/closeout_prefreeze_manifest_2026-07-26.json`](../../data/closeout/closeout_prefreeze_manifest_2026-07-26.json)
 
@@ -66,8 +66,8 @@ Joint decision contract errors: 0.
 | `data/closeout/joint_decision_revision_matrix_2026-07-26.csv` | present | 15752 | `d8466173126bc85bddfb8dcc5fcd8d1ef82d42ee278346f0e6344cfadbeed8a1` |
 | `docs/research/july26_decision_to_revision_matrix_2026-07-26.md` | present | 6019 | `9148a643f6f88794083a27029277d47607b2da09c20ba930e4a4ab6459666dce` |
 | `docs/research/closeout_control_index_2026-07-26.md` | present | 17435 | `8f311695df54846e54bea868eda894e3a9b14f881e3a39b1043e04a65b8f8cfb` |
-| `docs/research/closeout_low_token_runbook_2026-07-27.md` | present | 5383 | `b015be1917b9921e6ed8592e93e1792bc34d3a42acd19c71eb85463943c5bc3f` |
-| `data/closeout/final_qa_checklist_2026-07-27.csv` | present | 2714 | `63025ee6fbff967197f0befe72299c1722b8c82676a274f98d8c750b0bd09db9` |
+| `docs/research/closeout_low_token_runbook_2026-07-27.md` | present | 5577 | `adf82466dd738569c1d555eff15ab22417eeebc476006105200aef87afa53c8c` |
+| `data/closeout/final_qa_checklist_2026-07-27.csv` | present | 2699 | `98455eaa40805015297a27234602cb1610c446a2c7454d059e00c39a3d0d2eda` |
 
 ## Limitations
 

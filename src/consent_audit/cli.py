@@ -166,6 +166,9 @@ def research_status(
     final_qa_csv: Path = Path(
         "data/closeout/final_qa_checklist_2026-07-27.csv"
     ),
+    human_closeout_confirmation_csv: Path = Path(
+        "data/closeout/human_closeout_confirmation_2026-07-30.csv"
+    ),
     final_index_md: Path = Path("docs/research/final_closeout_index.md"),
 ) -> None:
     """Print a compact current-state dashboard for the SSRP workflow."""
@@ -186,6 +189,7 @@ def research_status(
             poster_plan_md=poster_plan_md,
             current_closeout_md=current_closeout_md,
             final_qa_csv=final_qa_csv,
+            human_closeout_confirmation_csv=human_closeout_confirmation_csv,
             final_index_md=final_index_md,
         )
     )
