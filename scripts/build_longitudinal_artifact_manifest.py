@@ -22,6 +22,7 @@ MANIFEST_FILES = (
     "docs/research/july29_retrospective_longitudinal_evidence_rescue_2026-07-29.md",
     "docs/research/july30_final_closeout_execution_plan_2026-07-30.md",
     "docs/research/aug03_closeout_reconciliation_2026-08-03.md",
+    "docs/research/aug10_final_week_sync_and_handoff_2026-08-10.md",
     "docs/research/ssrp_final_paper_completion_plan_2026-07-30.md",
     "docs/research/ssrp_final_paper_working_draft_2026-08-03.md",
     "docs/research/ssrp_final_paper_submission_candidate_2026-08-05.md",

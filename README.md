@@ -35,6 +35,7 @@ for the full positioning.
 | File | Purpose |
 |---|---|
 | [docs/research/closeout_control_index_2026-07-26.md](docs/research/closeout_control_index_2026-07-26.md) | **Start here for closeout** - current longitudinal artifacts, remaining gates, dated work order, and historical map |
+| [docs/research/aug10_final_week_sync_and_handoff_2026-08-10.md](docs/research/aug10_final_week_sync_and_handoff_2026-08-10.md) | Final-week GitHub synchronization audit, external-backup disposition, and exact three-step human handoff |
 | [docs/research/closeout_low_token_runbook_2026-07-27.md](docs/research/closeout_low_token_runbook_2026-07-27.md) | Three-line human-status intake, final-index path, and low-token paper prompts |
 | [docs/research/july30_final_closeout_execution_plan_2026-07-30.md](docs/research/july30_final_closeout_execution_plan_2026-07-30.md) | Official July 30-August 31 timeline, closed decisions, acceptance state, and remaining human gates |
 | [docs/research/aug03_closeout_reconciliation_2026-08-03.md](docs/research/aug03_closeout_reconciliation_2026-08-03.md) | Post-Summer-Intersections factual status, Fall/Spring presentation branch, and August 3-31 closeout actions |

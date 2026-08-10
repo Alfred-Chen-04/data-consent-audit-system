@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "generated_at": "2026-08-07T09:55:44+08:00",
+  "generated_at": "2026-08-10T14:45:30+08:00",
   "purpose": "Reproducible inventory for the August 5 six-case evidence rescue, rehearsal-ready presentation/poster, source-audited final-paper candidate, and closeout recovery.",
   "research_boundary": {
     "local_controlled_pilot": {
@@ -25,8 +25,8 @@
     },
     "supported_conclusion": "Concrete consent interactions improved most clearly where regulators could specify and verify them, but improvement remained component-specific and reversible."
   },
-  "file_count": 36,
-  "total_bytes": 4301804,
+  "file_count": 37,
+  "total_bytes": 4305637,
   "all_files_present": true,
   "all_hashes_verified": true,
   "files": [
@@ -37,8 +37,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 19792,
-      "sha256": "47a472f0e26aff1989f4579e09a8aa8332c183f5457e610eb4b149d33140a4f5"
+      "bytes": 20030,
+      "sha256": "c8f9c98f1327b98c6e4c34af72682f17f62362da18a367c2e7c7e723e5a5be64"
     },
     {
       "path": "SCHEMA.md",
@@ -52,13 +52,13 @@
     },
     {
       "path": "docs/research/closeout_control_index_2026-07-26.md",
-      "bytes": 17435,
-      "sha256": "8f311695df54846e54bea868eda894e3a9b14f881e3a39b1043e04a65b8f8cfb"
+      "bytes": 17622,
+      "sha256": "80567fe689c433d3fe54a5f98ea6db5627ab6ef86795d82cb1c57e826bc172b9"
     },
     {
       "path": "docs/research/closeout_low_token_runbook_2026-07-27.md",
       "bytes": 5577,
-      "sha256": "adf82466dd738569c1d555eff15ab22417eeebc476006105200aef87afa53c8c"
+      "sha256": "cc663f92c6719d0c6ca9307b7f979bf7f737b4ca17b884357841a60719049d96"
     },
     {
       "path": "docs/research/current_project_goal_2026-07-02.md",
@@ -84,6 +84,11 @@
       "path": "docs/research/aug03_closeout_reconciliation_2026-08-03.md",
       "bytes": 3171,
       "sha256": "37ae3e51a2f2f09f64f10decb8cece08a66923f63f1e4654a62e2eb4891c4933"
+    },
+    {
+      "path": "docs/research/aug10_final_week_sync_and_handoff_2026-08-10.md",
+      "bytes": 3338,
+      "sha256": "d07708c8b6afd05e99a121a5358360e0c42327411d6a14764e856b10a18d333a"
     },
     {
       "path": "docs/research/ssrp_final_paper_completion_plan_2026-07-30.md",
@@ -132,8 +137,8 @@
     },
     {
       "path": "data/longitudinal_revision_qa_2026-07-30.csv",
-      "bytes": 1672,
-      "sha256": "fdfb5e2557b87ef0ddaa5802be7760863c7f2454af00b13e04286ddaa9ef787c"
+      "bytes": 1673,
+      "sha256": "db0d796bf60f5d0ae6e79dfc9b4ed5633b6b30240bd8541572905dd3f08b9d2d"
     },
     {
       "path": "data/closeout/human_closeout_confirmation_2026-07-30.csv",
@@ -158,7 +163,7 @@
     {
       "path": "data/closeout/closeout_prefreeze_manifest_2026-07-26.json",
       "bytes": 28731,
-      "sha256": "e0e24995839fd8fbb6ccf4396312c5ba2e28357d690c341ce3fa5a8975e34ae5"
+      "sha256": "05e97f2ba5200d0a936fa4496dd0d05879c5dbb7edf11ea3d314ab205bf874ee"
     },
     {
       "path": "data/closeout/project_owner_decision_sheet_2026-07-29.csv",
@@ -182,8 +187,8 @@
     },
     {
       "path": "scripts/build_longitudinal_artifact_manifest.py",
-      "bytes": 5375,
-      "sha256": "982ff2111aad0b6a29954a8a3b71ff5fd729bf758d7d88adfb55cf4363404135"
+      "bytes": 5444,
+      "sha256": "30e3d032b2c0d81a72bbea410ecf2186e31a055374a8983b36d9f9c1a09d7768"
     },
     {
       "path": "docs/research/presentation/ssrp_consent_longitudinal_presentation_rehearsal_ready_2026-08-04.pptx",

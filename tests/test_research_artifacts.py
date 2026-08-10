@@ -2106,7 +2106,8 @@ def test_july30_longitudinal_manifest_matches_current_checkout() -> None:
         "docs/research/presentation/ssrp_consent_longitudinal_presentation_rehearsal_ready_2026-08-04.pptx",
         "docs/research/presentation/ssrp_consent_presentation_readiness_2026-08-04.md",
         "docs/research/poster/ssrp_consent_longitudinal_poster_2026-07-30.pdf",
-        "docs/research/aug03_closeout_reconciliation_2026-08-03.md",
+            "docs/research/aug03_closeout_reconciliation_2026-08-03.md",
+            "docs/research/aug10_final_week_sync_and_handoff_2026-08-10.md",
         "docs/research/ssrp_final_paper_working_draft_2026-08-03.md",
         "docs/research/ssrp_final_paper_submission_candidate_2026-08-05.md",
         "docs/research/ssrp_final_paper_submission_candidate_2026-08-05.docx",
@@ -2167,7 +2168,7 @@ def test_august3_closeout_reconciliation_preserves_unknown_event_status() -> Non
         "no email, CampusGroups record, poster location, or attendee record"
         in normalized_reconciliation_text
     )
-    assert "Current as of 2026-08-06" in runbook_text
+    assert "Current as of 2026-08-10" in runbook_text
     assert "occurred on July 30" in runbook_text
     assert "Subject: SSRP 2026 presentation requirement" in runbook_text
     assert "The Only Three Human Inputs" in runbook_text

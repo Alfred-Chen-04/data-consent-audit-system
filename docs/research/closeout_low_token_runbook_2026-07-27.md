@@ -1,4 +1,4 @@
-# SSRP Closeout Low-Token Runbook, Current as of 2026-08-06
+# SSRP Closeout Low-Token Runbook, Current as of 2026-08-10
 
 ## Current Truth
 

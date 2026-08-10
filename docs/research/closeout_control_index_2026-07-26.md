@@ -7,7 +7,7 @@ closeout window. It separates current working artifacts from dated history and
 links the response decision, revision execution, evidence freeze, and final QA
 steps in one place.
 
-**Status: `pre_freeze`, reconciled August 6. This is not a final index. The
+**Status: `pre_freeze`, reconciled August 10. This is not a final index. The
 machine-verifiable evidence and artifacts are current; Summer Intersections has
 passed without checked-in participation evidence, and a timed rehearsal plus
 actual final-paper submission remain human facts.**
@@ -87,6 +87,7 @@ not maintained as a separate status claim.
 | Response branch | [Advisor response and fallback protocol](july26_advisor_response_and_fallback_protocol_2026-07-26.md) | Separates actual answers from the post-cutoff project fallback |
 | Freeze evidence | [Human-readable pre-freeze manifest](july26_closeout_prefreeze_manifest_2026-07-26.md) and [schema-v2 JSON](../../data/closeout/closeout_prefreeze_manifest_2026-07-26.json) | Reproducible presence, provenance, execution, and readiness gate |
 | Current closeout assessment | [July 25 gap review and joint packet](july25_gap_review_and_joint_packet_2026-07-25.md) | On-track assessment and July 25-August 7 work order |
+| Final-week sync audit | [August 10 sync and handoff](aug10_final_week_sync_and_handoff_2026-08-10.md) | GitHub parity, external-file disposition, and the three remaining human facts |
 | Low-token execution | [August 6 low-token runbook](closeout_low_token_runbook_2026-07-27.md) | Three-line human status intake, final-index path, and short final-paper prompts |
 | Final QA and index gate | [Five-row final-QA checklist](../../data/closeout/final_qa_checklist_2026-07-27.csv) | Machine rows verified; rehearsal remains pending; `closeout-final-index` refuses incomplete state |
 

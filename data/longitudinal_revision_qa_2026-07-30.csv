@@ -8,4 +8,4 @@ claim_boundary,passed,Five local labels remain insufficient_evidence; six purpos
 final_paper_candidate_render,passed,August 5 DOCX source-audit: all seven rendered pages were visually inspected; the results table has fixed geometry and a repeated header,none
 live_rehearsal,pending,No human-timed rehearsal has been recorded,Run and record one full rehearsal
 event_and_board_status,pending,Official event and board options are documented but actual registration presentation and board facts are not in the repository,Record actual status only
-manifest_and_backup,passed,August 7 manifest inventories 36 files; external ZIP contains those files plus the manifest; archive integrity and all embedded file hashes pass,none
+manifest_and_backup,passed,August 10 manifest inventories 37 files; external ZIP contains those files plus the manifest; archive integrity and all embedded file hashes pass,none
