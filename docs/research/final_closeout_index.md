@@ -3,7 +3,7 @@
 **Status: `final_closeout_index`. This file was generated only after the
 schema-v2 freeze gate and all required final-QA attestations passed.**
 
-Generated at: `2026-08-11T03:30:00+00:00`
+Generated at: `2026-08-11T09:11:38+00:00`
 
 ## Gate Snapshot
 
@@ -40,7 +40,7 @@ Generated at: `2026-08-11T03:30:00+00:00`
 | Chinese conclusion and presentation outline | [`docs/research/final/项目最终结论与展示提纲_2026-08-11.md`](final/项目最终结论与展示提纲_2026-08-11.md) | 4851 | `a6426ddcf9a2b5bbb9238c1a005a2b4e4a0d5a9255dbff08db37bd4bf98d7ad1` |
 | Final evidence-chain audit | [`docs/research/final/evidence_chain_audit_2026-08-11.md`](final/evidence_chain_audit_2026-08-11.md) | 5025 | `33a720d731ac3d1bd609f840132f216463feee580cc4f962285aeffee22727b2` |
 | Final claim-evidence matrix | [`data/final_claim_evidence_matrix_2026-08-11.csv`](../../data/final_claim_evidence_matrix_2026-08-11.csv) | 4464 | `e41d89e2228527c184e90d6c57a68b2e52abcc6ad7cb045ef632e5f536d33577` |
-| Final handoff manifest | [`data/final_handoff_manifest_2026-08-11.json`](../../data/final_handoff_manifest_2026-08-11.json) | 10582 | `57b078273b7b14df1ce8cfbfc156b525fd5e06d4a58df573233248b1150a5edd` |
+| Final handoff manifest | [`data/final_handoff_manifest_2026-08-11.json`](../../data/final_handoff_manifest_2026-08-11.json) | 10582 | `f2c7a9c187baff97120afcdf0683c37707748bfffab1ed4a630ddb50ebe71187` |
 | CWRU closeout and submission audit | [`docs/research/final/cwru_ssrp_closeout_and_submission_2026-08-11.md`](final/cwru_ssrp_closeout_and_submission_2026-08-11.md) | 5359 | `2fc045366662ac2e408572e7d5e384795a8d0f6e79f4769c8952bb638603976d` |
 | Intersections registration packet | [`docs/research/final/intersections_registration_packet_2026-08-11.md`](final/intersections_registration_packet_2026-08-11.md) | 3672 | `32ebbbea24207a92b0368b42bce7999156fd75c082531324acc6df3e09721453` |
 | CWRU 32 x 40 board print PDF | [`docs/research/poster/Chen.Qianyi.40x32.print.pdf`](poster/Chen.Qianyi.40x32.print.pdf) | 760758 | `b67c69bffd1c30af981e72d7af7538e1f2e3bcb7bf81b410c9e0b7cf240f3a64` |

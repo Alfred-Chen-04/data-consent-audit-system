@@ -14,6 +14,19 @@ active `repo/` Git worktree during the final computer-handoff audit on August
   sidecars. Both sidecar checks passed before copying.
 - `closeout_backup_2026-07-29/`: the eight-file expanded July 29 closeout
   backup, including presentation, poster, and evidence-package copies.
+- `desktop_stale_clone_inventory.csv`: a 508-row byte-level inventory of every
+  untracked Finder ` 2` copy in the stale June 15 desktop clone. It records the
+  file size, SHA-256, Git blob ID, corresponding unsuffixed path, and whether
+  the exact bytes were already reachable from a GitHub remote ref.
+- `desktop_stale_clone_unique/`: exact copies of the 24 stale-clone files whose
+  Git blobs were not reachable from any GitHub remote ref. The other 484
+  untracked files are represented by exact byte-identical blobs already in the
+  remote Git history and are therefore not duplicated here.
+- `desktop_stale_clone_ignored_captures.zip`: a lossless ZIP of the 326 ignored
+  historical `layer1.html` captures found only in the stale desktop clone. The
+  archive contains 72,400,099 source bytes and passed `ZipFile.testzip()`.
+- `desktop_stale_clone_ignored_capture_inventory.csv`: member path, size,
+  SHA-256, and Git blob ID for all 326 files in that ZIP.
 - `MANIFEST.sha256`: hashes for every archived file except the manifest itself.
 
 Use `docs/research/final/FINAL_DELIVERABLES_2026-08-11.md` for the current paper,

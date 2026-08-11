@@ -66,18 +66,18 @@
     },
     {
       "path": "docs/research/final/cloud_sync_audit_2026-08-11.md",
-      "bytes": 2518,
-      "sha256": "b2407f627075c9b0cafa61369b3cd627ea365e62a8976663e07da7eb92506fe3"
+      "bytes": 4864,
+      "sha256": "e57da7296958e7239e277e968a96b17bd9254cdb94019fda1ab9abe29a8614a6"
     },
     {
       "path": "archive/local_recovery_2026-08-11/README.md",
-      "bytes": 1101,
-      "sha256": "7c5c17de5129e30653e09d4bdafb6ce4483a365137d7531581b54d84f7a3d206"
+      "bytes": 2063,
+      "sha256": "0fae116f5ec2c80ce1342af3f1afeb9cab0a4225ab9fedb9363f09fb0fe8f48e"
     },
     {
       "path": "archive/local_recovery_2026-08-11/MANIFEST.sha256",
-      "bytes": 2559,
-      "sha256": "f2e8db549ae449969d4c87dd79b945c2bcefcf732223ae6ea753be8381de89e4"
+      "bytes": 6076,
+      "sha256": "6dc37dc5af5e105abf91255db42cd1360de64ae6e5086538b39cd3ff0b9ceac2"
     },
     {
       "path": "docs/research/presentation/ssrp_consent_longitudinal_presentation_rehearsal_ready_2026-08-04.pptx",
