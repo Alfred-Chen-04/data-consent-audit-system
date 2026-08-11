@@ -1,5 +1,9 @@
 # Folder Structure Guide, 2026-05-31
 
+> Historical snapshot. For the completed-project structure and final entry
+> points, use `../../REPOSITORY_GUIDE.md` and `README.md`. The status estimates
+> below describe May 31, 2026 and are retained only for provenance.
+
 这份文档回答四个问题：
 
 1. 每个文件夹或重要文件里是什么内容？
@@ -193,7 +197,7 @@
 
 - 示例性质，不是研究主线。
 
-### `task_plan.md`
+### `docs/research/project_log/task_plan.md`
 
 内容：
 
@@ -212,7 +216,7 @@
 
 - 持续更新文件，不是 final deliverable。
 
-### `findings.md`
+### `docs/research/project_log/findings.md`
 
 内容：
 
@@ -231,7 +235,7 @@
 
 - 持续更新文件。
 
-### `progress.md`
+### `docs/research/project_log/progress.md`
 
 内容：
 

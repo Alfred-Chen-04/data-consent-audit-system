@@ -43,8 +43,8 @@ GitHub connector checks:
 Repository files checked:
 
 - `AGENTS.md`
-- `progress.md`
-- `findings.md`
+- `docs/research/project_log/progress.md`
+- `docs/research/project_log/findings.md`
 - `docs/research/today_work_note_2026-06-18.md`
 - `docs/research/advisor_email_current_five_decision_2026-06-19.md`
 - `docs/research/week2_checkin_index_2026-06-06.md`

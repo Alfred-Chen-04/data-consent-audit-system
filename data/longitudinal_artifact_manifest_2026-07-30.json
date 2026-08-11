@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "generated_at": "2026-08-11T11:19:01+08:00",
+  "generated_at": "2026-08-11T11:35:39+08:00",
   "purpose": "Reproducible inventory for the August 5 six-case evidence rescue, rehearsal-ready presentation/poster, source-audited final-paper candidate, and closeout recovery.",
   "research_boundary": {
     "local_controlled_pilot": {
@@ -26,7 +26,7 @@
     "supported_conclusion": "Concrete consent interactions improved most clearly where regulators could specify and verify them, but improvement remained component-specific and reversible."
   },
   "file_count": 37,
-  "total_bytes": 4310633,
+  "total_bytes": 4312676,
   "all_files_present": true,
   "all_hashes_verified": true,
   "files": [
@@ -37,8 +37,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 22506,
-      "sha256": "2681548ef18254ab62d12b694072f78ffab4c4a5ba48bb049ae663e4921040db"
+      "bytes": 24549,
+      "sha256": "d4fee172b54c859d4860aa89777c95d5197bef5a89cc05427cd2195ac320d935"
     },
     {
       "path": "SCHEMA.md",

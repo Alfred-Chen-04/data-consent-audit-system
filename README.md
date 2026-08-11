@@ -30,7 +30,23 @@ Unbiased Choice). See
 [`docs/related_work/background_with_citations.md`](docs/related_work/background_with_citations.md)
 for the full positioning.
 
-## Documents
+## Start Here
+
+The project is closed out. Use the route that matches the task:
+
+| Need | Open |
+|---|---|
+| Final submission set | [Final deliverables](docs/research/final/FINAL_DELIVERABLES_2026-08-11.md) |
+| Final answers to RQ1 and RQ2 | [Final results brief](docs/research/final/final_results_brief_2026-08-11.md) |
+| Chinese conclusion and talk outline | [项目最终结论与展示提纲](docs/research/final/%E9%A1%B9%E7%9B%AE%E6%9C%80%E7%BB%88%E7%BB%93%E8%AE%BA%E4%B8%8E%E5%B1%95%E7%A4%BA%E6%8F%90%E7%BA%B2_2026-08-11.md) |
+| Presentation or poster | [Presentation index](docs/research/presentation/README.md) / [Poster index](docs/research/poster/README.md) |
+| Evidence verification | [Evidence-chain audit](docs/research/final/evidence_chain_audit_2026-08-11.md) |
+| Repository orientation | [Repository guide](REPOSITORY_GUIDE.md) / [Research index](docs/research/README.md) |
+
+<details>
+<summary>Complete artifact index, including dated history</summary>
+
+### Artifact Index
 
 | File | Purpose |
 |---|---|
@@ -81,7 +97,24 @@ for the full positioning.
 | [docs/related_work/legal_cheatsheet.md](docs/related_work/legal_cheatsheet.md) | 1-page reference: the 8 legal anchors every audit metric maps to |
 | [Chen_Qianyi_SSRP 2026_Proposal_Final Version.docx.pdf](./Chen_Qianyi_SSRP%202026_Proposal_Final%20Version.docx.pdf) | Original SSRP research proposal |
 
-## Quick start
+</details>
+
+## Development
+
+```bash
+uv sync
+uv run consent-audit research-status
+uv run pytest -q
+uv run ruff check src tests scripts
+```
+
+See [scripts/README.md](scripts/README.md) for the script groups and
+[SCHEMA.md](SCHEMA.md) for the research-to-code map.
+
+<details>
+<summary>Complete historical CLI command reference</summary>
+
+### Quick Start
 
 ```bash
 # Install deps
@@ -210,6 +243,8 @@ uv run consent-audit closeout-prepare-revisions
 uv run consent-audit closeout-final-index
 ```
 
+</details>
+
 ## Repository layout
 
 ```
@@ -227,7 +262,21 @@ tests/          — unit + integration tests
 docs/           — architecture, research records, and delivery artifacts
 ```
 
+The full map, status labels, and preservation rules are in
+[REPOSITORY_GUIDE.md](REPOSITORY_GUIDE.md).
+
 ## Status
+
+Final research closeout completed on 2026-08-11. RQ1 produced a traceable
+four-component audit framework. RQ2 produced a controlled local-capture method
+and a separate six-company primary-source case series: five component-level
+improvements and one later functional regression. The local five-site matched
+pilot remains directionally insufficient and is not presented as evidence of
+site improvement or regression. The current deliverable set is presentation +
+large poster + traceable evidence package + final paper.
+
+<details>
+<summary>Historical execution status, preserved for provenance</summary>
 
 Current research cycle: Week 2 evidence gate completed as of 2026-06-06.
 The attempted Week 3 continuity capture on 2026-06-14 failed at browser
@@ -276,3 +325,5 @@ Coca-Cola smoke passes all Layer 1 paths.
 - Full dated evidence/work history remains in the [Week 2 index](docs/research/week2_checkin_index_2026-06-06.md); communication history remains in the [advisor packet index](docs/research/advisor_packet_index_2026-06-05.md).
 - Run `uv run consent-audit research-status` for the compact runtime dashboard and `uv run consent-audit closeout-prefreeze-manifest` for the reproducible freeze gate.
 - The 8 pending CMP/manual-review rows remain advisor-review material, not locked sample decisions.
+
+</details>

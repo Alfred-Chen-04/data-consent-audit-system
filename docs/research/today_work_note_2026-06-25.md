@@ -48,9 +48,9 @@ Repository files checked:
 - `docs/research/week2_checkin_index_2026-06-06.md`
 - `docs/research/today_work_note_2026-06-22.md`
 - `data/current_five_decision_sheet_2026-06-19.csv`
-- `task_plan.md`
-- `findings.md`
-- `progress.md`
+- `docs/research/project_log/task_plan.md`
+- `docs/research/project_log/findings.md`
+- `docs/research/project_log/progress.md`
 
 ## Corrections Made
 

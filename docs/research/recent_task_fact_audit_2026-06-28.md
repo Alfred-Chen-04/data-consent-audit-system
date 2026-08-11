@@ -37,9 +37,9 @@ new consent-interface evidence.
 - `docs/research/ssrp_claim_register_2026-06-06.md`
 - `data/current_five_decision_sheet_2026-06-19.csv`
 - `data/cmp_review_confirmation_sheet_pilot_2026-05-30.csv`
-- `task_plan.md`
-- `findings.md`
-- `progress.md`
+- `docs/research/project_log/task_plan.md`
+- `docs/research/project_log/findings.md`
+- `docs/research/project_log/progress.md`
 
 ## Findings
 
