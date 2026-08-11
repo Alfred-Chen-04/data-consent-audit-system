@@ -1,0 +1,9 @@
+{
+  "audit_report_count": 42,
+  "files": {
+    "audit_report_summary": "audit_report_summary.csv",
+    "longitudinal_summary": "longitudinal_summary.csv"
+  },
+  "generated_at": "2026-06-08T15:10:59.492076+00:00",
+  "weekly_summary_count": 20
+}

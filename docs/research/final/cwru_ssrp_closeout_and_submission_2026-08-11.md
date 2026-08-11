@@ -49,6 +49,19 @@ The machine-readable version is
 - Official Summer 2026 Abstract Compendium and Presenter Index:
   https://drive.google.com/file/d/12hsAePBTuZC5vFdi99tWHKzG6o3c-B9Y/view
 
+## Archived Program Records
+
+The public records used for the Summer 2026 participation check are preserved
+for offline review:
+
+- `evidence/program_records_2026-08-11/summer_2026_intersections_compendium.pdf`
+- `evidence/program_records_2026-08-11/summer_2026_intersections_compendium.txt`
+- `evidence/program_records_2026-08-11/registration.html`
+
+The text file is a search aid derived from the PDF. The HTML file is a public
+registration-information snapshot; neither contains a student submission or
+private CampusGroups confirmation.
+
 ## Page-Rollover Boundary
 
 The live SSRP page had already rolled forward to the 2027 cycle when checked on

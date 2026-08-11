@@ -1,0 +1,121 @@
+From aa76e857528b494780813004f1787fe75c1f60f6 Mon Sep 17 00:00:00 2001
+From: Alfred Chen <Alfred-Chen-04@users.noreply.github.com>
+Date: Fri, 19 Jun 2026 00:29:49 +0800
+Subject: [PATCH 4/4] Add current-five advisor decision email
+
+---
+ README.md                                     |  1 +
+ ..._email_current_five_decision_2026-06-19.md | 46 +++++++++++++++++++
+ .../week2_checkin_index_2026-06-06.md         |  1 +
+ findings.md                                   |  1 +
+ progress.md                                   |  1 +
+ task_plan.md                                  |  1 +
+ 6 files changed, 51 insertions(+)
+ create mode 100644 docs/research/advisor_email_current_five_decision_2026-06-19.md
+
+diff --git a/README.md b/README.md
+index 8cb3a22..5bdf81d 100644
+--- a/README.md
++++ b/README.md
+@@ -181,6 +181,7 @@ Coca-Cola smoke passes all Layer 1 paths.
+   rerun the current five with the fixed capture agent, or switch this week to a
+   semi-automated screenshot/DOM/manual-validation protocol.
+ - Current advisor email draft is [docs/research/advisor_email_latest_2026-06-15.md](docs/research/advisor_email_latest_2026-06-15.md).
++- Current short advisor decision email is [docs/research/advisor_email_current_five_decision_2026-06-19.md](docs/research/advisor_email_current_five_decision_2026-06-19.md).
+ - The Week 2 capture runbook remains [docs/research/week2_execution_runbook_2026-06-06.md](docs/research/week2_execution_runbook_2026-06-06.md).
+ - Current advisor-facing update brief is [docs/research/week2_advisor_update_2026-06-06.md](docs/research/week2_advisor_update_2026-06-06.md).
+ - Current evidence-grounded paper skeleton is [docs/research/ssrp_paper_skeleton_2026-06-06.md](docs/research/ssrp_paper_skeleton_2026-06-06.md).
+diff --git a/docs/research/advisor_email_current_five_decision_2026-06-19.md b/docs/research/advisor_email_current_five_decision_2026-06-19.md
+new file mode 100644
+index 0000000..d0092c4
+--- /dev/null
++++ b/docs/research/advisor_email_current_five_decision_2026-06-19.md
+@@ -0,0 +1,46 @@
++# Advisor Email Draft, 2026-06-19
++
++Subject: Current-five evidence decisions before next capture or expansion
++
++Dear Professor Singh,
++
++I have consolidated the current five Week 2 evidence bundles into one evidence
++packet and one fillable decision sheet:
++
++- Evidence packet: `docs/research/current_five_evidence_packet_2026-06-19.md`
++- Decision sheet: `data/current_five_decision_sheet_2026-06-19.csv`
++
++The current evidence package is unchanged: Week 2 sanity is `ready`, the cycle
++is `completed`, and the research package has 42 audit reports and 20
++longitudinal summaries. The 8 CMP/manual-review rows are still pending.
++
++The five current sites now separate into:
++
++| Site | Current evidence treatment |
++|---|---|
++| The Guardian | Banner-present evidence card; visible controls in screenshot. |
++| Coca-Cola | Banner-present evidence card; visible Privacy Preference Center in screenshot. |
++| CNN | No-visible-banner contrast candidate. |
++| Booking.com | No-visible-banner contrast candidate. |
++| NerdWallet | No-visible-banner contrast candidate. |
++
++Before I run another capture or expand the sample, I need three decisions:
++
++1. For The Guardian and Coca-Cola, should I confirm them as banner-present
++   evidence cards, manually override then score them, wait for a rerun, or
++   replace them before expansion?
++2. For CNN, Booking.com, and NerdWallet, should they stay as a separate
++   no-visible-banner contrast group, move into the main RQ1 table with a clear
++   label, wait for rerun evidence, or be replaced before expansion?
++3. For the next work block, should I rerun the current five with the fixed
++   capture agent, manually validate the current evidence cards before
++   expanding, expand banner-present candidates first, or resolve the 8 pending
++   CMP/manual-review rows first?
++
++My proposed next step is: manually validate the current five first, keep
++CNN/Booking.com/NerdWallet as a labeled no-visible-banner contrast group for
++now, and then expand toward the roughly 20-site deep sample with priority on
++sites that show visible banner/control evidence.
++
++Best,
++Qianyi
+diff --git a/docs/research/week2_checkin_index_2026-06-06.md b/docs/research/week2_checkin_index_2026-06-06.md
+index d6b8a4b..e8a3821 100644
+--- a/docs/research/week2_checkin_index_2026-06-06.md
++++ b/docs/research/week2_checkin_index_2026-06-06.md
+@@ -12,6 +12,7 @@ Use this index as the first file for advisor check-ins.
+ ## Read First
+ 
+ - [Today work note, 2026-06-18](today_work_note_2026-06-18.md)
++- [Current-five advisor decision email, 2026-06-19](advisor_email_current_five_decision_2026-06-19.md)
+ - [Current-five evidence packet, 2026-06-19](current_five_evidence_packet_2026-06-19.md)
+ - [June 15 Coca-Cola smoke capture audit, 2026-06-15](june15_coca_cola_smoke_audit_2026-06-15.md)
+ - [Latest advisor email draft, 2026-06-15](advisor_email_latest_2026-06-15.md)
+diff --git a/findings.md b/findings.md
+index 7a042cd..a0d7e6c 100644
+--- a/findings.md
++++ b/findings.md
+@@ -440,3 +440,4 @@
+ - The current no-visible-banner rows should remain contrast candidates unless the advisor confirms that they belong in the main RQ1 scoring table.
+ - Added `docs/research/current_five_evidence_packet_2026-06-19.md` so the next advisor/user discussion can use one five-site evidence packet rather than separate CSVs and screenshots.
+ - Added `data/current_five_decision_sheet_2026-06-19.csv` so advisor/user decisions can be recorded without editing the evidence packet itself.
++- Added `docs/research/advisor_email_current_five_decision_2026-06-19.md` so the advisor request can be sent as a concise decision prompt instead of the longer June 15 status email.
+diff --git a/progress.md b/progress.md
+index 7554aed..eb05f83 100644
+--- a/progress.md
++++ b/progress.md
+@@ -537,3 +537,4 @@
+ - Completed phase 112 on 2026-06-18 by checking the current PR/research state and adding `docs/research/today_work_note_2026-06-18.md`. Evidence checked: GitHub PR #4 is merged, `research-status` still reports sanity `ready`, cycle `completed`, 42 audit reports, 20 longitudinal summaries, and 8 pending CMP confirmations. Linked the new note from `README.md` and `docs/research/week2_checkin_index_2026-06-06.md`.
+ - Completed phase 113 on 2026-06-19 by turning the current five Week 2 rows into `docs/research/current_five_evidence_packet_2026-06-19.md`. Evidence checked: `data/week2_manual_evidence_review_2026-06-10.csv`, `data/research_package/audit_report_summary.csv`, `data/research_package/longitudinal_summary.csv`, `docs/research/week2_evidence_cards_2026-06-11.md`, and all five listed screenshots. Linked the packet from `README.md` and `docs/research/week2_checkin_index_2026-06-06.md`.
+ - Completed phase 114 on 2026-06-19 by adding `data/current_five_decision_sheet_2026-06-19.csv`, a fillable advisor/user confirmation sheet for the five current-site treatment decisions, the no-visible-banner table rule, and the next-work mode. Linked it from the current-five evidence packet, README, and advisor check-in index.
++- Completed phase 115 on 2026-06-19 by adding `docs/research/advisor_email_current_five_decision_2026-06-19.md`, a short sendable advisor email that points to the current-five evidence packet and decision sheet and asks for three concrete decisions before rerun or expansion.
+diff --git a/task_plan.md b/task_plan.md
+index e14574a..a9eae57 100644
+--- a/task_plan.md
++++ b/task_plan.md
+@@ -204,3 +204,4 @@ audit invariants.
+ | June 18 current-work note | No 2026-06-18 handoff existed after PR #4 merged and the research status remained unchanged | Added a fact-only daily work note and linked it from README and the advisor check-in index. |
+ | June 19 current-five evidence packet | Existing evidence cards covered only the two banner-present cases, while the advisor decision also depends on the three no-visible-banner contrast candidates | Re-read the manual evidence worksheet, research-package summaries, and screenshots; added a five-site evidence packet with source refs and cautions. |
+ | June 19 current-five decision sheet | The evidence packet still required a separate place to record advisor/user choices | Added a fillable CSV decision sheet for the five site-level decisions plus the no-visible-banner table rule and next-work mode. |
++| June 19 short advisor decision email | The June 15 advisor email was evidence-rich but long; the new decision sheet needed a concise sendable prompt | Added a short advisor email that asks only for current-five treatment, no-visible-banner table rule, and next-work mode decisions. |
+-- 
+2.39.5 (Apple Git-154)
+

@@ -21,8 +21,8 @@
   "files": [
     {
       "path": "docs/research/final/FINAL_DELIVERABLES_2026-08-11.md",
-      "bytes": 3614,
-      "sha256": "4c345425c2fea4313f8e912762ffff5728a20cace873caf0b65139faf87625b7"
+      "bytes": 3887,
+      "sha256": "75a501548748b792c2b5b65da4d72292e275240ffc298ad5765a7d6ccca54e1e"
     },
     {
       "path": "docs/research/final/ssrp_final_paper_2026-08-11.md",
@@ -56,13 +56,28 @@
     },
     {
       "path": "docs/research/final/cwru_ssrp_closeout_and_submission_2026-08-11.md",
-      "bytes": 4820,
-      "sha256": "43824039398c9f130f962d6b71e8d59a79e12c44a29dd28700a2d5a6859da728"
+      "bytes": 5359,
+      "sha256": "2fc045366662ac2e408572e7d5e384795a8d0f6e79f4769c8952bb638603976d"
     },
     {
       "path": "docs/research/final/intersections_registration_packet_2026-08-11.md",
       "bytes": 3672,
       "sha256": "32ebbbea24207a92b0368b42bce7999156fd75c082531324acc6df3e09721453"
+    },
+    {
+      "path": "docs/research/final/cloud_sync_audit_2026-08-11.md",
+      "bytes": 2518,
+      "sha256": "b2407f627075c9b0cafa61369b3cd627ea365e62a8976663e07da7eb92506fe3"
+    },
+    {
+      "path": "archive/local_recovery_2026-08-11/README.md",
+      "bytes": 1101,
+      "sha256": "7c5c17de5129e30653e09d4bdafb6ce4483a365137d7531581b54d84f7a3d206"
+    },
+    {
+      "path": "archive/local_recovery_2026-08-11/MANIFEST.sha256",
+      "bytes": 2559,
+      "sha256": "f2e8db549ae449969d4c87dd79b945c2bcefcf732223ae6ea753be8381de89e4"
     },
     {
       "path": "docs/research/presentation/ssrp_consent_longitudinal_presentation_rehearsal_ready_2026-08-04.pptx",
@@ -101,13 +116,13 @@
     },
     {
       "path": "docs/research/final/ssrp_final_submission_bundle_2026-08-11.zip",
-      "bytes": 2481420,
-      "sha256": "1498ead325fe54570cb9803363b618e43063f89ed50f8d0b19c5df59e4c7fe84"
+      "bytes": 2481678,
+      "sha256": "20ff439a3659042ab6c345304475e07de1e91a016fe0bf81f09aab9fc635b2d7"
     },
     {
       "path": "data/final_submission_bundle_manifest_2026-08-11.csv",
       "bytes": 2235,
-      "sha256": "49775022ae6ddce11907087798a35e5fe96678ff99920887da1a67337c4aac5e"
+      "sha256": "1aa94f4f2ed09a97e71c51335133809b37e7b3e3b892fda0273d4ff9621e19bd"
     },
     {
       "path": "data/closeout/cwru_requirement_audit_2026-08-11.csv",
@@ -138,6 +153,21 @@
       "path": "data/longitudinal_directional_review_2026-07-29.csv",
       "bytes": 2131,
       "sha256": "8a36e7427baeff13c1e00e0252a8d49827a878d5ebe08bbc8584eb87dfb829ac"
+    },
+    {
+      "path": "docs/research/final/evidence/program_records_2026-08-11/registration.html",
+      "bytes": 33892,
+      "sha256": "974a9bf89dfa6447ba910555eb4587efaf87af49b1d65e09a279a70f6d41aef0"
+    },
+    {
+      "path": "docs/research/final/evidence/program_records_2026-08-11/summer_2026_intersections_compendium.pdf",
+      "bytes": 9982677,
+      "sha256": "1d3c5178b63187d47ccad07ab31165cb0ac449fde8456fa954cbc3ed2efe7782"
+    },
+    {
+      "path": "docs/research/final/evidence/program_records_2026-08-11/summer_2026_intersections_compendium.txt",
+      "bytes": 343439,
+      "sha256": "5b86ae0235f21b9e668512d41109353a42e4129c32754155786a3d445220402c"
     },
     {
       "path": "docs/research/final/evidence/source_cards_2026-08-11/S01_source_locator_card.png",

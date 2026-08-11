@@ -1,0 +1,158 @@
+From 7ecbb35c7139dc753b33d012f2cb3ac37f4a27e6 Mon Sep 17 00:00:00 2001
+From: Alfred Chen <Alfred-Chen-04@users.noreply.github.com>
+Date: Thu, 18 Jun 2026 22:37:36 +0800
+Subject: [PATCH 1/4] Add June 18 current work note
+
+---
+ README.md                                     |  1 +
+ docs/research/today_work_note_2026-06-18.md   | 77 +++++++++++++++++++
+ .../week2_checkin_index_2026-06-06.md         |  1 +
+ findings.md                                   |  7 ++
+ progress.md                                   |  1 +
+ task_plan.md                                  |  1 +
+ 6 files changed, 88 insertions(+)
+ create mode 100644 docs/research/today_work_note_2026-06-18.md
+
+diff --git a/README.md b/README.md
+index 36ea14b..257fe07 100644
+--- a/README.md
++++ b/README.md
+@@ -201,6 +201,7 @@ Coca-Cola smoke passes all Layer 1 paths.
+ - Current Week 3 continuity target list is [data/week3_continuity_targets_2026-06-13.csv](data/week3_continuity_targets_2026-06-13.csv).
+ - Current June 14 capture attempt audit is [docs/research/june14_capture_attempt_audit_2026-06-14.md](docs/research/june14_capture_attempt_audit_2026-06-14.md).
+ - Current June 15 Coca-Cola smoke capture audit is [docs/research/june15_coca_cola_smoke_audit_2026-06-15.md](docs/research/june15_coca_cola_smoke_audit_2026-06-15.md).
++- Current daily work note is [docs/research/today_work_note_2026-06-18.md](docs/research/today_work_note_2026-06-18.md).
+ - Current full project audit is [docs/research/full_project_audit_2026-06-15.md](docs/research/full_project_audit_2026-06-15.md).
+ - Current full fact audit is [docs/research/full_project_fact_audit_2026-06-10.md](docs/research/full_project_fact_audit_2026-06-10.md).
+ - Run `uv run consent-audit research-status` for a compact current-state dashboard and next action.
+diff --git a/docs/research/today_work_note_2026-06-18.md b/docs/research/today_work_note_2026-06-18.md
+new file mode 100644
+index 0000000..2594426
+--- /dev/null
++++ b/docs/research/today_work_note_2026-06-18.md
+@@ -0,0 +1,77 @@
++# Today Work Note, 2026-06-18
++
++## Bottom Line
++
++Today is a fact-check and decision-setup day, not a blind browser-capture day.
++
++Current verified facts:
++
++- GitHub PR #4, `[codex] Clarify June 15 post-fix audit guidance`, is merged
++  into `main`.
++- `research-status` still reports Week 2 sanity `ready`, cycle capture
++  `completed`, 42 audit reports, 20 longitudinal summaries, and
++  `pending=8` CMP confirmations.
++- The valid evidence package remains the completed Week 2 gate.
++- The June 14 Week 3 capture attempt remains a browser-navigation failure
++  record, not consent-interface evidence.
++- The June 15 post-fix Coca-Cola smoke remains a technical verification that
++  the OneTrust pathway-recognition blocker was resolved for that smoke case.
++
++No new advisor response or sample-lock decision is recorded in the repository
++as of this note.
++
++## What Was Checked Today
++
++Commands / sources checked:
++
++```bash
++git status -sb
++git log --oneline --decorate -8
++PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src .venv/bin/python -m consent_audit.cli research-status
++```
++
++External GitHub state checked:
++
++- PR #4 is `merged=true`, with merge commit
++  `428394fa7e52d9f007737a123ace5ed6e1a7b13b`.
++
++Repository evidence checked:
++
++- `README.md`
++- `SCHEMA.md`
++- `docs/research/week2_checkin_index_2026-06-06.md`
++- `docs/research/advisor_email_latest_2026-06-15.md`
++- `docs/research/full_project_audit_2026-06-15.md`
++- `docs/research/june15_coca_cola_smoke_audit_2026-06-15.md`
++
++## What Can Be Done Today
++
++1. Use this note and the latest advisor email as the current project handoff.
++2. If contacting Dr. Singh, use
++   `docs/research/advisor_email_latest_2026-06-15.md` as the starting point.
++3. If doing research work without an advisor reply, prepare evidence cards or
++   manual-validation notes from existing screenshots/DOM instead of rerunning a
++   full capture.
++4. Do not treat the 8 CMP/manual-review rows as locked sample decisions until
++   the confirmation sheet is filled by a human/advisor.
++5. Do not claim Week 3 continuity evidence exists until a successful new
++   current-five run or a documented semi-automated validation pass exists.
++
++## Do Not Do Blindly
++
++- Do not rerun the full current-five capture just because the calendar advanced.
++- Do not expand to ~20 sites before deciding how no-visible-banner rows should
++  appear in the RQ1 table.
++- Do not change paper/poster claims from the Week 2 evidence gate unless new
++  evidence is captured and the research package is refreshed.
++
++## Next Decision
++
++The next real decision is still:
++
++Should the project prioritize a post-fix current-five continuity rerun, or
++should it first write manual evidence cards and then expand toward the roughly
++20-site deep sample?
++
++The repository currently supports either path, but it does not prove which path
++the advisor/user has chosen.
+diff --git a/docs/research/week2_checkin_index_2026-06-06.md b/docs/research/week2_checkin_index_2026-06-06.md
+index 18cac35..3ccdec6 100644
+--- a/docs/research/week2_checkin_index_2026-06-06.md
++++ b/docs/research/week2_checkin_index_2026-06-06.md
+@@ -11,6 +11,7 @@ Use this index as the first file for advisor check-ins.
+ 
+ ## Read First
+ 
++- [Today work note, 2026-06-18](today_work_note_2026-06-18.md)
+ - [June 15 Coca-Cola smoke capture audit, 2026-06-15](june15_coca_cola_smoke_audit_2026-06-15.md)
+ - [Latest advisor email draft, 2026-06-15](advisor_email_latest_2026-06-15.md)
+ - [Full project audit, 2026-06-15](full_project_audit_2026-06-15.md)
+diff --git a/findings.md b/findings.md
+index f89c424..dcd02e7 100644
+--- a/findings.md
++++ b/findings.md
+@@ -425,3 +425,10 @@
+ - `research-status` still reports the current valid Week 2 package: 42 audit reports, 20 longitudinal summaries, sanity `ready`, cycle `completed`, and 8 pending CMP confirmations.
+ - The postfix smoke CSV confirms the OneTrust blocker was fixed for the Coca-Cola smoke case: accept/reject/customize/dismiss and the Layer 1 gate are all `true`, with tier `Exemplary`.
+ - Corrected two stale June 15 document passages so the initial OneTrust-fix recommendation is clearly superseded by the post-fix verification.
++
++## 2026-06-18 Current Work Findings
++
++- GitHub PR #4, `[codex] Clarify June 15 post-fix audit guidance`, is merged into `main` with merge commit `428394fa7e52d9f007737a123ace5ed6e1a7b13b`.
++- The local research dashboard remains unchanged from the valid Week 2 evidence gate: sanity `ready`, cycle `completed`, 42 audit reports, 20 longitudinal summaries, and 8 pending CMP confirmations.
++- No repository evidence shows a new advisor/sample decision after the June 15 email draft.
++- Added a June 18 daily work note to keep the next action evidence-based: do not rerun blind capture; decide between a post-fix current-five rerun and manual evidence cards before expansion.
+diff --git a/progress.md b/progress.md
+index 9e381c4..480e86d 100644
+--- a/progress.md
++++ b/progress.md
+@@ -534,3 +534,4 @@
+ - Completed phase 109 on 2026-06-15 by running a controlled one-site Coca-Cola smoke capture with `--no-save`. The command wrote `data/smoke_coca_cola_2026-06-15.csv` plus `data/captures/sites/www_coca_cola_com_20260615_043524/layer1.png` and local `layer1.html`; a synced DOM evidence excerpt is in `data/smoke_coca_cola_2026-06-15_dom_evidence.csv`. The capture environment produced valid screenshot/DOM evidence again, but the automated Layer 1 booleans missed visible OneTrust controls (`Allow All`, `Reject All`, and `Confirm My Choices`), so the row is an extraction/debugging signal rather than a final RQ1 score.
+ - Completed phase 110 on 2026-06-15 by fixing the OneTrust pathway-recognition bug exposed by the Coca-Cola smoke. Root causes: `Confirm My Choices` was not classified as customize, `Close preference center` was misclassified, `Privacy Preference Center` could be treated as a false pathway label, click replay waited only 1 second for delayed CMP controls, and aria-labeled close buttons were not clickable through the text-only helper. Added red/green regressions in `tests/capture/test_agent.py` and `tests/capture/test_capture_site_integration.py`, updated `src/consent_audit/capture/agent.py`, and verified with a live `--no-save` Coca-Cola postfix smoke at `data/smoke_coca_cola_postfix_2026-06-15.csv`: accept/reject/customize/dismiss all `true`, gate `true`, tier `Exemplary`.
+ - Completed phase 111 on 2026-06-16 by doing a fact-consistency review against `git status`, `git log`, `research-status`, the June 15 smoke audit, and the postfix smoke CSV. Corrected stale wording in `docs/research/june15_coca_cola_smoke_audit_2026-06-15.md` and `docs/research/full_project_audit_2026-06-15.md` so they no longer imply the OneTrust blocker remains unresolved after the post-fix smoke.
++- Completed phase 112 on 2026-06-18 by checking the current PR/research state and adding `docs/research/today_work_note_2026-06-18.md`. Evidence checked: GitHub PR #4 is merged, `research-status` still reports sanity `ready`, cycle `completed`, 42 audit reports, 20 longitudinal summaries, and 8 pending CMP confirmations. Linked the new note from `README.md` and `docs/research/week2_checkin_index_2026-06-06.md`.
+diff --git a/task_plan.md b/task_plan.md
+index d8bdef8..89520ef 100644
+--- a/task_plan.md
++++ b/task_plan.md
+@@ -201,3 +201,4 @@ audit invariants.
+ | Paper skeleton named RQ1/RQ2 tables but did not generate them | New regressions expected a concrete `ssrp-results-tables` command and `docs/research/ssrp_results_tables_2026-06-06.md` artifact | Added `consent_audit.paper_tables`, CLI command `ssrp-results-tables`, and integrated both tables and the paper skeleton into `week2-refresh-outputs`. |
+ | Research-status hid the new paper artifacts | New regression expected `research-status` to show paper skeleton/results table presence and paths | Added `results_tables_md` and `paper_skeleton_md` inputs to the renderer and CLI defaults so the dashboard is a true paper-writing entrypoint. |
+ | June 16 fact-consistency review | June 15 docs still contained a pre-fix OneTrust recommendation that could be read as current guidance | Checked current Git/research status and corrected stale June 15 wording so it no longer implies the OneTrust blocker remains unresolved after the post-fix Coca-Cola smoke. |
++| June 18 current-work note | No 2026-06-18 handoff existed after PR #4 merged and the research status remained unchanged | Added a fact-only daily work note and linked it from README and the advisor check-in index. |
+-- 
+2.39.5 (Apple Git-154)
+

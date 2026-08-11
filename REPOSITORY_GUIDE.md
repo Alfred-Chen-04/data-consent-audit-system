@@ -37,6 +37,7 @@ and dated research records.
 | `docs/outreach/` | Networking and outreach drafts | Historical/support |
 | `docs/strategy/` | Positioning and possible future extensions | Non-final strategy |
 | `Qiyao's data collection_0912/` | Auxiliary 2025 collection inherited for background comparison | Auxiliary, not final sample |
+| `archive/local_recovery_2026-08-11/` | Historical patches and external closeout backups recovered from outside the active repository before computer handoff | Recovery archive |
 
 ## Root Files
 

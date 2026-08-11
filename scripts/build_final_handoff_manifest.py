@@ -17,6 +17,9 @@ PRIMARY_FILES = (
     Path("docs/research/final/evidence_chain_audit_2026-08-11.md"),
     Path("docs/research/final/cwru_ssrp_closeout_and_submission_2026-08-11.md"),
     Path("docs/research/final/intersections_registration_packet_2026-08-11.md"),
+    Path("docs/research/final/cloud_sync_audit_2026-08-11.md"),
+    Path("archive/local_recovery_2026-08-11/README.md"),
+    Path("archive/local_recovery_2026-08-11/MANIFEST.sha256"),
     Path(
         "docs/research/presentation/"
         "ssrp_consent_longitudinal_presentation_rehearsal_ready_2026-08-04.pptx"

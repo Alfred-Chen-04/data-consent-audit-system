@@ -17,6 +17,7 @@ advisor or program decision.
 | Chinese conclusion and talk outline | `docs/research/final/项目最终结论与展示提纲_2026-08-11.md` |
 | CWRU requirement and closeout audit | `docs/research/final/cwru_ssrp_closeout_and_submission_2026-08-11.md` |
 | Intersections registration packet | `docs/research/final/intersections_registration_packet_2026-08-11.md` |
+| Cloud synchronization audit | `docs/research/final/cloud_sync_audit_2026-08-11.md` |
 | Final closeout index | `docs/research/final_closeout_index.md` |
 | Portable final submission ZIP | `docs/research/final/ssrp_final_submission_bundle_2026-08-11.zip` |
 | Final English presentation | `docs/research/presentation/ssrp_consent_longitudinal_presentation_rehearsal_ready_2026-08-04.pptx` |
@@ -40,7 +41,9 @@ advisor or program decision.
 | Submission ZIP manifest | `data/final_submission_bundle_manifest_2026-08-11.csv` |
 | CWRU requirement audit | `data/closeout/cwru_requirement_audit_2026-08-11.csv` |
 | Archived official PDFs | `docs/research/final/evidence/source_documents_2026-08-11/` |
+| Archived Summer 2026 program records | `docs/research/final/evidence/program_records_2026-08-11/` |
 | Controlled capture evidence | `data/captures/` |
+| Recovered historical backups and patches | `archive/local_recovery_2026-08-11/` |
 
 ## Final Result
 
