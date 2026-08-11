@@ -1842,11 +1842,10 @@ def test_research_status_default_entrypoint_uses_current_closeout_gate() -> None
         in result.output
     )
     assert "Final-freeze readiness: `true`" in result.output
-    assert "Final QA: pending=1, verified=4; final index=missing" in result.output
+    assert "Final QA: verified=5; final index=present" in result.output
     assert (
-        "Current next action: Complete pending final-QA checks: "
-        "presentation_final_qa; then dry-run "
-        "closeout-final-index."
+        "Current next action: Open the final index and its linked artifacts "
+        "for the final handoff."
         in result.output
     )
     assert (
@@ -1961,7 +1960,7 @@ def test_july26_decision_revision_matrix_maps_applied_closeout_surfaces() -> Non
     assert "joint_decision_revision_matrix_2026-07-26.csv" in linked_text
 
 
-def test_july27_final_qa_gate_records_only_completed_checks() -> None:
+def test_august11_final_qa_gate_records_completed_artifact_checks() -> None:
     qa_path = Path("data/closeout/final_qa_checklist_2026-07-27.csv")
     runbook_path = Path(
         "docs/research/closeout_low_token_runbook_2026-07-27.md"
@@ -1973,17 +1972,8 @@ def test_july27_final_qa_gate_records_only_completed_checks() -> None:
     assert len(rows) == 5
     assert {row["check_id"] for row in rows} == set(DEFAULT_REQUIRED_QA_IDS)
     by_id = {row["check_id"]: row for row in rows}
-    assert Counter(row["status"] for row in rows) == {
-        "pending": 1,
-        "verified": 4,
-    }
-    assert by_id["presentation_final_qa"]["status"] == "pending"
-    for check_id in (
-        "poster_final_qa",
-        "evidence_package_final_qa",
-        "repository_final_verification",
-        "backup_open_check",
-    ):
+    assert Counter(row["status"] for row in rows) == {"verified": 5}
+    for check_id in DEFAULT_REQUIRED_QA_IDS:
         row = by_id[check_id]
         assert row["evidence"]
         assert row["verified_by"] == "Codex"
@@ -1991,7 +1981,18 @@ def test_july27_final_qa_gate_records_only_completed_checks() -> None:
         assert row["notes"]
     assert all(row["check_scope"] for row in rows)
     assert all(row["required_verification"] for row in rows)
-    assert not final_index_path.exists()
+    assert final_index_path.is_file()
+    assert "Final QA checks verified: 5/5" in final_index_path.read_text(
+        encoding="utf-8"
+    )
+
+    with Path("data/closeout/human_closeout_confirmation_2026-07-30.csv").open(
+        newline="", encoding="utf-8"
+    ) as handle:
+        confirmations = {
+            row["confirmation_id"]: row for row in csv.DictReader(handle)
+        }
+    assert confirmations["presentation_rehearsal"]["status"] == "pending"
 
     runbook_text = runbook_path.read_text(encoding="utf-8")
     normalized_runbook_text = " ".join(runbook_text.split())

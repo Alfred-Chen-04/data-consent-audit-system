@@ -15,10 +15,16 @@ advisor or program decision.
 | Final paper source | `docs/research/final/ssrp_final_paper_2026-08-11.md` |
 | Final English results brief | `docs/research/final/final_results_brief_2026-08-11.md` |
 | Chinese conclusion and talk outline | `docs/research/final/项目最终结论与展示提纲_2026-08-11.md` |
+| CWRU requirement and closeout audit | `docs/research/final/cwru_ssrp_closeout_and_submission_2026-08-11.md` |
+| Intersections registration packet | `docs/research/final/intersections_registration_packet_2026-08-11.md` |
+| Final closeout index | `docs/research/final_closeout_index.md` |
+| Portable final submission ZIP | `docs/research/final/ssrp_final_submission_bundle_2026-08-11.zip` |
 | Final English presentation | `docs/research/presentation/ssrp_consent_longitudinal_presentation_rehearsal_ready_2026-08-04.pptx` |
 | Presentation preview | `docs/research/presentation/ssrp_consent_longitudinal_presentation_rehearsal_ready_2026-08-04_montage.png` |
 | Final poster PDF | `docs/research/poster/ssrp_consent_longitudinal_poster_2026-07-30.pdf` |
 | Editable poster | `docs/research/poster/ssrp_consent_longitudinal_poster_2026-07-30.pptx` |
+| 32 x 40 board print PDF | `docs/research/poster/Chen.Qianyi.40x32.print.pdf` |
+| 40 x 60 board print PDF | `docs/research/poster/Chen.Qianyi.60x40.print.pdf` |
 
 ## Evidence Outputs
 
@@ -31,6 +37,8 @@ advisor or program decision.
 | Twelve source locator cards | `docs/research/final/evidence/source_cards_2026-08-11/` |
 | Source-card hash manifest | `data/final_source_card_manifest_2026-08-11.csv` |
 | Final handoff hash manifest | `data/final_handoff_manifest_2026-08-11.json` |
+| Submission ZIP manifest | `data/final_submission_bundle_manifest_2026-08-11.csv` |
+| CWRU requirement audit | `data/closeout/cwru_requirement_audit_2026-08-11.csv` |
 | Archived official PDFs | `docs/research/final/evidence/source_documents_2026-08-11/` |
 | Controlled capture evidence | `data/captures/` |
 
@@ -48,6 +56,8 @@ causal claim.
 
 ## Administrative Boundary
 
-The research artifacts are complete. An actual paper submission receipt,
-presentation attendance record, or event registration remains a separate fact
-and is not inferred from repository files.
+The research artifacts are complete. The official Summer 2026 Intersections
+compendium does not list this project, so the presentation obligation should be
+completed at Fall 2026 or Spring 2027 Intersections. Registration, PI approval,
+educational-session attendance, printing, event attendance, and an actual
+paper-submission receipt remain external facts and are not inferred from files.

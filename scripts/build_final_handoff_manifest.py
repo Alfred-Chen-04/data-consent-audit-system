@@ -15,6 +15,8 @@ PRIMARY_FILES = (
     Path("docs/research/final/final_results_brief_2026-08-11.md"),
     Path("docs/research/final/项目最终结论与展示提纲_2026-08-11.md"),
     Path("docs/research/final/evidence_chain_audit_2026-08-11.md"),
+    Path("docs/research/final/cwru_ssrp_closeout_and_submission_2026-08-11.md"),
+    Path("docs/research/final/intersections_registration_packet_2026-08-11.md"),
     Path(
         "docs/research/presentation/"
         "ssrp_consent_longitudinal_presentation_rehearsal_ready_2026-08-04.pptx"
@@ -26,6 +28,11 @@ PRIMARY_FILES = (
     Path("docs/research/poster/ssrp_consent_longitudinal_poster_2026-07-30.pptx"),
     Path("docs/research/poster/ssrp_consent_longitudinal_poster_2026-07-30.pdf"),
     Path("docs/research/poster/ssrp_consent_longitudinal_poster_2026-07-30.png"),
+    Path("docs/research/poster/Chen.Qianyi.40x32.print.pdf"),
+    Path("docs/research/poster/Chen.Qianyi.60x40.print.pdf"),
+    Path("docs/research/final/ssrp_final_submission_bundle_2026-08-11.zip"),
+    Path("data/final_submission_bundle_manifest_2026-08-11.csv"),
+    Path("data/closeout/cwru_requirement_audit_2026-08-11.csv"),
     Path("data/final_claim_evidence_matrix_2026-08-11.csv"),
     Path("data/final_source_card_manifest_2026-08-11.csv"),
     Path("data/retrospective_longitudinal_cases_2026-07-29.csv"),

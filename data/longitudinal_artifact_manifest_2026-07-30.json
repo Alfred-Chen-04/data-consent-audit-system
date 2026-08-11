@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "generated_at": "2026-08-11T10:43:19+08:00",
+  "generated_at": "2026-08-11T11:19:01+08:00",
   "purpose": "Reproducible inventory for the August 5 six-case evidence rescue, rehearsal-ready presentation/poster, source-audited final-paper candidate, and closeout recovery.",
   "research_boundary": {
     "local_controlled_pilot": {
@@ -26,7 +26,7 @@
     "supported_conclusion": "Concrete consent interactions improved most clearly where regulators could specify and verify them, but improvement remained component-specific and reversible."
   },
   "file_count": 37,
-  "total_bytes": 4308101,
+  "total_bytes": 4310633,
   "all_files_present": true,
   "all_hashes_verified": true,
   "files": [
@@ -37,8 +37,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 21332,
-      "sha256": "3fad707c4c28572ec1c58e9b27bca44f9d4a853cbf9e24fa802efae0e1060a5e"
+      "bytes": 22506,
+      "sha256": "2681548ef18254ab62d12b694072f78ffab4c4a5ba48bb049ae663e4921040db"
     },
     {
       "path": "SCHEMA.md",
@@ -142,8 +142,8 @@
     },
     {
       "path": "data/closeout/human_closeout_confirmation_2026-07-30.csv",
-      "bytes": 738,
-      "sha256": "78efe5db78cfce38224b960a13eecb5316120fab98c8e4ccbf069a8f4047ca32"
+      "bytes": 1199,
+      "sha256": "223b7b38858c189bdf9fe5713d66a31f8c5486c1af91c17dae1bd4d9393264cd"
     },
     {
       "path": "data/research_package/audit_report_summary.csv",
@@ -163,7 +163,7 @@
     {
       "path": "data/closeout/closeout_prefreeze_manifest_2026-07-26.json",
       "bytes": 28731,
-      "sha256": "05e97f2ba5200d0a936fa4496dd0d05879c5dbb7edf11ea3d314ab205bf874ee"
+      "sha256": "442d18eb4274e82f7528adcdcb857ae05ba90882312ccd9dbd50ede95894bd26"
     },
     {
       "path": "data/closeout/project_owner_decision_sheet_2026-07-29.csv",
@@ -177,8 +177,8 @@
     },
     {
       "path": "src/consent_audit/closeout_final.py",
-      "bytes": 19776,
-      "sha256": "ff805e653db4d40536a2c402b73e0e6c365189de63e037374c66d71b03d7d3d6"
+      "bytes": 20673,
+      "sha256": "7df1b4e5fd11cf5380719ab539d6ce9a810c2f98e34fad499101a450327a1bad"
     },
     {
       "path": "src/consent_audit/research_status.py",

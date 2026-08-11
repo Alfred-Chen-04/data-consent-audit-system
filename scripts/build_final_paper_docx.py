@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import argparse
+from copy import deepcopy
 from datetime import UTC, datetime
 from pathlib import Path
 
@@ -18,6 +19,8 @@ REPLACEMENTS = {
         "direction is not assessed."
     ),
 }
+
+PROGRAM_LINE = "Program: CWRU 2026 Sponsored Summer Research Program"
 
 
 def _replace_in_paragraph(paragraph: Paragraph) -> int:
@@ -53,6 +56,21 @@ def main() -> None:
 
     if replacements != 3:
         raise RuntimeError(f"Expected 3 replacements, made {replacements}")
+
+    prepared = next(
+        (paragraph for paragraph in document.paragraphs if paragraph.text.startswith("Prepared:")),
+        None,
+    )
+    if prepared is None:
+        raise RuntimeError("Prepared line was not found")
+    program_xml = deepcopy(prepared._p)
+    text_nodes = program_xml.xpath(".//w:t")
+    if not text_nodes:
+        raise RuntimeError("Prepared line has no text node")
+    text_nodes[0].text = PROGRAM_LINE
+    for node in text_nodes[1:]:
+        node.text = ""
+    prepared._p.addnext(program_xml)
 
     document.core_properties.title = "How Cookie Consent Interfaces Changed"
     document.core_properties.subject = "SSRP 2026 final paper"

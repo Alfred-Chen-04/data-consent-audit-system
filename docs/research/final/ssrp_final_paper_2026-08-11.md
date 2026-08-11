@@ -5,6 +5,7 @@
 Qianyi (Alfred) Chen
 Mentor: Dr. Jagdip Singh
 SSRP 2026 final paper, August 11, 2026
+Program: CWRU 2026 Sponsored Summer Research Program
 
 ## Abstract
 

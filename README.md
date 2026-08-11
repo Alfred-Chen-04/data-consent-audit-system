@@ -35,6 +35,10 @@ for the full positioning.
 | File | Purpose |
 |---|---|
 | [docs/research/final/FINAL_DELIVERABLES_2026-08-11.md](docs/research/final/FINAL_DELIVERABLES_2026-08-11.md) | **Start here for closeout** - final paper, results, evidence audit, presentation, poster, and portable GitHub handoff |
+| [docs/research/final/cwru_ssrp_closeout_and_submission_2026-08-11.md](docs/research/final/cwru_ssrp_closeout_and_submission_2026-08-11.md) | Official-requirement audit, Summer 2026 public-record check, Fall/Spring route, and exact remaining administrative actions |
+| [docs/research/final/intersections_registration_packet_2026-08-11.md](docs/research/final/intersections_registration_packet_2026-08-11.md) | Paste-ready title, 211-word abstract, three keywords, PI boundary, and file choices for the next Intersections registration |
+| [docs/research/final_closeout_index.md](docs/research/final_closeout_index.md) | Machine-gated final index with hashes for every research, evidence, presentation, poster, paper, and CWRU submission artifact |
+| [docs/research/final/ssrp_final_submission_bundle_2026-08-11.zip](docs/research/final/ssrp_final_submission_bundle_2026-08-11.zip) | Portable final submission set containing paper, presentation, both official-board poster PDFs, results, and evidence tables |
 | [docs/research/final/ssrp_final_paper_2026-08-11.docx](docs/research/final/ssrp_final_paper_2026-08-11.docx) | Final seven-page evidence-audited English paper |
 | [docs/research/final/final_results_brief_2026-08-11.md](docs/research/final/final_results_brief_2026-08-11.md) | Concise final answers to RQ1 and RQ2, result, interpretation, and claim boundary |
 | [docs/research/final/项目最终结论与展示提纲_2026-08-11.md](docs/research/final/%E9%A1%B9%E7%9B%AE%E6%9C%80%E7%BB%88%E7%BB%93%E8%AE%BA%E4%B8%8E%E5%B1%95%E7%A4%BA%E6%8F%90%E7%BA%B2_2026-08-11.md) | Chinese final conclusion, evidence-strength explanation, and presentation outline |
@@ -242,8 +246,9 @@ Coca-Cola smoke passes all Layer 1 paths.
   fallback. PostgreSQL, R2/S3, APScheduler, and PDF report generation remain
   target architecture, not active runtime capabilities.
 - Current SSRP deliverables are presentation + large poster + traceable
-  evidence package + final paper. The official SSRP page sets the paper
-  deadline at August 31, 2026.
+  evidence package + final paper. The 2026 program page previously set an
+  August 31 paper deadline; the live page had rolled to 2027 by August 11, so
+  the finished paper is retained under the stricter dated requirement.
 - As of 2026-07-30, six-case closeout copies of the presentation and poster
   exist. Five conservative project-owner decisions are recorded separately
   from the still-pending advisor sheet; seven current-five decisions and eight
@@ -261,11 +266,11 @@ Coca-Cola smoke passes all Layer 1 paths.
 - The decision-execution gate remains the [schema-v2 pre-freeze manifest](docs/research/july26_closeout_prefreeze_manifest_2026-07-26.md); the current artifact inventory is [data/longitudinal_artifact_manifest_2026-07-30.json](data/longitudinal_artifact_manifest_2026-07-30.json).
 - Project-owner selections and their evidence basis are recorded in [docs/research/july29_project_owner_closeout_decisions_2026-07-29.md](docs/research/july29_project_owner_closeout_decisions_2026-07-29.md) and [data/closeout/project_owner_decision_sheet_2026-07-29.csv](data/closeout/project_owner_decision_sheet_2026-07-29.csv); they are not advisor approval.
 - Current decision-aware revision map is [docs/research/july26_decision_to_revision_matrix_2026-07-26.md](docs/research/july26_decision_to_revision_matrix_2026-07-26.md).
-- Longitudinal presentation/poster rendering, overflow, PDF, and 48 x 36 size
-  checks pass. Live rehearsal timing, actual Intersections status, and
-  registered board-size confirmation remain human facts. The July 30 artifact
-  manifest inventories the new files; the final index remains gated on human
-  rehearsal.
+- Longitudinal presentation/poster rendering and overflow checks pass. Exact
+  40 x 32 and 60 x 40 print PDFs now cover both official board options. The
+  Summer 2026 official abstract compendium does not list this project, so a
+  Fall 2026 or Spring 2027 presentation, live rehearsal timing, registration,
+  PI approval, and attendance remain external actions.
 - Current response/fallback protocol is [docs/research/july26_advisor_response_and_fallback_protocol_2026-07-26.md](docs/research/july26_advisor_response_and_fallback_protocol_2026-07-26.md).
 - Current review path is the [joint advisor email](docs/research/advisor_email_joint_presentation_poster_review_2026-07-25.md), [joint review ZIP](docs/research/joint_review/ssrp_joint_advisor_review_2026-07-25.zip), and [joint decision sheet](data/joint_advisor_review_decision_sheet_2026-07-25.csv).
 - Full dated evidence/work history remains in the [Week 2 index](docs/research/week2_checkin_index_2026-06-06.md); communication history remains in the [advisor packet index](docs/research/advisor_packet_index_2026-06-05.md).

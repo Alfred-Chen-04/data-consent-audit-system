@@ -130,7 +130,7 @@
     "blockers": [],
     "ready_for_final_freeze": true
   },
-  "generated_at": "2026-08-10T06:45:30.754129+00:00",
+  "generated_at": "2026-08-11T03:19:01.099265+00:00",
   "key_deliverables": [
     {
       "bytes": 20937,
@@ -235,9 +235,9 @@
       "status": "present"
     },
     {
-      "bytes": 2756,
+      "bytes": 3061,
       "path": "data/closeout/final_qa_checklist_2026-07-27.csv",
-      "sha256": "8fd99209c8d94e8578d46df875feecff8748971d26b53d3bf625c44d152ba36c",
+      "sha256": "0e8287556d7ba12882d96bba785c7c9e324f6c06ab0cbc57bdfc641e88e001a9",
       "status": "present"
     }
   ],

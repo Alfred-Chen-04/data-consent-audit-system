@@ -1,6 +1,7 @@
 import csv
 import hashlib
 import json
+import zipfile
 from pathlib import Path
 
 
@@ -82,3 +83,39 @@ def test_august11_final_paper_uses_the_corrected_vanity_fair_claim() -> None:
     normalized = " ".join(paper.split()).lower()
     assert "five improve at least one audited component and one" in normalized
     assert "not prevalence estimates" in normalized
+    assert "Program: CWRU 2026 Sponsored Summer Research Program" in paper
+
+
+def test_august11_cwru_submission_bundle_is_complete() -> None:
+    packet = Path(
+        "docs/research/final/intersections_registration_packet_2026-08-11.md"
+    ).read_text(encoding="utf-8")
+    normalized_packet = " ".join(packet.split())
+    assert "**Abstract word count:** 211" in packet
+    assert "December 4, 2026" in packet
+    assert "April 16, 2027" in normalized_packet
+    assert "web-wide prevalence" in packet
+
+    audit_path = Path("data/closeout/cwru_requirement_audit_2026-08-11.csv")
+    with audit_path.open(newline="", encoding="utf-8") as stream:
+        requirements = list(csv.DictReader(stream))
+    assert len(requirements) == 7
+    statuses = {row["requirement_id"]: row["verified_status"] for row in requirements}
+    assert statuses["project_completion"] == "verified"
+    assert statuses["intersections_presentation"] == "pending_external_event"
+    assert statuses["final_paper"] == "ready_for_external_submission"
+
+    bundle = Path(
+        "docs/research/final/ssrp_final_submission_bundle_2026-08-11.zip"
+    )
+    manifest_path = Path("data/final_submission_bundle_manifest_2026-08-11.csv")
+    with manifest_path.open(newline="", encoding="utf-8") as stream:
+        records = list(csv.DictReader(stream))
+    with zipfile.ZipFile(bundle) as archive:
+        names = set(archive.namelist())
+        assert "MANIFEST.sha256" in names
+        for record in records:
+            assert record["path"] in names
+            data = archive.read(record["path"])
+            assert len(data) == int(record["bytes"])
+            assert hashlib.sha256(data).hexdigest() == record["sha256"]

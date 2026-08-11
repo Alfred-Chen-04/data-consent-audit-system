@@ -21,23 +21,23 @@
   "files": [
     {
       "path": "docs/research/final/FINAL_DELIVERABLES_2026-08-11.md",
-      "bytes": 2697,
-      "sha256": "26b1f75362edf32ae19d1d43d76b1de74bce0a8ddaa95898d72349396f6287f2"
+      "bytes": 3614,
+      "sha256": "4c345425c2fea4313f8e912762ffff5728a20cace873caf0b65139faf87625b7"
     },
     {
       "path": "docs/research/final/ssrp_final_paper_2026-08-11.md",
-      "bytes": 15349,
-      "sha256": "179758c498dbca027ffba2a230ff7da484e5a6a6a5754e15e1c628c458f53323"
+      "bytes": 15402,
+      "sha256": "340ff00bb515df7817e6f88a74dd64e0faec81bfbcb46d0ce7a03cc7b5e442be"
     },
     {
       "path": "docs/research/final/ssrp_final_paper_2026-08-11.docx",
-      "bytes": 45001,
-      "sha256": "44216408a7f8c6152e7cd213d58f8f3ac737691a9f87fd2f32a05a7806237a7e"
+      "bytes": 45041,
+      "sha256": "e5d9fd981e5bb98a8eb22c5a26f1faa072e6bd20f202a50139d0dce86b4cc934"
     },
     {
       "path": "docs/research/final/ssrp_final_paper_2026-08-11.pdf",
-      "bytes": 150158,
-      "sha256": "5f2b38418b0b2b7c2b3b0368845e0328ec65e776a9b2607f9404e04354ac4b21"
+      "bytes": 151156,
+      "sha256": "8e00da07a8ce585008e0b229269fe39bade8eaafc7cf2108b820a3d40b5af43a"
     },
     {
       "path": "docs/research/final/final_results_brief_2026-08-11.md",
@@ -53,6 +53,16 @@
       "path": "docs/research/final/evidence_chain_audit_2026-08-11.md",
       "bytes": 5025,
       "sha256": "33a720d731ac3d1bd609f840132f216463feee580cc4f962285aeffee22727b2"
+    },
+    {
+      "path": "docs/research/final/cwru_ssrp_closeout_and_submission_2026-08-11.md",
+      "bytes": 4820,
+      "sha256": "43824039398c9f130f962d6b71e8d59a79e12c44a29dd28700a2d5a6859da728"
+    },
+    {
+      "path": "docs/research/final/intersections_registration_packet_2026-08-11.md",
+      "bytes": 3672,
+      "sha256": "32ebbbea24207a92b0368b42bce7999156fd75c082531324acc6df3e09721453"
     },
     {
       "path": "docs/research/presentation/ssrp_consent_longitudinal_presentation_rehearsal_ready_2026-08-04.pptx",
@@ -78,6 +88,31 @@
       "path": "docs/research/poster/ssrp_consent_longitudinal_poster_2026-07-30.png",
       "bytes": 1327816,
       "sha256": "aef4b06f1d871dd57536b185f755d33f115f310069584e54997ecc44ccdb02c1"
+    },
+    {
+      "path": "docs/research/poster/Chen.Qianyi.40x32.print.pdf",
+      "bytes": 760758,
+      "sha256": "b67c69bffd1c30af981e72d7af7538e1f2e3bcb7bf81b410c9e0b7cf240f3a64"
+    },
+    {
+      "path": "docs/research/poster/Chen.Qianyi.60x40.print.pdf",
+      "bytes": 760759,
+      "sha256": "7611f6cea6f994bd0621cc26359ede87997d5567bec5714261ab68859e80e7b5"
+    },
+    {
+      "path": "docs/research/final/ssrp_final_submission_bundle_2026-08-11.zip",
+      "bytes": 2481420,
+      "sha256": "1498ead325fe54570cb9803363b618e43063f89ed50f8d0b19c5df59e4c7fe84"
+    },
+    {
+      "path": "data/final_submission_bundle_manifest_2026-08-11.csv",
+      "bytes": 2235,
+      "sha256": "49775022ae6ddce11907087798a35e5fe96678ff99920887da1a67337c4aac5e"
+    },
+    {
+      "path": "data/closeout/cwru_requirement_audit_2026-08-11.csv",
+      "bytes": 3020,
+      "sha256": "0b09ae6d4b2dc6e8964d2a7b09b573746b4617f84f517f5a6846e26c2733fa44"
     },
     {
       "path": "data/final_claim_evidence_matrix_2026-08-11.csv",

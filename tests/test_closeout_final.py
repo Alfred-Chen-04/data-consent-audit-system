@@ -48,6 +48,21 @@ def test_default_final_artifacts_point_to_current_longitudinal_outputs() -> None
     assert paths["Final handoff manifest"] == (
         "data/final_handoff_manifest_2026-08-11.json"
     )
+    assert paths["CWRU closeout and submission audit"] == (
+        "docs/research/final/cwru_ssrp_closeout_and_submission_2026-08-11.md"
+    )
+    assert paths["Intersections registration packet"] == (
+        "docs/research/final/intersections_registration_packet_2026-08-11.md"
+    )
+    assert paths["CWRU 32 x 40 board print PDF"] == (
+        "docs/research/poster/Chen.Qianyi.40x32.print.pdf"
+    )
+    assert paths["CWRU 40 x 60 board print PDF"] == (
+        "docs/research/poster/Chen.Qianyi.60x40.print.pdf"
+    )
+    assert paths["Final submission bundle"] == (
+        "docs/research/final/ssrp_final_submission_bundle_2026-08-11.zip"
+    )
     assert paths["Presentation readiness guide"] == (
         "docs/research/presentation/"
         "ssrp_consent_presentation_readiness_2026-08-04.md"

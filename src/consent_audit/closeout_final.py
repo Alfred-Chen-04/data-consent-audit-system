@@ -135,6 +135,34 @@ DEFAULT_FINAL_ARTIFACTS = (
         Path("data/final_handoff_manifest_2026-08-11.json"),
     ),
     (
+        "CWRU closeout and submission audit",
+        Path("docs/research/final/cwru_ssrp_closeout_and_submission_2026-08-11.md"),
+    ),
+    (
+        "Intersections registration packet",
+        Path("docs/research/final/intersections_registration_packet_2026-08-11.md"),
+    ),
+    (
+        "CWRU 32 x 40 board print PDF",
+        Path("docs/research/poster/Chen.Qianyi.40x32.print.pdf"),
+    ),
+    (
+        "CWRU 40 x 60 board print PDF",
+        Path("docs/research/poster/Chen.Qianyi.60x40.print.pdf"),
+    ),
+    (
+        "CWRU requirement audit",
+        Path("data/closeout/cwru_requirement_audit_2026-08-11.csv"),
+    ),
+    (
+        "Final submission bundle",
+        Path("docs/research/final/ssrp_final_submission_bundle_2026-08-11.zip"),
+    ),
+    (
+        "Final submission bundle manifest",
+        Path("data/final_submission_bundle_manifest_2026-08-11.csv"),
+    ),
+    (
         "Presentation readiness guide",
         Path(
             "docs/research/presentation/"
