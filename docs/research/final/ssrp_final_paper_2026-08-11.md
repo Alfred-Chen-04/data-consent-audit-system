@@ -4,7 +4,7 @@
 
 Qianyi (Alfred) Chen
 Mentor: Dr. Jagdip Singh
-SSRP 2026 final-paper submission candidate, August 5, 2026
+SSRP 2026 final paper, August 11, 2026
 
 ## Abstract
 
@@ -251,9 +251,8 @@ https://www.cnil.fr/en/cookies-placed-without-consent-company-publishes-website-
 [10] CNIL, *Deliberation SAN-2025-005 concerning SHEIN*, Sep. 1, 2025.
 https://www.cnil.fr/sites/default/files/2025-09/cnil_sanction_shein_en.pdf
 
-## Submission Boundary
+## Artifact Status
 
-This candidate has a claim/source audit and a complete reference list, but it
-is not evidence that a paper was submitted. Before upload, the project owner
-must apply any mentor or URO-specific formatting direction and retain the
-actual submission confirmation separately.
+This is the project's evidence-audited final paper. Its completion does not by
+itself establish that the paper was submitted to a program or event; any actual
+submission receipt remains a separate administrative record.

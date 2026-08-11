@@ -34,13 +34,20 @@ for the full positioning.
 
 | File | Purpose |
 |---|---|
-| [docs/research/closeout_control_index_2026-07-26.md](docs/research/closeout_control_index_2026-07-26.md) | **Start here for closeout** - current longitudinal artifacts, remaining gates, dated work order, and historical map |
+| [docs/research/final/FINAL_DELIVERABLES_2026-08-11.md](docs/research/final/FINAL_DELIVERABLES_2026-08-11.md) | **Start here for closeout** - final paper, results, evidence audit, presentation, poster, and portable GitHub handoff |
+| [docs/research/final/ssrp_final_paper_2026-08-11.docx](docs/research/final/ssrp_final_paper_2026-08-11.docx) | Final seven-page evidence-audited English paper |
+| [docs/research/final/final_results_brief_2026-08-11.md](docs/research/final/final_results_brief_2026-08-11.md) | Concise final answers to RQ1 and RQ2, result, interpretation, and claim boundary |
+| [docs/research/final/项目最终结论与展示提纲_2026-08-11.md](docs/research/final/%E9%A1%B9%E7%9B%AE%E6%9C%80%E7%BB%88%E7%BB%93%E8%AE%BA%E4%B8%8E%E5%B1%95%E7%A4%BA%E6%8F%90%E7%BA%B2_2026-08-11.md) | Chinese final conclusion, evidence-strength explanation, and presentation outline |
+| [docs/research/final/evidence_chain_audit_2026-08-11.md](docs/research/final/evidence_chain_audit_2026-08-11.md) | Final claim, source, screenshot, archive, and limitation audit |
+| [data/final_claim_evidence_matrix_2026-08-11.csv](data/final_claim_evidence_matrix_2026-08-11.csv) | Claim-level chain from each RQ answer to data, direct sources, offline evidence, and boundaries |
+| [data/final_handoff_manifest_2026-08-11.json](data/final_handoff_manifest_2026-08-11.json) | Hash-verified inventory of final artifacts and evidence assets |
+| [docs/research/closeout_control_index_2026-07-26.md](docs/research/closeout_control_index_2026-07-26.md) | Historical closeout control index and dated work map |
 | [docs/research/aug10_final_week_sync_and_handoff_2026-08-10.md](docs/research/aug10_final_week_sync_and_handoff_2026-08-10.md) | Final-week GitHub synchronization audit, external-backup disposition, and exact three-step human handoff |
 | [docs/research/closeout_low_token_runbook_2026-07-27.md](docs/research/closeout_low_token_runbook_2026-07-27.md) | Three-line human-status intake, final-index path, and low-token paper prompts |
 | [docs/research/july30_final_closeout_execution_plan_2026-07-30.md](docs/research/july30_final_closeout_execution_plan_2026-07-30.md) | Official July 30-August 31 timeline, closed decisions, acceptance state, and remaining human gates |
 | [docs/research/aug03_closeout_reconciliation_2026-08-03.md](docs/research/aug03_closeout_reconciliation_2026-08-03.md) | Post-Summer-Intersections factual status, Fall/Spring presentation branch, and August 3-31 closeout actions |
 | [docs/research/ssrp_final_paper_working_draft_2026-08-03.md](docs/research/ssrp_final_paper_working_draft_2026-08-03.md) | Source-linked paper starter with the bounded observational case-series claim |
-| [docs/research/ssrp_final_paper_submission_candidate_2026-08-05.docx](docs/research/ssrp_final_paper_submission_candidate_2026-08-05.docx) | Current seven-page final-paper candidate: source-audited prose, six-case results table, and numbered references; pending only owner formatting review and actual submission |
+| [docs/research/ssrp_final_paper_submission_candidate_2026-08-05.docx](docs/research/ssrp_final_paper_submission_candidate_2026-08-05.docx) | Historical August 5 paper candidate; superseded by the August 11 final paper |
 | [data/closeout/project_owner_decision_sheet_2026-07-29.csv](data/closeout/project_owner_decision_sheet_2026-07-29.csv) | Five explicit project-owner closeout decisions, kept separate from advisor-response provenance |
 | [data/closeout/final_qa_checklist_2026-07-27.csv](data/closeout/final_qa_checklist_2026-07-27.csv) | Fact-based final presentation, poster, evidence, repository, and backup verification record required before the final index |
 | [SCHEMA.md](SCHEMA.md) | One-page technical master view: research question → ontology → pipeline → modules → status → open decisions |
@@ -51,7 +58,7 @@ for the full positioning.
 | [data/longitudinal_directional_review_2026-07-29.csv](data/longitudinal_directional_review_2026-07-29.csv) | Five-site matched-pair review; all current directional labels remain insufficient evidence |
 | [docs/research/july29_retrospective_longitudinal_evidence_rescue_2026-07-29.md](docs/research/july29_retrospective_longitudinal_evidence_rescue_2026-07-29.md) | Current historical result: six primary-source trajectories, direction/causal-strength audit, external benchmark, and discussion questions |
 | [data/retrospective_longitudinal_cases_2026-07-29.csv](data/retrospective_longitudinal_cases_2026-07-29.csv) | Six component-coded historical before/after cases: five improved and one regressed |
-| [data/retrospective_source_registry_2026-07-29.csv](data/retrospective_source_registry_2026-07-29.csv) | Twelve dated sources with exact claim locators and evidence-strength labels |
+| [data/retrospective_source_registry_2026-07-29.csv](data/retrospective_source_registry_2026-07-29.csv) | Twelve dated sources with exact claim locators: eight direct case sources and four context/method sources |
 | [docs/research/july30_evidence_complete_artifact_delivery_2026-07-30.md](docs/research/july30_evidence_complete_artifact_delivery_2026-07-30.md) | Current artifact paths, verification results, external backup, and remaining human gates |
 | [docs/research/july26_decision_to_revision_matrix_2026-07-26.md](docs/research/july26_decision_to_revision_matrix_2026-07-26.md) | Applied and verified map from five project-owner decisions to 20 presentation, poster, and evidence-package surfaces |
 | [docs/research/july26_closeout_prefreeze_manifest_2026-07-26.md](docs/research/july26_closeout_prefreeze_manifest_2026-07-26.md) | Current reproducible pre-freeze inventory: evidence refs, decision gates, revision execution, deliverable presence, hashes, and final-freeze readiness |

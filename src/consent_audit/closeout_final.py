@@ -103,12 +103,36 @@ DEFAULT_FINAL_ARTIFACTS = (
         Path("docs/research/aug03_closeout_reconciliation_2026-08-03.md"),
     ),
     (
-        "Final paper working draft",
-        Path("docs/research/ssrp_final_paper_working_draft_2026-08-03.md"),
+        "Final paper Markdown",
+        Path("docs/research/final/ssrp_final_paper_2026-08-11.md"),
     ),
     (
-        "Final paper submission candidate",
-        Path("docs/research/ssrp_final_paper_submission_candidate_2026-08-05.docx"),
+        "Final paper DOCX",
+        Path("docs/research/final/ssrp_final_paper_2026-08-11.docx"),
+    ),
+    (
+        "Final paper PDF",
+        Path("docs/research/final/ssrp_final_paper_2026-08-11.pdf"),
+    ),
+    (
+        "Final results brief",
+        Path("docs/research/final/final_results_brief_2026-08-11.md"),
+    ),
+    (
+        "Chinese conclusion and presentation outline",
+        Path("docs/research/final/项目最终结论与展示提纲_2026-08-11.md"),
+    ),
+    (
+        "Final evidence-chain audit",
+        Path("docs/research/final/evidence_chain_audit_2026-08-11.md"),
+    ),
+    (
+        "Final claim-evidence matrix",
+        Path("data/final_claim_evidence_matrix_2026-08-11.csv"),
+    ),
+    (
+        "Final handoff manifest",
+        Path("data/final_handoff_manifest_2026-08-11.json"),
     ),
     (
         "Presentation readiness guide",

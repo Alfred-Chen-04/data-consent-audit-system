@@ -123,7 +123,7 @@ metadata into substantive interface evolution. [L1; G1]
 | Facebook | No refusal mechanism of equivalent simplicity | Equivalent refusal and regulator-verified closure | Availability, effort, and effectiveness improved | Strong | Verified order response |
 | TikTok | Reject required at least three actions | First-layer `Tout refuser` added | Availability and effort improved; purpose information stayed deficient | Strong | Investigation-period change |
 | Orange | Cookies continued to be read after withdrawal | First-party cookies removed and new third-party requests stopped | Withdrawal effectiveness improved | Strong | Verified order response |
-| Vanity Fair France | Earlier proceeding closed | Later checks found pre-choice cookies and continued behavior after refusal or withdrawal | Transparency and refusal effectiveness regressed | Moderate state transition | Unknown |
+| Vanity Fair France | Earlier proceeding closed | Later checks found pre-choice cookies and continued behavior after refusal or withdrawal | Refusal effectiveness regressed; transparency not assessed | Moderate state transition | Unknown |
 | SHEIN | Cookies before choice and continued reads/writes after refusal or withdrawal | Refusal and withdrawal remediated during proceedings | Technical refusal/withdrawal effectiveness improved | Strong | Proceedings-period change |
 
 Across the six purposively selected cases, `5/6` improved at least one audited

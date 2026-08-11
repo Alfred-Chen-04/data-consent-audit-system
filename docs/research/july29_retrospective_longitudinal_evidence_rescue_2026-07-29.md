@@ -40,7 +40,7 @@ The source registry is
 | Facebook | On April 8, 2021, immediate acceptance had no refusal mechanism of equivalent simplicity | Changes deployed from late February 2022 offered equivalent refusal; an April 12 CNIL check supported closure of the order | Reject availability, effort, and verified operation improved | Improved |
 | TikTok | On June 3, 2021, accept required one action and reject required at least three | On February 28, 2022, TikTok added a first-layer `Tout refuser` button | Availability and effort improved; purpose information remained deficient | Improved, incomplete |
 | Orange | In November 2024, cookies continued to be read on `orange.fr` after withdrawal | By September 2025, first-party cookies were removed and new third-party requests stopped after withdrawal | Withdrawal effectiveness improved | Improved |
-| Vanity Fair France | A prior compliance proceeding closed in July 2022 | Checks from July 2023 through February 2025 found pre-consent cookies and continued operations after `Reject all` or withdrawal | Transparency and refusal effectiveness regressed | Regressed |
+| Vanity Fair France | A prior compliance proceeding closed in July 2022 | Checks from July 2023 through February 2025 found pre-consent cookies and continued operations after `Reject all` or withdrawal | Refusal effectiveness regressed; transparency direction not assessed | Regressed |
 | SHEIN | On August 10, 2023, CNIL recorded cookies before choice and further reads or writes after refusal and withdrawal | In its September 2025 decision, the restricted committee recorded that the company had remediated refusal and withdrawal during the proceedings | Technical respect for refusal and withdrawal improved | Improved |
 
 These are component labels, not legal verdicts issued by this project. The
@@ -69,6 +69,8 @@ For the six purposively selected, source-complete trajectories:
   exact deployment date or prove that the proceeding was the sole cause.
 - The source does not establish why Vanity Fair's later functional regression
   occurred.
+- Vanity Fair's later information defects are documented, but the earlier
+  closure record does not provide a comparable transparency baseline.
 
 These fractions describe this case series only. They are not prevalence
 estimates for companies or websites generally.

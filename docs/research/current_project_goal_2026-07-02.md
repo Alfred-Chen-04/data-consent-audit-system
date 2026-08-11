@@ -119,8 +119,9 @@ Current verified state:
   improvement or regression claim.
 - Retrospective directional result: six source-complete company trajectories;
   Google, Facebook, TikTok, Orange, and SHEIN improved at least one audited
-  component, while Vanity Fair later regressed in transparency and refusal
-  effectiveness.
+  component, while Vanity Fair later regressed in refusal effectiveness.
+  Later information defects were documented for Vanity Fair, but the earlier
+  state does not provide a comparable transparency baseline.
 - External historical benchmark: a 2026 study of 11,364 websites reports that
   banners offering both accept and reject increased from 2.94% in 2018 to
   30.66% in 2024.

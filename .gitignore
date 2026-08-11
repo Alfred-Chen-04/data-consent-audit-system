@@ -15,6 +15,7 @@ venv/
 *.egg-info/
 dist/
 build/
+.tmp/
 
 # Capture artifacts
 data/captures/**

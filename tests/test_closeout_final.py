@@ -33,11 +33,20 @@ def test_default_final_artifacts_point_to_current_longitudinal_outputs() -> None
     assert paths["Closeout reconciliation"] == (
         "docs/research/aug03_closeout_reconciliation_2026-08-03.md"
     )
-    assert paths["Final paper working draft"] == (
-        "docs/research/ssrp_final_paper_working_draft_2026-08-03.md"
+    assert paths["Final paper Markdown"] == (
+        "docs/research/final/ssrp_final_paper_2026-08-11.md"
     )
-    assert paths["Final paper submission candidate"] == (
-        "docs/research/ssrp_final_paper_submission_candidate_2026-08-05.docx"
+    assert paths["Final paper DOCX"] == (
+        "docs/research/final/ssrp_final_paper_2026-08-11.docx"
+    )
+    assert paths["Final paper PDF"] == (
+        "docs/research/final/ssrp_final_paper_2026-08-11.pdf"
+    )
+    assert paths["Final evidence-chain audit"] == (
+        "docs/research/final/evidence_chain_audit_2026-08-11.md"
+    )
+    assert paths["Final handoff manifest"] == (
+        "data/final_handoff_manifest_2026-08-11.json"
     )
     assert paths["Presentation readiness guide"] == (
         "docs/research/presentation/"

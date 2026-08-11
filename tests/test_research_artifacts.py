@@ -2056,6 +2056,10 @@ def test_july29_retrospective_case_series_is_source_complete() -> None:
     assert len(sources) == 12
     assert len(source_ids) == len(sources)
     assert case_source_ids <= source_ids
+    assert len(case_source_ids) == 8
+    vanity_fair = next(row for row in cases if row["case_id"] == "RET-05")
+    assert vanity_fair["transparency_delta"] == "not_assessed"
+    assert vanity_fair["choice_effectiveness_delta"] == "regressed"
     assert {row["causal_evidence_level"] for row in cases} <= allowed_causal_levels
     assert {row["direction_evidence_level"] for row in cases} <= (
         allowed_direction_levels
