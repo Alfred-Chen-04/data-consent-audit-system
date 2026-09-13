@@ -1,0 +1,19 @@
+{
+  "started_at_utc": "2026-09-13T02:42:07.024269+00:00",
+  "finished_at_utc": "2026-09-13T02:42:22.924586+00:00",
+  "wall_seconds": 15.9,
+  "exit_code": 1,
+  "command": [
+    "node_modules/.bin/playwright",
+    "test",
+    "--config=feasibility.config.ts"
+  ],
+  "os": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+  "node": "v24.13.1",
+  "playwright": "1.60.0",
+  "browser": "Chromium headless shell 148.0.7778.96 (build 1223)",
+  "autoconsent_revision": "239a76ccb49a99ff622c15aee53638c1d39beb00",
+  "region": "LOCAL_UNVERIFIED",
+  "proxy_server": null,
+  "human_active_minutes": null
+}

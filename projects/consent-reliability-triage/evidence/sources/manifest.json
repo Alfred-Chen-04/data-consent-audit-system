@@ -1,0 +1,137 @@
+{
+  "retrieved_at_utc": "2026-09-13T02:39:43.327338+00:00",
+  "repository": "https://github.com/duckduckgo/autoconsent",
+  "head": "239a76ccb49a99ff622c15aee53638c1d39beb00",
+  "files": [
+    {
+      "file": "coverage_c2e9fcd6c22a.json",
+      "source_path": "data/coverage.json",
+      "revision": "c2e9fcd6c22adc501cae14258b6ca7a001c1e045",
+      "url": "https://github.com/duckduckgo/autoconsent/blob/c2e9fcd6c22adc501cae14258b6ca7a001c1e045/data/coverage.json",
+      "last_change_commit_time": "2026-08-13T12:03:57+02:00",
+      "sha256": "b657038e094b6eec2a96a78a79e94e3ad6bacf8497e79b6f80a0c6f5df239f93",
+      "bytes": 151059,
+      "license": "repository MPL-2.0; no separate data license found in data directory"
+    },
+    {
+      "file": "coverage_c6983b4e58b6.json",
+      "source_path": "data/coverage.json",
+      "revision": "c6983b4e58b6caeb74df97596b59ecb56a85c459",
+      "url": "https://github.com/duckduckgo/autoconsent/blob/c6983b4e58b6caeb74df97596b59ecb56a85c459/data/coverage.json",
+      "last_change_commit_time": "2026-07-31T09:42:26+02:00",
+      "sha256": "70dbce20b9ff655d0d8bd0866d9e88ad1a4299fdb4316ed702cb8a7c326be88f",
+      "bytes": 148497,
+      "license": "repository MPL-2.0; no separate data license found in data directory"
+    },
+    {
+      "file": "coverage_3fa7435a9d40.json",
+      "source_path": "data/coverage.json",
+      "revision": "3fa7435a9d40f97ff3a6338342990b4e25d8bf95",
+      "url": "https://github.com/duckduckgo/autoconsent/blob/3fa7435a9d40f97ff3a6338342990b4e25d8bf95/data/coverage.json",
+      "last_change_commit_time": "2026-06-12T16:57:49+02:00",
+      "sha256": "3dd89aa5f87bd773ca5b98d99d68728c7413ff87acdfb1dc82249c8c4e86b4e1",
+      "bytes": 156523,
+      "license": "repository MPL-2.0; no separate data license found in data directory"
+    },
+    {
+      "file": "readme.md",
+      "source_path": "readme.md",
+      "revision": "239a76ccb49a99ff622c15aee53638c1d39beb00",
+      "url": "https://github.com/duckduckgo/autoconsent/blob/239a76ccb49a99ff622c15aee53638c1d39beb00/readme.md",
+      "last_change_commit_time": "2026-06-23T17:21:24+02:00",
+      "sha256": "dd3ec8ecbd26e45d196763bd15899577edde4cf3d387f33d8009256d567f2050",
+      "bytes": 4126,
+      "license": "repository MPL-2.0; no separate data license found in data directory"
+    },
+    {
+      "file": "data__Readme.md",
+      "source_path": "data/Readme.md",
+      "revision": "239a76ccb49a99ff622c15aee53638c1d39beb00",
+      "url": "https://github.com/duckduckgo/autoconsent/blob/239a76ccb49a99ff622c15aee53638c1d39beb00/data/Readme.md",
+      "last_change_commit_time": "2023-06-26T10:59:48+02:00",
+      "sha256": "dac2eea3ee2c65b7d841f03373c93ec5e1016e6f762add67c4fc69f01f948ad4",
+      "bytes": 1131,
+      "license": "repository MPL-2.0; no separate data license found in data directory"
+    },
+    {
+      "file": "LICENSE",
+      "source_path": "LICENSE",
+      "revision": "239a76ccb49a99ff622c15aee53638c1d39beb00",
+      "url": "https://github.com/duckduckgo/autoconsent/blob/239a76ccb49a99ff622c15aee53638c1d39beb00/LICENSE",
+      "last_change_commit_time": "2019-04-18T15:15:48+02:00",
+      "sha256": "fab3dd6bdab226f1c08630b1dd917e11fcb4ec5e1e020e2c16f83a0a13863e85",
+      "bytes": 16726,
+      "license": "repository MPL-2.0; no separate data license found in data directory"
+    },
+    {
+      "file": "package.json",
+      "source_path": "package.json",
+      "revision": "239a76ccb49a99ff622c15aee53638c1d39beb00",
+      "url": "https://github.com/duckduckgo/autoconsent/blob/239a76ccb49a99ff622c15aee53638c1d39beb00/package.json",
+      "last_change_commit_time": "2026-09-08T00:17:34+00:00",
+      "sha256": "25b9356b82eb72fa884f97fef6cc4c1d824b87d31078ff8848b803a3a81faab8",
+      "bytes": 6585,
+      "license": "repository MPL-2.0; no separate data license found in data directory"
+    },
+    {
+      "file": "package-lock.json",
+      "source_path": "package-lock.json",
+      "revision": "239a76ccb49a99ff622c15aee53638c1d39beb00",
+      "url": "https://github.com/duckduckgo/autoconsent/blob/239a76ccb49a99ff622c15aee53638c1d39beb00/package-lock.json",
+      "last_change_commit_time": "2026-09-08T00:17:34+00:00",
+      "sha256": "e23e39a9fda8fe7d84cd1e2c37d0123d98ea84fa6cf4a0565d21ee2cf2d4c782",
+      "bytes": 573087,
+      "license": "repository MPL-2.0; no separate data license found in data directory"
+    },
+    {
+      "file": "playwright__runner.ts",
+      "source_path": "playwright/runner.ts",
+      "revision": "239a76ccb49a99ff622c15aee53638c1d39beb00",
+      "url": "https://github.com/duckduckgo/autoconsent/blob/239a76ccb49a99ff622c15aee53638c1d39beb00/playwright/runner.ts",
+      "last_change_commit_time": "2026-03-30T09:57:43+02:00",
+      "sha256": "e9744f79c03dcc62925688e1dd646e51be8def15b9e5b2e8f6b541ea15b87c6c",
+      "bytes": 14922,
+      "license": "repository MPL-2.0; no separate data license found in data directory"
+    },
+    {
+      "file": "playwright__content.ts",
+      "source_path": "playwright/content.ts",
+      "revision": "239a76ccb49a99ff622c15aee53638c1d39beb00",
+      "url": "https://github.com/duckduckgo/autoconsent/blob/239a76ccb49a99ff622c15aee53638c1d39beb00/playwright/content.ts",
+      "last_change_commit_time": "2026-06-23T17:21:24+02:00",
+      "sha256": "9bc7a86789e5bff2fd77c64e046d2af406e18bf4214d7830f4cd28b25501e775",
+      "bytes": 728,
+      "license": "repository MPL-2.0; no separate data license found in data directory"
+    },
+    {
+      "file": "playwright.config.ts",
+      "source_path": "playwright.config.ts",
+      "revision": "239a76ccb49a99ff622c15aee53638c1d39beb00",
+      "url": "https://github.com/duckduckgo/autoconsent/blob/239a76ccb49a99ff622c15aee53638c1d39beb00/playwright.config.ts",
+      "last_change_commit_time": "2025-08-11T15:39:14+02:00",
+      "sha256": "7d03329acf82e101ad086e1d5b42978e72a8d12e68b330aa9bf3ae9d5444e170",
+      "bytes": 1341,
+      "license": "repository MPL-2.0; no separate data license found in data directory"
+    },
+    {
+      "file": "tests__bandcamp.spec.ts",
+      "source_path": "tests/bandcamp.spec.ts",
+      "revision": "239a76ccb49a99ff622c15aee53638c1d39beb00",
+      "url": "https://github.com/duckduckgo/autoconsent/blob/239a76ccb49a99ff622c15aee53638c1d39beb00/tests/bandcamp.spec.ts",
+      "last_change_commit_time": "2026-03-19T09:46:46+01:00",
+      "sha256": "b07c20b82ba4b3466daf8155bb6d0859319e91c2f2c6fdea1bda589c0797ce99",
+      "bytes": 115,
+      "license": "repository MPL-2.0; no separate data license found in data directory"
+    },
+    {
+      "file": "rules__autoconsent__bandcamp.json",
+      "source_path": "rules/autoconsent/bandcamp.json",
+      "revision": "239a76ccb49a99ff622c15aee53638c1d39beb00",
+      "url": "https://github.com/duckduckgo/autoconsent/blob/239a76ccb49a99ff622c15aee53638c1d39beb00/rules/autoconsent/bandcamp.json",
+      "last_change_commit_time": "2026-03-19T09:46:46+01:00",
+      "sha256": "7378ecac443122e956f07c1ca95e70a7624ba4370cedc8b54d04a474b8f6c0b4",
+      "bytes": 687,
+      "license": "repository MPL-2.0; no separate data license found in data directory"
+    }
+  ]
+}

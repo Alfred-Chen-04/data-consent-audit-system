@@ -1,0 +1,1000 @@
+{
+  "snapshots": [
+    {
+      "file": "coverage_c2e9fcd6c22a.json",
+      "sha256": "b657038e094b6eec2a96a78a79e94e3ad6bacf8497e79b6f80a0c6f5df239f93",
+      "rules": 205,
+      "rows": 433,
+      "duplicate_json_keys": [],
+      "regions": {
+        "DE": {
+          "rows": 152,
+          "errors_sum_not_unique_sites": 1,
+          "selfTestFailures_sum_not_unique_sites": 161,
+          "error_positive_rows": 1,
+          "selftest_positive_rows": 25
+        },
+        "GB": {
+          "rows": 154,
+          "errors_sum_not_unique_sites": 4,
+          "selfTestFailures_sum_not_unique_sites": 184,
+          "error_positive_rows": 2,
+          "selftest_positive_rows": 25
+        },
+        "US": {
+          "rows": 127,
+          "errors_sum_not_unique_sites": 0,
+          "selfTestFailures_sum_not_unique_sites": 96,
+          "error_positive_rows": 0,
+          "selftest_positive_rows": 18
+        }
+      },
+      "fields": {
+        "errorSites": {
+          "present": 433,
+          "missing": 0,
+          "null": 0,
+          "types": {
+            "list": 433
+          },
+          "empty": 430,
+          "max_length": 2,
+          "duplicate_items": 0,
+          "invalid_urls": 0
+        },
+        "errors": {
+          "present": 433,
+          "missing": 0,
+          "null": 0,
+          "types": {
+            "int": 433
+          },
+          "min": 0,
+          "max": 2,
+          "nonzero": 3,
+          "negative": 0
+        },
+        "exampleSites": {
+          "present": 433,
+          "missing": 0,
+          "null": 0,
+          "types": {
+            "list": 433
+          },
+          "empty": 13,
+          "max_length": 5,
+          "duplicate_items": 0,
+          "invalid_urls": 0
+        },
+        "failingSites": {
+          "present": 433,
+          "missing": 0,
+          "null": 0,
+          "types": {
+            "list": 433
+          },
+          "empty": 365,
+          "max_length": 5,
+          "duplicate_items": 0,
+          "invalid_urls": 0
+        },
+        "selfTestFailures": {
+          "present": 433,
+          "missing": 0,
+          "null": 0,
+          "types": {
+            "int": 433
+          },
+          "min": 0,
+          "max": 69,
+          "nonzero": 68,
+          "negative": 0
+        },
+        "sites": {
+          "present": 433,
+          "missing": 0,
+          "null": 0,
+          "types": {
+            "int": 433
+          },
+          "min": 1,
+          "max": 1195,
+          "nonzero": 433,
+          "negative": 0
+        },
+        "unsuccessfulSites": {
+          "present": 433,
+          "missing": 0,
+          "null": 0,
+          "types": {
+            "list": 433
+          },
+          "empty": 352,
+          "max_length": 5,
+          "duplicate_items": 0,
+          "invalid_urls": 0
+        }
+      },
+      "rules_missing_some_regions": 117,
+      "unique_example_urls_across_all_lists": 1304,
+      "urls_in_multiple_rule_region_field_locations": 242,
+      "errors_gt_sites": [],
+      "selftest_failures_gt_sites": [],
+      "errors_and_failing_list_overlap": [
+        {
+          "rule": "Onetrust",
+          "region": "GB",
+          "urls": [
+            "http://www.healthline.com/"
+          ]
+        },
+        {
+          "rule": "healthline-media",
+          "region": "GB",
+          "urls": [
+            "http://www.healthline.com/"
+          ]
+        }
+      ],
+      "bandcamp_example": {
+        "DE": {
+          "sites": 1,
+          "errors": 0,
+          "selfTestFailures": 1,
+          "exampleSites": [
+            "http://bandcamp.com/"
+          ],
+          "failingSites": [
+            "http://bandcamp.com/"
+          ],
+          "unsuccessfulSites": [],
+          "errorSites": []
+        },
+        "GB": {
+          "sites": 1,
+          "errors": 0,
+          "selfTestFailures": 1,
+          "exampleSites": [
+            "http://bandcamp.com/"
+          ],
+          "failingSites": [
+            "http://bandcamp.com/"
+          ],
+          "unsuccessfulSites": [],
+          "errorSites": []
+        },
+        "US": {
+          "sites": 1,
+          "errors": 0,
+          "selfTestFailures": 1,
+          "exampleSites": [
+            "http://bandcamp.com/"
+          ],
+          "failingSites": [
+            "http://bandcamp.com/"
+          ],
+          "unsuccessfulSites": [],
+          "errorSites": []
+        }
+      },
+      "commit_time_not_collection_time": "2026-08-13T12:03:57+02:00"
+    },
+    {
+      "file": "coverage_c6983b4e58b6.json",
+      "sha256": "70dbce20b9ff655d0d8bd0866d9e88ad1a4299fdb4316ed702cb8a7c326be88f",
+      "rules": 202,
+      "rows": 425,
+      "duplicate_json_keys": [],
+      "regions": {
+        "DE": {
+          "rows": 155,
+          "errors_sum_not_unique_sites": 3,
+          "selfTestFailures_sum_not_unique_sites": 145,
+          "error_positive_rows": 3,
+          "selftest_positive_rows": 24
+        },
+        "GB": {
+          "rows": 149,
+          "errors_sum_not_unique_sites": 6,
+          "selfTestFailures_sum_not_unique_sites": 162,
+          "error_positive_rows": 4,
+          "selftest_positive_rows": 22
+        },
+        "US": {
+          "rows": 121,
+          "errors_sum_not_unique_sites": 0,
+          "selfTestFailures_sum_not_unique_sites": 102,
+          "error_positive_rows": 0,
+          "selftest_positive_rows": 19
+        }
+      },
+      "fields": {
+        "errorSites": {
+          "present": 425,
+          "missing": 0,
+          "null": 0,
+          "types": {
+            "list": 425
+          },
+          "empty": 418,
+          "max_length": 2,
+          "duplicate_items": 0,
+          "invalid_urls": 0
+        },
+        "errors": {
+          "present": 425,
+          "missing": 0,
+          "null": 0,
+          "types": {
+            "int": 425
+          },
+          "min": 0,
+          "max": 2,
+          "nonzero": 7,
+          "negative": 0
+        },
+        "exampleSites": {
+          "present": 425,
+          "missing": 0,
+          "null": 0,
+          "types": {
+            "list": 425
+          },
+          "empty": 14,
+          "max_length": 5,
+          "duplicate_items": 0,
+          "invalid_urls": 0
+        },
+        "failingSites": {
+          "present": 425,
+          "missing": 0,
+          "null": 0,
+          "types": {
+            "list": 425
+          },
+          "empty": 360,
+          "max_length": 5,
+          "duplicate_items": 0,
+          "invalid_urls": 0
+        },
+        "selfTestFailures": {
+          "present": 425,
+          "missing": 0,
+          "null": 0,
+          "types": {
+            "int": 425
+          },
+          "min": 0,
+          "max": 65,
+          "nonzero": 65,
+          "negative": 0
+        },
+        "sites": {
+          "present": 425,
+          "missing": 0,
+          "null": 0,
+          "types": {
+            "int": 425
+          },
+          "min": 1,
+          "max": 1223,
+          "nonzero": 425,
+          "negative": 0
+        },
+        "unsuccessfulSites": {
+          "present": 425,
+          "missing": 0,
+          "null": 0,
+          "types": {
+            "list": 425
+          },
+          "empty": 347,
+          "max_length": 5,
+          "duplicate_items": 0,
+          "invalid_urls": 0
+        }
+      },
+      "rules_missing_some_regions": 115,
+      "unique_example_urls_across_all_lists": 1292,
+      "urls_in_multiple_rule_region_field_locations": 243,
+      "errors_gt_sites": [],
+      "selftest_failures_gt_sites": [],
+      "errors_and_failing_list_overlap": [
+        {
+          "rule": "Onetrust",
+          "region": "GB",
+          "urls": [
+            "http://www.healthline.com/"
+          ]
+        },
+        {
+          "rule": "healthline-media",
+          "region": "GB",
+          "urls": [
+            "http://www.healthline.com/"
+          ]
+        }
+      ],
+      "bandcamp_example": {
+        "DE": {
+          "sites": 1,
+          "errors": 0,
+          "selfTestFailures": 1,
+          "exampleSites": [
+            "http://bandcamp.com/"
+          ],
+          "failingSites": [
+            "http://bandcamp.com/"
+          ],
+          "unsuccessfulSites": [],
+          "errorSites": []
+        },
+        "GB": {
+          "sites": 1,
+          "errors": 0,
+          "selfTestFailures": 1,
+          "exampleSites": [
+            "http://bandcamp.com/"
+          ],
+          "failingSites": [
+            "http://bandcamp.com/"
+          ],
+          "unsuccessfulSites": [],
+          "errorSites": []
+        },
+        "US": {
+          "sites": 1,
+          "errors": 0,
+          "selfTestFailures": 1,
+          "exampleSites": [
+            "http://bandcamp.com/"
+          ],
+          "failingSites": [
+            "http://bandcamp.com/"
+          ],
+          "unsuccessfulSites": [],
+          "errorSites": []
+        }
+      },
+      "commit_time_not_collection_time": "2026-07-31T09:42:26+02:00"
+    },
+    {
+      "file": "coverage_3fa7435a9d40.json",
+      "sha256": "3dd89aa5f87bd773ca5b98d99d68728c7413ff87acdfb1dc82249c8c4e86b4e1",
+      "rules": 204,
+      "rows": 430,
+      "duplicate_json_keys": [],
+      "regions": {
+        "DE": {
+          "rows": 151,
+          "errors_sum_not_unique_sites": 20,
+          "selfTestFailures_sum_not_unique_sites": 124,
+          "error_positive_rows": 9,
+          "selftest_positive_rows": 24
+        },
+        "GB": {
+          "rows": 153,
+          "errors_sum_not_unique_sites": 5,
+          "selfTestFailures_sum_not_unique_sites": 169,
+          "error_positive_rows": 5,
+          "selftest_positive_rows": 26
+        },
+        "US": {
+          "rows": 126,
+          "errors_sum_not_unique_sites": 1,
+          "selfTestFailures_sum_not_unique_sites": 75,
+          "error_positive_rows": 1,
+          "selftest_positive_rows": 15
+        }
+      },
+      "fields": {
+        "errorSites": {
+          "present": 430,
+          "missing": 0,
+          "null": 0,
+          "types": {
+            "list": 430
+          },
+          "empty": 415,
+          "max_length": 5,
+          "duplicate_items": 0,
+          "invalid_urls": 0
+        },
+        "errors": {
+          "present": 430,
+          "missing": 0,
+          "null": 0,
+          "types": {
+            "int": 430
+          },
+          "min": 0,
+          "max": 11,
+          "nonzero": 15,
+          "negative": 0
+        },
+        "exampleSites": {
+          "present": 430,
+          "missing": 0,
+          "null": 0,
+          "types": {
+            "list": 430
+          },
+          "empty": 13,
+          "max_length": 5,
+          "duplicate_items": 0,
+          "invalid_urls": 0
+        },
+        "failingSites": {
+          "present": 430,
+          "missing": 0,
+          "null": 0,
+          "types": {
+            "list": 430
+          },
+          "empty": 365,
+          "max_length": 5,
+          "duplicate_items": 0,
+          "invalid_urls": 0
+        },
+        "selfTestFailures": {
+          "present": 430,
+          "missing": 0,
+          "null": 0,
+          "types": {
+            "int": 430
+          },
+          "min": 0,
+          "max": 69,
+          "nonzero": 65,
+          "negative": 0
+        },
+        "sites": {
+          "present": 430,
+          "missing": 0,
+          "null": 0,
+          "types": {
+            "int": 430
+          },
+          "min": 1,
+          "max": 1357,
+          "nonzero": 430,
+          "negative": 0
+        },
+        "unsuccessfulSites": {
+          "present": 430,
+          "missing": 0,
+          "null": 0,
+          "types": {
+            "list": 430
+          },
+          "empty": 286,
+          "max_length": 5,
+          "duplicate_items": 0,
+          "invalid_urls": 0
+        }
+      },
+      "rules_missing_some_regions": 115,
+      "unique_example_urls_across_all_lists": 1382,
+      "urls_in_multiple_rule_region_field_locations": 293,
+      "errors_gt_sites": [],
+      "selftest_failures_gt_sites": [],
+      "errors_and_failing_list_overlap": [],
+      "bandcamp_example": {
+        "DE": {
+          "sites": 1,
+          "errors": 0,
+          "selfTestFailures": 1,
+          "exampleSites": [
+            "http://bandcamp.com/"
+          ],
+          "failingSites": [
+            "http://bandcamp.com/"
+          ],
+          "unsuccessfulSites": [],
+          "errorSites": []
+        },
+        "GB": {
+          "sites": 1,
+          "errors": 0,
+          "selfTestFailures": 1,
+          "exampleSites": [
+            "http://bandcamp.com/"
+          ],
+          "failingSites": [
+            "http://bandcamp.com/"
+          ],
+          "unsuccessfulSites": [],
+          "errorSites": []
+        },
+        "US": {
+          "sites": 1,
+          "errors": 0,
+          "selfTestFailures": 1,
+          "exampleSites": [
+            "http://bandcamp.com/"
+          ],
+          "failingSites": [
+            "http://bandcamp.com/"
+          ],
+          "unsuccessfulSites": [],
+          "errorSites": []
+        }
+      },
+      "commit_time_not_collection_time": "2026-06-12T16:57:49+02:00"
+    }
+  ],
+  "comparisons": [
+    {
+      "newer": "coverage_c2e9fcd6c22a.json",
+      "older": "coverage_c6983b4e58b6.json",
+      "common_rule_region_keys": 414,
+      "added_keys": [
+        [
+          "PrimeBox CookieBar",
+          "US"
+        ],
+        [
+          "bbb.org",
+          "US"
+        ],
+        [
+          "consentmo",
+          "DE"
+        ],
+        [
+          "cookieacceptbar",
+          "US"
+        ],
+        [
+          "curseforge",
+          "US"
+        ],
+        [
+          "gmx-permission",
+          "GB"
+        ],
+        [
+          "gmx-permission",
+          "US"
+        ],
+        [
+          "openai",
+          "GB"
+        ],
+        [
+          "pornhub-compact-cookie-banner",
+          "GB"
+        ],
+        [
+          "pornhub-compact-cookie-banner",
+          "US"
+        ],
+        [
+          "samsung.com",
+          "US"
+        ],
+        [
+          "scmp",
+          "GB"
+        ],
+        [
+          "scmp",
+          "US"
+        ],
+        [
+          "summitracing",
+          "US"
+        ],
+        [
+          "tagconcierge",
+          "GB"
+        ],
+        [
+          "theguardian.com",
+          "DE"
+        ],
+        [
+          "theguardian.com",
+          "GB"
+        ],
+        [
+          "webflow",
+          "GB"
+        ],
+        [
+          "woo-commerce-com",
+          "GB"
+        ]
+      ],
+      "removed_keys": [
+        [
+          "WP DSGVO Tools",
+          "DE"
+        ],
+        [
+          "amex",
+          "US"
+        ],
+        [
+          "bbb.org",
+          "GB"
+        ],
+        [
+          "hu-manity",
+          "DE"
+        ],
+        [
+          "openai",
+          "DE"
+        ],
+        [
+          "police-uk",
+          "GB"
+        ],
+        [
+          "ring",
+          "DE"
+        ],
+        [
+          "sandhills",
+          "GB"
+        ],
+        [
+          "substack",
+          "US"
+        ],
+        [
+          "toyota",
+          "US"
+        ],
+        [
+          "tplink",
+          "DE"
+        ]
+      ],
+      "comparability": "key overlap only; crawl environment and rule equivalence not established"
+    },
+    {
+      "newer": "coverage_c6983b4e58b6.json",
+      "older": "coverage_3fa7435a9d40.json",
+      "common_rule_region_keys": 386,
+      "added_keys": [
+        [
+          "Admiral",
+          "US"
+        ],
+        [
+          "HEURISTIC-REJECT",
+          "DE"
+        ],
+        [
+          "HEURISTIC-REJECT",
+          "GB"
+        ],
+        [
+          "HEURISTIC-REJECT",
+          "US"
+        ],
+        [
+          "HEURISTIC-TIER1",
+          "DE"
+        ],
+        [
+          "HEURISTIC-TIER1",
+          "GB"
+        ],
+        [
+          "HEURISTIC-TIER1",
+          "US"
+        ],
+        [
+          "HEURISTIC-TIER2",
+          "DE"
+        ],
+        [
+          "HEURISTIC-TIER2",
+          "GB"
+        ],
+        [
+          "HEURISTIC-TIER2",
+          "US"
+        ],
+        [
+          "abetterrouteplanner",
+          "DE"
+        ],
+        [
+          "adopt",
+          "GB"
+        ],
+        [
+          "amex",
+          "US"
+        ],
+        [
+          "aylo-cookie-banner",
+          "DE"
+        ],
+        [
+          "aylo-cookie-banner",
+          "US"
+        ],
+        [
+          "bbc.com",
+          "DE"
+        ],
+        [
+          "bbc.com",
+          "GB"
+        ],
+        [
+          "cookieinfo",
+          "GB"
+        ],
+        [
+          "cookieinfo",
+          "US"
+        ],
+        [
+          "datagrail",
+          "DE"
+        ],
+        [
+          "datagrail",
+          "GB"
+        ],
+        [
+          "datagrail",
+          "US"
+        ],
+        [
+          "dreamlab-cmp",
+          "DE"
+        ],
+        [
+          "finsweet",
+          "US"
+        ],
+        [
+          "hu-manity",
+          "DE"
+        ],
+        [
+          "miles-and-more",
+          "DE"
+        ],
+        [
+          "nhs.uk",
+          "DE"
+        ],
+        [
+          "pikpak",
+          "DE"
+        ],
+        [
+          "pikpak",
+          "GB"
+        ],
+        [
+          "pikpak",
+          "US"
+        ],
+        [
+          "police-uk",
+          "GB"
+        ],
+        [
+          "ring",
+          "DE"
+        ],
+        [
+          "substack",
+          "US"
+        ],
+        [
+          "tagconcierge",
+          "US"
+        ],
+        [
+          "xhamster-eu",
+          "DE"
+        ],
+        [
+          "xhamster-eu",
+          "GB"
+        ],
+        [
+          "xnxx-com",
+          "GB"
+        ],
+        [
+          "youtube-desktop",
+          "DE"
+        ],
+        [
+          "zinio",
+          "GB"
+        ]
+      ],
+      "removed_keys": [
+        [
+          "Complianz opt-both",
+          "GB"
+        ],
+        [
+          "EZoic",
+          "US"
+        ],
+        [
+          "HEURISTIC",
+          "DE"
+        ],
+        [
+          "HEURISTIC",
+          "GB"
+        ],
+        [
+          "HEURISTIC",
+          "US"
+        ],
+        [
+          "PrimeBox CookieBar",
+          "US"
+        ],
+        [
+          "TrustArc-frame",
+          "DE"
+        ],
+        [
+          "TrustArc-frame",
+          "GB"
+        ],
+        [
+          "TrustArc-newcm",
+          "DE"
+        ],
+        [
+          "TrustArc-newcm",
+          "US"
+        ],
+        [
+          "Uniconsent",
+          "GB"
+        ],
+        [
+          "Uniconsent",
+          "US"
+        ],
+        [
+          "adultfriendfinder",
+          "GB"
+        ],
+        [
+          "borlabs",
+          "GB"
+        ],
+        [
+          "com_oil",
+          "DE"
+        ],
+        [
+          "com_optanon",
+          "DE"
+        ],
+        [
+          "com_optanon",
+          "GB"
+        ],
+        [
+          "com_optanon",
+          "US"
+        ],
+        [
+          "com_springer",
+          "DE"
+        ],
+        [
+          "consentmo",
+          "DE"
+        ],
+        [
+          "cookieacceptbar",
+          "US"
+        ],
+        [
+          "copilot-microsoft",
+          "DE"
+        ],
+        [
+          "copilot-microsoft",
+          "GB"
+        ],
+        [
+          "curseforge",
+          "US"
+        ],
+        [
+          "deepl.com",
+          "GB"
+        ],
+        [
+          "deepl.com",
+          "US"
+        ],
+        [
+          "ecosia",
+          "US"
+        ],
+        [
+          "jdsports",
+          "GB"
+        ],
+        [
+          "kickstarter.com",
+          "US"
+        ],
+        [
+          "mediamarkt.de",
+          "DE"
+        ],
+        [
+          "medium",
+          "DE"
+        ],
+        [
+          "medium",
+          "GB"
+        ],
+        [
+          "nba.com",
+          "GB"
+        ],
+        [
+          "openai",
+          "GB"
+        ],
+        [
+          "real-cookie-banner",
+          "GB"
+        ],
+        [
+          "rog-forum.asus.com",
+          "GB"
+        ],
+        [
+          "samsung.com",
+          "US"
+        ],
+        [
+          "sandhills",
+          "US"
+        ],
+        [
+          "summitracing",
+          "US"
+        ],
+        [
+          "theinfatuation",
+          "US"
+        ],
+        [
+          "u12-data-protection-notice",
+          "US"
+        ],
+        [
+          "volvocars-com",
+          "DE"
+        ],
+        [
+          "volvocars-com",
+          "GB"
+        ],
+        [
+          "volvocars-com",
+          "US"
+        ]
+      ],
+      "comparability": "key overlap only; crawl environment and rule equivalence not established"
+    }
+  ]
+}

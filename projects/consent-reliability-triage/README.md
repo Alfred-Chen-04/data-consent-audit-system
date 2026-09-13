@@ -42,6 +42,10 @@ AutoConsent 是首个案例。先核实公开数据与少量运行证据能否�
 
 SQL 可以自然包含多表连接、去重、时间条件连接和窗口计算；具体用法服务于实际问题。A/B test 保持可选，优先完成指标解释、基础核查和有依据的决策评价。比较筛选方法时预先固定基线和预算，不能只核查自己的首选就宣布更好。
 
+## 当前进度记录
+
+工作包 01 的过程、数据理解、试跑结果和边界见 [WORK_PACKAGE_01_RECORD.md](docs/WORK_PACKAGE_01_RECORD.md)。该记录是后续工作包的交接入口。
+
 ## 仓库关系
 
 仓库根目录中原有的 Dynamic Consent Interface Audit System 项目保持不变。本文件夹是后续独立的 Consent Reliability Triage 项目，不覆盖原有研究、数据或代码。
