@@ -1,0 +1,28 @@
+{
+  "created_at_utc": "2026-09-13T02:41:52.344765+00:00",
+  "candidate_id": "pilot-bandcamp-US-selfTestFailures",
+  "source_snapshot": "c2e9fcd6c22adc501cae14258b6ca7a001c1e045",
+  "source_region": "US",
+  "source_url": "http://bandcamp.com/",
+  "run_url": "https://bandcamp.com/",
+  "url_change_reason": "use HTTPS from upstream tests/bandcamp.spec.ts; preserve original HTTP in source",
+  "selection_reason": "explicit site rule, source failingSites link, readable self-test and official test; development sample, not rank-selected",
+  "target_observation": "optOut completes then selfTestResult is false for bandcamp.com",
+  "minimum_valid_conditions": [
+    "page accessible",
+    "expected CMP and popup detected",
+    "optOut result and applicable self-test observed"
+  ],
+  "attempts": 1,
+  "retries": 0,
+  "timeout_ms": 90000,
+  "mode": "desktop headless chromium; fresh context; optOut only",
+  "region_limit": "no regional proxy; actual egress region unknown; source US is not established execution region",
+  "outcome_rules": {
+    "selfTest_false_after_completed_optOut": "target observed in current environment; not proof of historical regional reproduction",
+    "selfTest_true_after_completed_optOut": "target not observed in current environment",
+    "blocked_or_no_CMP_or_no_test": "unable to judge source self-test failure"
+  },
+  "human_active_minutes": null,
+  "human_time_note": "No user hands-on trial occurred. Agent wall time and subprocess runtime cannot measure user review effort."
+}

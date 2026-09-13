@@ -1,0 +1,61 @@
+
+Running 1 test using 1 worker
+
+(node:69774) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:69774) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+{
+  type: [32m'optOutResult'[39m,
+  cmp: [32m'bandcamp.com'[39m,
+  result: [33mtrue[39m,
+  scheduleSelfTest: [33mtrue[39m,
+  url: [32m'https://bandcamp.com/'[39m
+}
+{
+  type: [32m'autoconsentDone'[39m,
+  cmp: [32m'bandcamp.com'[39m,
+  isCosmetic: [33mfalse[39m,
+  url: [32m'https://bandcamp.com/'[39m,
+  duration: [33m2005[39m,
+  totalClicks: [33m1[39m
+}
+{
+  type: [32m'selfTestResult'[39m,
+  cmp: [32m'bandcamp.com'[39m,
+  result: [33mfalse[39m,
+  url: [32m'https://bandcamp.com/'[39m
+}
+Autoconsent test failed on https://bandcamp.com/ failure stats: {"reason":"selfTestResult received, but failed\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m","url":"https://bandcamp.com/","cmp":"bandcamp.com","autoAction":"optOut","region":"LOCAL_UNVERIFIED","formFactor":"desktop","testName":"bandcamp.com 85db .LOCAL_UNVERIFIED optOut desktop","retry":0}
+  ✘  1 playwright/runner.ts:361:21 › bandcamp.com › bandcamp.com 85db .LOCAL_UNVERIFIED optOut desktop (9.7s)
+
+
+  1) playwright/runner.ts:361:21 › bandcamp.com › bandcamp.com 85db .LOCAL_UNVERIFIED optOut desktop 
+
+    Error: selfTestResult received, but failed
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32mtrue[39m
+    Received: [31mfalse[39m
+
+      240 |     ) {
+      241 |         await this.waitForMessage(msg, maxTimes, interval);
+    > 242 |         expect(this.isMessageReceived(msg), failureMessage).toBe(expectedState);
+          |                                                             ^
+      243 |     }
+      244 |
+      245 |     async assertNoReloadLoop() {
+        at TestRun.assertMessageReceived (/private/tmp/consent-feasibility-autoconsent-20260913/playwright/runner.ts:242:61)
+        at TestRun.runAssertions (/private/tmp/consent-feasibility-autoconsent-20260913/playwright/runner.ts:312:17)
+        at TestRun.run (/private/tmp/consent-feasibility-autoconsent-20260913/playwright/runner.ts:101:13)
+        at /private/tmp/consent-feasibility-autoconsent-20260913/playwright/runner.ts:363:21
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../../../Users/alfred/Documents/ChatGPT/数据合规/projects/consent-reliability-triage/evidence/pilot/test-results/_feasibility-pilot-bandcam-b0401-L-UNVERIFIED-optOut-desktop/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../../../Users/alfred/Documents/ChatGPT/数据合规/projects/consent-reliability-triage/evidence/pilot/test-results/_feasibility-pilot-bandcam-b0401-L-UNVERIFIED-optOut-desktop/error-context.md
+
+  1 failed
+    playwright/runner.ts:361:21 › bandcamp.com › bandcamp.com 85db .LOCAL_UNVERIFIED optOut desktop 

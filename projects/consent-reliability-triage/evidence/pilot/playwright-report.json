@@ -1,0 +1,171 @@
+{
+  "config": {
+    "configFile": "/private/tmp/consent-feasibility-autoconsent-20260913/feasibility.config.ts",
+    "rootDir": "/private/tmp/consent-feasibility-autoconsent-20260913/tests",
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/Users/alfred/Documents/ChatGPT/数据合规/projects/consent-reliability-triage/evidence/pilot/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "",
+        "name": "",
+        "testDir": "/private/tmp/consent-feasibility-autoconsent-20260913/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "_feasibility-pilot.spec.ts"
+        ],
+        "timeout": 90000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "/Users/alfred/Documents/ChatGPT/数据合规/projects/consent-reliability-triage/evidence/pilot/playwright-report.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.60.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "_feasibility-pilot.spec.ts",
+      "file": "_feasibility-pilot.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "bandcamp.com",
+          "file": "../playwright/runner.ts",
+          "line": 331,
+          "column": 10,
+          "specs": [
+            {
+              "title": "bandcamp.com 85db .LOCAL_UNVERIFIED optOut desktop",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 9734,
+                      "error": {
+                        "message": "Error: selfTestResult received, but failed\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m",
+                        "stack": "Error: selfTestResult received, but failed\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m\n    at TestRun.assertMessageReceived (/private/tmp/consent-feasibility-autoconsent-20260913/playwright/runner.ts:242:61)\n    at TestRun.runAssertions (/private/tmp/consent-feasibility-autoconsent-20260913/playwright/runner.ts:312:17)\n    at TestRun.run (/private/tmp/consent-feasibility-autoconsent-20260913/playwright/runner.ts:101:13)\n    at /private/tmp/consent-feasibility-autoconsent-20260913/playwright/runner.ts:363:21",
+                        "location": {
+                          "file": "/private/tmp/consent-feasibility-autoconsent-20260913/playwright/runner.ts",
+                          "column": 61,
+                          "line": 242
+                        },
+                        "snippet": "  240 |     ) {\n  241 |         await this.waitForMessage(msg, maxTimes, interval);\n> 242 |         expect(this.isMessageReceived(msg), failureMessage).toBe(expectedState);\n      |                                                             ^\n  243 |     }\n  244 |\n  245 |     async assertNoReloadLoop() {"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/private/tmp/consent-feasibility-autoconsent-20260913/playwright/runner.ts",
+                            "column": 61,
+                            "line": 242
+                          },
+                          "message": "Error: selfTestResult received, but failed\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m\n\n  240 |     ) {\n  241 |         await this.waitForMessage(msg, maxTimes, interval);\n> 242 |         expect(this.isMessageReceived(msg), failureMessage).toBe(expectedState);\n      |                                                             ^\n  243 |     }\n  244 |\n  245 |     async assertNoReloadLoop() {\n    at TestRun.assertMessageReceived (/private/tmp/consent-feasibility-autoconsent-20260913/playwright/runner.ts:242:61)\n    at TestRun.runAssertions (/private/tmp/consent-feasibility-autoconsent-20260913/playwright/runner.ts:312:17)\n    at TestRun.run (/private/tmp/consent-feasibility-autoconsent-20260913/playwright/runner.ts:101:13)\n    at /private/tmp/consent-feasibility-autoconsent-20260913/playwright/runner.ts:363:21"
+                        }
+                      ],
+                      "stdout": [
+                        {
+                          "text": "{\n  type: \u001b[32m'optOutResult'\u001b[39m,\n  cmp: \u001b[32m'bandcamp.com'\u001b[39m,\n  result: \u001b[33mtrue\u001b[39m,\n  scheduleSelfTest: \u001b[33mtrue\u001b[39m,\n  url: \u001b[32m'https://bandcamp.com/'\u001b[39m\n}\n"
+                        },
+                        {
+                          "text": "{\n  type: \u001b[32m'autoconsentDone'\u001b[39m,\n  cmp: \u001b[32m'bandcamp.com'\u001b[39m,\n  isCosmetic: \u001b[33mfalse\u001b[39m,\n  url: \u001b[32m'https://bandcamp.com/'\u001b[39m,\n  duration: \u001b[33m2005\u001b[39m,\n  totalClicks: \u001b[33m1\u001b[39m\n}\n"
+                        },
+                        {
+                          "text": "{\n  type: \u001b[32m'selfTestResult'\u001b[39m,\n  cmp: \u001b[32m'bandcamp.com'\u001b[39m,\n  result: \u001b[33mfalse\u001b[39m,\n  url: \u001b[32m'https://bandcamp.com/'\u001b[39m\n}\n"
+                        }
+                      ],
+                      "stderr": [
+                        {
+                          "text": "Autoconsent test failed on https://bandcamp.com/ failure stats: {\"reason\":\"selfTestResult received, but failed\\n\\n\\u001b[2mexpect(\\u001b[22m\\u001b[31mreceived\\u001b[39m\\u001b[2m).\\u001b[22mtoBe\\u001b[2m(\\u001b[22m\\u001b[32mexpected\\u001b[39m\\u001b[2m) // Object.is equality\\u001b[22m\\n\\nExpected: \\u001b[32mtrue\\u001b[39m\\nReceived: \\u001b[31mfalse\\u001b[39m\",\"url\":\"https://bandcamp.com/\",\"cmp\":\"bandcamp.com\",\"autoAction\":\"optOut\",\"region\":\"LOCAL_UNVERIFIED\",\"formFactor\":\"desktop\",\"testName\":\"bandcamp.com 85db .LOCAL_UNVERIFIED optOut desktop\",\"retry\":0}\n"
+                        }
+                      ],
+                      "retry": 0,
+                      "startTime": "2026-09-13T02:42:08.193Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/alfred/Documents/ChatGPT/数据合规/projects/consent-reliability-triage/evidence/pilot/test-results/_feasibility-pilot-bandcam-b0401-L-UNVERIFIED-optOut-desktop/test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/alfred/Documents/ChatGPT/数据合规/projects/consent-reliability-triage/evidence/pilot/test-results/_feasibility-pilot-bandcam-b0401-L-UNVERIFIED-optOut-desktop/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/private/tmp/consent-feasibility-autoconsent-20260913/playwright/runner.ts",
+                        "column": 61,
+                        "line": 242
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "9d55c00f695e46560def-d1c2e5dc3b222aac1a49",
+              "file": "../playwright/runner.ts",
+              "line": 361,
+              "column": 21
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-09-13T02:42:07.653Z",
+    "duration": 15247.796,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}
