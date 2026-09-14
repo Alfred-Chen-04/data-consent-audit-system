@@ -28,7 +28,7 @@
 
 ## 当前 baseline 数据
 
-第一版 baseline 暂定使用最新的 `data/coverage.json` 快照，而不是把历史快照混在一起。
+第一版 baseline 固定使用本地 `evidence/sources/coverage_c2e9fcd6c22a.json`，对应当时保存的上游 `data/coverage.json`；历史快照单列。2026-09-14 将用户确认的冻结决定补记落盘：后续上游更新另开版本，不改变本轮分析。
 
 - 最新快照有 205 个顶层 `rule key`。
 - 有 433 条 `rule key × region` 记录。
@@ -83,6 +83,8 @@
 目前不做：正式 rule 排名或最终权重；把 205 个 rule 当作 205 个平台或网站；把 `errors` 直接当作已确认 bug；把 `selfTestFailures` 直接当作法律违规；把 `unsuccessfulSites` 当作已知含义的失败集合；用 coverage 提交日期冒充网站采集日期；从当前小样本推断总体成功率、recall、误报率或商业收益；公开运行中的账号、凭据、个人信息或未经核查的外部结论。
 
 ## 下一步
+
+协作补记（2026-09-14）：工作包 02 按 [COLLABORATION.md](../COLLABORATION.md) 设置基础表 G1 和 EDA G2 独立审查。工作包 01 保留已完成状态，不追记未实际进行的独立审查；本次补记未启动工作包 02。
 
 工作包 01 的可行性闸门已通过，下一步进入工作包 02：将最新 baseline 和历史快照拆成明确粒度的本地分析表，保留 raw/cleaned/analytical 三层关系，检查字段、缺失、重复、规则变化和地区分布，追查 `unsuccessfulSites` 的生成逻辑；在完成 EDA 前不冻结最终排序公式。
 
