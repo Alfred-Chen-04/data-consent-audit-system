@@ -1,6 +1,6 @@
 # Consent Reliability Triage
 
-这是 data-consent-audit-system 仓库中的一个独立后续项目，用于在 10 周、30–50 小时内，训练以 Data Science / Analytics 为主体、以业务决策为落点的 consent reliability 分析能力。当前处于计划阶段，尚无已确认的问题或收益。
+这是 data-consent-audit-system 仓库中的一个独立后续项目，用于在 10 周、30–50 小时内，训练以 Data Science / Analytics 为主体、以业务决策为落点的 consent reliability 分析能力。工作包 01 已完成，工作包 02 尚未开始；已有最小试跑证据，尚无已确认的 bug 或收益。
 
 项目核心流程是：
 
@@ -11,6 +11,8 @@
 当前主要计划见 [PROJECT_CHARTER.md](PROJECT_CHARTER.md)（v0.5，2026-09-12）。
 
 实际执行从 [WORKSTREAMS.md](WORKSTREAMS.md) 开始。项目已拆成 6 个可以分别在新对话中推进的工作包；每个工作包都包含输入、步骤、产出、完成标准和可直接复制的新对话开场提示。
+
+协作方式见 [COLLABORATION.md](COLLABORATION.md)：一个总控对话、一个工作包执行角色、一个按检查点启动的独立审查角色。该文档包含责任划分、数据与文件架构、审查闭环、验收要求及可复制的启动指令。当前仅完成协作方案，尚未启动审查任务。
 
 ## 项目目标
 
